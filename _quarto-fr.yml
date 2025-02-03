@@ -4,6 +4,29 @@ project:
 
 book:
   title: "Manuel de formation MOSAIKS"
+  author: 
+    - name: Cullen Molitor
+      affiliations: "Center for Effective Global Action (CEGA)"
+      url: https://emlab.ucsb.edu/about/our-team/cullen-molitor
+
+    - name:  Tamma Carleton
+      affiliations: "UC Berkeley Department of Agricultural and Resource Economics"
+      url: https://are.berkeley.edu/users/tamma-carleton
+
+    - name:  Esther Rolf
+      affiliations: "UC Boulder College of Engineering and Applied Science"
+      url: https://www.colorado.edu/cs/esther-rolf
+
+    - name: Gnouyaro Zissler Sogoyou
+      affiliation: "Togo Data Lab"
+      url: https://cega.berkeley.edu/person/gnouyaro-sogoyou/
+      role: "Traducteur"
+      
+    - name: Farooq Sanni
+      affiliation: "Togo Data Lab"
+      url: https://cega.berkeley.edu/person/farooq-sanni/
+      role: "Traducteur"
+
   language: fr
   navbar:
     right:
@@ -22,5 +45,18 @@ book:
         - fr/part-00-intro/02-intro-mosaiks.qmd
         - fr/part-00-intro/03-intro-api.qmd
         - fr/part-00-intro/04-intro-demo.qmd
+      
+    - part: fr/part-04-models/00-model.qmd  
+      chapters:
+        - fr/part-04-models/01-model-choice.qmd
+        - fr/part-04-models/02-model-spatial.qmd
+        - fr/part-04-models/03-model-temporal.qmd
+        - fr/part-04-models/04-model-demo.qmd
+
+    - part: fr/part-05-responsible/00-responsible.qmd  
+      chapters:
+        - fr/part-05-responsible/01-responsible-ethics.qmd
+        - fr/part-05-responsible/02-responsible-uncertainty.qmd
+        - fr/part-05-responsible/03-responsible-demo.qmd
 
     - references.qmd

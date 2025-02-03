@@ -1,0 +1,200 @@
+---
+lang: fr
+---
+# Aller au fil du temps {#sec-model-time}
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("draft")
+```
+
+::: {.callout-note}
+Les fonctionnalités actuelles de l'API Mosaiks représentent un instantané statique de 2019. Pour utiliser Mosaiks pour l'analyse des séries chronologiques, les utilisateurs devront calculer les fonctionnalités personnalisées comme décrit dans @sec-features-computing.
+:::
+
+## Comprendre la résolution temporelle
+
+L'analyse des séries chronologiques dans les applications ML basées sur satellite nécessite une attention particulière à la résolution temporelle de vos étiquettes et de vos images.Dans le contexte des Mosaiks, vous pouvez opter pour différentes stratégies en fonction de la fréquence des acquisitions de satellites et de la rapidité avec laquelle votre résultat d'intérêt change.
+
+![[ESRI](https://www.esri.com/arcgis-blog/products/arcgis-pro/imagery/change-detection-of-time-series-imagery/) visualisation des valeurs de pixels pour un emplacement donné changeant dans le temps.](https://www.esri.com/arcgis-blog/wp-content/uploads/2021/02/timeseries_imagestack.jpg){#fig-pixel-time-series}
+
+### Alignement temporel
+
+Lorsque vous alignez les données dans le temps, considérez:
+
+- **Fréquence de l'étiquette**: À quelle fréquence les mesures du sol sont-elles collectées?Par exemple, les rendements des cultures annuelles, les indicateurs économiques mensuels ou même les observations météorologiques quotidiennes.La granularité de ces points de données guidera comment les faire correspondre à vos fonctionnalités dérivées de satellites.
+
+- **Disponibilité des images**: À quelle fréquence pouvez-vous obtenir des images satellites claires de votre domaine d'intérêt?Des taux de révisité élevés permettent des observations plus fréquentes, mais des facteurs tels que les anomalies de couverture nuageuse ou de capteur peuvent réduire le nombre réel d'images utilisables.
+
+- **Changement Detection**: À quelle vitesse votre variable d'intérêt change-t-elle? Le développement urbain peut se dérouler au cours des mois ou des années, tandis que les événements d'inondation peuvent se produire en quelques jours.Il est crucial de faire correspondre la granularité temporelle de vos fonctionnalités à la dynamique de votre phénomène.
+
+### Modèles saisonniers
+
+Les processus naturels et axés sur l'homme présentent souvent de solides signaux saisonniers:
+
+- **Cycles naturels**: La croissance de la végétation, la couverture de neige et l'étendue de l'eau sont toutes influencées par les saisons.Par exemple, les métriques NDVI pourraient être plus informatives pendant les saisons de croissance de pointe (@fig-ndvi-time-series).  
+
+- **Activités humaines**: Les cycles de culture, les voyages de vacances et la demande de chauffage ou de refroidissement ne sont que quelques exemples de la façon dont le comportement humain peut varier tout au long de l'année.Ces rythmes temporels peuvent introduire des modèles systématiques dans vos données.
+
+- **Extraction des caractéristiques**: Parce que les observations par satellite reflètent les conditions de surface, différentes périodes de l'année peuvent nécessiter des ensembles de fonctionnalités distinctes.Par exemple, les valeurs de réflectance changent lorsque la végétation est sénescente vs lorsqu'elle est pleinement cultivée.De même, les conditions atmosphériques (comme la brume) peuvent être plus répandues à certaines saisons.
+![[EOS Data Analytics](https://eos.com/blog/satellite-time-series/) visualisation des séries chronologiques de l'indice de végétation de la différence normalisée (NDVI) montrant les tendances saisonnières.](https://eos.com/wp-content/uploads/2019/09/ndvi-time-series-main.jpg.webp){#fig-ndvi-time-series}
+
+### Défis dans les applications de séries chronologiques
+
+Bien que les avantages potentiels de l'analyse des séries chronologiques soient significatifs, il y a quelques pièges communs:
+
+#### Lacunes de données
+
+- **Couvercle des nuages**: Dans les régions avec une couverture nuageuse élevée, l'imagerie utilisable peut être clairsemée, conduisant à des intervalles de temps irréguliers entre les observations valides.  
+
+- **Maintenance par satellite ou abandon des capteurs**: Même les interruptions courtes dans les opérations par satellite peuvent réduire la disponibilité des données.  
+
+- **Modèles orbitaux**: Certains satellites ont des horaires de revisit spécifiques, ce qui signifie que certaines zones peuvent ne pas être imagées aussi souvent que d'autres, ce qui conduit à des données temporelles inégales.
+
+![[Visualization of cloud cover over the Amazon rainforest.](https://communities.springernature.com/posts/where-and-when-there-are-satellite-data-gaps-due-to-cloud-coverage-and-what-are-the-implications-for-forest-monitoring?badge_id=springer-nature) ](https://images.zapnito.com/users/671892/posters/63418a1d-06ed-4a01-ab63-01d59342a56d_large.png){#fig-cloud-cover}
+
+::: {.callout-note}
+# Lecture recommandée
+
+Pour plus d'informations sur la couverture cloud et son impact sur les données par satellite, voir [Flores-Anderson et al. 2023](https://www.nature.com/articles/s41597-023-02439-x).
+:::
+
+### Produits satellites prétraités
+
+Plusieurs fournisseurs de satellites proposent des produits de données prétraités spécialement conçus pour l'analyse des séries chronologiques.Ces produits gèrent des défis communs comme la couverture nuageuse et la normalisation:
+
+#### Indices de végétation modis
+- Composites de 16 jours ou mensuels des indices de végétation (par exemple, ndvi, evi)
+- Masquage des nuages ​​automatisé et contrôle de la qualité
+- Valeurs de réflectance de surface normalisées pour les effets atmosphériques
+- Couverture globale à une résolution de 250 m - 1 km depuis 2000
+- Idéal pour surveiller la dynamique de la végétation saisonnière
+
+#### Planet Basemap
+- Composites visuels trimestriels de plusieurs satellites PlanetScope
+- Mosaïques sans nuage utilisant les meilleurs pixels disponibles
+- Équilibré des couleurs et calibré radiétriquement
+- Couverture globale à une résolution de ~4,7m
+- Convient pour suivre les changements progressifs d'utilisation des terres
+
+#### Landsat-Sentinel harmonisé (HLS)
+- Produit combiné utilisant Landsat 8-9 et Sentinel-2 Imagerie
+- Fréquence de révision de 2-3 jours à 30m Résolution
+- corrigé atmosphérique et co-enregistré
+- Valeurs de réflectance de surface cohérentes entre les capteurs
+- Active des séries chronologiques denses de 2013-présent
+
+Ces produits réduisent la charge de prétraitement pour les utilisateurs, mais peuvent ne pas saisir des changements rapides qui se produisent entre les périodes de composition.Le choix entre l'utilisation d'images brutes ou les produits prétraités dépend de la résolution temporelle nécessaire pour votre application spécifique.Ces produits de données et comment les utiliser seront couverts plus en détail dans @sec-satellite-imagery et @sec-satellite-processing.
+
+#### Cohérence temporelle
+
+- **Drift du capteur**: Au fil du temps, les capteurs satellites peuvent se dégrader ou dériver, influençant la cohérence de vos données.Un étalonnage approprié peut atténuer ces problèmes.  
+
+- **Calibration multi-capteurs**: Si vous combinez des données de plusieurs satellites dans une constellation, assurez-vous que les différences de sensibilité aux capteurs ou de bandes n'introduisent pas de signaux parasites dans votre série temporelle.
+
+![Imagerie de temps de temps [North Platte, Nebraska](https://www.planet.com/industries/agriculture/). Imagerie et visualisation de Planet Labs Inc.](https://assets.planet.com/web/videos/agriculture/filtered_fusion_timeline_north_platte_nebraska_d1-2.mp4)
+
+#### Stockage et calcul
+
+- **Volume de données** Chaque pas de temps supplémentaire dans votre analyse augmente les exigences de stockage et de traitement.  
+
+- **Corrélation temporelle** De nombreux phénomènes de séries chronologiques présentent une autocorrélation, qui peut influencer la façon dont vous concevez et entraînez des modèles.Les algorithmes ML standard supposent que l'indépendance entre les échantillons, de sorte que des méthodes ou des caractéristiques spécialisées (telles que des caractéristiques décalées) peuvent être nécessaires pour gérer les dépendances temporelles.
+
+## Approches de la modélisation des séries chronologiques
+
+Vous trouverez ci-dessous trois stratégies courantes pour incorporer des données de séries chronologiques dans un cadre de type Mosaiks.Chaque approche a des compromis en termes de complexité, de coût de calcul et d'interprétabilité.
+
+### Empilement des fonctionnalités
+
+Dans une approche d'empilement de fonctionnalités, vous générez des fonctionnalités MOSAIKS pendant plusieurs pas de temps, puis les concaténez en un seul vecteur de fonctionnalité.Ceci est simple, mais peut conduire à de très grands espaces de fonctionnalités si vous avez de nombreux moments.
+
+1. **Calculez les fonctionnalités pour chaque période de temps** Exécutez l'extraction de vos fonctionnalités MOSAIKS pour chaque trimestre, mois ou année - quelle que soit le temps de granularité.
+
+2. **Caractéristiques du concaténate** Combinez-les en un seul vecteur, en veillant à ce que les conventions de dénomination gardent les pas de temps à distinguer.  
+
+3. **TRAPALIT DU MODÈLE** Entrez les fonctionnalités empilées dans votre algorithme d'apprentissage automatique préféré (par exemple, régression linéaire, forêt aléatoire ou réseau neuronal).
+
+Exemple (empilement trimestriel):
+```python
+# Create feature names for each quarter
+features_Q1 = [f'X_{i}_Q1' for i in range(1000)]  # X_0_Q1, X_1_Q1, ..., X_999_Q1
+features_Q2 = [f'X_{i}_Q2' for i in range(1000)]  # X_0_Q2, X_1_Q2, ..., X_999_Q2
+features_Q3 = [f'X_{i}_Q3' for i in range(1000)]  # X_0_Q3, X_1_Q3, ..., X_999_Q3
+features_Q4 = [f'X_{i}_Q4' for i in range(1000)]  # X_0_Q4, X_1_Q4, ..., X_999_Q4
+
+# Combine features names for all quarters
+features_annual = features_Q1 + features_Q2 + features_Q3 + features_Q4
+
+# Total length = 4,000 features for four quarters
+features_df = pd.DataFrame(data=features, columns=features_annual)
+```
+
+Cette approche convient généralement aux données annuelles ou saisonnières où le nombre de pas de temps reste gérable.Cependant, il peut être moins pratique si vous avez des observations quotidiennes ou hebdomadaires sur plusieurs années.
+
+### Aggrégation temporelle
+
+Dans l'agrégation temporelle, vous calculez les fonctionnalités à une fréquence plus élevée, mais les résumez ensuite sur une fenêtre temporelle:
+
+1. **Extraire les fonctionnalités à haute fréquence** Cela fournit une vue temporelle riche.  
+
+1. **Aggrégat** calculer des résumés statistiques tels que la moyenne, le maximum ou la variance de chaque fonctionnalité à travers la fenêtre de temps choisie.Les fenêtres communes comprennent des agrégations quotidiennes, hebdomadaires, mensuelles et trimestrielles. 
+
+1. **Modèle avec des fonctionnalités agrégées** Les fonctionnalités agrégées peuvent représenter des processus dynamiques tout en contrôlant la dimensionnalité de votre ensemble de données.
+
+Cette méthode capture les tendances générales et réduit le bruit de la couverture nuageuse ou d'autres facteurs transitoires.Cependant, d'importantes nuances temporelles (comme des événements spécifiques de courte durée) pourraient être perdus dans l'agrégation.
+
+## De façon dégradante 
+
+Évaluation dans le temps
+
+### Modélisation séquentielle
+
+Pour les phénomènes où l'ordre temporel est crucial et des observations fréquentes existent, la modélisation séquentielle peut être plus puissante:
+
+1. **Extraction des fonctionnalités** Maintenez la dimension temporelle dans votre matrice de fonctionnalité (par exemple, une matrice par emplacement, avec le temps comme lignes et fonctionnalités comme colonnes).  
+
+1. **Appliquer la modélisation des séries chronologiques** des techniques comme les réseaux LSTM (mémoire à court terme), les réseaux de convolution temporelle ou les modèles classiques d'espace d'état (par exemple, Arima) peuvent gérer explicitement les dépendances temporelles.  
+
+1. **Relations en retard** Incorporez les caractéristiques des pas de temps précédents pour capturer les effets retardés (par exemple, les précipitations du mois dernier affectant la végétation aujourd'hui).
+
+Bien que ces méthodes fournissent une vision plus nuancée des processus temporels, ils nécessitent une expertise de modélisation et des ressources de calcul supplémentaires.
+
+::: {.callout-tip}
+Commencez par une approche plus simple comme l'empilement des fonctionnalités ou l'agrégation temporelle.Si vous constatez que votre phénomène a une dynamique temporelle rapide ou complexe qui n'est pas bien accumulée par ces méthodes, explorez les modèles séquentiels plus avancés.
+:::
+
+## Pratique sur les séries chronologiques
+
+Au lieu de fonctionnalités de Mosaiks de séries chronologiques, nous allons plutôt démontrer des exemples similaires en utilisant des données MODIS NDVI. Cela nous permettra d'explorer les défis et les opportunités de l'analyse des séries chronologiques sans avoir besoin d'une extraction des fonctionnalités personnalisées.
+
+**Remarque** Mettez-moi à jour avec un nouveau lien de cahier.
+
+:::{.callout-note}
+# Click the badge to run the demo in Google Colab!
+
+&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;  
+[![Ouvrir Dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/08-model_fews_net_demo.ipynb)  
+
+
+N'oubliez pas de cliquer `File -> Save a copy in Drive` pour enregistrer toutes les modifications que vous apportez.
+:::
+
+## combler les lacunes temporelles
+
+Lorsque vous travaillez avec des données de séries chronologiques, vous pouvez rencontrer des valeurs manquantes en raison de la couverture cloud, des problèmes de capteurs ou d'autres facteurs.Voici quelques stratégies courantes pour combler ces lacunes:
+
+
+
+## Résumé 
+
+La gestion des séries chronologiques dans les workflows ML basés sur les satellites nécessite d'équilibrer le volume de données, l'alignement temporel et la complexité de modélisation.Bien que l'empilement des fonctionnalités puisse être efficace pour les processus à basse fréquence ou saisonniers, des techniques plus sophistiquées peuvent être nécessaires pour capturer des changements à haute fréquence ou des dépendances temporelles à longue portée.En fin de compte, la «meilleure» approche dépend de la nature de votre variable cible, de la disponibilité des données et des ressources à votre disposition.
+
+::: {.callout-note}
+# Suivant
+
+Dans le prochain chapitre, nous examinerons
+:::
+

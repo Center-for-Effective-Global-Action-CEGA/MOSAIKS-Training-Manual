@@ -121,7 +121,7 @@ The operational lifespan and launch history of a satellite mission are essential
 
 When deciding on a time range, it is important to assess the historical depth your study demands, as well as the consistency of sensor technology over that period. Projects that require comparisons across many years benefit from missions with well-documented calibration procedures and stable sensor performance over time. You may also need to factor in whether future data continuity is guaranteed by planned satellite launches or extended operational budgets. For instance, Landsat’s multi-generational program ensures a relatively consistent data record, while newer constellations might offer superior capabilities but face funding uncertainties that could impact long-term availability.
 
-![The Landsat satellite constellation service timeline. Source: [NASA](https://landsat.gsfc.nasa.gov/satellites/timeline/)](../images/nasa_landsat_timeline.png){#fig-nasa-landsat-timeline}
+![The Landsat satellite constellation service timeline. Source: [NASA](https://landsat.gsfc.nasa.gov/satellites/timeline/)](../../images/nasa_landsat_timeline.png){#fig-nasa-landsat-timeline}
 
 ---
 
@@ -131,7 +131,7 @@ Temporal resolution, or revisit frequency, dictates how often a satellite images
 
 When selecting temporal resolution, consider the pace at which your target variables change. Monitoring daily fluctuations in crop conditions requires denser time series than an annual assessment of deforestation. Cloud conditions in your study area can also influence the effective revisit rate: if clouds frequently obscure the land surface, you may need a satellite constellation with multiple imaging opportunities or a sensor that can “see” through clouds, like radar (SAR). Budget and data processing capacities further shape your decision, since frequent imaging can lead to increased data storage needs and processing overhead.
 
-![Comparison of temporal resolution from different satellite systems. Source: [Radiant Earth](https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc)](../images/radiant_earth_temporal_res.jpeg){#fig-radiant-earth-temporal-res}
+![Comparison of temporal resolution from different satellite systems. Source: [Radiant Earth](https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc)](../../images/radiant_earth_temporal_res.jpeg){#fig-radiant-earth-temporal-res}
 
 ---
 
@@ -141,7 +141,7 @@ Spatial resolution of the satellite sensor determines the level of detail captur
 
 Although very high resolution imagery (below one meter) can yield rich information, it often carries higher costs and storage requirements. Meanwhile, moderate resolutions (10–30 m) balance meaningful detail with affordability and manageable data volumes. Your choice should account for the physical size of the features relevant to your labels, the scale of your study area, and the computational resources at your disposal. In many cases, public missions like Sentinel-2 or Landsat offer practical resolutions (10–30 m) that suffice for broad-scale analyses without incurring the expense associated with commercial high-resolution imagery.
 
-![The spatial resolution of satellite imagery from 3 public satellites (top row) and 3 commercial satellites (bottom row). Source: [Radiant Earth](https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc)](../images/radiant_earth_spatial_res.jpeg){#fig-radiant-earth-spatial-res}
+![The spatial resolution of satellite imagery from 3 public satellites (top row) and 3 commercial satellites (bottom row). Source: [Radiant Earth](https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc)](../../images/radiant_earth_spatial_res.jpeg){#fig-radiant-earth-spatial-res}
 
 ---
 
@@ -151,7 +151,7 @@ Spectral resolution refers to the sensor’s ability to measure discrete wavelen
 
 Choosing an appropriate spectral resolution involves balancing the number and width of bands with the specific thematic information you need. Sensors that capture only visible light (RGB) may suffice for broad land cover discrimination, whereas applications such as agricultural health monitoring often benefit from additional NIR or SWIR coverage. Thermal or microwave bands can also be critical in specialized domains—like thermal anomaly detection or soil moisture estimation—and thus influence the utility of certain satellite platforms for specific scientific or operational goals.
 
-![Spectral resolution and its applications. Source: [Radiant Earth](https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc)](../images/radiant_earth_spectral_res.jpeg)
+![Spectral resolution and its applications. Source: [Radiant Earth](https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc)](../../images/radiant_earth_spectral_res.jpeg)
 
 ---
 
@@ -163,7 +163,7 @@ Satellite sensors can generally be characterized as passive or active instrument
 
 **Active sensors** emit their own energy and record the backscatter signal. Radar systems (e.g., SAR) and LiDAR instruments fall under this category. They can penetrate clouds, operate at night, and measure surface characteristics such as roughness or elevation. On the downside, the data are often more complex to process and interpret, requiring specialized expertise and software. 
 
-![Graphic depicting the difference between active and passive sensors. Source: [Radiant Earth](https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc)](../images/radiant_earth_active_passive.jpg){#fig-radiant-earth-active-passive}
+![Graphic depicting the difference between active and passive sensors. Source: [Radiant Earth](https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc)](../../images/radiant_earth_active_passive.jpg){#fig-radiant-earth-active-passive}
 
 Below is a simple comparison of these sensor types:
 
@@ -184,7 +184,7 @@ Cloud cover is one of the most persistent challenges in working with optical sat
 
 Optical sensors, such as those on Sentinel-2 or Landsat, often include quality assurance layers that flag pixels contaminated by clouds. Filtering out these pixels improves data reliability but reduces the amount of usable imagery, potentially limiting temporal coverage in cloudy regions. On the other hand, radar missions like Sentinel-1 or ICEYE remain largely unaffected by cloud conditions, offering consistent coverage at the cost of different data characteristics and additional expertise required for radar data interpretation. Weighing these trade-offs helps in choosing imagery that meets both your accuracy requirements and your practical constraints.
 
-![Cloud cover obscuring the view over over North America. Source: [NASA Earth Observatory](https://earthobservatory.nasa.gov/features/ColorImage)](../images/cloud_cover_nasa.jpg){#fig-nasa-cloud-cover}
+![Cloud cover obscuring the view over over North America. Source: [NASA Earth Observatory](https://earthobservatory.nasa.gov/features/ColorImage)](../../images/cloud_cover_nasa.jpg){#fig-nasa-cloud-cover}
 
 ---
 
@@ -209,7 +209,7 @@ Additional processes often applied during or after these levels include:
 - **Atmospheric correction**: Adjustment for atmospheric effects (aerosols, water vapor) to standardize reflectance values across different times or sensors.
 - **Radiometric calibration**: Conversion of raw sensor counts to physical units like reflectance or brightness temperature, enabling consistent comparisons among images from different sensors and acquisition dates.
 
-![NICFI satellite imagery raw pixel values showing each band (R, G, B, NIR) for each statistic (min, max, mean, median). These data come with atmospheric correction, cloud correction, and normalized pixel values. After Products created after April 2022 also apply a sharpening filter to the images.](../images/nicfi_pixel_histograms.png){#fig-nicfi-pixel-histograms}
+![NICFI satellite imagery raw pixel values showing each band (R, G, B, NIR) for each statistic (min, max, mean, median). These data come with atmospheric correction, cloud correction, and normalized pixel values. After Products created after April 2022 also apply a sharpening filter to the images.](../../images/nicfi_pixel_histograms.png){#fig-nicfi-pixel-histograms}
 
 Knowing which processing steps your data provider already performs helps you avoid redundant work and ensures you acquire data that meet your accuracy requirements. For instance, if you need consistent multi-temporal comparisons, opt for Level 2 or higher to minimize atmospheric variations. Conversely, if you prefer to perform your own corrections and calibrations, Level 1 might offer greater flexibility at the cost of added complexity.
 
@@ -245,7 +245,7 @@ Consider these questions when making your final imagery selection:
 
 The answers to these questions will guide you toward the most appropriate imagery source for your specific application.
 
-![DALL-E generated image of finding the perfect satellite.](../images/DALL·E-chosen-satellite.webp){#fig-dalle-satellites}
+![DALL-E generated image of finding the perfect satellite.](../../images/DALL·E-chosen-satellite.webp){#fig-dalle-satellites}
 
 ---
 

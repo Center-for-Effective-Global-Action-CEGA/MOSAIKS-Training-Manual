@@ -1,0 +1,27 @@
+---
+lang: fr
+---
+# SIML responsable
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("draft")
+```
+
+## Plan de section
+
+Les chapitres suivants discuteront des aspects importants de l'incertitude et des préjugés du modèle, ainsi que les considérations éthiques dans le contexte des Mosaiks:
+
+| Chapitre | Sujets clés |
+|---------|:-----------|
+| @sec-responsible-ethics | Utilisation responsable, communication, limitations |
+| @sec-responsible-uncertainty | Sources d'erreur, intervalles de confiance, validation |
+| @sec-responsible-demo | Démontrant comment les mosaiks peuvent être utilisés pour caractériser l'incertitude |
+
+: Aperçu de la section d'incertitude {#tbl-section-outline .striped .hover}
+
+Ces chapitres fournissent 
+

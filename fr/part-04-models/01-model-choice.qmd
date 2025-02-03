@@ -1,0 +1,216 @@
+---
+lang: fr
+---
+# Construire, évaluer, déployer {#sec-model-choice}
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("draft")
+```
+
+## Aperçu
+
+Lorsque vous utilisez des Mosaiks (observation multi-tâches à l'aide d'images satellites et d'évier de cuisine), la sélection du modèle dépend largement du type de données de votre étiquette.Bien que des méthodes plus complexes soient certainement possibles, l'expérience montre que **les modèles linéaires** fonctionnent souvent remarquablement bien.En effet, les caractéristiques convolutionnelles aléatoires dans les Mosaiks capturent et codent déjà des informations non linéaires de l'imagerie satellite sous-jacente.Ce chapitre décrira les approches de modélisation pour différents types de données d'étiquette et offrira des conseils sur les meilleures pratiques pour l'évaluation du modèle.
+
+## Train/validation et séparations de test
+
+Avant de sauter dans les détails, il est important de souligner que **toutes les tâches de modélisation** bénéficient d'une approche systématique de la formation, de la validation et des tests:
+
+- **TRAIN/Validation split** (80% des données)  
+- **Test Split** (20% des données)
+
+Cela garantit que vous avez des ensembles de données distincts et impartiaux pour le réglage du modèle et l'évaluation des performances finales.  
+
+![Train / Validation and Test Fllits affiché pour une procédure de validation croisée standard de 5 fois.](../../images/kfold_cv_split.png){#fig-train-val-test-splits}
+
+## Étiquettes continues
+
+De nombreuses applications Mosaiks impliquent de prédire les résultats continus tels que le pourcentage de couverture forestière, la densité de population, le revenu moyen, les rendements des cultures ou la hauteur du bâtiment.Dans ces cas, les approches de **régression linéaire pénalisée** (en particulier **régression ridge**) fonctionnent bien. Ces méthodes offrent une simplicité, une efficacité de calcul et une interprétabilité, tout en atténuant le sur-ajustement grâce à l'utilisation de la régularisation.
+
+### Régression de la crête
+
+**Régression de la crête** (régularisation L2) est souvent le choix par défaut dans les applications Mosaiks car il gère efficacement le grand nombre de fonctionnalités potentiellement corrélées produites par le processus de convolution aléatoire. Il y parvient via une pénalité L2 sur les coefficients de régression, ce qui réduit les coefficients vers zéro et réduit la variance, améliorant ainsi la généralisation.
+
+La fonction d'objectif de régression Ridge:
+$$
+\min_{\beta} \|y - X\beta\|^2_2 + \lambda\|\beta\|^2_2
+$$
+
+Où:
+
+- $\lambda$ controls the strength of the regularization,
+- $\beta$ are the regression coefficients,
+- $y$ is the vector of observed labels,
+- $X$ is the feature matrix produced by the MOSAIKS pipeline.
+
+### Régression Lasso
+
+**La régression de Lasso** (régularisation L1) peut en fait définir des coefficients sur exactement zéro, effectuant efficacement la sélection des fonctionnalités.La pénalité L1 aide à appliquer la rareté, ce qui peut être utile lorsque l'interprétabilité ou l'identification des caractéristiques clés est une priorité.Cette propriété rend Lasso particulièrement précieux lorsque vous souhaitez identifier les fonctionnalités de Mosaiks contribuent le plus fortement aux prédictions.
+
+La fonction objectif de la régression Lasso:
+
+$$
+\min_{\beta} \|y - X\beta\|^2_2 + \lambda\|\beta\|_1
+$$
+
+Où:
+
+- $\lambda$ contrôle à nouveau la force de la pénalité, 
+- Le $\|\beta\|_1$ terme encourage certains coefficients à être exactement nul.
+
+Les deux peuvent être facilement mis en œuvre à l'aide de Scikit-Learn:
+
+```python
+from sklearn.linear_model import Ridge, Lasso
+
+# Ridge regression
+ridge = Ridge(alpha=1.0)  # alpha is the regularization strength (λ)
+ridge.fit(X_train, y_train)
+
+# Lasso regression
+lasso = Lasso(alpha=1.0)
+lasso.fit(X_train, y_train)
+```
+
+### Pourquoi les modèles linéaires fonctionnent bien
+
+Bien que les modèles eux-mêmes soient linéaires, **les fonctionnalités ne sont pas**. Les Mosaiks utilisent des convolutions aléatoires, des fonctions d'activation non linéaires (RELU) et une mise en commun moyen pour transformer l'imagerie satellite brute en caractéristiques hautement expressives.Étant donné que ces transformations capturent une large gamme de modèles spatiaux non linéaires, les méthodes linéaires traditionnelles peuvent alors bien fonctionner avec une complexité supplémentaire minimale.
+
+### Métriques d'évaluation
+
+Pour les résultats continus, les mesures d'évaluation clés comprennent:
+
+- **R²(Coefficient de détermination)**: Mesure la proportion de variance dans les données d'étiquette expliquées par le modèle.  
+- **RMSE (Racine carrée de l'erreur quadratique moyenne)**: quantifie l'ampleur moyenne des erreurs de prédiction.  
+- **MAE (Erreur absolue moyenne)**: Différence absolue moyenne entre les prédictions et les valeurs réelles, moins sensible aux grandes valeurs aberrantes que RMSE.
+
+## Classification binaire
+
+Dans certaines applications Mosaiks, vos étiquettes peuvent être binaires (par exemple, la présence de construction par rapport à l'absence, le changement d'utilisation des terres vs pas de changement).Ici, **la régression logistique** sert souvent de choix simple.
+
+### La Régression logistique
+
+Régression logistique Modèle La probabilité qu'un exemple donné appartient à la classe «positive»:
+$$
+\text{logit}(p) = \beta_0 + \beta_1 x_1 + \cdots + \beta_n x_n
+$$
+
+où $p$ est la probabilité d'appartenir à la classe positive.Malgré sa simplicité, la régression logistique fournit des performances robustes et interprétables pour de nombreuses tâches de classification binaire avec des fonctionnalités de Mosaiks.
+
+### Métriques d'évaluation
+
+Pour la classification binaire, les mesures communes comprennent:
+
+- **AUC-ROC**: La zone sous la courbe ROC, évaluant le compromis entre le taux positif réel et le taux de faux positifs dans différents paramètres de seuil.  
+- **Précision**: la proportion de prédictions correctes.  
+- **Précision**: des prédictions positives faites, combien étaient correctes?  
+- **Rappel**: Parmi les points positifs réels de l'ensemble de données, combien en avons-nous identifié correctement?  
+- **Score F1**: la moyenne harmonique de précision et de rappel, souvent utilisée dans les paramètres de classification déséquilibrée.
+
+## Classification multi-classes
+
+Certaines applications nécessitent de prédire plusieurs catégories (par exemple, les types de couverture terrestre, la variété des cultures, les catégories de construction).Ce sont des problèmes de classification **multi-classes**.Plusieurs approches sont possibles:
+
+1. **One-Vs-Rest**: Train un classificateur binaire pour chaque classe;Chaque classificateur distingue une classe de «tous les autres».  
+2. **Régression multinomiale (softmax)**: un seul modèle pour prédire les probabilités dans toutes les classes simultanément.  
+3. **Régression ordinale**: pour prédire les catégories ordonnées (par exemple, légers, modérés et graves).
+
+![Exemple de classification multiclasse](../../images/proctor_et_al_100_ecoregions_comparison.jpg){#fig-multiclass-classification}
+
+### Métriques d'évaluation
+
+Pour les problèmes multi-classes, considérez:
+
+- **Précision globale**: pourcentage d'exemples correctement classé.  
+- **Précision par classe**: Précision dans chaque classe, utile si les tailles de classe sont déséquilibrées.  
+- **Matrice de confusion**: fournit une ventilation détaillée des prédictions par rapport aux classes réelles.  
+- **Score F1 pondéré**: moyenne F1 dans les classes, pondération par fréquence des classes.  
+- **Kappa de Cohen**: mesure l'accord entre les étiquettes prévues et les étiquettes réelles, l'accord de l'ajustement pour le hasard.
+
+## En appliquant le modèle pour faire des prédictions
+
+Une fois que vous avez sélectionné un modèle et l'avoir réglé (par exemple, via la validation croisée), vous pouvez **appliquer le modèle à de nouvelles données invisibles**. Cette étape est souvent appelée «inférence» ou «score»:
+
+1. **Préparer les fonctionnalités**: Les fonctionnalités des nouvelles zones ou heures doivent être extraites en utilisant le même modèle RCF qui a été utilisé pour extraire les fonctionnalités d'origine.Cela signifie qu'un modèle fabriqué avec personnalisé ne pourrait pas être en mesure de fonctionnalités de l'API.Les fonctionnalités peuvent être créées au hasard, mais une fois le modèle initialisé, les poids sont fixes. 
+
+1. **Chargez le modèle formé**: Assurez-vous que le modèle (ainsi que les hyperparamètres et les étapes de prétraitement) est chargé exactement car il a été formé.Cette cohérence est essentielle pour maintenir la précision prédictive.
+
+1. **Prédire**: transmettez la nouvelle matrice de fonctionnalités (`X_new`) dans la méthode `predict` du modèle entraîné pour obtenir des prédictions. Par exemple, en utilisant Scikit-Learn:
+   ```python
+   y_pred = ridge.predict (x_new)
+    ```
+
+Si votre tâche est la classification, utilisez `predict_proba` pour obtenir des probabilités prédites:
+   ```python
+   p_pred = logistic_regression.predict_proba(X_new)
+   ```
+
+1. **Interpréter et stocker les résultats**: Enregistrer les prédictions dans un format structuré (par exemple, CSV, Geotiff) pour l'analyse en aval.Envisagez d'inclure des métadonnées sur la date et la version de votre modèle, le processus d'extraction des fonctionnalités MOSAIKS et toutes les notes pertinentes sur la qualité des données.
+
+En suivant ces étapes, vous vous assurez que vos modèles Mosaiks sont déployés de manière efficace et cohérente.De là, vous pouvez visualiser les prédictions, les intégrer dans des analyses en aval ou éclairer la politique et la prise de décision en fonction de la sortie du modèle.
+
+### Adressant le décalage du domaine 
+
+Lorsque vous appliquez votre modèle à de nouvelles régions géographiques ou dans différentes conditions, sachez que la distribution des données sous-jacente (modèles d'imagerie satellite, facteurs socio-économiques, types d'utilisation des terres/couverture terrestre) peut différer de votre ensemble de formation.Ce «décalage de domaine» peut entraîner une réduction des performances prédictives si le modèle n'a pas été exposé à des exemples similaires pendant la formation.Pour atténuer cela, envisagez de collecter des données de formation représentatives supplémentaires à partir de ces nouvelles régions, d'adopter des techniques d'apprentissage ou d'adaptation de domaine et de quantification de l'incertitude prédictive afin que vous puissiez signaler les domaines où le modèle peut mal performer.Audits de performances périodiques et recyclage - en particulier lorsque de nouvelles données deviennent disponibles - selon lesquelles assurent une généralisation robuste à travers diverses géographies.
+
+Prédire à une résolution plus élevée que les étiquettes
+
+
+## Quantification de l'incertitude
+
+
+## flux de travail de sélection du modèle
+
+1. **Identifier le type d'étiquette** 
+   - Régression continue → crête ou lasso  
+   - Régression binaire → logistique  
+   - Multi-Classe → One-VS-Rest ou multinomial
+
+2. **Validation croisée** 
+   - Diviser les données en train, validation et ensembles de tests, en respectant la structure spatiale si possible (par exemple, conduite de congé).  
+   - Sélectionnez les mesures d'évaluation appropriées (par exemple, R² pour continu, ROC-AUC pour le binaire).  
+   - Tourne les hyperparamètres ($\lambda$ dans Ridge / Lasso, régularisation en logistique) en utilisant l'ensemble de validation.
+
+3. **Déploiement du modèle** 
+   - Retournez-vous sur l'ensemble de la formation en utilisant les hyperparamètres choisis.  
+   - Générer des prédictions sur l'ensemble de tests (ou de nouvelles données).  
+   - quantifier l'incertitude (par exemple, intervalles de confiance, estimations d'erreur hors échantillon).
+
+## Résumé
+
+- **Commencez par des modèles linéaires simples**: Laissez les fonctionnalités MOSAIKS faire le levage lourd de l'extraction de motifs non linéaires.  
+- **Faites correspondre la métrique à la tâche**: R² ou RMSE pour les étiquettes continues, le score AUC-ROC ou F1 pour la classification, etc.  
+- **Utilisez la validation croisée**: TOUJOURS SÉPARTIER ET TESTS SÉPARTIQUES pour maintenir les estimations impartiales des performances du modèle.  
+- **Considérons la structure spatiale**: Lorsque vous traitez des données spatiales, des divisions aléatoires standard peuvent conduire à des estimations trop optimistes des performances.
+
+Les éléments clés pour la construction de modèles réussis comprennent:
+
+1. **Sélection d'algorithme**
+   - Choisissez en fonction du type d'étiquette
+   - Considérez les besoins de calcul
+   - Complexité de l'équilibre vs performance
+
+2. **Validation croisée**
+   - Utilisez la conscience spatiale des divisions
+   - Sélectionnez des mesures appropriées
+   - régler les paramètres du modèle
+
+3. **Évaluation du modèle**
+   - Tester les performances hors échantillon
+   - Valider dans l'espace
+   - quantifier les incertitudes
+
+4. **Déploiement**
+   - Train Model Final
+   - Générer des prédictions
+   - Processus de document
+   - Surveiller les performances
+
+::: {.callout-note}
+## Suivant
+
+Dans le chapitre suivant, nous discuterons des stratégies de comptabilité des dépendances spatiales dans votre flux de travail de modélisation, y compris des méthodes de validation croisée spatiale, d'interpolation spatiale et d'extrapolation spatiale.
+:::

@@ -5,22 +5,20 @@ lang: fr
 
 ## Aperçu
 
-Ce cours utilise principalement Google Colaboratory ([Colab](https://colab.research.google.com/)) pour nos besoins de calcul. Colab est une plate-forme gratuite basée sur le cloud qui vous permet d'écrire et d'exécuter du code Python via votre navigateur. Il est livré avec de nombreuses bibliothèques préinstallées et offre un accès gratuit aux ressources informatiques, y compris les GPU.
-
----
+Ce cours utilise Google Colab ([Colab](https://colab.research.google.com/)) pour nos besoins de calcul. Toutefois, tous les notebooks peuvent être exécutés en local sur votre ordinateur. 
+Colab est une plate-forme gratuite basée sur le cloud qui permet d'écrire et d'exécuter du code Python via le navigateur. Il dispose de nombreuses bibliothèques préinstallées et offre un accès gratuit aux ressources informatiques, y compris les GPU.
 
 ## Exigences
 
-Pour participer aux parties de codage de ce cours, vous aurez besoin:
+Pour participer aux sections de codage de ce cours, vous aurez besoin:
 
 - Un ordinateur portable ou un ordinateur de bureau
 - Une connexion Internet fiable
-- Un compte Google (si vous n'en avez pas, en créez un sur [Accounts.google.com](https://accountes.google.com))
-- Un navigateur Web ([Chromium](https://en.wikipedia.org/wiki/Chromium_ (web_browser)) Basé les navigateurs recommandés)
+- Un compte Google (si vous n'en avez pas, en créez un sur [accounts.google.com](https://accountes.google.com)) si vous souhaitez utilisez Google Colab
+- Un navigateur Web ([Chromium](https://en.wikipedia.org/wiki/Chromium_ (web_browser)) basé les navigateurs recommandés)
 
----
 
-## En démarrage avec Google Colab
+## Démarrer avec Google Colab
 
 ### Accès à Colab
 
@@ -32,71 +30,72 @@ Pour participer aux parties de codage de ce cours, vous aurez besoin:
 
 L'interface Colab est similaire aux ordinateurs portables Jupyter, avec quelques composants clés:
 
-- **Menu Bar **: Contient des options pour `Fichier`,` Edit`, `View`,` INSERT`, «Runtime», `` Outils »et« Help ».
-- **Barbaire d'outils **: Accès rapide aux actions courantes comme l'ajout de cellules de code / texte.
-- **Zone de cellules **: où vous écrivez et exécutez du code ou du texte.
-- **État d'exécution **: affiche l'état de la connexion de votre ordinateur portable aux serveurs de Google.
+- **Barre de menu**: Contient des options pour `File`,`Edit`, `View`,`INSERT`, `Runtime`, `Outils` et `Help`.
+- **Barre d'outils**: Accès rapide aux actions courantes comme l'ajout de cellules de code/texte.
+- **Zone de cellules**: Où vous écrivez et exécutez du code ou du texte.
+- **État d'exécution**: Affiche l'état de la connexion de votre ordinateur portable aux serveurs de Google.
 
 ### Opérations de base
 
-1. **Création de cellules **:
-   - Cellules de code: cliquez sur «+ code».Prend en charge le code Python ou R en fonction de l'exécution sélectionnée
-   - cellules de texte: cliquez sur `+ texte`.Prend en charge les balises Markdown et HTML pour la documentation
+1. **Création de cellules**:
+   - Cellules de code: cliquez sur `+ code`. Prend en charge le code Python ou R en fonction de l'exécution sélectionnée
+   - Cellules de texte: cliquez sur `+ Text`. Prend en charge les balises Markdown et HTML pour la documentation
 
-2. **CONCULTATS RUNACH **:
+2. **Lancer les cellules**:
    - Cliquez sur le bouton de lecture à côté de la cellule ou utilisez `Shift` +` Entrée`
-   - Peut également sélectionner `Runtime '>` Exécutez la cellule focalisée' (ou une autre option `Exécuter ') dans le menu
+   - Peut également sélectionner `Runtime` > `Exécutez la cellule` (ou une autre option `Exécuter`) dans le menu
 
 ### Caractéristiques importantes
 
-1. **Type d'exécution **:
-- Cliquez sur `Runtime '>` Changer le type d'exécution`
+1. **Type d'exécution**:
+- Cliquez sur `Runtime` > `Changer le type d'exécution`
 - Sélectionnez `Python 3` comme l'exécution
-- Pour l'accès au GPU: modifiez l'accélérateur matériel en l'un des types «GPU» offerts en cas de besoin
+- Pour l'accès au GPU: modifiez l'accélérateur matériel en l'un des types `GPU` offerts en cas de besoin
 
-2. **Gestion des fichiers **:
-- Les fichiers téléchargés sur Colab sont temporaires et seront perdus lorsque le temps d'exécution se déconnecter
+2. **Gestion des fichiers**:
+- Les fichiers téléchargés sur Colab sont temporaires et seront perdus lorsque le noyau se déconnecte.
 - Connectez-vous à Google Drive et enregistrez-y des sorties pour le stockage persistant:
-`` Python
-à partir du lecteur d'importation google.colab
-Drive.mount ('/ Content / Drive')
-`` '
+```python
+from google.colab import drive
+drive.mount ('/content/drive')
+```
 
-3. **Installation du package: **
+3. **Installation du package:**
 
 Installez des packages supplémentaires en utilisant:
 
 ::: {.panel-tabset}
 ## conda
-`` Python
-# AVERTISSEMENT: L'utilisation de "! Conda Install" n'est pas recommandée. 
-# En règle générale, utilisez la commande magique "% conda install" à la place.
-% conda install <package_name>
-`` '
+```python
+# AVERTISSEMENT: L'utilisation de "!conda Install" n'est pas recommandée. 
+# En règle générale, utilisez la commande magique "%conda install" à la place.
+%conda install <package_name>
+```
+
 ## Pip
-`` Python
-# AVERTISSEMENT: L'utilisation de "! Pip Install" n'est pas recommandée. 
-# En règle générale, utilisez à la place la commande magique "% pip install".
-% pip install <package_name>
-`` '
+```python
+# AVERTISSEMENT: L'utilisation de "!pip install" n'est pas recommandée. 
+# En règle générale, utilisez à la place la commande magique "%pip install".
+%pip install <package_name>
+```
 :::
 
-### meilleures pratiques
+### Meilleures pratiques
 
-1. **Enregistrez votre travail **:
-- Les liens de ce livre feront une nouvelle copie d'un ordinateur portable car ils sont enregistrés sur Github. 
-- Pour enregistrer toutes les modifications que vous apportez, cliquez sur `fichier`>` Enregistrez une copie dans le lecteur`
-- Télécharger les cahiers importants localement en tant que sauvegardes
+1. **Enregistrez votre travail**:
+- Les liens de ce livre créent une nouvelle copie d'un notebook car ils sont enregistrés sur Github. 
+- Pour enregistrer toutes les modifications que vous apportez, cliquez sur `Fichier` > `Enregistrez une copie dans Drive`
+- Télécharger les notebooks sur votre ordinateur pour les sauvegarder également au besoin.
 
-2. **Gestion des ressources **:
-- Fermer les cahiers inutilisés pour libérer les ressources
-- Soyez conscient des délais d'attente inactifs (les cahiers se déconnectent après une inactivité prolongée)
+2. **Gestion des ressources**:
+- Fermer les notebooks inutilisés pour libérer les ressources
+- Soyez conscient des délais d'attente inactifs (les notebooks se déconnectent après une inactivité prolongée)
 
-3. **Utilisation de la mémoire **:
-- Surveiller l'utilisation de la mémoire via `Runtime '>` Afficher les ressources'
+3. **Utilisation de la mémoire**:
+- Surveiller l'utilisation de la mémoire via `Runtime` > `Afficher les ressources`
 - Le niveau libre de Colab fournit une mémoire très limitée (12 Go) et peut ne pas être suffisant pour les grands ensembles de données ou les modèles complexes
 
-### raccourcis clavier
+### Raccourcis clavier
 
 Voici quelques raccourcis clavier utiles pour travailler à Colab:
 
@@ -104,207 +103,201 @@ Voici quelques raccourcis clavier utiles pour travailler à Colab:
 
 ## Windows / Linux
 
-|Raccourci |Action |
-| ---------------- |: -------------------------------- |
-|Ctrl + m h |Afficher les raccourcis clavier |
+| Raccourci | Action |
+|----------------|:--------------------------------|
+|Ctrl + M h |Afficher les raccourcis clavier |
 |Ctrl + Entrée |Exécutez la cellule actuelle |
 |Shift + Entrée |Exécutez la cellule et passez à Suivant |
 |Alt + Entrée |Exécutez la cellule et insérer ci-dessous |
-|Ctrl + m a |Insérer la cellule de code ci-dessus |
+|Ctrl + M A |Insérer la cellule de code ci-dessus |
 |Ctrl + M B |Insérer la cellule de code ci-dessous |
-|Ctrl + M M |Convertir à Text Cell |
-|Ctrl + m y |Convertir en Code Cell |
-|Ctrl + m d |Supprimer la cellule actuelle |
+|Ctrl + M M |Convertir en une cellule texte |
+|Ctrl + M Y |Convertir en une cellule de code |
+|Ctrl + M D |Supprimer la cellule actuelle |
 |Ctrl + M L |Basculer les numéros de ligne |
-|Ctrl + m o |Bascule de sortie |
-|Ctrl + m x |Couper la cellule |
-|Ctrl + m c |Copier la cellule |
+|Ctrl + M O |Bascule de sortie |
+|Ctrl + M X |Couper la cellule |
+|Ctrl + M C |Copier la cellule |
 |Ctrl + M V |Coller la cellule ci-dessous |
 |Shift + Up / Down |Sélectionnez plusieurs cellules |
 |Ctrl + F |Trouver et remplacer |
 |Ctrl + S |Enregistrer le cahier |
 
-: Raccourcis clavier Windows / Linux {# tbl-windows-linux tbl-colwidths = "[25,75]"}
+: Raccourcis clavier Windows/Linux {#tbl-windows-linux tbl-colwidths="[25,75]"}
 
 ## Mac
-|Raccourci |Action |
-|: --------------- |: -------------------------------- |
-|⌘ + m h |Afficher les raccourcis clavier |
+| Raccourci |Action |
+|:---------------|:--------------------------------|
+|⌘ + M H |Afficher les raccourcis clavier |
 |⌘ + Entrez |Exécutez la cellule actuelle |
 |Shift + Entrée |Exécutez la cellule et passez à Suivant |
 |Option + Entrée |Exécutez la cellule et insérer ci-dessous |
-|⌘ + m a |Insérer la cellule de code ci-dessus |
-|⌘ + m b |Insérer la cellule de code ci-dessous |
-|⌘ + m m |Convertir à Text Cell |
-|⌘ + m y |Convertir en Code Cell |
-|⌘ + m d |Supprimer la cellule actuelle |
-|⌘ + m l |Basculer les numéros de ligne |
-|⌘ + m o |Bascule de sortie |
-|⌘ + m x |Couper la cellule |
-|⌘ + m c |Copier la cellule |
-|⌘ + m v |Coller la cellule ci-dessous |
-|Shift + Up / Down |Sélectionnez plusieurs cellules |
-|⌘ + f |Trouver et remplacer |
-|⌘ + s |Enregistrer le cahier |
+|⌘ + M A |Insérer la cellule de code ci-dessus |
+|⌘ + M B |Insérer la cellule de code ci-dessous |
+|⌘ + M M |Convertir en une cellule texte |
+|⌘ + M Y |Convertir en une cellule code |
+|⌘ + M D |Supprimer la cellule actuelle |
+|⌘ + M L |Basculer les numéros de ligne |
+|⌘ + M O |Bascule de sortie |
+|⌘ + M x |Couper la cellule |
+|⌘ + M C |Copier la cellule |
+|⌘ + M V |Coller la cellule ci-dessous |
+|Shift + Up/Down |Sélectionnez plusieurs cellules |
+|⌘ + F |Trouver et remplacer |
+|⌘ + S |Enregistrer le cahier |
 
-: Raccourcis clavier Mac {# tbl-mac tbl-colwidths = "[25,75]"}
+: Raccourcis clavier Mac {#tbl-mac tbl-colwidths="[25,75]"}
 
 :::
 
-### Problèmes et solutions courantes
+### Problèmes courants et solutions
 
-1. **Disconnexions d'exécution **:
-- Cliquez sur **"Reconnecter" **Lorsque vous êtes invité
-- Vos variables seront réinitialisées, mais le code enregistré reste
+1. **Déconnection du noyau**:
+- Cliquez sur **"Reconnecter"** lorsque vous êtes invité
+- Vos variables seront réinitialisées, mais les modifications apportées au code demeurent
 
-2. **Problèmes d'installation du package **:
-- Redémarrez le temps d'exécution après l'installation de nouveaux packages
-- Utilisez `runtime`>` redémarrer runtime`
+2. **Problèmes d'installation du package**:
+- Redémarrez le noyau après l'installation de nouveaux packages
+- Utilisez `Runtime`> `Redémarrer runtime`
 
-3. **Erreurs de mémoire **:
+3. **Erreurs de mémoire**:
 - Effacer les variables inutiles au fur et à mesure
 - Envisagez d'utiliser des échantillons de données plus petits pendant le développement
 
-::: {.Callout-Important}
-Les erreurs de mémoire sont courantes lorsque vous travaillez avec de grands ensembles de données ou des modèles complexes sur le niveau libre de Colab.Si vous rencontrez ces problèmes, envisagez d'utiliser une version payante de Colab ou de connecter une machine virtuelle de plateforme Google Cloud (VM).
+::: {.callout-important}
+Les erreurs de mémoire sont courantes lorsque vous travaillez avec de grands ensembles de données ou des modèles complexes dans la version gratuite de Colab. Si vous rencontrez ces problèmes, envisagez d'utiliser une version payante de Colab ou de connecter une machine virtuelle de plateforme Google Cloud (VM).
 :::
 
 ### Obtenir de l'aide
-
-- Accédez à la documentation de Colab: «Help»> «Fnceutement posées des questions»
+- Accédez à la documentation de Colab: `Aide` > `Foire aux questions`
 - Essayez d'utiliser Google Gemini pour une assistance sur l'IA.
 
----
 
-## Assistance AI à Colab
+## Assistance IA dans Colab
+Google Gemini est un puissant assistant IA intégré de manière transparente à Google Colab. Vous pouvez l'utiliser pour générer du code, des commentaires ou du texte Markdown pour améliorer vos notebooks.Gemini est accessible de plusieurs manières à Colab, tous commençant par sélectionner l'icône Gemini dans différentes parties de l'éditeur du notebook.
 
-Google Gemini est un puissant assistant AI intégré de manière transparente à Google Colab.Vous pouvez l'utiliser pour générer du code, des commentaires ou du texte Markdown pour améliorer vos cahiers.Les Gemini sont accessibles de plusieurs manières à Colab, tous commençant par sélectionner l'icône Gemini dans différentes parties de l'éditeur de carnet.
-
-::: {.Callout-note}
+::: {.callout-note}
 # Icône gemini
 
 <img src="https://lh3.googleusercontent.com/c-z7BK6NYcQIruZJd9A4KI1m8YrBauXH0VRglPudmj9Fgr5yzgJCsnaZ5W_nxZnB2hazA9hsg05uX1djFYPbMS-DsbYXp6UtVKFfdicBfF8klhVshJ8" width="50" height="50">
 
-Recherchez cette icône pour indiquer où vous pouvez cliquer pour accéder aux Gémeaux à Colab.
+Recherchez cette icône pour indiquer où vous pouvez cliquer pour accéder à Gemini dans Colab.
 :::
 
 Voici quelques façons d'utiliser Google Gemini efficacement dans Colab:
 
 ### Prise en charge du chat
 
-Cliquez sur le bouton **Gemini **dans le coin supérieur droit pour ouvrir une interface de chat où vous pouvez poser des questions sur votre code, déboguer les problèmes ou obtenir des explications sur les concepts.Cette option est particulièrement utile pour les débutants ou pour s'attaquer aux problèmes complexes.
+Cliquez sur le bouton **Gemini** dans le coin supérieur droit pour ouvrir une interface de chat où vous pouvez poser des questions sur votre code, déboguer les problèmes ou obtenir des explications sur les concepts. Cette option est particulièrement utile pour les débutants ou pour s'attaquer aux problèmes complexes.
 
 ### Génération de code
 
-Utilisez l'option **"Générer du code" **(l'icône Sparkle) au-dessus de n'importe quelle cellule de code **vide **pour générer un nouveau code en fonction de votre description.Vous pouvez lui demander de faire beaucoup de choses différentes, notamment:
+Utilisez l'option **"Générer du code"** (l'icône Étoile) au-dessus de n'importe quelle cellule de code **vide** pour générer un nouveau code en fonction de votre description. Vous pouvez lui demander de faire beaucoup de choses différentes, notamment:
 
-- Chargement d'un ensemble de données appelé `my_data.csv`
-- traçager un histogramme des données
-- Construire un modèle pour prédire «Y» de «x»
+- Charger un ensemble de données appelé `my_data.csv`
+- Construire un histogramme des données
+- Construire un modèle pour prédire `Y` de `X`
 
-Explication du code ###
+### Explication du code
 
-Utilisez l'option **"Expliquer le code" **(l'icône Sparkle) au-dessus de n'importe quelle cellule de code **complète **pour ouvrir une interface de chat qui expliquera automatiquement le code dans la cellule.Ceci est utile pour comprendre le code écrit par quelqu'un d'autre, apprendre de nouveaux concepts ou obtenir un deuxième avis sur votre travail.
+Utilisez l'option **"Expliquer le code"** (l'icône Étoile) au-dessus de n'importe quelle cellule de code **complète** pour ouvrir une interface de chat qui expliquera automatiquement le code dans la cellule. Ceci est utile pour comprendre le code écrit par quelqu'un d'autre, apprendre de nouveaux concepts ou obtenir un deuxième avis sur votre travail.
 
-### Achèvement du code
+### Suggestion de code
 
-COLAB fournit une saisie semi-automatique intelligente au fur et à mesure que vous tapez:
+Colab fournit une saisie semi-automatique intelligente au fur et à mesure que vous tapez:
 
-- Appuyez sur **Tab **pour accepter les suggestions
-- Utilisez **Ctrl + Space **(CMD + Space sur Mac) pour déclencher manuellement les suggestions
-- Obtenez des conseils de documentation et de paramètres en temps réel
+- Appuyez sur **Tab** pour accepter les suggestions
+- Utilisez **Ctrl+Space** (CMD+Space sur Mac) pour déclencher manuellement les suggestions
+- Obtenez de la documentation en temps-réel et des suggestions sur les paramètres
 
-::: {.Callout-note}
+::: {.callout-note}
 Bien que ces outils d'IA soient utiles, révisez et comprenez toujours le code qu'ils suggèrent avant de l'utiliser dans votre travail.
 :::
 
----
 
-## Accès aux cahiers de cours
-Tous les cahiers de cours sont hébergés sur GitHub et sont accessibles directement dans Google Colab.Il y a deux façons de les ouvrir:
+## Accès aux notebooks de cours
+Tous les notebooks de cours sont hébergés sur GitHub et sont accessibles directement dans Google Colab. Il y a deux façons de les ouvrir:
 
 ### Méthode 1: Liens directs
 
-Chaque section de ce livre comprend des liens directs **"Open In Colab" **pour les cahiers pertinents.Cliquez simplement sur l'insigne pour ouvrir le cahier:
+Chaque section de ce livre comprend des liens directs **"Ouvrir Dans Colab"** pour les notebooks pertinents. Cliquez simplement sur l'insigne pour ouvrir le cahier.
 
-Exemple [! [Ouvrir dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/microsoft/planetarycomposerex échantillons/blob/main/tutorials/mosaiks.ipynb)
+Exemple [![Ouvrir dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/microsoft/planetarycomposerex échantillons/blob/main/tutorials/mosaiks.ipynb)
 
 Cette méthode ouvrira une nouvelle copie du cahier car elle est enregistrée sur GitHub.Si vous avez déjà cliqué sur le badge une fois, apporté des modifications et enregistré votre cahier, vous devrez accéder à votre dossier de lecteur où il est enregistré pour accéder à ces modifications. 
 
-::: {.Callout-warning}
+::: {.callout-warning}
 Cliquer sur le badge de ce livre ouvrira toujours une nouvelle copie.
 :::
 
 ### Méthode 2: cloner le cahier
 
-Pour sélectionner un ordinateur portable dans le référentiel [Référentiel de cahiers](https://github.com/cullen-molitor/mosaiks-training-manual/tree/main/notebooks/demo):
+Pour sélectionner un ordinateur portable dans le référentiel [Référentiel de notebooks](https://github.com/cullen-molitor/mosaiks-training-manual/tree/main/notebooks/demo):
 
 1. Ouvrir Google Colab ([colab.research.google.com](https://colab.research.google.com))
-2. Cliquez sur `Fichier`>` Open Notebook`
-3. Sélectionnez l'onglet **github **
-4. Entrez l'URL du référentiel: `https://github.com/ [nom d'utilisateur] / [repo]` (mise à jour avec repo)
-5. Sélectionnez le cahier que vous souhaitez ouvrir
+2. Cliquez sur `Fichier` > `Open Notebook`
+3. Sélectionnez l'onglet **Github**
+4. Entrez l'URL du référentiel: `https://github.com/[nom_utilisateur]/[repo]` (MISE A JOUR AVEC REPO)
+5. Sélectionnez le notebook que vous souhaitez ouvrir
 
-### Sauver votre travail
+### Enregistrer votre travail
 
-Lorsque vous ouvrez un cahier de GitHub dans Colab, il crée une copie temporaire.Pour sauver votre travail:
+Lorsque vous ouvrez un notebook de GitHub dans Colab, il crée une copie temporaire. Pour enregistrer votre travail:
 
-1. Cliquez sur `fichier`>` Enregistrer une copie dans le lecteur`
+1. Cliquez sur `Fichier`> `Enregistrer une copie dans Drive`
 2. Cela crée votre propre copie modifiable dans votre Google Drive
 3. Toutes les modifications futures seront enregistrées à votre copie
 
-Organisation ### Notebook
+### Organisation du notebook
 
-Les cahiers de cours sont organisés en:
+Les notebooks de cours sont organisés en:
 
-- `démos /`: cahiers de démonstration complets
-- `Exercices /`: cahards interactifs avec des exercices à compléter
-- `Solutions /`: Versions complètes des cahiers d'exercice
+- `demos/`: Notebooks de démonstration complets
+- `exercices/`: Notebooks interactifs avec des exercices à compléter
+- `solutions/`: Versions complètes des notebooks d'exercice
 
-Chaque cahier comprend:
+Chaque notebook comprend:
 
-- Instructions et explications claires dans les cellules de Markdown
-- Code Cellules avec des exemples ou des exercices
-- faire des sections pour des exercices
-- cellules de validation pour vérifier votre travail
-
---- 
+- Des instructions et explications claires dans les cellules Markdown
+- Des cellules de code avec des exemples ou des exercices
+- Des sections À FAIRE pour des exercices
+- Des cellules de validation pour vérifier votre travail
 
 ## Accès et gestion des données
 
-Il existe plusieurs façons d'accéder aux données dans les cahiers Colab.Voici les principales approches:
+Il existe plusieurs façons d'accéder aux données dans les notebooks Colab. Voici les principales approches:
 
 ### Téléchargements directs
 
-Pour les données hébergées sur des référentiels comme Zenodo, vous pouvez télécharger directement à l'aide de `wget ':
+Pour les données hébergées sur des référentiels comme Zenodo, vous pouvez télécharger directement à l'aide de `wget`:
 
-`` Python
+```python
 # Téléchargez les données
 ! wget https://zenodo.org/records/14040658/files/data.zip
 
 # Dézip les données
 ! unzip data.zip
-`` '
+```
 
-### Intégration Google Drive
+### Intégration avec Google Drive
 
-#### Mount Google Drive
+#### Monter Google Drive
 
 Pour les données stockées dans Google Drive:
 
 1. Tout d'abord, montez votre Google Drive:
-`` Python
-à partir du lecteur d'importation google.colab
-Drive.mount ('/ Content / Drive')
-`` '
+   ```python
+   from google.colab import drive
+   drive.mount('/content/drive')
+   ```
 
 2. Accédez à vos données à l'aide du chemin monté:
-`` Python
-Drive_Path = "/ Content / Drive / MyDrive / <PropLe_Folder>"
-`` '
+   ```python
+   drive_path = "/content/drive/MyDrive/<project_folder>"
+   ```
 
 #### Copier les données sur la machine virtuelle (facultative)
-For better performance, make local copies of the data on the virtual machine (VM):
+Pour de meilleures performances, faites des copies locales des données sur la machine virtuelle (VM):
 
 ```python
 import os
@@ -319,48 +312,47 @@ drive_data = os.path.join(drive_path, "my_data")
 shutil.copytree(drive_data, local_dir, dirs_exist_ok=True)
 ```
 
-::: {.Callout-note}
-N'oubliez pas que le stockage de la machine virtuelle est temporaire - les fichiers seront supprimés lorsque l'exécution se déconnecter.Gardez toujours une sauvegarde de vos données dans le lecteur ou un autre emplacement de stockage permanent.
+::: {.callout-note}
+N'oubliez pas que le stockage de la machine virtuelle est temporaire - les fichiers seront supprimés lorsque l'exécution sera déconnecté. Gardez toujours une sauvegarde de vos données dans le lecteur ou un autre emplacement de stockage permanent.
 :::
 
 ##### Pourquoi copier des données dans la machine virtuelle?
 
 Lorsque vous travaillez avec des données dans Colab, la copie de fichiers de Google Drive vers la machine virtuelle (VM) peut considérablement améliorer les performances:
 
-1. **Accès plus rapide **: La lecture directement depuis Google Drive nécessite que les données soient transférées sur le réseau pour chaque opération.Le stockage VM local offre des vitesses de lecture / écriture beaucoup plus rapides.
-2. **Réduction de latence **: la latence du réseau entre Colab et Google Drive peut ralentir les opérations qui nécessitent plusieurs accès de données.Les données locales éliminent cette latence.
-3. **Plus fiable **: Les problèmes de connectivité réseau ou les problèmes d'accès à la conduite n'interrompent pas votre analyse une fois les données copiées localement.
-4. **Mieux pour le traitement itératif **: Si votre code doit lire les mêmes données plusieurs fois (comme dans les boucles d'entraînement d'apprentissage automatique), l'accès local est beaucoup plus efficace.
+1. **Accès plus rapide**: La lecture directement depuis Google Drive nécessite que les données soient transférées sur le réseau pour chaque opération. Le stockage VM local offre des vitesses de lecture/écriture beaucoup plus rapides.
+2. **Réduction de latence**: la latence du réseau entre Colab et Google Drive peut ralentir les opérations qui nécessitent plusieurs accès de données. Les données locales éliminent cette latence.
+3. **Plus fiable**: Les problèmes de connectivité réseau ou les problèmes d'accès à la conduite n'interrompent pas votre analyse une fois les données copiées localement.
+4. **Mieux pour le traitement itératif**: Si votre code doit lire les mêmes données plusieurs fois (comme dans les boucles d'entraînement d'apprentissage automatique), l'accès local est beaucoup plus efficace.
 
-Par exemple, la lecture d'un ensemble de données de 1 Go de Drive peut prendre 30 secondes, tandis que la lecture du stockage VM local pourrait ne prendre que quelques secondes.Le temps passé à copier des données une fois au début de votre session peut gagner un temps important pendant l'analyse.Cela est particulièrement vrai dans un environnement de cahier où un utilisateur peut développer un code qui accède à plusieurs reprises aux mêmes fichiers de données, mais ne peut pas tout stocker en mémoire (par exemple, de nombreux fichiers d'image).
+Par exemple, la lecture d'un ensemble de données de 1 Go de Drive peut prendre 30 secondes, tandis que la lecture du stockage VM local pourrait ne prendre que quelques secondes. Le temps passé à copier des données une fois au début de votre session peut gagner un temps important pendant l'analyse. Cela est particulièrement vrai dans un environnement de notebook où un utilisateur peut développer un code qui accède à plusieurs reprises aux mêmes fichiers de données, mais ne peut pas tout stocker en mémoire (par exemple, de nombreux fichiers d'image).
 
 #### Enregistrer les sorties sur Google Drive
 
 Pour enregistrer les sorties ou les modèles sur Google Drive:
 
-`` Python
+```python
 # Définissez le répertoire de sortie
 output_dir = "/ content / drive / mydrive / project_folder / output"
 
 # Enregistrer les sorties
 shuttil.copyTree (local_output, output_dir, dirs_exist_ok = true)
-`` '
+```
 
 Cela garantit que tout travail effectué dans le cahier est enregistré sur votre Google Drive pour référence future.Si les fichiers de sortie ne sont pas copiés et restent dans la machine virtuelle, ils seront perdus lorsque l'exécution se déconnecter.
 
----
 
 ## Configuration de l'environnement local 
 
-Bien que l'approche principale de ce livre soit d'utiliser Google Colab, certains apprenants peuvent préférer ou doivent exécuter le code localement.Le livre est largement configuré pour ce faire, bien que l'utilisateur devra gérer son propre environnement informatique.À cette fin, nous fournissons un fichier «Environment.yml» (situé dans le répertoire «Environment» de ce livre).Vous trouverez ci-dessous les étapes pour vous permettre de configurer avec MiniConda et créer un environnement local.
+Bien que l'approche principale de ce livre soit d'utiliser Google Colab, certains apprenants peuvent préférer ou doivent exécuter le code localement. Le livre est largement configuré pour ce faire, bien que l'utilisateur devra gérer son propre environnement informatique. À cette fin, nous fournissons un fichier `environment.yml` (situé dans le répertoire `environment` de ce livre). Vous trouverez ci-dessous les étapes pour vous permettre de configurer avec MiniConda et créer un environnement local.
 
-::: {.Callout-note}
-Bien que les environnements locaux puissent offrir plus de contrôle, nous recommandons fortement Google Colab pour la cohérence et les ressources cloud gratuites.Cette configuration locale est purement facultative et peut être plus adaptée à ceux qui ont des dépendances particulières ou des configurations avancées.
+::: {.callout-note}
+Bien que les environnements locaux puissent offrir plus de contrôle, nous recommandons fortement Google Colab pour la cohérence et les ressources cloud gratuites. Cette configuration locale est purement facultative et peut être plus adaptée à ceux qui ont des dépendances particulières ou des configurations avancées.
 :::
 
 ### Téléchargement et installation de miniconda
 
-MiniConda est un installateur minimal pour Conda.Choisissez l'installateur de votre système d'exploitation dans les liens ci-dessous et suivez les invites.
+MiniConda est un installateur minimal pour Conda. Choisissez l'installateur de votre système d'exploitation dans les liens ci-dessous et suivez les invites.
 
 ::: {.panel-tabset}
 
@@ -369,14 +361,14 @@ MiniConda est un installateur minimal pour Conda.Choisissez l'installateur de vo
 1. Accédez à la [Miniconda Windows Installer](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-kinks).
 2. Téléchargez l'installateur `.exe` pour votre système Windows (64 bits recommandé).
 3. Double-cliquez sur l'installateur et suivez les instructions à l'écran.
-4. Lorsque vous êtes invité, vérifiez l'option pour **ajouter MiniConda au chemin **ou sélectionnez «Installer pour tous les utilisateurs» qui ajoute généralement Conda au chemin automatiquement.
+4. Lorsque vous êtes invité, vérifiez l'option pour **ajouter MiniConda au chemin** ou sélectionnez `Installer pour tous les utilisateurs` qui ajoute généralement conda au chemin automatiquement.
 
-## macOS
+## MacOS
 
-1. Allez au [Miniconda MacOS installateur](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-kinks).
+1. Allez au [Miniconda MacOS Installer](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-kinks).
 2. Téléchargez l'installateur `.pkg` (ou` .sh` si vous préférez) pour macOS (64 bits).
 3. Double-cliquez sur l'installateur et suivez les instructions à l'écran.
-4. Lorsque vous êtes invité, vérifiez l'option pour **ajouter MINICONDA au chemin **ou ajouter les lignes de chemin appropriées à votre fichier `~ / .zshrc` ou` ~ / .bash_profile` le fichier manuellement.
+4. Lorsque vous êtes invité, vérifiez l'option pour **ajouter MINICONDA au chemin **ou ajouter les lignes de chemin appropriées à votre fichier `~/.zshrc` ou `~ /.bash_profile` le fichier manuellement.
 
 ## Linux
 
@@ -389,63 +381,62 @@ MiniConda est un installateur minimal pour Conda.Choisissez l'installateur de vo
 
 ### Ajout de conda à votre chemin
 
-Si vous n'avez pas ajouté de conda à votre chemin pendant l'installation, vous pouvez le faire manuellement en ajoutant une ligne à votre fichier de configuration de shell (`~ / .bashrc`,` ~ / .zshrc`, ou similaire):
+Si vous n'avez pas ajouté de conda à votre chemin pendant l'installation, vous pouvez le faire manuellement en ajoutant une ligne à votre fichier de configuration de shell (`~/.bashrc`, `~/.zshrc`, ou similaire):
 
-`` `bash
+```bash
 # Exemple pour les utilisateurs de Linux / MacOS
-Export Path = "$ home / miniconda3 / bin: $ path"
-`` '
+export PATH="$HOME/miniconda3/bin:$PATH"
+```
 
-Pour Windows, assurez-vous que vous avez sélectionné l'option pour ajouter Conda au chemin pendant l'installation, ou exécutez l'invite **Anaconda **(qui a automatiquement Conda disponible) pour gérer votre environnement.
+Pour Windows, assurez-vous que vous avez sélectionné l'option pour ajouter Conda au chemin pendant l'installation, ou exécutez l'invite **Anaconda** (qui a automatiquement Conda disponible) pour gérer votre environnement.
 
-### Création d'un environnement local à partir de «Environment.yml»
-Dans le répertoire «Environment» du référentiel de cours, vous trouverez un fichier nommé `Environment.yml`.Ce fichier répertorie tous les packages nécessaires à la configuration locale.
+### Création d'un environnement local à partir du fichier `environment.yml`
+Dans le répertoire `environment` du référentiel de cours, vous trouverez un fichier nommé `environment.yml`. Ce fichier répertorie tous les packages nécessaires à la configuration locale.
 
-1. **Clone ou télécharger **Le référentiel de livres sur votre machine locale.
-2. **Ouvrez un terminal **(ou **invite anaconda **sur Windows).
-3. **Naviguez **vers le dossier contenant `Environment.yml`.
+1. **Clone ou télécharger** le référentiel de livres sur votre machine locale.
+2. **Ouvrez un terminal** (ou **invite anaconda**sur Windows).
+3. **Naviguez** vers le dossier contenant `environment.yml`.
 
-`` `bash
-CD PATH / TO / MOSAIKS-TRAIN-MANUAL /
-`` '
+```bash
+cd path/to/MOSAIKS-Training-Manual/environment
+```
 
-4. **Créer **L'environnement:
+4. **Créer** l'environnement:
 
-`` `bash
+```bash
 conda envate -f environnement.yml
-`` '
+```
 
-5. **Activer **L'environnement:
+5. **Activer** l'environnement:
 
-`` `bash
-conda activer <vironter_name>
-`` '
+```bash
+conda activate <environment_name>
+```
 
-Où `<Necviry_name>` est le nom spécifié dans `Environment.yml` (vérifiez le champ` Name: `dans le fichier).Dans ce cas, le nom est «Mosaiks».
+Où `<environment_name>` est le nom spécifié dans `environment.yml` (vérifiez le champ `name:` dans le fichier). Dans ce cas, le nom est `mosaiks`.
 
 ### Utilisation du nouvel environnement dans VS Code
 
 Visual Studio Code (VS Code) peut détecter et utiliser votre nouvel environnement Conda pour le développement de Python.
 
-1. **Ouvrir le code vs **.
-2. Installez l'extension **Python **(si elle n'est pas déjà installée).
-3. Appuyez sur **Ctrl + Shift + P **(ou **CMD + Shift + P **sur macOS) et type **«Python: Sélectionnez l'interpréteur» **.
+1. **Ouvrir VS Code**.
+2. Installez l'extension **Python** (si elle n'est pas déjà installée).
+3. Appuyez sur **Ctrl+Shift+P** (ou **CMD+Shift+P** sur MacOS) et type **"Python: Sélectionnez l'interpréteur"**.
 4. Sélectionnez l'interprète associé à votre environnement nouvellement créé (il doit être répertorié par nom ou chemin).
 5. Ouvrez ou créez un nouveau fichier ou un cahier Python et vérifiez que le code VS utilise l'environnement correct (vous pouvez voir l'environnement choisi dans le coin inférieur droit du code vs).
-### d'autres gestionnaires de l'environnement
 
-Bien que Conda soit un outil commun pour gérer les environnements Python, il existe d'autres options populaires telles que:
+### Autres gestionnaires de l'environnement
 
-- [poésie](https://python-poetry.org/)  
-- [picenv](https://pipenv.pypa.io/en/latest/)  
-- [VirtualEnv](https://virtualenv.pypa.io/en/latest/) 
+Bien que conda soit un outil commun pour gérer les environnements Python, il existe d'autres options populaires telles que:
 
-Chacun a ses propres fichiers de configuration et ses instructions de configuration.Si vous préférez ces outils ou que vous les utilisez déjà, vous pouvez généralement reproduire les packages répertoriés dans `ENVIRITY.yml`.Vérifiez la documentation de l'outil respectif pour des instructions spécifiques sur la façon de traduire les dépendances.
+- [Poetry](https://python-poetry.org/)  
+- [pipenv](https://pipenv.pypa.io/en/latest/)  
+- [virtualenv](https://virtualenv.pypa.io/en/latest/) 
 
----
+Chacun a ses propres fichiers de configuration et ses instructions de configuration.Si vous préférez ces outils ou que vous les utilisez déjà, vous pouvez généralement reproduire les packages répertoriés dans `environment.yml`. Vérifiez la documentation de l'outil respectif pour des instructions spécifiques sur la façon de traduire les dépendances.
 
-::: {.Callout-note}
-# Avoir hâte de
+::: {.callout-note}
+# Suivant
 
 Dans le chapitre suivant, nous examinerons de plus près le cadre Mosaiks, ses concepts principaux et comment il peut être appliqué pour résoudre des problèmes réels.
 :::

@@ -12,7 +12,7 @@ status("draft")
 
 After selecting appropriate satellite imagery (as discussed in @sec-satellite-imagery), the next step is accessing and processing that imagery for use with MOSAIKS. This chapter covers key considerations and practical approaches for working with satellite data.
 
-![Source: [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/)](../images/mpc_gallery.jpg)
+![Source: [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/)](../../images/mpc_gallery.jpg)
 
 ## Accessing satellite imagery
 

@@ -31,7 +31,7 @@ The standard resolution of MOSAIKS is a global grid at 0.01° resolution. Each g
 MOSAIKS grid cell centroids are rounded to 0.005 degrees and are spaced by 0.01 degree (e.g., 10.005, 10.015, 10.025,...).
 :::
 
-![Visual representation of a standardized grids at varying resolutions (δ) with the highest resolution on the left, and lower resolutions moving right. Source: [Rolf et al. 2021 Figure 3 c](https://www.nature.com/articles/s41467-021-24638-z/figures/3).](../images/rolf_et_al_2021-Fig_3-c-grid.svg){#fig-grid}
+![Visual representation of a standardized grids at varying resolutions (δ) with the highest resolution on the left, and lower resolutions moving right. Source: [Rolf et al. 2021 Figure 3 c](https://www.nature.com/articles/s41467-021-24638-z/figures/3).](../../images/rolf_et_al_2021-Fig_3-c-grid.svg){#fig-grid}
 
 ### Advantages of the MOSAIKS grid
 
@@ -45,7 +45,7 @@ The MOSAIKS API is designed to predict outcomes at scales of 1 km² or larger. C
 
 The MOSAIKS grid is defined in degrees, therefore the area of a given cell varies with latitude. Near the equator, each cell is approximately 1 km², while at higher latitudes the area decreases as the distance between meridians (longitude lines) converges. 
 
-![The area of a grid cell at different latitudes.](../images/global_1_degree_grid_wgs84_area.png){#fig-grid-area}
+![The area of a grid cell at different latitudes.](../../images/global_1_degree_grid_wgs84_area.png){#fig-grid-area}
 
 ### Choosing your resolution
 
@@ -57,13 +57,13 @@ We know from @sec-intro-api that the MOSAIKS API offers features at 0.01°, 0.1�
 
 Preparing label data for MOSAIKS depends on location, extent, time, and resolution. When observations have a resolution finer than 1 km², you must select or aggregate them to match the features you plan to use. MOSAIKS can incorporate labels from raster, point, polygon, or vector data. In @sec-labels-demo, we will demonstrate how to prepare labels for each input type.
 
-![Examples of label data formats that can be easily integrated into the MOSAIKS pipeline. Label data of any spatial format that can be aggregated to at least the scale of 1km² (or larger) can be used directly in combination with MOSAIKS imagery features for downstream prediction tasks. Examples shown here are from Rolf et al. (2021) and include: forest cover, elevation, population, and nighttime lights datasets (all raster format); income data (polygon format); road length (vector format); and housing price data (point format). Source: [Rolf et al. 2021 Supplementary Figure 4](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-021-24638-z/MediaObjects/41467_2021_24638_MOESM1_ESM.pdf).](../images/rolf_et_al_2021-Fig_S4.png){#fig-label-agg}
+![Examples of label data formats that can be easily integrated into the MOSAIKS pipeline. Label data of any spatial format that can be aggregated to at least the scale of 1km² (or larger) can be used directly in combination with MOSAIKS imagery features for downstream prediction tasks. Examples shown here are from Rolf et al. (2021) and include: forest cover, elevation, population, and nighttime lights datasets (all raster format); income data (polygon format); road length (vector format); and housing price data (point format). Source: [Rolf et al. 2021 Supplementary Figure 4](https://static-content.springer.com/esm/art%3A10.1038%2Fs41467-021-24638-z/MediaObjects/41467_2021_24638_MOESM1_ESM.pdf).](../../images/rolf_et_al_2021-Fig_S4.png){#fig-label-agg}
 
 ### Administrative level data
 
 In some cases, you will find labels for administrative regions (states, districts, etc.). In this case, it might not come with any geographic information other than a place name. You can usually find the relevant geographic information online. A good resource for this is the [Global Administrative Areas (GADM)](https://gadm.org/) database, which provides the boundaries for administrative division at various levels for completely free. 
 
-![Global Human Development Index (HDI) data at the first sub-national level of administrative division (ADM1). Source: [Smits & Permanyer 2019](https://www.nature.com/articles/sdata201938).](../images/smits_and_permanyer_2019_HDI.png){#fig-hdi}
+![Global Human Development Index (HDI) data at the first sub-national level of administrative division (ADM1). Source: [Smits & Permanyer 2019](https://www.nature.com/articles/sdata201938).](../../images/smits_and_permanyer_2019_HDI.png){#fig-hdi}
 
 ### Challenges of administrative data
 
@@ -83,13 +83,13 @@ As a general rule, a minimum of 300 observations for model training is recommend
 
 The original MOSAIKS publication (Rolf et al., 2021) evaluated models with sample sizes from 60,000 to 100,000. In most cases there were only modest performance declines with a few hundred observations (@fig-sample-size). In recent crop yield experiments, high performance (R² = 0.80) was achieved with around 400 observations, provided the data were cleaned and aggregated to a district level. It is important to note that the original crop yield dataset included interview records from thousands of farmers across the study country. While this data has a large sample size, it is messy. In this case, a clean dataset with a low number of observations was preferred to a large but noisy dataset. 
 
-![Model performance for all seven tasks while varying the number of random convolutional features K and holding *N* = 64,000 (left) and while varying N and holding *K* = 8,192 (right). Shaded bands indicate the range of predictive skill across five folds. Lines indicate average accuracy across validation folds. Source: [Rolf et al. 2021 Figure 3 b](https://www.nature.com/articles/s41467-021-24638-z).](../images/rolf_et_al_2021-Fig_3-b.svg){#fig-sample-size}
+![Model performance for all seven tasks while varying the number of random convolutional features K and holding *N* = 64,000 (left) and while varying N and holding *K* = 8,192 (right). Shaded bands indicate the range of predictive skill across five folds. Lines indicate average accuracy across validation folds. Source: [Rolf et al. 2021 Figure 3 b](https://www.nature.com/articles/s41467-021-24638-z).](../../images/rolf_et_al_2021-Fig_3-b.svg){#fig-sample-size}
 
 ### Data Types
 
 MOSAIKS can accommodate both continuous labels (e.g., fraction of area forested) and discrete labels (e.g., presence/absence of mine). Data type informs model development, performance evaluation, and choice of metric (see @sec-model-choice). Continuous variables often use coefficient of determination (R²), while discrete variables often use Receiver Operating Characteristic Area Under the Curve (ROC AUC).
 
-![**A** The coefficient of determination (R²) is a measure of how well the model fits the data. It ranges from 0 to 1, where 1 indicates a perfect fit. The closer each point is to the 45 degree line, the higher the better the model fit and the higher the score will be. **B** The Receiver Operating Characteristic (ROC) curve is a graphical representation of the true positive rate (sensitivity) against the false positive rate (1-specificity). The area under the curve (AUC) ranges from 0 to 1, where 1 indicates a perfect model. Diagonal line is equivalent to random guessing.](../images/R2_ROC_side_by_side_plots.png){#fig-r2-roc}
+![**A** The coefficient of determination (R²) is a measure of how well the model fits the data. It ranges from 0 to 1, where 1 indicates a perfect fit. The closer each point is to the 45 degree line, the higher the better the model fit and the higher the score will be. **B** The Receiver Operating Characteristic (ROC) curve is a graphical representation of the true positive rate (sensitivity) against the false positive rate (1-specificity). The area under the curve (AUC) ranges from 0 to 1, where 1 indicates a perfect model. Diagonal line is equivalent to random guessing.](../../images/R2_ROC_side_by_side_plots.png){#fig-r2-roc}
 
 The data type may also effect how the data is cleaned and prepared. For example you may have a dataset of mining locations across a country. If you are interested in predicting the presence of mining, you may want to convert this to a binary variable where a 0 indicates no mining and a 1 indicates mining. Alternatively, you may be interested in predicting the area of mining in each location, in which case you might need to calculate the area of the mining polygons to make the variable continuous.
 

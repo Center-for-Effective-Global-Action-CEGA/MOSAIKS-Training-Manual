@@ -43,27 +43,27 @@ The demo showcases MOSAIKS predicting several variables, and with a subset of th
 
 ## Forest Cover
 
-![Forest cover input data (left) from Global Land Analysis & Discover (GLAD) [Global 2010 Tree Cover (30 m)](https://glad.umd.edu/dataset/global-2010-tree-cover-30-m)](../images/f2_tree_cover.jpg){#fig-forest-cover}
+![Forest cover input data (left) from Global Land Analysis & Discover (GLAD) [Global 2010 Tree Cover (30 m)](https://glad.umd.edu/dataset/global-2010-tree-cover-30-m)](../../images/f2_tree_cover.jpg){#fig-forest-cover}
 
 ## Elevation
 
-![Elevation input data (left) provided by Mapzen, and accessed via the Amazon Web Services (AWS) Terrain Tile service. Download code can be found [here](https://www.github.com/jhollist/elevatr).](../images/f2_elevation.jpg){#fig-elevation}
+![Elevation input data (left) provided by Mapzen, and accessed via the Amazon Web Services (AWS) Terrain Tile service. Download code can be found [here](https://www.github.com/jhollist/elevatr).](../../images/f2_elevation.jpg){#fig-elevation}
 
 ## Population Density
 
-![Population density input data (left) from the Gridded Population of the World (GPW) dataset. These data can be accessed [here](http://sedac.ciesin.columbia.edu/data/collection/gpw-v4).](../images/f2_population.jpg){#fig-population}
+![Population density input data (left) from the Gridded Population of the World (GPW) dataset. These data can be accessed [here](http://sedac.ciesin.columbia.edu/data/collection/gpw-v4).](../../images/f2_population.jpg){#fig-population}
 
 ## Nighttime Lights
 
-![Nighttime lights luminosity input data (left) generated from nighttime satellite imagery, which is provided by the Earth Observations Group at the National Oceanic and Atmospheric Administration (NOAA) and the National Geophysical Data Center (NGDC). These data can be accessed [here](https://eogdata.mines.edu/products/vnl/).](../images/f2_night_lights.jpg){#fig-night-lights}
+![Nighttime lights luminosity input data (left) generated from nighttime satellite imagery, which is provided by the Earth Observations Group at the National Oceanic and Atmospheric Administration (NOAA) and the National Geophysical Data Center (NGDC). These data can be accessed [here](https://eogdata.mines.edu/products/vnl/).](../../images/f2_night_lights.jpg){#fig-night-lights}
 
 ## Income
 
-![Income input data (left) from the American Community Survey (ACS) 5-year estimates of median annual household income in 2015. These data are accessible using the [acs package](https://cran.r-project.org/web/packages/acs/acs.pdf) in R (48), table number B19013](../images/f2_income.jpg){#fig-income}
+![Income input data (left) from the American Community Survey (ACS) 5-year estimates of median annual household income in 2015. These data are accessible using the [acs package](https://cran.r-project.org/web/packages/acs/acs.pdf) in R (48), table number B19013](../../images/f2_income.jpg){#fig-income}
 
 ## Road Length
 
-![Road length input data (left) from the United States Geological Survey (USGS) National Transportation Dataset, which is based on TIGER/Line data provided by US Census Bureau in 2016. These data can be accessed [here](https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Tran/Shape/).](../images/f2_road_length.jpg){#fig-road-length}
+![Road length input data (left) from the United States Geological Survey (USGS) National Transportation Dataset, which is based on TIGER/Line data provided by US Census Bureau in 2016. These data can be accessed [here](https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Tran/Shape/).](../../images/f2_road_length.jpg){#fig-road-length}
 
 :::
 

@@ -18,7 +18,7 @@ This section of the book is not for everyone. If you want to use the publicly av
 
 MOSAIKS stands for **<ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</ins>tellite <ins>I</ins>magery & <ins>K</ins>itchen <ins>S</ins>inks**. Whenever we present MOSAIKS, we get the question, “Where does ‘kitchen sinks’ come from?” The answer stems from the phrase *“everything but the kitchen sink,”* which means *“almost everything imaginable.”* In the context of MOSAIKS, *everything but the kitchen sink* emphasizes that we take a *huge amount* of information out of the raw imagery—though, of course, we’re not capturing every last pixel or every possible relationship. It’s as if we’re taking the most useful “ingredients” (i.e., features) from the imagery and leaving the rest behind.
 
-![Maddy (Madagascar; center) takes raw satellite images (left) and uses the kitchen sink method to produce random convolutional features (right). Art by [Grace Lewin](https://young-lab.eemb.ucsb.edu/people/grace-lewin).](../images/Everything%20but%20the%20kitchen%20sink.gif){#fig-everything-but-the-kitchen-sink}
+![Maddy (Madagascar; center) takes raw satellite images (left) and uses the kitchen sink method to produce random convolutional features (right). Art by [Grace Lewin](https://young-lab.eemb.ucsb.edu/people/grace-lewin).](../../images/Everything%20but%20the%20kitchen%20sink.gif){#fig-everything-but-the-kitchen-sink}
 
 This idea of leaving behind the raw imagery is key to MOSAIKS’s power. It means that *most* users never have to handle the massive amounts of satellite imagery directly. Instead, the MOSAIKS team takes on that burden—extracting a large set of random convolutional features—and then discards the imagery. End users do not need to *see* the raw imagery or interpret *what* each individual feature means; they can just use the numerical representation. As a result, users can simply download these features and apply them to their own predictive tasks.
 
@@ -34,7 +34,7 @@ In this book, the terms *random convolutional features*, *RCFs*, *features*, *sa
 
 --- 
 
-![A collection of satellite images. Source: [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/)](../images/mpc_gallery.jpg){#fig-mpc-gallery}
+![A collection of satellite images. Source: [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/)](../../images/mpc_gallery.jpg){#fig-mpc-gallery}
 
 ---
 
@@ -42,7 +42,7 @@ In this book, the terms *random convolutional features*, *RCFs*, *features*, *sa
 
 The MOSAIKS featurization process produces a *fixed-length* feature representation for each patch of satellite imagery. Practically, this means we end up with a numerical vector for each image. Because MOSAIKS uses satellite image, you can substitute the word image for location which means we end up with a numerical representation for each location.
 
-![A closer look at the RCF processing. Illustration of the one-time unsupervised computation of random convolutional features. *K* patches are randomly sampled from across the *N* images. Each patch is convolved over each image, generating a nonlinear activation map for each patch. Activation maps are averaged over pixels to generate a single K-dimensional feature vector for each image. Source: [Rolf et al. 2021 Figure 1 C](https://www.nature.com/articles/s41467-021-24638-z/figures/1)](../images/rolf_et_al_2021-Fig_1-c.jpg){#fig-Rolf-et-al-2021-Fig-1-C}
+![A closer look at the RCF processing. Illustration of the one-time unsupervised computation of random convolutional features. *K* patches are randomly sampled from across the *N* images. Each patch is convolved over each image, generating a nonlinear activation map for each patch. Activation maps are averaged over pixels to generate a single K-dimensional feature vector for each image. Source: [Rolf et al. 2021 Figure 1 C](https://www.nature.com/articles/s41467-021-24638-z/figures/1)](../../images/rolf_et_al_2021-Fig_1-c.jpg){#fig-Rolf-et-al-2021-Fig-1-C}
 
 The featurization process has three main steps: **convolution**,  **activation**, and **average pooling**. 
 
@@ -134,7 +134,7 @@ We use pytorch’s [torch.nn.functional.adaptive_avg_pool2d](https://pytorch.org
 
 We repeat the 3 steps (convolution, activation, and pooling) for all filters. If we have *K* filters, we end up with a *K*-dimensional feature vector.
 
-![Input image, selected patches, whitened patches, convolution output, and activation maps](../images/RCF_patch_sampling_convolution_activation_maps.png){#fig-RCF-patches-activation-maps}
+![Input image, selected patches, whitened patches, convolution output, and activation maps](../../images/RCF_patch_sampling_convolution_activation_maps.png){#fig-RCF-patches-activation-maps}
 
 ---
 
@@ -142,15 +142,15 @@ We repeat the 3 steps (convolution, activation, and pooling) for all filters. If
 
 Below is a cartoon that illustrates what a random convolutional feature vector might be looking for. Suppose we randomly draw three 3×3 patches from different parts of an image: a *forest* patch, a *road* patch, and a *river* patch.
 
-![A single image with 3 random convolutional patches, highlighting 3 different feature activations of the imagery.](../images/cartoon_features-1.jpg){#fig-cartoon-features-1}
+![A single image with 3 random convolutional patches, highlighting 3 different feature activations of the imagery.](../../images/cartoon_features-1.jpg){#fig-cartoon-features-1}
 
 When we convolve the forest patch across the entire image, the resulting map “lights up” places that look like forest. Likewise, the road patch lights up roads, and the river patch lights up the river. After the ReLU and average-pooling steps, we get a set of summary values—one for each filter.
 
-![Two cartoon images with the same patches used in the convolution step. We see that we have several labels for each image and that we can model each outcome with the same set of features.](../images/cartoon_features.gif){#fig-cartoon-label-gif}
+![Two cartoon images with the same patches used in the convolution step. We see that we have several labels for each image and that we can model each outcome with the same set of features.](../../images/cartoon_features.gif){#fig-cartoon-label-gif}
 
 If Image 1 has more trees than Image 2, the “forest” feature’s value is higher in Image 1. If Image 2 has more roads, its “road” feature will be higher. Because these features each capture a different (random) spatial pattern, we can then combine them for many downstream prediction tasks—whether it’s predicting tree cover, paved roads, or even something else that correlates with these visual patterns.
 
-![A cartoon image projected into random feature space. If we look at just 2 dimensions, how grey on the x-axis and how green on the y-axis, we can find the vector through this feature space which represents our outcome.](../images/cartoon_vectors.gif){#fig-cartoon-vect-video}
+![A cartoon image projected into random feature space. If we look at just 2 dimensions, how grey on the x-axis and how green on the y-axis, we can find the vector through this feature space which represents our outcome.](../../images/cartoon_vectors.gif){#fig-cartoon-vect-video}
 
 ---
 
@@ -160,13 +160,13 @@ If Image 1 has more trees than Image 2, the “forest” feature’s value is hi
 
 To appreciate RCFs, let’s contrast them with traditional CNNs. In a standard CNN, filters are learned via *backpropagation*. The network sees many examples, calculates errors, and updates the filter weights so that over time they become good at extracting *task-specific* features. This makes CNNs powerful, but only for what they have been trained to do.
 
-![A simplified diagram showing a typical convolutional neural network model architecture.](../images/CNN.jpg){#fig-CNN}
+![A simplified diagram showing a typical convolutional neural network model architecture.](../../images/CNN.jpg){#fig-CNN}
 
 ### Replacing minimization with randomization in learning
 
 MOSAIKS takes a radically simpler approach: *random* filters are used to sample the imagery’s information. Because they are random, they are not “tailored” to any one task. This sounds counterintuitive at first—surely you’d want to *learn* your filters! But the virtue of randomization is speed and *broad* applicability. Since no training is required to set these filters, we can produce features at planet-scale *very* quickly. These features can then be shared with many users, each of whom can apply them to their own predictive tasks (e.g., estimating forest cover, housing density, crop yields, etc.).
 
-![[Rolf et al. 2021 Figure 1](https://www.nature.com/articles/s41467-021-24638-z/figures/1): MOSAIKS is designed to solve an unlimited number of tasks at planet-scale quickly. After a one-time unsupervised image featurization using random convolutional features, MOSAIKS centrally stores and distributes task-agnostic features to users, each of whom generates predictions in a new context.](../images/rolf_et_al_2021-Fig_1.jpg){#fig-Rolf-et-al-2021-Fig-1}
+![[Rolf et al. 2021 Figure 1](https://www.nature.com/articles/s41467-021-24638-z/figures/1): MOSAIKS is designed to solve an unlimited number of tasks at planet-scale quickly. After a one-time unsupervised image featurization using random convolutional features, MOSAIKS centrally stores and distributes task-agnostic features to users, each of whom generates predictions in a new context.](../../images/rolf_et_al_2021-Fig_1.jpg){#fig-Rolf-et-al-2021-Fig-1}
 
 ---
 

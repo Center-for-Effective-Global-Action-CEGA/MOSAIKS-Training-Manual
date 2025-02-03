@@ -1,0 +1,13 @@
+---
+lang: fr
+---
+# Quantification de l'incertitude {#sec-responsible-uncertainty}
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("draft")
+```
+

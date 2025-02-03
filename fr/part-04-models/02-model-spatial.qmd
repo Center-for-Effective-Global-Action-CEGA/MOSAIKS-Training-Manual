@@ -1,0 +1,42 @@
+---
+lang: fr
+---
+# Parcourir l'espace {#sec-model-space}
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("draft")
+```
+
+## Étiqueter la super-résolution
+
+- Exemple HDI
+
+## Extrapolation spatiale 
+
+- Exemple ASM (prédire les mines dans de nouveaux pays)
+- passer en revue l'espace des fonctionnalités et montrer une dimension réduite
+- Convergence des pays vs divergence dans les étiquettes
+
+::: {.callout-note}
+# Click the badge to run the demo in Google Colab!
+
+&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;  
+[![Ouvrir Dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/09-model_asm_demo.ipynb)  
+
+N'oubliez pas de cliquer `File -> Save a copy in Drive` pour enregistrer toutes les modifications que vous apportez.
+:::
+
+## Interpolation spatiale
+
+- combler les lacunes à partir des données d'enquête.par exemple, par exempleVous avez des données de population pour certaines zones mais pas toutes.
+
+::: {.callout-note}
+# Suivant
+
+Dans le chapitre suivant, 
+:::
+

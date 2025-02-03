@@ -12,7 +12,7 @@ status("review")
 
 MOSAIKS is a designed to be useful for predicting anything that may be visible in satellite imagery. Some things are easier to predict than others, but the system is designed to be flexible. For instance, some variables can be seen directly in the imagery itself, such as forest cover, which clearly emits a visible green signal. Other outcomes can only be predicted through indirect relationships between imagery data and labels. For example, income and housing price are not themselves directly visible in raw imagery, but their values can be reliably estimated from objects (e.g., cars), textures (e.g., roofing material), and colors (e.g., grey road infrastructure) contained within the imagery. 
 
-![MOSAIKS versatility makes it the perfect tool for a wide range of applications.](../images/army_knife.png){#fig-army-knife width="300px"}
+![MOSAIKS versatility makes it the perfect tool for a wide range of applications.](../../images/army_knife.png){#fig-army-knife width="300px"}
 
 In this chapter we will discuss a new working paper (Proctor et al., *in prep.*) that explores the question of what can and cannot be reliably predicted from satellite imagery using MOSAIKS. This paper investigates over 100 different outcomes, reporting predictive performance for each using MOSAIKS. We will discuss the results of a selection of these outcomes in detail, and provide a brief overview of the rest. Of course, this list of outcomes is not exhaustive and reported performance can differ substantially across contexts and in particular with varying quality of ground truth data. We show these results as an initial investigation of what might be possible with SIML using MOSAIKS, but encourage users to conduct their own experiments as resulst are likely to differ in new settings. The pre-print of Proctor et al. will be posted here when publicly available. 
 
@@ -28,7 +28,7 @@ To test the global applicability of MOSAIKS, across a diverse set of outcomes, t
 
 **1.** The creation of a global set of features 
 
-![Planet Labs visual basemap imagery from quarter 3 of 2019 (left) and 4 of 4,000 MOSAIKS features downloaded from the API (right).](../images/api-features.png){#fig-api-features}
+![Planet Labs visual basemap imagery from quarter 3 of 2019 (left) and 4 of 4,000 MOSAIKS features downloaded from the API (right).](../../images/api-features.png){#fig-api-features}
 
 **2.** Collecting and curating a large set of outcomes with diversity in spatial structures and categories
 
@@ -68,11 +68,11 @@ A few broad insights stand out:
 
 1. **Failure cases:** A few outcomes show near-random performance, suggesting that the satellite imagery features alone are insufficient to capture their spatial patterns, or that the signals are drowned out by noise (see Failures below).
 
-![The results of the 100 maps experiment with the x-axis shows the observed values of the outcome, while the y-axis shows the predicted values. Each point in each scatter is a location from the study. The diagonal line (45°) represents perfect prediction. Performance is measured with the coefficient of determination (R²).](../images/proctor_et_al_100_fig3_scatter.png){#fig-100-maps-scatter}
+![The results of the 100 maps experiment with the x-axis shows the observed values of the outcome, while the y-axis shows the predicted values. Each point in each scatter is a location from the study. The diagonal line (45°) represents perfect prediction. Performance is measured with the coefficient of determination (R²).](../../images/proctor_et_al_100_fig3_scatter.png){#fig-100-maps-scatter}
 
 In the box plot (@fig-100-maps-box) we see the distribution of R² values for each category across all 115 labels. This confirms the wide range of performance. Categories such as “Agriculture,” “Income,” and “Natural Systems” tend to have higher median R² values; categories such as “Health” and “Occupation” show more varied or lower overall performance.
 
-![The results of the 100 maps experiment.](../images/proctor_et_al_100_fig3_box.png){#fig-100-maps-box}
+![The results of the 100 maps experiment.](../../images/proctor_et_al_100_fig3_box.png){#fig-100-maps-box}
 
 This heterogeneity underscores an important takeaway: MOSAIKS is not a one-size-fits-all solution. Some phenomena lend themselves to easier detection via satellite data than others. Still, the ability to simultaneously handle over 100 different outcomes from a single feature set is itself a testament to MOSAIKS’ flexibility and global applicability.
 
@@ -96,13 +96,13 @@ A standout example of a high-performing label is Maize yield (@fig-100-maps-maiz
 
 In the left-hand scatter plot of @fig-100-maps-maize-plot, the predicted yield values match well with the observed values, often clustering along the 45° line. On the right, we see that visually identifiable patterns in maize-growing regions are clearly reflected in the predicted maps. This strong alignment highlights how MOSAIKS can quickly yield robust predictions for outcomes that are clearly manifested in the satellite imagery.
 
-![Performance of MOSAIKS on Maize yield, showing the observed values plotted against the model predictions (left). Observed label data is shown in the upper right, while the corresponding predictions are shown bottom right.](../images/proctor_et_al_100_maize_plot.png){#fig-100-maps-maize-plot}
+![Performance of MOSAIKS on Maize yield, showing the observed values plotted against the model predictions (left). Observed label data is shown in the upper right, while the corresponding predictions are shown bottom right.](../../images/proctor_et_al_100_maize_plot.png){#fig-100-maps-maize-plot}
 
 ##### Why it works
 
 Crop yields are a classic use case for remote sensing because farmland is often large, geographically dispersed, and subject to rapid changes from weather and management practices—conditions that satellite imagery can routinely monitor at scale. By measuring vegetation indices (e.g., NDVI, EVI), researchers gain insight into plant health, canopy density, and photosynthetic activity, all of which correlate strongly with agricultural productivity. This non-invasive, timely, and spatially comprehensive approach makes it invaluable for crop forecasting, detecting stress, and guiding resource allocation. Consequently, remote sensing has become a cornerstone in modern yield estimation methods for staple crops around the world. MOSAIKS is a natural extension of this trend, leveraging the latest in machine learning to extract actionable insights from satellite imagery.
 
-![Agricultural fields in the United States Midwest region. This examples shows the clear delineation of fields with varying color intensities, making for easily detectable features in the satellite imagery. Source: NASA](../images/crop_fields_NASA.jpeg){#fig-100-maps-maize-img}
+![Agricultural fields in the United States Midwest region. This examples shows the clear delineation of fields with varying color intensities, making for easily detectable features in the satellite imagery. Source: NASA](../../images/crop_fields_NASA.jpeg){#fig-100-maps-maize-img}
 
 #### International wealth index (IWI)
 
@@ -114,7 +114,7 @@ The International Wealth Index data comes from the Demographic and Health Survey
 
 Another notable success is the International Wealth Index (IWI; @fig-100-maps-iwi-plot). This composite measure of household wealth is derived from a variety of indicators, such as housing quality, access to services, and ownership of durable goods. While wealth itself is not directly visible from space, the underlying factors that contribute to it often are. For example, wealthier areas tend to have more developed infrastructure, larger homes, and more vehicles—all of which leave distinct signatures in satellite imagery.
 
-![Performance of MOSAIKS on the International Wealth Index (IWI), showing the observed values plotted against the model predictions (left). Observed label data is shown in the upper right, while the corresponding predictions are shown bottom right.](../images/proctor_et_al_100_iwi_plot.png){#fig-100-maps-iwi-plot} 
+![Performance of MOSAIKS on the International Wealth Index (IWI), showing the observed values plotted against the model predictions (left). Observed label data is shown in the upper right, while the corresponding predictions are shown bottom right.](../../images/proctor_et_al_100_iwi_plot.png){#fig-100-maps-iwi-plot} 
 
 ##### Why it works
 
@@ -136,7 +136,7 @@ The pipeline data comes from the Energy Information Association (EIA) and includ
 
 Certain labels show extremely low R² values, effectively indicating no predictive power under this approach. One notable example is the presence of underground pipelines @fig-100-maps-pipelines-plot.
 
-![Where it fails](../images/proctor_et_al_100_pipelines_plot.png){#fig-100-maps-pipelines-plot}
+![Where it fails](../../images/proctor_et_al_100_pipelines_plot.png){#fig-100-maps-pipelines-plot}
 
 ##### Why it fails
 
@@ -150,7 +150,7 @@ Unlike forests or agricultural fields, pipeline infrastructure is typically hidd
 
 As a result, MOSAIKS has little chance to identify and learn features predictive of such hidden infrastructure. This stands in stark contrast to more visually prominent targets like maize fields or tree cover.
 
-![Why it fails - buried](../images/proctor_et_al_100_pipelines_img.png){#fig-100-maps-pipelines-img}
+![Why it fails - buried](../../images/proctor_et_al_100_pipelines_img.png){#fig-100-maps-pipelines-img}
 
 #### Bee diversity
 
@@ -189,7 +189,7 @@ Continuous variables take numeric values along a spectrum, such as:
 
 For continuous variables, MOSAIKS typically uses regression approaches and evaluates performance using metrics like R² (coefficient of determination) or RMSE (root mean square error). The R² values reported throughout this chapter indicate the proportion of variance in the outcome that is explained by the MOSAIKS predictions.
 
-![Continuous variable example showing the breeding bird species diversity over the continental United States](../images/proctor_et_al_100_breeding_birds_plot.png){#fig-100-maps-birds-plot}
+![Continuous variable example showing the breeding bird species diversity over the continental United States](../../images/proctor_et_al_100_breeding_birds_plot.png){#fig-100-maps-birds-plot}
 
 ### Categorical variables
 
@@ -210,7 +210,7 @@ For categorical variables, MOSAIKS can be used in two ways:
    - Output probabilities for each possible category that sum to 1
    - Convert categories to numeric values if they have a natural ordering
 
-![Classifier example showing Ecoregions of the world.](../images/proctor_et_al_100_ecoregions_comparison.jpg){#fig-ecoregions-comparison}
+![Classifier example showing Ecoregions of the world.](../../images/proctor_et_al_100_ecoregions_comparison.jpg){#fig-ecoregions-comparison}
 
 ### Choosing appropriate metrics
 

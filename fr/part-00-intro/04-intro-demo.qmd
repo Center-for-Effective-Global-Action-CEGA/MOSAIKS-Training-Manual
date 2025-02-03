@@ -3,17 +3,17 @@ lang: fr
 ---
 # Essayer MOSAIKS {#sec-intro-demo}
 
-```{r}
+<!-- ```{r}
 #| echo: false
 #| results: "asis"
 
 source("../../_common.R")
 status("testing")
-```
+``` -->
 
 ## Aperçu
 
-Cette démo reproduit les résultats clés de la publication originale des Mosaiks (Rolf et al. 2021).Alors que Mosaiks a un grand potentiel pour améliorer l'accès à la prédiction par satellite dans des environnements séparés de données, l'article d'origine s'est concentré sur la démonstration de performances aux États-Unis où des données de formation de haute qualité étaient facilement disponibles.
+Cette démo reproduit les résultats clés de la publication originale de MOSAIKS (Rolf et al. 2021). Alors que MOSAIKS a un grand potentiel pour améliorer l'accès à la prédiction par satellite dans des régions avec de faibles données, l'article d'origine s'est concentré sur la démonstration de performances aux États-Unis où des données d'entraînement de haute qualité étaient facilement disponibles.
 
 Les États-Unis ont servi de terrain d'essai idéal pour plusieurs raisons:
 
@@ -23,64 +23,64 @@ Les États-Unis ont servi de terrain d'essai idéal pour plusieurs raisons:
 - Capacité à comparer les méthodes existantes
 - Validation systématique des prédictions
 
-Cette validation dans un environnement riche en données était cruciale pour établir des Mosaiks comme un outil fiable avant de les déployer dans des contextes où les données de vérité au sol sont rares ou peu fiables. 
+Cette validation dans un environnement riche en données était cruciale pour établir des MOSAIKS comme un outil fiable avant de les déployer dans des contextes où les données de vérité au sol sont rares ou peu fiables. 
 
 ## code de démonstration
 
 ### Workflow
 
-Vous trouverez ci-dessous un lien vers un cahier de jupyter destiné à démontrer l'utilisation pratique des mosaïques avec des données réelles.En fait, ce cahier utilise les données d'entrée et les fonctionnalités d'origine de Rolf et al.2021. Le code démontre:
+Vous trouverez ci-dessous un lien vers un Jupyter Notebook destiné à démontrer l'utilisation pratique des mosaïques avec des données réelles.En fait, ce notebook utilise les données d'entrée et les features d'origine de Rolf et al.2021. Le code démontre:
 
-1. Chargement des fonctionnalités et étiquettes de Mosaiks pré-calculés
-2. Fusion des fonctionnalités et des étiquettes
+1. Chargement des fonctionnalités et étiquettes de MOSAIKS pré-calculés
+2. Fusion des features et des étiquettes
 3. Formation d'un modèle de régression de la crête
 4. Évaluation des prédictions
 5. Visualiser les résultats
 
 ### Données d'étiquette
 
-La démo présente des Mosaiks prédisant plusieurs variables et avec un sous-ensemble des données utilisées dans le papier d'origine.Les variables incluent:
+La démo présente MOSAIKS prédisant plusieurs variables et avec un sous-ensemble des données utilisées dans le papier d'origine. Les variables incluent:
 
 ::: {.panel-tabset}
 
 ## Cover Forest
 
-![Données d'entrée de la couverture forestière (à gauche) de Global Land Analysis & Discover (GLAD) [Global 2010 Tree Cover (30 m)](https://glad.umd.edu/dataset/global-2010-tree-cover-30-m)](../ images / f2_tree_cover.jpg) {#fig-forest-cover}
+![Données d'entrée de la couverture forestière (à gauche) de Global Land Analysis & Discover (GLAD) [Global 2010 Tree Cover (30 m)](https://glad.umd.edu/dataset/global-2010-tree-cover-30-m)](../../images/f2_tree_cover.jpg){#fig-forest-cover}
 
 ## Élévation
 
-![Données d'entrée d'altitude (à gauche) fournies par Mapzen, et accessible via le service de carreaux de terrain Amazon Web Services (AWS).Le code de téléchargement peut être trouvé [ici](https://www.github.com/jhollist/elevatr).](../Images/f2_elevation.jpg) {#fig-elevation}
+![Données d'entrée d'altitude (à gauche) fournies par Mapzen, et accessible via le service de carreaux de terrain Amazon Web Services (AWS). Le code de téléchargement peut être trouvé [ici](https://www.github.com/jhollist/elevatr).](../../images/f2_elevation.jpg){#fig-elevation}
 
-## densité de population
+## Densité de population
 
-![Données d'entrée de densité de population (à gauche) de l'ensemble de données Gridded Population of the World (GPW).Ces données sont accessibles [ici](http://sedac.ciesin.columbia.edu/data/collection/gpw-v4).](../Images/f2_population.jpg) {#fig-population}
+![Données d'entrée de densité de population (à gauche) de l'ensemble de données Gridded Population of the World (GPW).Ces données sont accessibles [ici](http://sedac.ciesin.columbia.edu/data/collection/gpw-v4).](../../images/f2_population.jpg){#fig-population}
 
 ## Lumières nocturnes
 
-![Nighttime Lights Luminosité Données d'entrée (à gauche) générées par l'imagerie satellite nocturne, qui est fournie par le groupe d'observations de la Terre à la National Oceanic and Atmospheric Administration (NOAA) et au National Geophysical Data Center (NGDC).Ces données sont accessibles [ici](https://eogdata.mines.edu/products/vnl/).](../Images/f2_night_light.jpg) {#fig-night-lights}
+![Nighttime Lights Luminosité Données d'entrée (à gauche) générées par l'imagerie satellite nocturne, qui est fournie par le groupe d'observations de la Terre à la National Oceanic and Atmospheric Administration (NOAA) et au National Geophysical Data Center (NGDC).Ces données sont accessibles [ici](https://eogdata.mines.edu/products/vnl/).](../../images/f2_night_lights.jpg){#fig-night-lights}
 
 ## Revenu
 
-![Données sur l'apport de revenus (à gauche) de l'American Community Survey (ACS) Estimations à 5 ans du revenu annuel médian des ménages en 2015. Ces données sont accessibles à l'aide du [package ACS](https://cran.r-project.org/web/packages/acs/acs.pdf) Dans R (48), numéro de tableau B19013](../ images / f2_income.jpg) {#fig-income}
+![Données sur l'apport de revenus (à gauche) de l'American Community Survey (ACS) Estimations à 5 ans du revenu annuel médian des ménages en 2015. Ces données sont accessibles à l'aide du [package ACS](https://cran.r-project.org/web/packages/acs/acs.pdf) Dans R (48), numéro de tableau B19013](../../images/f2_income.jpg){#fig-income}
 
-## la longueur de la route
+## La longueur des routes
 
-![Données d'entrée de la longueur des routes (à gauche) de l'ensemble de données national des transports du United States Geological Survey (USGS), qui est basé sur les données Tiger / Line fournies par le Bureau du recensement américain en 2016. Ces données sont accessibles [ici](https: //prd-tnm.s3.amazonaws.com/index.html?prefix=stagedProducts/tran/shape/).](../images/f2_road_length.jpg){#fig-road-length}
+![Données d'entrée de la longueur des routes (à gauche) de l'ensemble de données national des transports du United States Geological Survey (USGS), qui est basé sur les données Tiger / Line fournies par le Bureau du recensement américain en 2016. Ces données sont accessibles [ici](https: //prd-tnm.s3.amazonaws.com/index.html?prefix=stagedProducts/tran/shape/).](../../images/f2_road_length.jpg){#fig-road-length}
 
 :::
 
 Un utilisateur doit simplement sélectionner la variable qu'il souhaite prévoir, et aucune autre modification ne doit être apportée au code.Toutes les données ont été prétraitées et le code téléchargera les fichiers nécessaires à partir de Zenodo.
 
-### contraintes
+### Contraintes
 
-Pour rester dans les limites de niveau libre de la mémoire COLAB, nous sous-ensembles les données.Nous prenons un échantillon aléatoire de 50% des deux fonctionnalités (* k * = 4 000 au lieu de 8 192) et des observations (* n * = 50 000 au lieu de 100 000) par rapport au papier d'origine.Malgré l'utilisation de cet ensemble de données réduit, la démo obtient toujours de fortes performances prédictives, mettant en évidence l'efficacité de Mosaiks.
+Pour rester dans les limites de niveau libre de la mémoire Colab, nous sous-ensembles les données.Nous prenons un échantillon aléatoire de 50% des deux fonctionnalités (*K*=4000 au lieu de 8192) et des observations (*N*=50000 au lieu de 100000) par rapport au papier d'origine. Malgré l'utilisation de cet ensemble de données réduit, la démo obtient toujours de fortes performances prédictives, mettant en évidence l'efficacité de MOSAIKS.
 
 ## Exécutez le code!
 
-::: {.Callout-note}
+::: {.callout-note}
 # Cliquez sur l'insigne pour exécuter la démonstration! 
 
-&darr; &darr; &darr; &darr; &darr; &darr; &darr; &darr; &darr; &darr; &darr; &darr; &darr; &darr; &darr; &darr;   
+&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;   
 [![Ouvrir dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/01-Rolf_et_al_2021_demo.ipynb)  
 N'oubliez pas de cliquer sur `Fichier` -> `Enregistrez une copie dans Drive` pour enregistrer toutes les modifications que vous apportez.  
 ---
@@ -88,7 +88,7 @@ Ou pour afficher une version statique du code sur GitHub, cliquez sur l'insigne 
 [![](https://img.shields.io/badge/view%20on%20github-181717?logo=github&logocolor=white&labelcolor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/01-Rolf_et_al_2021_demo.ipynb)
 :::
 
-Pour les instructions et les conseils sur l'utilisation de Google Colab, veuillez vous référer à @sec-intro-Compute. 
+Pour les instructions et les conseils sur l'utilisation de Google Colab, veuillez vous référer à @sec-intro-compute. 
 
 ## Vous ne voulez pas exécuter de code?
 
@@ -96,17 +96,15 @@ Pensez plutôt à regarder cette démonstration!
 
 ::: {#fig-demo}
 
-{{< video https://www.youtube.com/embed/ux2c-ot3ce0?si=oalkj-4msjn5hnch >}}
+{{< video https://www.youtube.com/embed/ux2c-ot3Ce0?si=Oalkj-4MsJN5hNCh >}}
 
-Un aperçu des Mosaiks et une démonstration en direct de la génération de nouvelles prédictions à l'aide du système.Vidéo enregistrée par la télédétection planétaire généralisée cigare - Session de convention 2020.Présenté par Esther Rolf et Tamma Carleton.
+Un aperçu des MOSAIKS et une démonstration en direct de la génération de nouvelles prédictions à l'aide du système.Vidéo enregistrée par la télédétection planétaire généralisée cigare - Session de convention 2020.Présenté par Esther Rolf et Tamma Carleton.
 :::
 
 ## Quelle est la prochaine étape? 
 
-Après avoir établi les capacités de Mosaiks dans le contexte américain, l'équipe de développement de Mosaiks a réussi à démontrer le système dans de nombreux contextes supplémentaires.Cela inclut à l'échelle globale ou dans les paramètres avec des données de qualité inférieure ou de faible qualité.Dans les prochains chapitres, nous explorerons certaines de ces applications, montrant comment les Mosaiks peuvent aider à combler les lacunes de données dans les régions où la collecte traditionnelle des données est difficile ou coûteuse.
+Après avoir établi les capacités de MOSAIKS dans le contexte américain, l'équipe de développement de MOSAIKS a réussi à démontrer le système dans de nombreux contextes supplémentaires. Cela inclut à l'échelle globale ou dans les paramètres avec des données de qualité inférieure ou de faible qualité.Dans les prochains chapitres, nous explorerons certaines de ces applications, montrant comment les MOSAIKS peuvent aider à combler les lacunes de données dans les régions où la collecte traditionnelle des données est difficile ou coûteuse.
 
-::: {.Callout-note}
-# Avoir hâte de
-
-Dans la section suivante, nous examinerons de plus près les données d'étiquette qui peuvent être utilisées avec Mosaiks. 
+::: {.callout-note}
+Dans la section suivante, nous examinerons de plus près les données d'étiquette qui peuvent être utilisées avec MOSAIKS. 
 :::

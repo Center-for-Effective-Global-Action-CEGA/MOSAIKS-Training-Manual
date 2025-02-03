@@ -21,7 +21,7 @@ Before jumping into the details, it is important to emphasize that **all modelin
 
 This ensures that you have separate, unbiased datasets for both model tuning and final performance evaluation.  
 
-![Train/validation and test splits shown for a standard 5-fold cross validation procedure.](../images/kfold_cv_split.png){#fig-train-val-test-splits}
+![Train/validation and test splits shown for a standard 5-fold cross validation procedure.](../../images/kfold_cv_split.png){#fig-train-val-test-splits}
 
 ## Continuous labels
 
@@ -117,7 +117,7 @@ Some applications require predicting multiple categories (e.g., land cover types
 2. **Multinomial (softmax) regression**: A single model to predict probabilities across all classes simultaneously.  
 3. **Ordinal regression**: For predicting ordered categories (e.g., mild, moderate, severe damage).
 
-![Example of multiclass classification](../images/proctor_et_al_100_ecoregions_comparison.jpg){#fig-multiclass-classification}
+![Example of multiclass classification](../../images/proctor_et_al_100_ecoregions_comparison.jpg){#fig-multiclass-classification}
 
 ### Evaluation metrics
 

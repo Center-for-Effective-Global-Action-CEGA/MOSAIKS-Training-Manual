@@ -47,15 +47,15 @@ The MOSAIKS API is a user-friendly interface that allows you to download feature
 
 Visit [api.mosaiks.org](https://api.mosaiks.org/).
 
-![Login page for the MOSAIKS API.](../images/api-home.png){#fig-api-login}
+![Login page for the MOSAIKS API.](../../images/api-home.png){#fig-api-login}
 
 Select `Register` to create an account. You will need to provide a username, an email, and a password.
 
-![Registration page for the MOSAIKS API.](../images/api-register.png){#fig-api-register}
+![Registration page for the MOSAIKS API.](../../images/api-register.png){#fig-api-register}
 
 Once registered, you can log in to begin downloading MOSAIKS features.
 
-![MOSAIKS API landing page.](../images/api-landing.png){#fig-api-landing}
+![MOSAIKS API landing page.](../../images/api-landing.png){#fig-api-landing}
 
 ### API resources
 
@@ -88,7 +88,7 @@ The API features use input imagery from Planet Labs, Inc. [Visual Basemap](https
 
 Given the static nature of the API, the easiest way to get started with MOSAIKS is to have label data for a recent time period (ideally from 2019 for fast changing labels, or a close year for more steady labels). 
 
-![Planet Labs basemap imagery (left) and 4 of 4,000 MOSAIKS features downloaded from the API (right).](../images/api-features.png){#fig-api-features}
+![Planet Labs basemap imagery (left) and 4 of 4,000 MOSAIKS features downloaded from the API (right).](../../images/api-features.png){#fig-api-features}
 
 ::: {.callout-note}
 Using MOSAIKS for time series data is possible and can work well, however this currently requires computing your own custom features. See @sec-features-computing and @sec-model-time for more information.
@@ -117,7 +117,7 @@ When you download the high resolution features (0.01 degree), you will receive t
 - The system displays an estimated number of records for each box
 - Note that estimates are based on box area and may not reflect actual record numbers, especially for areas containing seas and oceans
 
-![MOSAIKS API Map Query page.](../images/api-map-query.png){#fig-api-map}
+![MOSAIKS API Map Query page.](../../images/api-map-query.png){#fig-api-map}
 
 ::: {.callout-tip}
 Use [geojson.io](https://geojson.io/#new&map=2/0/20) to find the bounding box coordinates for your area of interest.
@@ -131,13 +131,13 @@ Use [geojson.io](https://geojson.io/#new&map=2/0/20) to find the bounding box co
 - The output file may have a different number of rows than your input
 - Point ordering may change in the output
 
-![API File Query](../images/api-file-query.png){#fig-api-queries}
+![API File Query](../../images/api-file-query.png){#fig-api-queries}
 
 ### Aggregated features
 
 Many users may find it easier to work with features aggregated to some level. The MOSAIKS API offers pre-aggregated features to accommodate these needs. The API offers several levels, including larger grid cells (0.1 and 1 degree) or summarized to administrative boundaries (ADM0, ADM1, and ADM2). These files are available for download as either single or chunked files depending on the resolution.
 
-![Example showing of 3 representative random convolutional features (rows). Features are downloaded from the MOSAIKS API at 0.01° resolution (the native resolution) and aggregated to 3 levels, including (A) larger grid cells (0.1°), (B) counties, and (C) states.](../images/US_feature_summaries.png){#fig-api-aggregated}
+![Example showing of 3 representative random convolutional features (rows). Features are downloaded from the MOSAIKS API at 0.01° resolution (the native resolution) and aggregated to 3 levels, including (A) larger grid cells (0.1°), (B) counties, and (C) states.](../../images/US_feature_summaries.png){#fig-api-aggregated}
 
 #### Weighting schemes
 
@@ -177,7 +177,7 @@ Basic workflow:
 
 You can experiment with various machine learning approaches in the regression step. For beginners, we recommend starting with our example Jupyter notebook (@sec-intro-demo) that demonstrates a simple ridge regression approach (suitable for both R and Python users).
 
-![Using MOSAIKS, a simplified workflow design.](../images/mosaiks-overview.png){#fig-mosaiks-flow}
+![Using MOSAIKS, a simplified workflow design.](../../images/mosaiks-overview.png){#fig-mosaiks-flow}
 
 This topic will be covered in greater depth in later chapters (see @sec-model-choice). In the next chapter, you will see a simple MOSAIKS workflow which replicates the results of Rolf et al. 2021. 
 

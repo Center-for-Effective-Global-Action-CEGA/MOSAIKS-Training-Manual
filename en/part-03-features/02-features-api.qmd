@@ -56,7 +56,7 @@ The MOSAIKS team performed a **single featurization pass** over the Planet Labs 
    - Combining all filters yields a **4,000-dimensional** vector at each 0.01° grid cell.  
    - This entire process was run **once**, creating a global 0.01° “feature layer.”
 
-![Three randomly generated feature activation maps plotted from the [Planet Labs Basemap](https://www.planet.com/products/basemap/) thumbnail image.](../images/RCF_patch_sampling_activation_maps_world.png){#fig-rcf-world-simple}
+![Three randomly generated feature activation maps plotted from the [Planet Labs Basemap](https://www.planet.com/products/basemap/) thumbnail image.](../../images/RCF_patch_sampling_activation_maps_world.png){#fig-rcf-world-simple}
 
 ---
 
@@ -77,7 +77,7 @@ Although the API stores and provides these features at 0.01° resolution, it als
 
 It is nice to have options, but sometimes it is hard to visualize what these aggregations mean. @fig-feature-aggregation shows how these features might look when aggregated to different levels. 
 
-![Example showing of 3 representative random convolutional features (rows). Features are downloaded from the MOSAIKS API at 0.01° resolution (the native resolution) and aggregated to 3 levels, including (A) larger grid cells (0.1°), (B) counties, and (C) states.](../images/US_feature_summaries.png){#fig-feature-aggregation}
+![Example showing of 3 representative random convolutional features (rows). Features are downloaded from the MOSAIKS API at 0.01° resolution (the native resolution) and aggregated to 3 levels, including (A) larger grid cells (0.1°), (B) counties, and (C) states.](../../images/US_feature_summaries.png){#fig-feature-aggregation}
 
 ### Area vs. Population Weighting
 
@@ -99,7 +99,7 @@ Each aggregated level comes in two weighting flavors:
 
 4. **High-Resolution or Household Data**: For fine-grained tasks (e.g., household surveys), you may still benefit from the 0.01° resolution features—especially if you want to capture local variation. Or you can aggregate to match your label geometry and then **use high-resolution features for prediction** later (see [@sec-model-space]).
 
-![Global Human Development Index (HDI) data at the first sub-national level of administrative division (ADM1). Source: [Smits & Permanyer 2019](https://www.nature.com/articles/sdata201938).](../images/smits_and_permanyer_2019_HDI.png){#fig-hdi}
+![Global Human Development Index (HDI) data at the first sub-national level of administrative division (ADM1). Source: [Smits & Permanyer 2019](https://www.nature.com/articles/sdata201938).](../../images/smits_and_permanyer_2019_HDI.png){#fig-hdi}
 
 ---
 
@@ -144,7 +144,7 @@ In the next section, we will
 
 <!-- - Default parameters
 
-![Planet Labs basemap imagery (left) and 4 of 4,000 MOSAIKS features downloaded from the API (right).](../images/api-features.png)
+![Planet Labs basemap imagery (left) and 4 of 4,000 MOSAIKS features downloaded from the API (right).](../../images/api-features.png)
 
 ## Feature data
 
@@ -166,7 +166,7 @@ Features can be computed at higher or lower resolutions than 1 km². This is dis
 
 The default 1 km² resolution of MOSAIKS is generally the maximum resolution the label data should be in. If the labels are in lower resolution, the satellite features can be aggregated up to larger areas to match. Typical aggregation might be to larger grid cell, census tract, county/district, or state/province levels. The exact aggregation level is contingent on the spatial resolution of the label data. 
 
-![Example showing of 3 representative random convolutional features (rows). Features are downloaded from the MOSAIKS API at 0.01° resolution (the native resolution) and aggregated to 3 levels, including (A) larger grid cells (0.1°), (B) counties, and (C) states.](../images/US_feature_summaries.png){#fig-feature-aggregation}
+![Example showing of 3 representative random convolutional features (rows). Features are downloaded from the MOSAIKS API at 0.01° resolution (the native resolution) and aggregated to 3 levels, including (A) larger grid cells (0.1°), (B) counties, and (C) states.](../../images/US_feature_summaries.png){#fig-feature-aggregation}
 
 ### API Features 
 
