@@ -8,25 +8,18 @@ lang: fr
 #| results: "asis"
 
 source("../../_common.R")
-status("draft")
+status("draft_fr")
 ```
 
 ## Plan de section
 
-Les chapitres suivants vous guideront à travers des aspects clés des tâches de modélisation dans le cadre Mosaiks:
+Les chapitres suivants vous guideront à travers des aspects clés des tâches de modélisation dans le cadre MOSAIKS:
 
 | Chapitre | Sujets clés |
 |---------|:-----------|
-| @sec-model-choice |Sélection de l'algorithme, réglage hyperparamètre |
+| @sec-model-choice |Sélection de l'algorithme, choix des hyperparamètres |
 | @sec-model-space |Validation croisée spatiale, généralisation géographique |
 | @sec-model-time | Analyse des séries chronologiques, alignement temporel |
 
 : Aperçu de la section de modélisation {.striped .hover}
 
-Ces chapitres fournissent
-
-::: {.callout-note}
-# Suivant
-
-Le prochain chapitre 
-:::

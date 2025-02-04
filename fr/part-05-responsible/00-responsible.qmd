@@ -8,7 +8,7 @@ lang: fr
 #| results: "asis"
 
 source("../../_common.R")
-status("draft")
+status("draft_fr")
 ```
 
 ## Plan de section
@@ -22,6 +22,3 @@ Les chapitres suivants discuteront des aspects importants de l'incertitude et de
 | @sec-responsible-demo | Démontrant comment les mosaiks peuvent être utilisés pour caractériser l'incertitude |
 
 : Aperçu de la section d'incertitude {#tbl-section-outline .striped .hover}
-
-Ces chapitres fournissent 
-

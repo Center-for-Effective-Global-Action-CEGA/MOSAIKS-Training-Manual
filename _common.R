@@ -30,6 +30,7 @@ ggplot2::theme_set(ggplot2::theme_gray(12))
 status <- function(type) {
     status <- switch(type,
         draft = "is in early draft form and may be incomplete",
+        draft_fr = "est en cours de construction et peut être incomplet",
         review = "is under review and may need revisions",
         testing = "needs testing with real users",
         complete = "is complete and ready for use",
@@ -41,6 +42,7 @@ status <- function(type) {
 
     class <- switch(type,
         draft = "warning",
+        draft_fr = "warning",
         review = "note",
         testing = "important",
         complete = "tip"
@@ -51,7 +53,7 @@ status <- function(type) {
             "\n",
             ":::: status\n",
             "::: callout-", class, " \n",
-            "This chapter ", status, ".\n",
+            ifelse(strsplit(type, '_')[[1]][2] == 'fr', "Ce chapitre ", "This chapter "), status, ".\n",
             ":::\n",
             "::::\n"
         )

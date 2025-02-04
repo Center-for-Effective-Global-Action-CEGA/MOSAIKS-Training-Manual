@@ -8,7 +8,7 @@ lang: fr
 #| results: "asis"
 
 source("../../_common.R")
-status("draft")
+status("draft_fr")
 ```
 
 ## Étiqueter la super-résolution
@@ -18,8 +18,8 @@ status("draft")
 ## Extrapolation spatiale 
 
 - Exemple ASM (prédire les mines dans de nouveaux pays)
-- passer en revue l'espace des fonctionnalités et montrer une dimension réduite
-- Convergence des pays vs divergence dans les étiquettes
+- Passer en revue l'espace des features et montrer une dimension réduite
+    - Convergence des pays vs divergence dans les étiquettes
 
 ::: {.callout-note}
 # Click the badge to run the demo in Google Colab!
@@ -32,11 +32,5 @@ N'oubliez pas de cliquer `File -> Save a copy in Drive` pour enregistrer toutes 
 
 ## Interpolation spatiale
 
-- combler les lacunes à partir des données d'enquête.par exemple, par exempleVous avez des données de population pour certaines zones mais pas toutes.
-
-::: {.callout-note}
-# Suivant
-
-Dans le chapitre suivant, 
-:::
+- Combler les lacunes à partir des données d'enquête. Par exemple vous avez des données de population pour certaines zones mais pas toutes.
 
