@@ -81,11 +81,11 @@ Pour rester dans les limites de niveau libre de la mémoire Colab, nous sous-ens
 # Cliquez sur l'insigne pour exécuter la démonstration! 
 
 &darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;   
-[![Ouvrir dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/01-Rolf_et_al_2021_demo.ipynb)  
+[![Ouvrir dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo_fr/01-Rolf_et_al_2021_demo.ipynb)  
 N'oubliez pas de cliquer sur `Fichier` -> `Enregistrez une copie dans Drive` pour enregistrer toutes les modifications que vous apportez.  
 ---
 Ou pour afficher une version statique du code sur GitHub, cliquez sur l'insigne ci-dessous.  
-[![](https://img.shields.io/badge/view%20on%20github-181717?logo=github&logocolor=white&labelcolor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/01-Rolf_et_al_2021_demo.ipynb)
+[![](https://img.shields.io/badge/view%20on%20github-181717?logo=github&logocolor=white&labelcolor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo_fr/01-Rolf_et_al_2021_demo.ipynb)
 :::
 
 Pour les instructions et les conseils sur l'utilisation de Google Colab, veuillez vous référer à @sec-intro-compute. 
