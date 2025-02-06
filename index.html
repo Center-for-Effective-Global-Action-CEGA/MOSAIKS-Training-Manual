@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Cullen Molitor">
+<meta name="author" content="Tamma Carleton">
+<meta name="author" content="Esther Rolf">
 
-<title>index</title>
+<title>MOSAIKS Training Manual</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,6 +33,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
+<link href="./part-00-intro/00-intro.html" rel="next">
 <link href="./images/sat_earth.png" rel="icon" type="image/png">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -56,17 +60,17 @@ ul.task-list li input[type="checkbox"] {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Pas de résultats",
-    "search-matching-documents-text": "documents trouvés",
-    "search-copy-link-title": "Copier le lien vers la recherche",
-    "search-hide-matches-text": "Cacher les correspondances additionnelles",
-    "search-more-match-text": "correspondance de plus dans ce document",
-    "search-more-matches-text": "correspondances de plus dans ce document",
-    "search-clear-button-title": "Effacer",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer",
-    "search-label": "Recherche"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -74,19 +78,19 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="style.scss">
 </head>
 
-<body class="nav-sidebar floating fullcontent">
+<body class="nav-sidebar floating">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
-      <button type="button" class="btn quarto-search-button" aria-label="Recherche" onclick="window.quartoOpenSearch();">
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
@@ -96,20 +100,25 @@ ul.task-list li input[type="checkbox"] {
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-        <div class="mt-2 flex-shrink-0 align-items-center">
-        <div class="sidebar-search">
-        <div id="quarto-search" class="" title="Recherche"></div>
-        </div>
-        </div>
-        <div class="sidebar-tools-collapse tools-wide">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">MOSAIKS Training Manual</a> 
+        <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Basculer en mode lecteur">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
 </a>
 </div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
@@ -118,21 +127,567 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Welcome</span></a>
   </div>
 </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-00-intro/00-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-00-intro/01-intro-compute.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Compute setup</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-00-intro/02-intro-mosaiks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-00-intro/03-intro-api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Access MOSAIKS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-00-intro/04-intro-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Try MOSAIKS</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-01-labels/00-labels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Label data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-01-labels/01-labels-100-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What labels work?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-01-labels/02-labels-survey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Survey data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-01-labels/03-labels-data-prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Preparing labels</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-01-labels/04-labels-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Label data demo</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-02-satellite/00-satellite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Satellite imagery</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-02-satellite/01-satellite-imagery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Choosing imagery</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-02-satellite/02-satellite-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Processing imagery</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-02-satellite/03-satellite-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Imagery demo</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-03-features/00-features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Satellite features</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-03-features/01-features-rcf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Understanding features</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-03-features/02-features-api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">API features</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-03-features/03-features-computing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Computing features</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-03-features/04-features-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Featurization demo</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-04-models/00-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Task modeling</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-04-models/01-model-choice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Build, evaluate, deploy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-04-models/02-model-spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Going over space</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-04-models/03-model-temporal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Going over time</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-04-models/04-model-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Build a model</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="./part-05-responsible/00-responsible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Responsible SIML</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-05-responsible/01-responsible-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Bias, equity, &amp; ethics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-05-responsible/02-responsible-uncertainty.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quantifying uncertainty</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./part-05-responsible/03-responsible-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Transparency (demo)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
     </ul>
     </div>
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a>
+  <ul class="collapse">
+  <li><a href="#what-is-mosaiks" id="toc-what-is-mosaiks" class="nav-link" data-scroll-target="#what-is-mosaiks">What is MOSAIKS?</a></li>
+  <li><a href="#who-is-this-for" id="toc-who-is-this-for" class="nav-link" data-scroll-target="#who-is-this-for">Who is this for?</a></li>
+  <li><a href="#what-will-i-learn" id="toc-what-will-i-learn" class="nav-link" data-scroll-target="#what-will-i-learn">What will I learn?</a></li>
+  <li><a href="#course-structure" id="toc-course-structure" class="nav-link" data-scroll-target="#course-structure">Course structure</a></li>
+  <li><a href="#course-schedule" id="toc-course-schedule" class="nav-link" data-scroll-target="#course-schedule">Course schedule</a>
+  <ul class="collapse">
+  <li><a href="#week-1" id="toc-week-1" class="nav-link" data-scroll-target="#week-1">Week 1</a></li>
+  <li><a href="#week-2" id="toc-week-2" class="nav-link" data-scroll-target="#week-2">Week 2</a></li>
+  </ul></li>
+  <li><a href="#training-expectations" id="toc-training-expectations" class="nav-link" data-scroll-target="#training-expectations">Training expectations</a>
+  <ul class="collapse">
+  <li><a href="#what-you-will-learn" id="toc-what-you-will-learn" class="nav-link" data-scroll-target="#what-you-will-learn">What you will learn</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#participant-expectations" id="toc-participant-expectations" class="nav-link" data-scroll-target="#participant-expectations">Participant expectations</a></li>
+  <li><a href="#computing-requirements" id="toc-computing-requirements" class="nav-link" data-scroll-target="#computing-requirements">Computing requirements</a></li>
+  <li><a href="#homework-and-presentations" id="toc-homework-and-presentations" class="nav-link" data-scroll-target="#homework-and-presentations">Homework and presentations</a></li>
+  </ul></li>
+  <li><a href="#book-structure-and-content" id="toc-book-structure-and-content" class="nav-link" data-scroll-target="#book-structure-and-content">Book structure and content</a></li>
+  <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MOSAIKS Training Manual</h1>
+</div>
+
+
+<div class="quarto-title-meta-author">
+  <div class="quarto-title-meta-heading">Authors</div>
+  <div class="quarto-title-meta-heading">Affiliations</div>
+  
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://emlab.ucsb.edu/about/our-team/cullen-molitor">Cullen Molitor</a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            Center for Effective Global Action (CEGA)
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://are.berkeley.edu/users/tamma-carleton">Tamma Carleton</a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            UC Berkeley Department of Agricultural and Resource Economics
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://www.colorado.edu/cs/esther-rolf">Esther Rolf</a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            UC Boulder College of Engineering and Applied Science
+          </p>
+      </div>
+  </div>
+
+<div class="quarto-title-meta">
+
+      
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 
+<section id="welcome" class="level1 unnumbered">
+<h1 class="unnumbered">Welcome</h1><p><img src="images/sat_earth.png" title="MOSAIKS Training Manual" class="quarto-cover-image img-fluid"></p>
+<!-- ## Where am I? -->
+<p>This is the first edition of the MOSAIKS Training Manual! The manual serves as a comprehensive reference for understanding MOSAIKS, its capabilities, and guidance on practical implementation. You will learn what MOSAIKS is, what can be done with it, and how to use it effectively in a variety of applications.</p>
+<p>The skills and knowledge you gain from this manual will enable you to leverage satellite imagery and machine learning to address complex socioeconomic and environmental challenges. This can be a self taught manual or used in conjunction with a training course.</p>
+<p>Many of the concepts and examples are broadly applicable to the world of remote sensing and machine learning, so even if you are not using MOSAIKS, you may find the content useful.</p>
+<section id="what-is-mosaiks" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-mosaiks">What is MOSAIKS?</h2>
+<p>MOSAIKS stands for <strong><ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</ins>tellite <ins>I</ins>magery &amp; <ins>K</ins>itchen <ins>S</ins>inks</strong>. It is a framework designed to simplify the use of satellite imagery and machine learning for predicting socioeconomic and environmental outcomes across different geographic contexts and time periods. MOSAIKS relis on random convolutions (developed in Rahimi and Recht (2008)) applied to satellite imagery, which extract task-agnostic features and enable researchers and practitioners to easily and flexibly predict a diversity of outcomes from raw imagery.</p>
+<div id="fig-mosaiks-in-landsat" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mosaiks-in-landsat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="images/mosaiks-in-landsat.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mosaiks-in-landsat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: MOSAIKS spelled out with imagery from the Landsat Satellite Constellation data catalog. Made with: <a href="https://landsat.gsfc.nasa.gov/apps/YourNameInLandsat-main/" target="_blank">Your Name in Landsat</a>
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="who-is-this-for" class="level2">
+<h2 class="anchored" data-anchor-id="who-is-this-for">Who is this for?</h2>
+<p>This comprehensive two-week program is designed for academics, professionals, and practitioners interested in leveraging MOSAIKS to better understand socioeconomic and environmental challenges. The course is particularly valuable for those working in:</p>
+<ul>
+<li>Remote sensing and satellite imagery analysis</li>
+<li>Machine learning applications with geospatial data</li>
+<li>Agricultural and environmental monitoring and assessment</li>
+<li>Development research and policy making</li>
+</ul>
+</section>
+<section id="what-will-i-learn" class="level2">
+<h2 class="anchored" data-anchor-id="what-will-i-learn">What will I learn?</h2>
+<p>Throughout this course, you’ll learn practical applications through a combination of:</p>
+<ul>
+<li>Theoretical foundations and conceptual understanding</li>
+<li>Hands-on exercises with real-world data</li>
+<li>Best practices for implementation</li>
+<li>Strategies for analyzing and interpreting results</li>
+</ul>
+<p>The curriculum covers the complete MOSAIKS workflow, including:</p>
+<ul>
+<li>Accessing and processing satellite imagery</li>
+<li>Understanding MOSAIKS feature extraction</li>
+<li>Working with the MOSAIKS API</li>
+<li>Implementing machine learning models</li>
+<li>Quantifying and communicating uncertainty</li>
+<li>Applying models to various contexts</li>
+<li>Working with survey data</li>
+</ul>
+<p>Whether you’re new to MOSAIKS or looking to deepen your expertise, this course provides the tools and knowledge needed to effectively utilize this framework.</p>
+</section>
+<section id="course-structure" class="level2">
+<h2 class="anchored" data-anchor-id="course-structure">Course structure</h2>
+<p>This course is designed as an intensive two-week program that combines lectures, demonstrations, and hands-on sessions. Each day is structured as follows:</p>
+<div id="tbl-course-outline" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-course-outline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover table">
+<thead>
+<tr class="header">
+<th><strong>Time</strong></th>
+<th style="text-align: left;"><strong>Activity</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>9:00 - 10:30</td>
+<td style="text-align: left;">Morning Session 1</td>
+</tr>
+<tr class="even">
+<td>10:30 - 11:00</td>
+<td style="text-align: left;">Break</td>
+</tr>
+<tr class="odd">
+<td>11:00 - 12:30</td>
+<td style="text-align: left;">Morning Session 2</td>
+</tr>
+<tr class="even">
+<td>12:30 - 1:30</td>
+<td style="text-align: left;">Lunch</td>
+</tr>
+<tr class="odd">
+<td>1:30 - 3:00</td>
+<td style="text-align: left;">Afternoon Session 1</td>
+</tr>
+<tr class="even">
+<td>3:00 - 3:30</td>
+<td style="text-align: left;">Break</td>
+</tr>
+<tr class="odd">
+<td>3:30 - 4:30</td>
+<td style="text-align: left;">Afternoon Session 2</td>
+</tr>
+<tr class="even">
+<td>4:30 - 5:00</td>
+<td style="text-align: left;">Feedback and Development</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-course-outline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1: Daily time divisions showing 2 morning sessions, 2 afternoon sessions, and a final time slot alloted for developing the course further.
+</figcaption>
+</figure>
+</div>
+<p>Each day concludes with a Q&amp;A and feedback session from 4:30-5:00, providing opportunities to clarify concepts and share ideas. It is expected that this first course will spur many new ideas and concepts which should be included in the future trainings. Please remember to take notes throughout each day with particular emphasis in areas you think could be explained better or that need additional topics covered. These can be areas that you struggled with or that you would anticipate could be difficult for others.</p>
+<p>While the in-person version of this course was designed with the schedule outlined above, other users can easily navigate throughout the course content as desired, noting that the chapter content is designed for sequential learning.</p>
+</section>
+<section id="course-schedule" class="level2">
+<h2 class="anchored" data-anchor-id="course-schedule">Course schedule</h2>
+<section id="week-1" class="level3">
+<h3 class="anchored" data-anchor-id="week-1">Week 1</h3>
+<ul>
+<li><strong>Day 1</strong>: MOSAIKS framework, accessing features, basic workflow</li>
+<li><strong>Day 2</strong>: Understanding ground truth data, data cleaning, spatial resolution</li>
+<li><strong>Day 3</strong>: Agricultural yield prediction, downloading features via API</li>
+<li><strong>Day 4</strong>: Types of satellite imagery, processing considerations, quality control</li>
+<li><strong>Day 5</strong>: Feature computation, theory behind RCFs, hands-on implementation</li>
+</ul>
+</section>
+<section id="week-2" class="level3">
+<h3 class="anchored" data-anchor-id="week-2">Week 2</h3>
+<ul>
+<li><strong>Day 1</strong>: <em>Martin Luther King Jr.&nbsp;Day - No Class</em></li>
+<li><strong>Day 2</strong>: Model selection, hyperparameter tuning, cross-validation</li>
+<li><strong>Day 3</strong>: Error analysis, confidence intervals, reporting uncertainty</li>
+<li><strong>Day 4</strong>: Survey design principles, geolocation methods, sampling strategies</li>
+<li><strong>Day 5</strong>: Advanced topics, emerging applications, future development</li>
+</ul>
+</section>
+</section>
+<section id="training-expectations" class="level2">
+<h2 class="anchored" data-anchor-id="training-expectations">Training expectations</h2>
+<section id="what-you-will-learn" class="level3">
+<h3 class="anchored" data-anchor-id="what-you-will-learn">What you will learn</h3>
+<ul>
+<li>Understanding of MOSAIKS framework and capabilities</li>
+<li>Practical skills in satellite imagery processing<br>
+</li>
+<li>Experience with machine learning applications</li>
+<li>Hands-on practice with real-world datasets</li>
+<li>Knowledge of survey data integration</li>
+<li>Best practices for model implementation</li>
+</ul>
+</section>
+<section id="prerequisites" class="level3">
+<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<p>There are no explicit prerequisites, though this course does cover some advanced topics in:</p>
+<ul>
+<li>The <a href="https://www.python.org/" target="_blank"><code>Python</code></a> programming language</li>
+<li>Machine learning</li>
+<li>Geospatial data</li>
+</ul>
+</section>
+<section id="participant-expectations" class="level3">
+<h3 class="anchored" data-anchor-id="participant-expectations">Participant expectations</h3>
+<ul>
+<li>Active participation in discussions and hands-on sessions</li>
+<li>Completion of assigned homework (particularly the Week 1 Friday assignment)<br>
+</li>
+<li>Engagement in Q&amp;A sessions</li>
+<li>Contribution to feedback sessions for course improvement</li>
+</ul>
+</section>
+<section id="computing-requirements" class="level3">
+<h3 class="anchored" data-anchor-id="computing-requirements">Computing requirements</h3>
+<p>The course includes hands-on computing sessions. You will need:</p>
+<ul>
+<li>A computer with access to the internet</li>
+<li>A Google account</li>
+<li>Access to Google Colaboratory</li>
+<li>Access to necessary data (details to be provided)</li>
+</ul>
+</section>
+<section id="homework-and-presentations" class="level3">
+<h3 class="anchored" data-anchor-id="homework-and-presentations">Homework and presentations</h3>
+<p>There will be a homework assignment at the end of Week 1, which participants will present on Tuesday of Week 2. This assignment is designed to reinforce learning and provide practical experience with MOSAIKS tools.</p>
+</section>
+</section>
+<section id="book-structure-and-content" class="level2">
+<h2 class="anchored" data-anchor-id="book-structure-and-content">Book structure and content</h2>
+<p>This manual is organized into six main parts, each focusing on a critical aspect of MOSAIKS. We begin with foundational concepts and gradually progress to more advanced topics in modeling and uncertainty quantification.</p>
+<div id="tbl-part-outline" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure">
+<div aria-describedby="tbl-part-outline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 31%">
+<col style="width: 68%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Part</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Introduction</td>
+<td style="text-align: left;">Computing setup, MOSAIKS overview, API access, initial demonstration</td>
+</tr>
+<tr class="even">
+<td>Label data</td>
+<td style="text-align: left;">Understanding suitable labels, survey integration, data preparation</td>
+</tr>
+<tr class="odd">
+<td>Satellite imagery</td>
+<td style="text-align: left;">Selecting appropriate imagery, processing considerations</td>
+</tr>
+<tr class="even">
+<td>Features</td>
+<td style="text-align: left;">Random convolutional features, API access, feature computation</td>
+</tr>
+<tr class="odd">
+<td>Task modeling</td>
+<td style="text-align: left;">Model selection, spatial analysis, temporal considerations</td>
+</tr>
+<tr class="even">
+<td>Model uncertainty</td>
+<td style="text-align: left;">Uncertainty quantification, ethical considerations</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-part-outline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2: Overview of the MOSAIKS Training Manual contents
+</figcaption>
+</figure>
+</div>
+<p>The content is designed to be both comprehensive and practical, with each part building upon previous concepts while remaining relatively self-contained. This structure allows readers to either progress through the manual sequentially or focus on specific topics of interest. Throughout each section, we provide practical examples, code demonstrations, and best practices drawn from real-world applications.</p>
+</section>
+<section id="acknowledgements" class="level2">
+<h2 class="anchored" data-anchor-id="acknowledgements">Acknowledgements</h2>
+<p>MOSAIKS was developed and is supported by a large team of researchers across multiple partner organizations:</p>
+<p><strong>Development Team:</strong></p>
+<p>Benjamin Recht, Cullen Molitor, Darin Christensen, Esther Rolf, Eugenio Noda, Grace Lewin, Graeme Blair, Hannah Druckenmiller, Hikari Murayama, Ian Bolliger, Jean Tseng, Jessica Katz, Jonathan Proctor, Juliet Cohen, Karena Yan, Luke Sherman, Miyabi Ishihara, Shopnavo Biswas, Simon Greenhill, Solomon Hsiang, Steven Cognac, Tamma Carleton, Taryn Fransen, Trinetta Chong, Vaishaal Shankar</p>
+<p><strong>MOSAIKS Training Manual Team:</strong> Cullen Molitor, Tamma Carleton, Esther Rolf, Sean Luna McAdams, Heather Lahr</p>
+<p><strong>Partner Organizations:</strong></p>
+<ul>
+<li>Center for Effective Global Action (<a href="https://cega.berkeley.edu/" target="_blank">CEGA</a>; UCB)</li>
+<li>Environmental Markets Lab (<a href="https://emlab.ucsb.edu/" target="_blank">emLab</a>; UCSB)</li>
+<li>Global Policy Lab (<a href="https://www.globalpolicy.science/" target="_blank">GPL</a>; Stanford University)</li>
+<li>Project on Resources and Governance (<a href="https://projectrg.org/" target="_blank">PRG</a>; UCLA)</li>
+<li>Master of Environmental Data Science Program (<a href="https://bren.ucsb.edu/masters-programs/master-environmental-data-science" target="_blank">MEDS</a>; UCSB)</li>
+</ul>
+<p><strong>Funding Support:</strong></p>
+<ul>
+<li><a href="https://www.mcgovern.org/" target="_blank">The Patrick J. McGovern Foundation</a></li>
+<li><a href="https://fundinnovation.dev/" target="_blank">The Fund for Innovation in Development (FID)</a></li>
+<li><a href="https://www.usaid.gov/" target="_blank">The United States Agency for International Development (USAID)</a></li>
+<li><a href="https://www.undp.org/" target="_blank">United Nations Development Programme (UNDP)</a></li>
+</ul>
+<p>We are grateful for the support and contributions of all team members and partner organizations in making MOSAIKS a reality. We hope to continue expanding the framework and its applications to address pressing global challenges.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Looking forward
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the first part of this book, we will cover the basics of MOSAIKS, including its framework, capabilities, and practical applications. This section is focused on exploring the original MOSAIKS publication (Rolf et al.&nbsp;2021) and understanding the core concepts behind the framework.</p>
+</div>
+</div>
 
-<p><img src="images/sat_earth.png" class="quarto-cover-image img-fluid"></p>
 
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -322,12 +877,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copié");
+    button.setAttribute("title", "Copied!");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copié");
+      button.setAttribute("data-bs-title", "Copied!");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -369,7 +924,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/cullen-molitor\.github\.io\/MOSAIKS-Training-Manual\/en\/");
+      var filterRegex = new RegExp("https:\/\/cullen-molitor\.github\.io\/MOSAIKS-Training-Manual\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -696,9 +1251,31 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./part-00-intro/00-intro.html" class="pagination-link" aria-label="Introduction">
+        <span class="nav-page-text">Introduction</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>MOSAIKS Training Manual</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
 
 
 
 
-<footer class="footer"><div class="nav-footer"><div class="nav-footer-center"><div class="toc-actions"><ul><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li></ul></div></div></div></footer></body></html>
+</body></html>
