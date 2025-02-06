@@ -1,0 +1,73 @@
+
+---
+lang: fr
+---
+# Caractéristiques satellitaires {#sec-features}
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("draft")
+```
+```{=yaml}
+lang: fr
+```
+
+## Aperçu
+
+Cette section explore les **caractéristiques MOSAIKS** – des représentations compressées de l’imagerie satellitaire qui permettent des prédictions efficaces sur diverses tâches. Bien que de nombreux utilisateurs puissent s’appuyer sur les caractéristiques pré-calculées via l’API MOSAIKS, comprendre leur fonctionnement et savoir comment les générer offre un contexte précieux et permet une personnalisation si nécessaire.
+
+::: {.callout-note}
+Les détails techniques abordés dans ces chapitres sont principalement destinés aux utilisateurs souhaitant comprendre ou générer leurs propres caractéristiques MOSAIKS. Si vous utilisez les caractéristiques pré-calculées de l’API MOSAIKS, vous pouvez vous concentrer sur @sec-features-api.
+:::
+
+---
+
+## Pourquoi aller au-delà des caractéristiques de l’API ?
+
+L’API MOSAIKS fournit des caractéristiques pré-calculées à partir des images satellites **Planet Labs de 2019**. Bien que ces caractéristiques suffisent pour de nombreuses applications, vous pourriez avoir besoin de générer vos propres caractéristiques si :
+
+- Votre analyse nécessite des données d’une autre période temporelle  
+- Vous avez besoin de caractéristiques à une résolution spatiale différente  
+- Vous souhaitez expérimenter avec différents paramètres de caractérisation  
+- Vous développez de nouvelles méthodologies d’extraction  
+- Vous devez valider ou comparer différents types de caractéristiques  
+
+---
+
+## Types de caractéristiques et calcul
+
+Les caractéristiques MOSAIKS transforment l’imagerie satellite brute en un format tabulaire compact, capturant les motifs essentiels tout en réduisant considérablement le volume de données. Le système prend actuellement en charge :
+
+- **Caractéristiques convolutionnelles aléatoires (RCFs)**  
+- **Caractéristiques gaussiennes aléatoires**  
+- **Caractéristiques empiriques basées sur des patchs**  
+- **Approches hybrides**  
+
+Ces différentes méthodes présentent des compromis en termes de **temps de calcul, exigences de stockage et performance prédictive** selon les tâches.
+
+---
+
+## Plan de la section
+
+Les chapitres suivants vous guideront à travers les concepts clés des caractéristiques MOSAIKS :
+
+| Chapitre | Sujets clés |
+|----------|:-----------|
+| @sec-features-rcf | Caractéristiques convolutionnelles aléatoires (RCFs), détails d’implémentation |
+| @sec-features-api | Caractéristiques pré-calculées, spécifications, utilisation |
+| @sec-features-computing | Exigences de calcul, flux de travail, stockage |
+
+: Plan de la section sur les caractéristiques {#tbl-section-outline .striped .hover}
+
+Ces chapitres fournissent à la fois des conseils pratiques pour travailler avec les caractéristiques MOSAIKS et une compréhension technique plus approfondie du processus d’extraction des caractéristiques.
+
+---
+
+::: {.callout-note}
+# À venir
+
+Le prochain chapitre introduira les **caractéristiques convolutionnelles aléatoires (RCFs)**, un élément central du système MOSAIKS, en apportant un contexte et une intuition sur leur fonctionnement.
+:::

@@ -1,0 +1,246 @@
+---
+lang: fr
+---
+
+
+
+# Traitement de l’imagerie satellitaire {#sec-satellite-processing}
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("draft")
+```
+
+## Aperçu
+
+Après avoir sélectionné une imagerie satellitaire appropriée (@sec-satellite-imagery), l’étape suivante consiste à y accéder et à la traiter pour son utilisation avec MOSAIKS. Ce chapitre couvre les considérations clés et les approches pratiques pour travailler avec les données satellitaires.
+
+![Source : [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/)](../images/mpc_gallery.jpg)
+
+---
+
+## Accès aux images satellites
+
+### Cloud vs local
+
+Plusieurs plateformes cloud permettent d’accéder à une large gamme d’imageries satellitaires et de données géospatiales. Ces plateformes offrent des ressources de calcul évolutives, des environnements préconfigurés et intègrent souvent des jeux de données courants.
+
+Les avantages de ces plateformes incluent :
+
+- Pas besoin de télécharger les images brutes  
+- Accès à des ressources de calcul évolutives  
+- Environnements de traitement préconfigurés  
+- Accès aux bases de données communes  
+- Possibilité de télécharger les données sur un stockage local ou cloud  
+
+#### Google Earth Engine
+
+Google Earth Engine (GEE) offre un vaste catalogue d’images satellitaires et de données géospatiales accessibles via une API Python. L’API GEE repose sur [l’API Earth Engine Python](https://developers.google.com/earth-engine/guides/python_install), qui permet d’interagir avec les serveurs Earth Engine et d’exécuter des analyses géospatiales dans le cloud.
+
+#### Microsoft Planetary Computer
+
+Microsoft Planetary Computer propose un catalogue multi-pétaoctets de données environnementales mondiales accessibles via des API. L’API MPC est basée sur la spécification [STAC (SpatioTemporal Asset Catalog)](https://stacspec.org/en), un standard émergent visant à améliorer l’interopérabilité des données géospatiales, notamment celles issues de l’imagerie satellitaire.
+
+Pour plus d’informations, voir [Lecture des données à partir de l’API STAC](https://planetarycomputer.microsoft.com/docs/quickstarts/reading-stac/).
+
+::: {.callout-tip}
+Pour des conseils pratiques sur l’accès aux données via Microsoft Planetary Computer, consultez la section [STAC specification](https://meds-eds-220.github.io/MEDS-eds-220-course/book/chapters/lesson-16-STAC.html) du cours MEDS EDS 220.
+:::
+
+### Planet API
+
+- **NICFI (Norwegian International Climate and Forest Initiative) est gratuit**
+  - Inscription : [NICFI](https://www.planet.com/nicfi/)
+  - Accès aux basemaps Visual (RVB) et Analytic (RVB+NIR)
+- **Planet est payant**
+  - Inscription : [Planet](https://www.planet.com/)
+  - API permettant d’accéder aux images PlanetScope, RapidEye, SkySat et Dove
+  - Licences institutionnelles disponibles
+
+#### Sentinel Hub
+
+Sentinel Hub est une plateforme cloud qui fournit un accès aux images satellites Sentinel-1, Sentinel-2 et Landsat. L’API Sentinel Hub permet d’accéder aux images et de les traiter à l’aide d’une interface Python simplifiée.
+
+### API `Sentinelsat`
+
+L’API Python `sentinelsat` permet de rechercher et de télécharger des images satellites depuis le **Copernicus Open Access Hub**. Elle offre une interface simple pour l’accès aux données Sentinel-1 et Sentinel-2.
+
+---
+
+## Comprendre les données
+
+Une fois que vous avez défini votre mode d’acquisition des images satellites, il est crucial de **comprendre les données** pour garantir un traitement adapté. La meilleure ressource est souvent la documentation du fournisseur de données. En complément, explorer les données visuellement permet d’obtenir une meilleure compréhension.
+
+::: {.callout-tip}
+Pour une approche pratique, passez au chapitre suivant, où vous pourrez accéder à l’imagerie NICFI dans un notebook Google Colab (@sec-satellite-demo).
+:::
+
+### Formats de stockage
+
+Les images satellites peuvent être stockées sous plusieurs formats, dont :
+
+- **GeoTIFF**  
+- **NetCDF**  
+- **HDF5**  
+- **Zarr**  
+
+Des bibliothèques Python comme `rasterio`, `xarray`, `rioxarray` et `h5py` permettent de lire et d’écrire ces formats.
+
+### Métadonnées essentielles
+
+Les métadonnées associées aux images satellites comprennent plusieurs paramètres importants :
+
+- **Type de données** (INT8, UINT16, FLOAT32)  
+- **Système de coordonnées (CRS)**  
+- **Bandes spectrales** (Rouge, Vert, Bleu, Proche-infrarouge, etc.)  
+- **Résolution spatiale** (taille de la scène, taille des pixels)  
+- **Date d’acquisition** (image unique ou multi-temporelle)  
+- **Couverture nuageuse**  
+- **Indicateurs de qualité des données**  
+
+### Visualisation des images
+
+Plusieurs méthodes permettent d’améliorer la visualisation des images satellites. Parmi les techniques courantes :
+
+#### Normalisation
+
+#### Couleurs réelles (True Color)
+
+#### Couleurs fausses (False Color)
+
+#### Amélioration et fusion des images (Sharpening)
+
+---
+
+## Calcul des indices
+
+Selon l’application, il peut être pertinent de calculer des indices de végétation ou d’autres indicateurs. Dans le domaine agricole, plusieurs indices sont utilisés pour surveiller la santé des cultures, notamment :
+
+- **NDVI (Normalized Difference Vegetation Index)**  
+- **EVI (Enhanced Vegetation Index)**  
+- **SAVI (Soil Adjusted Vegetation Index)**  
+
+Le **NDVI** est un indicateur simple et couramment utilisé, basé sur la différence entre les bandes **proche-infrarouge (NIR)** et **rouge**, qui permet de quantifier la santé de la végétation.
+
+![NDVI évoluant sur l’Afrique. [Créé](https://github.com/cropmosaiks/images/blob/main/NDVI_Africa_Gif.ipynb) avec l’API Google Earth Engine.](https://github.com/cropmosaiks/images/blob/main/animations/ndvi.gif?raw=true){#fig-ndvi-gif}
+
+---
+
+## Traitement de l’imagerie satellitaire
+
+Deux approches principales existent pour accéder et traiter les images satellites :
+
+### 1. Traitement sur plateforme cloud
+
+Les plateformes cloud modernes offrent plusieurs avantages :
+
+- Pas besoin de télécharger les images brutes  
+- Ressources de calcul évolutives  
+- Environnements préconfigurés  
+- Accès à des jeux de données standards  
+- Paiement uniquement selon l’usage  
+
+Exemples de plateformes :
+
+- **Google Earth Engine**  
+- **Microsoft Planetary Computer**  
+- **Amazon Web Services**  
+- **Planet Platform**  
+- **Euro Data Cube**  
+
+### 2. Traitement local
+
+Un traitement local peut être préférable lorsque :
+
+- La connexion Internet est limitée  
+- La confidentialité des données est critique  
+- Des algorithmes propriétaires sont utilisés  
+- Les besoins en calcul sont modérés  
+- Les mêmes images doivent être réutilisées fréquemment  
+
+Critères de choix :
+
+- Volume de données  
+- Complexité du traitement  
+- Contraintes budgétaires  
+- Délais d’exécution  
+- Exigences de sécurité  
+
+---
+
+## Étapes du traitement
+
+### Évaluation de la qualité
+
+- Détection des nuages  
+- Masquage des ombres  
+- Identification des pixels défectueux  
+- Correction des artefacts du capteur  
+
+### Correction atmosphérique
+
+- Conversion en réflectance de surface  
+- Correction des effets atmosphériques  
+- Standardisation des valeurs  
+
+### Correction géométrique
+
+- Orthorectification  
+- Co-enregistrement  
+- Alignement des projections  
+
+### Mosaïquage
+
+- Assemblage d’images  
+- Fusion et équilibrage des couleurs  
+- Remplissage des lacunes  
+
+### Composition temporelle
+
+- Sélection des meilleurs pixels  
+- Moyenne pondérée  
+- Lissage des séries temporelles  
+
+---
+
+## Bonnes pratiques
+
+1. **Documenter toutes les étapes**
+   - Paramètres utilisés  
+   - Décisions de contrôle qualité  
+   - Versions des logiciels  
+
+2. **Valider les résultats**
+   - Inspection visuelle  
+   - Vérifications statistiques  
+   - Comparaison avec des données de terrain  
+
+3. **Optimiser les ressources**
+   - Traitement par lots  
+   - Calcul parallèle  
+   - Gestion efficace de la mémoire  
+
+4. **Assurer la reproductibilité**
+   - Suivi des modifications de code  
+   - Archivage des jeux de données clés  
+   - Documentation des dépendances  
+
+---
+
+## Défis courants
+
+- **Stockage** : gestion des volumes massifs de données  
+- **Ressources de calcul** : limites CPU/GPU, bande passante  
+- **Qualité des données** : effets atmosphériques, artefacts du capteur  
+- **Délais de traitement** : temps de téléchargement et vérification  
+
+---
+
+::: {.callout-note}
+# À venir
+
+Dans la prochaine section, nous allons charger, visualiser et explorer les images satellites NICFI dans un notebook Google Colab.
+:::

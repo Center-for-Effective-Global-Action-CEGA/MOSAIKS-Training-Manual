@@ -1,0 +1,119 @@
+---
+lang: fr
+---
+
+
+
+# Choisir l’imagerie satellitaire {#sec-satellite-imagery}
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("review")
+```
+
+## Contexte
+
+Le nombre de satellites d’observation de la Terre a connu une croissance exponentielle ces dernières années, portée par les avancées technologiques, la réduction des coûts de lancement et une demande croissante en informations environnementales, économiques et sociétales.
+
+![Croissance du nombre de satellites au fil des années. Source : [Union of Concerned Scientists](https://blog.ucsusa.org/syoung/how-many-satellites-are-in-space-the-spike-in-numbers-continues/)](https://blog.ucsusa.org/wp-content/uploads/2023/07/satellite-graphic.png){#fig-satellite-growth}
+
+En parallèle, la qualité de l’imagerie satellitaire s’est considérablement améliorée, avec des résolutions spatiales, temporelles et spectrales plus fines devenues la norme. Cette prolifération de satellites, associée à des capacités d’imagerie accrues, a généré un volume de données sans précédent. Cette abondance offre aux chercheurs et aux professionnels de nombreuses opportunités, mais pose également des défis en termes de navigation dans la diversité des produits de données et de sélection des plus adaptés aux besoins spécifiques.
+
+![Évolution de la résolution des images satellites au fil du temps. Source : [FlyPix AI](https://flypix.ai/blog/from-balloons-to-satellites-a-journey-through-the-evolution-of-remote-sensing-and-satellite-imagery-resolution/)](https://flypix.ai/wp-content/uploads/2023/04/evolution-of-remote-sensing-1.png){#fig-satellite-resolution}
+
+MOSAIKS exploite l’imagerie satellitaire pour générer des données d’entraînement de haute qualité pour les modèles d’apprentissage automatique. Dans ce chapitre, nous explorerons les facteurs clés à prendre en compte lors du choix d’une imagerie satellitaire pour une utilisation avec MOSAIKS, notamment la résolution spatiale et spectrale, la fréquence temporelle, la couverture nuageuse et les niveaux de traitement des images.
+
+::: {.callout-tip}
+Accédez à la [base de données des satellites de l’UCS](https://www.ucsusa.org/resources/satellite-database) pour une liste complète des satellites d’observation de la Terre, comprenant leurs spécifications et détails opérationnels.
+:::
+
+---
+
+## Aperçu
+
+Lors de la sélection d’une imagerie satellitaire pour MOSAIKS, plusieurs facteurs clés doivent être pris en compte. Le choix de l’imagerie doit être guidé par vos besoins spécifiques en recherche, les caractéristiques des étiquettes et les contraintes pratiques telles que le coût et les exigences de traitement. Différents cas d’utilisation, comme le suivi de la végétation, la cartographie des zones urbaines ou le suivi des variables climatiques, peuvent nécessiter des capacités d’imagerie spécifiques, ce qui rend essentiel l’alignement des caractéristiques du satellite avec votre application.
+
+Par exemple, les données haute résolution provenant de satellites commerciaux peuvent offrir des détails précis, mais elles peuvent être trop coûteuses pour des applications à grande échelle. À l’inverse, des ensembles de données accessibles au public, comme Sentinel-2, offrent des options économiques mais avec des résolutions potentiellement plus grossières ou une couverture spectrale limitée. Comprendre ces compromis est essentiel pour une utilisation optimale des ressources.
+
+| Critère | Description |
+|:--------|:------------|
+| Disponibilité | L’accessibilité et le coût des images provenant de sources publiques et privées. |
+| Période temporelle | La période durant laquelle les images satellites sont disponibles. |
+| Résolution temporelle | La fréquence à laquelle les images satellites sont capturées (ex. : quotidienne, hebdomadaire). |
+| Résolution spatiale | La résolution du capteur satellite (ex. : 10 m, 30 m, 250 m). |
+| Résolution spectrale | Les longueurs d’onde spécifiques captées par le capteur (ex. : RVB, NIR, SWIR). |
+| Type de capteur | Le type de capteur utilisé (ex. : optique, radar, thermique). |
+| Couverture nuageuse | La présence de nuages ou d’autres interférences atmosphériques. |
+| Niveau de traitement | Le prétraitement appliqué (ex. : orthorectification, correction atmosphérique). |
+
+: Principaux facteurs à considérer lors du choix d’une imagerie satellitaire. {#tbl-satellite-considerations tbl-colwidths="[25,75]"}
+
+---
+
+## Disponibilité
+
+### Satellites publics {#sec-satellite-public}
+
+Les programmes satellitaires publics offrent des images gratuites ou peu coûteuses avec une couverture mondiale. Financés par des agences gouvernementales, ces programmes fournissent des données précieuses pour la recherche scientifique et la surveillance environnementale. Ils sont particulièrement utiles pour les études à long terme, grâce à des archives de données remontant sur plusieurs décennies.
+
+| Satellite | Type de capteur | Résolution | Fréquence de revisite | Caractéristiques spéciales |
+|-----------|---------------|------------|----------------|------------------|
+| Sentinel-2 | Optique | 10-60 m | 5 jours | 13 bandes spectrales |
+| Landsat 8/9 | Optique | 15-100 m | 16 jours | 11 bandes spectrales |
+| MODIS | Optique | 250 m-1 km | Quotidien | 36 bandes spectrales |
+| Sentinel-1 | Radar (C-band) | 5-40 m | 6-12 jours | Radar à synthèse d’ouverture (SAR) |
+| NISAR | Radar (L- et S-band) | À définir | Lancement 2024 | SAR double bande |
+| VIIRS | Autre | 375 m-750 m | Quotidien | Couverture globale quotidienne |
+
+: Exemples de satellites publics et leurs spécifications. {#tbl-satellite-public}
+
+### Satellites privés {#sec-satellite-private}
+
+Les programmes satellitaires privés offrent souvent une imagerie à plus haute résolution, une plus grande spécialisation et des revisites plus fréquentes que les programmes publics, mais à un coût plus élevé.
+
+| Satellite | Type de capteur | Résolution | Fréquence de revisite | Caractéristiques spéciales |
+|-----------|---------------|------------|----------------|------------------|
+| Maxar WorldView | Optique | 31 cm (panchromatique), 1,24 m (multispectral) | Variable | Très haute résolution |
+| Planet SkySat | Optique | 50 cm (panchromatique), 1 m (multispectral) | Variable | Satellites compacts et agiles |
+| Airbus Pleiades | Optique | 50 cm (panchromatique), 2 m (multispectral) | Variable | Très haute résolution |
+| ICEYE | Radar (X-band) | <1 m | Fréquent | Radar à haute revisite |
+
+: Exemples de satellites commerciaux et leurs spécifications. {#tbl-satellite-private}
+
+---
+
+## Résolution spatiale
+
+La résolution spatiale du capteur satellite détermine le niveau de détail capturé dans l’imagerie. Une résolution plus élevée permet de discerner des objets individuels (arbres, véhicules, bâtiments), tandis qu’une résolution plus faible fournit une vue d’ensemble à grande échelle.
+
+| Application | Résolution spatiale | Fréquence temporelle | Bandes clés | Satellites recommandés |
+|------------|--------------------|--------------------|------------|------------------|
+| **Agriculture** | 5–30 m | Hebdomadaire–mensuel | NIR, Rouge, SWIR | Planet, Sentinel-2, Landsat 8/9 |
+| **Zones urbaines** | 0.5–10 m | Mensuel–annuel | RVB, NIR | WorldView, Planet, Sentinel-2 |
+| **Surveillance forestière** | 10–30 m | Mensuel–annuel | NIR, SWIR, Rouge | Landsat, Sentinel-2 |
+
+: Exemples de satellites recommandés pour différentes applications. {#tbl-application-recommendations}
+
+---
+
+## Conclusion
+
+Le choix de l’imagerie satellitaire repose sur plusieurs compromis entre coût, résolution, fréquence de revisite et couverture spectrale. Pour prendre une décision éclairée, posez-vous les questions suivantes :
+
+1. Quelle est la résolution spatiale minimale requise ?  
+2. À quelle fréquence ai-je besoin d’observations ?  
+3. Quelles bandes spectrales sont nécessaires ?  
+4. Quelle est la période d’étude ?  
+5. Quel est mon budget ?  
+6. Quel niveau de traitement est requis ?  
+7. Comment vais-je gérer les nuages et les lacunes de données ?  
+8. Quels sont mes capacités de stockage et de calcul ?  
+
+::: {.callout-note}
+# À venir
+
+Dans le prochain chapitre, nous verrons comment accéder aux images satellites et les traiter pour une utilisation avec MOSAIKS.
+:::

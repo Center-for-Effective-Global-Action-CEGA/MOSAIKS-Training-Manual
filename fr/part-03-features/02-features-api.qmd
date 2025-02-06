@@ -1,0 +1,152 @@
+---
+lang: fr
+---
+
+# Caractéristiques API {#sec-features-api}
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("draft")
+```
+
+## Vue d’ensemble
+
+Dans ce chapitre, nous nous concentrons sur les **caractéristiques MOSAIKS disponibles via l’API** ([MOSAIKS API](https://api.mosaiks.org/)). Ces caractéristiques permettent d’intégrer rapidement et facilement des prédicteurs basés sur l’imagerie satellite dans vos analyses sans avoir à traiter manuellement les images satellites.
+
+::: {.callout-note}
+L’accès aux caractéristiques via l’API est expliqué en détail dans @sec-intro-api. Ce chapitre fournit des informations complémentaires sur la génération des caractéristiques et leurs spécifications. Si vous souhaitez générer vos propres caractéristiques, consultez @sec-features-computing.
+:::
+
+---
+
+## Imagerie source
+
+- **Source**  
+  [Planet Labs Visual Basemap (Global Quarterly 2019, Q3)](https://developers.planet.com/docs/data/visual-basemaps/).
+- **Période temporelle**  
+  Principalement entre **juillet et septembre 2019** (Q3), bien que certaines régions puissent présenter des variations.
+- **Couverture spatiale**  
+  Toutes les zones terrestres du globe, à l’exclusion de la plupart des grandes étendues d’eau.
+- **Artefacts possibles**  
+  Certaines régions peuvent être affectées par des nuages, de la brume ou des ombres, surtout dans les zones à forte couverture nuageuse pendant cette période.
+
+![Exemple d’imagerie du basemap Planet Labs.](https://cdn.sanity.io/images/hvd5n54p/production/f7ebef7923c4cc9c8990836980a30d004a5eef64-1920x1114.jpg?w=1200&auto=format){#fig-planet-basemap}
+
+---
+
+## Détails sur la génération des caractéristiques API
+
+L’équipe MOSAIKS a effectué une **unique passe de featurization** sur l’imagerie Planet Labs 2019 Q3. Ce processus repose sur la méthode des **Caractéristiques de Convolution Aléatoires (RCFs)** décrite en @sec-features-rcf, avec les paramètres spécifiques suivants :
+
+1. **Échantillonnage de patches**  
+   - Sélection aléatoire de patches (filtres) directement dans l’imagerie Planet Labs 2019 Q3.  
+   - **Blanchiment (whitening) des patches** : centrage et déco-corrélation des valeurs de pixels pour mettre en évidence des motifs distincts.
+
+2. **Tailles de filtres (kernels)**  
+   - **2 000 caractéristiques** dérivées de filtres 4×4.  
+   - **2 000 caractéristiques** dérivées de filtres 6×6.  
+   - Tous les filtres conservent **3 canaux couleur** (Rouge, Vert, Bleu).
+
+3. **Biais et activation**  
+   - Ajout d’un **biais de -1** avant activation, permettant d’affiner les seuils d’activation.  
+   - Application de la fonction **ReLU** (`max(0, x)`) pour garantir la non-linéarité.
+
+4. **Pooling et agrégation spatiale**  
+   - Après convolution et activation, la réponse est **moyennée** sur chaque cellule 0.01° (~1 km²).  
+   - Chaque filtre produit **une seule valeur numérique moyenne par cellule**.
+
+5. **Vecteur final de caractéristiques**  
+   - Après application de tous les filtres, chaque cellule 0.01° reçoit un **vecteur de 4 000 dimensions**.  
+   - Ce processus a été exécuté **une seule fois**, générant une couche de caractéristiques globale fixe.
+
+![Trois cartes d’activation de caractéristiques aléatoires extraites de l’imagerie Planet Labs.](../images/RCF_patch_sampling_activation_maps_world.png){#fig-rcf-world-simple}
+
+---
+
+## Agrégations dérivées
+
+Bien que les caractéristiques soient initialement calculées à **0.01° de résolution (~1 km²)**, l’API propose également des versions **agrégées** :
+
+| Résolution | Description | Pondération | Accès |
+|------------|-------------|-----------|---------|
+| 0.01° | Résolution native (~1 km²) | Non pondéré | [API Portal](https://api.mosaiks.org/portal/file_query/) |
+| 0.1° | Grille agrégée (~10 km²) | Surface ou population | [Grilles Globales](https://api.mosaiks.org/portal/global_grids/) |
+| 1° | Grille agrégée (~100 km²) | Surface ou population | [Grilles Globales](https://api.mosaiks.org/portal/global_grids/) |
+| ADM2 | Niveau départemental/district | Surface ou population | [Fichiers Pré-calculés](https://api.mosaiks.org/portal/precomputed/) |
+| ADM1 | Niveau régional/provincial | Surface ou population | [Fichiers Pré-calculés](https://api.mosaiks.org/portal/precomputed/) |
+| ADM0 | Niveau national | Surface ou population | [Fichiers Pré-calculés](https://api.mosaiks.org/portal/precomputed/) |
+
+: Options de téléchargement des caractéristiques via l’API MOSAIKS. {#tbl-api-options}
+
+Illustration des agrégations :
+
+![Exemple de caractéristiques convolutionnelles aléatoires téléchargées à différentes échelles : (A) grille 0.1°, (B) départements, (C) régions.](../images/US_feature_summaries.png){#fig-feature-aggregation}
+
+---
+
+## Pondération par surface vs population
+
+Chaque agrégation offre **deux options de pondération** :
+
+- **Pondération par surface** : Les cellules ou régions avec plus de superficie terrestre ont plus de poids.  
+- **Pondération par population** : Utilise la **densité de population** du [GPWv4](https://sedac.ciesin.columbia.edu/data/collection/gpw-v4) pour pondérer davantage les zones plus peuplées.
+
+---
+
+## Quand utiliser ces caractéristiques ?
+
+1. **Disponibilité immédiate** :  
+   - Si vos labels datent de ~2019 (ou d’une période proche sans changements majeurs), **ces caractéristiques sont la solution la plus rapide et facile**.
+
+2. **Données agrégées** :  
+   - Si vos données sont agrégées (ex. niveau pays), téléchargez **directement les caractéristiques agrégées**.
+
+3. **Contraintes de ressources** :  
+   - Si vous avez des **contraintes de stockage ou de calcul**, utilisez les **fichiers pré-agrégés**.
+
+4. **Données à haute résolution** :  
+   - Pour des analyses fines (ex. **enquêtes ménages**), utilisez la **résolution 0.01°** ou agrégée selon vos besoins.
+
+![Exemple de données d'Indice de Développement Humain (HDI) au niveau régional (ADM1). Source : [Smits & Permanyer 2019](https://www.nature.com/articles/sdata201938).](../images/smits_and_permanyer_2019_HDI.png){#fig-hdi}
+
+---
+
+## Points clés
+
+1. **Imagerie source unique**  
+   - **Basemap Planet Labs (2019 Q3)**  
+   - Couverture terrestre globale (~1 km de résolution)  
+   - 3 bandes spectrales (RVB)
+
+2. **Processus de featurization unique**  
+   - **Caractéristiques générées une seule fois** (pas d’actualisation périodique)  
+   - L’agrégation (0.1°, 1°, ADM) repose sur les **mêmes caractéristiques 0.01°**  
+
+3. **Caractéristiques RCF (Random Convolutional Features)**  
+   - **4 000 dimensions**  
+   - **Filtres de 4×4 et 6×6**  
+   - **Blanchiment empirique** des patches (décorrélation)  
+   - **Biais : -1**, Activation **ReLU**  
+   - 3 canaux couleur (RVB)
+
+4. **Résolutions flexibles**  
+   - **Haute résolution (0.01°)** : requêtes par fichier ou carte  
+   - **Agrégations** : 0.1°, 1°, ADM0/ADM1/ADM2 disponibles en téléchargement  
+
+5. **Cas d’usage**  
+   - Idéal pour **les labels des années 2019-2020**  
+   - Facile à intégrer dans les **modèles de Machine Learning**  
+   - Compatible avec **analyses globales ou locales**  
+
+---
+
+## Prochaines étapes
+
+::: {.callout-note}
+# À venir
+
+Dans la prochaine section, nous explorerons les techniques avancées pour **calculer et personnaliser vos propres caractéristiques MOSAIKS**.
+:::
