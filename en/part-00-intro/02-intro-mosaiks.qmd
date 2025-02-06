@@ -82,7 +82,7 @@ In many cases, users aiming to predict an outcome from satellite imagery can do 
 
 1. Merge the features with your labels (**Y**) based on location (so features at position **P** are linked to labels at position **P**) (@sec-labels-data-prep).
 
-1. Run a cross-validated ridge regression of your labels on the MOSAIKS features (**Y = Xβ + e**; or any other model you choose! See @sec-sec-model-choice).
+1. Run a cross-validated ridge regression of your labels on the MOSAIKS features (**Y = Xβ + e**; or any other model you choose! See @sec-model-choice).
 
 1. Evaluate performance.
 

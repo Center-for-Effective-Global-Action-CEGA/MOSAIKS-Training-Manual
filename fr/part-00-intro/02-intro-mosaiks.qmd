@@ -92,7 +92,7 @@ Dans de nombreux cas, les utilisateurs cherchant à prédire un résultat (une t
 ## Que peuvent prédire les MOSAIKS?
 
 ::: {.callout-tip}
-Cette question est répondue plus en détail dans @sec-Labels-100-maps
+Cette question est répondue plus en détail dans @sec-labels-100-maps
 :::
 
 MOSAIKS a été utilisé avec succès pour prédire un large éventail de tâches, notamment:
@@ -141,5 +141,7 @@ MOSAIKS est un outil puissant qui permet aux utilisateurs de prédire un large �
 Dans ce livre, nous explorerons toutes les façons dont il s'agit d'une simplification excessive.Vous apprendrez à adapter ce cadre à vos propres besoins et à comprendre les limites et les hypothèses du système MOSAIKS.De nombreuses compétences présentées dans ce manuel de formation seront applicables à d'autres workflows d'imagerie par satellite et d'apprentissage automatique.
 
 ::: {.callout-note}
+# À venir
+
 Dans le chapitre suivant, vous serez présenté à l'API MOSAIKS qui est une ressource gratuite et ouverte pour accéder aux features de MOSAIKS pré-calculées. 
 :::

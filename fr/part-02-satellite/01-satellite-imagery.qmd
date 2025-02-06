@@ -11,7 +11,7 @@ lang: fr
 #| results: "asis"
 
 source("../../_common.R")
-status("review")
+status("review_fr")
 ```
 
 ## Contexte

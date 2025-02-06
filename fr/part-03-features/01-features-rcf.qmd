@@ -9,7 +9,7 @@ lang: fr
 #| results: "asis"
 
 source("../../_common.R")
-status("review")
+status("review_fr")
 ```
 
 ::: {.callout-tip}
@@ -26,7 +26,7 @@ MOSAIKS signifie **<ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</i
 
 Dans le contexte de MOSAIKS, cette métaphore illustre notre approche : nous extrayons une **quantité massive d’informations** à partir des images satellites, sans pour autant capturer **chaque pixel** ou **chaque relation possible**. Nous sélectionnons les ingrédients les plus utiles (les caractéristiques) et laissons le reste de côté.
 
-![Maddy (Madagascar, au centre) prend des images satellites brutes (à gauche) et utilise la méthode du *kitchen sink* pour produire des caractéristiques de convolution aléatoires (à droite). Art par [Grace Lewin](https://young-lab.eemb.ucsb.edu/people/grace-lewin).](../images/Everything%20but%20the%20kitchen%20sink.gif){#fig-everything-but-the-kitchen-sink}
+![Maddy (Madagascar, au centre) prend des images satellites brutes (à gauche) et utilise la méthode du *kitchen sink* pour produire des caractéristiques de convolution aléatoires (à droite). Art par [Grace Lewin](https://young-lab.eemb.ucsb.edu/people/grace-lewin).](../../images/Everything%20but%20the%20kitchen%20sink.gif){#fig-everything-but-the-kitchen-sink}
 
 L’idée d’abandonner les images brutes est essentielle à la puissance de MOSAIKS. Cela signifie que **la plupart des utilisateurs n’ont jamais à manipuler directement ces volumes massifs d’imagerie satellitaire**. L’équipe MOSAIKS prend en charge ce traitement et extrait un grand ensemble de **caractéristiques convolutionnelles aléatoires (RCFs)**, puis élimine les images sources.  
 
@@ -42,7 +42,7 @@ Dans ce manuel, les termes *random convolutional features*, *RCFs*, *features*, 
 
 ## Transformer des images en caractéristiques
 
-![Une collection d’images satellites. Source : [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/)](../images/mpc_gallery.jpg){#fig-mpc-gallery}
+![Une collection d’images satellites. Source : [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/)](../../images/mpc_gallery.jpg){#fig-mpc-gallery}
 
 ---
 
@@ -50,7 +50,7 @@ Dans ce manuel, les termes *random convolutional features*, *RCFs*, *features*, 
 
 Le processus de **featurization** de MOSAIKS produit une **représentation de longueur fixe** pour chaque patch d’image satellite. Concrètement, cela signifie que nous obtenons un **vecteur numérique** pour chaque image. Comme MOSAIKS utilise des images satellites, **chaque image représente une localisation spécifique**, et donc **chaque localisation est associée à un vecteur de caractéristiques**.
 
-![Illustration du processus de génération des RCFs. Source : [Rolf et al. 2021 Figure 1 C](https://www.nature.com/articles/s41467-021-24638-z/figures/1)](../images/rolf_et_al_2021-Fig_1-c.jpg){#fig-Rolf-et-al-2021-Fig-1-C}
+![Illustration du processus de génération des RCFs. Source : [Rolf et al. 2021 Figure 1 C](https://www.nature.com/articles/s41467-021-24638-z/figures/1)](../../images/rolf_et_al_2021-Fig_1-c.jpg){#fig-Rolf-et-al-2021-Fig-1-C}
 
 Le processus de featurization comporte **trois étapes principales** :
 
@@ -104,7 +104,7 @@ Concrètement, cela **moyenne les activations sur toute l’image**, produisant 
 
 Nous répétons ces **trois étapes** pour tous les filtres définis dans le modèle. Ainsi, si nous avons *K* filtres, nous obtenons un **vecteur de caractéristiques de dimension K**.
 
-![Image source, échantillons de patchs, cartes convolutées et activations.](../images/RCF_patch_sampling_convolution_activation_maps.png){#fig-RCF-patches-activation-maps}
+![Image source, échantillons de patchs, cartes convolutées et activations.](../../images/RCF_patch_sampling_convolution_activation_maps.png){#fig-RCF-patches-activation-maps}
 
 ---
 

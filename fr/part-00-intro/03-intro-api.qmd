@@ -159,13 +159,13 @@ Dans tous les cas, l'utilisation des features pré-agrégées peut vous faire ga
 > **Scénario:** Vous travaillez avec une étude de mesure des normes de vie - Des enquêtes intégrées sur l'agriculture ([LSMS-ISA](https://www.worldbank.org/en/programs/lsms/initiatives/lsms-ISA)). Cet ensemble de données propose des données d'enquête avec les coordonnées géographiques au niveau du ménage.Pour protéger, la vie privée des répondants, les données sont gênées dans un rayon de 5 km, mais elle reste toujours dans les limites administratives locales.Vous pouvez donc résumer vos étiquettes aux unités administratives et créer un modèle avec les features agrégées. 
 
 ::: {.callout-tip}
-Si vous souhaitez faire des prédictions haute résolution, avec des données d'étiquette à basse résolution, vous pouvez créer votre modèle avec des features agrégées et utiliser les features haute résolution pour faire des prédictions.Cela sera couvert dans @sec-model-espace. 
+Si vous souhaitez faire des prédictions haute résolution, avec des données d'étiquette à basse résolution, vous pouvez créer votre modèle avec des features agrégées et utiliser les features haute résolution pour faire des prédictions.Cela sera couvert dans @sec-model-space. 
 :::
 
 ## Utilisation de features MOSAIKS pour la prédiction
 
 ::: {.callout-tip}
-Ceci est un bref aperçu.Des instructions détaillées apparaissent plus tard dans le manuel (@sec-model-choix).
+Ceci est un bref aperçu.Des instructions détaillées apparaissent plus tard dans le manuel (@sec-model-choice).
 :::
 
 Flux de travail de base:
@@ -214,7 +214,7 @@ Vous pouvez citer l'API en utilisant le bibtex suivant:
 ```
 
 ::: {.callout-note}
-# Avoir hâte de
+# À venir
 
 Dans le chapitre suivant, vous aurez la chance d'essayer les MOSAIKS sur Google Colab avec les données de Rolf et al 2021. 
 :::

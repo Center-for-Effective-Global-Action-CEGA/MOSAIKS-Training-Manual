@@ -209,5 +209,7 @@ Les éléments clés pour la construction de modèles réussis comprennent:
    - Surveiller les performances
 
 ::: {.callout-note}
+# À venir
+
 Dans le chapitre suivant, nous discuterons des stratégies de comptabilité des dépendances spatiales dans votre flux de travail de modélisation, y compris des méthodes de validation croisée spatiale, d'interpolation spatiale et d'extrapolation spatiale.
-:::
+::: 

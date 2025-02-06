@@ -9,7 +9,7 @@ lang: fr
 #| results: "asis"
 
 source("../../_common.R")
-status("draft")
+status("draft_fr")
 ```
 
 ## Vue d’ensemble
@@ -62,7 +62,7 @@ L’équipe MOSAIKS a effectué une **unique passe de featurization** sur l’im
    - Après application de tous les filtres, chaque cellule 0.01° reçoit un **vecteur de 4 000 dimensions**.  
    - Ce processus a été exécuté **une seule fois**, générant une couche de caractéristiques globale fixe.
 
-![Trois cartes d’activation de caractéristiques aléatoires extraites de l’imagerie Planet Labs.](../images/RCF_patch_sampling_activation_maps_world.png){#fig-rcf-world-simple}
+![Trois cartes d’activation de caractéristiques aléatoires extraites de l’imagerie Planet Labs.](../../images/RCF_patch_sampling_activation_maps_world.png){#fig-rcf-world-simple}
 
 ---
 
@@ -83,7 +83,7 @@ Bien que les caractéristiques soient initialement calculées à **0.01° de ré
 
 Illustration des agrégations :
 
-![Exemple de caractéristiques convolutionnelles aléatoires téléchargées à différentes échelles : (A) grille 0.1°, (B) départements, (C) régions.](../images/US_feature_summaries.png){#fig-feature-aggregation}
+![Exemple de caractéristiques convolutionnelles aléatoires téléchargées à différentes échelles : (A) grille 0.1°, (B) départements, (C) régions.](../../images/US_feature_summaries.png){#fig-feature-aggregation}
 
 ---
 
@@ -110,7 +110,7 @@ Chaque agrégation offre **deux options de pondération** :
 4. **Données à haute résolution** :  
    - Pour des analyses fines (ex. **enquêtes ménages**), utilisez la **résolution 0.01°** ou agrégée selon vos besoins.
 
-![Exemple de données d'Indice de Développement Humain (HDI) au niveau régional (ADM1). Source : [Smits & Permanyer 2019](https://www.nature.com/articles/sdata201938).](../images/smits_and_permanyer_2019_HDI.png){#fig-hdi}
+![Exemple de données d'Indice de Développement Humain (HDI) au niveau régional (ADM1). Source : [Smits & Permanyer 2019](https://www.nature.com/articles/sdata201938).](../../images/smits_and_permanyer_2019_HDI.png){#fig-hdi}
 
 ---
 

@@ -11,14 +11,14 @@ lang: fr
 #| results: "asis"
 
 source("../../_common.R")
-status("draft")
+status("draft_fr")
 ```
 
 ## Aperçu
 
 Après avoir sélectionné une imagerie satellitaire appropriée (@sec-satellite-imagery), l’étape suivante consiste à y accéder et à la traiter pour son utilisation avec MOSAIKS. Ce chapitre couvre les considérations clés et les approches pratiques pour travailler avec les données satellitaires.
 
-![Source : [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/)](../images/mpc_gallery.jpg)
+![Source : [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/)](../../images/mpc_gallery.jpg)
 
 ---
 

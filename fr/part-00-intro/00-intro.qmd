@@ -58,5 +58,6 @@ Les chapitres suivants vous guideront à travers le démarrage avec MOSAIKS:
 Ces chapitres fournissent à la fois la compréhension théorique et les compétences pratiques nécessaires pour commencer à travailler avec MOSAIKS. L'accent est mis sur la mise à disposition des prédictions par satellite tout en maintenant une rigueur scientifique et une efficacité informatique.
 
 ::: {.callout-note}
+# À venir
 Dans le chapitre suivant, nous allons configurer notre environnement informatique à l'aide de Google Colab. Ce cours utilise Colab pour démontrer divers aspects des MOSAIKS, dans un environnement gratuit et accessible.
 :::

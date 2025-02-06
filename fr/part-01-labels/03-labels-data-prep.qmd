@@ -8,7 +8,7 @@ lang: fr
 #| results: "asis"
 #| 
 source("../../_common.R")
-status("review")
+status("review_fr")
 ```
 
 ## Aperçu
@@ -34,7 +34,7 @@ La résolution standard de MOSAIKS est une grille mondiale à une résolution de
 Les centroïdes des cellules de la grille MOSAIKS sont arrondis à 0,005 degré et espacés de 0,01 degré (ex. : 10.005, 10.015, 10.025,...).
 :::
 
-![Représentation visuelle des grilles standardisées à différentes résolutions (δ), avec la résolution la plus élevée à gauche et les résolutions plus basses vers la droite. Source : [Rolf et al. 2021 Figure 3 c](https://www.nature.com/articles/s41467-021-24638-z/figures/3).](../images/rolf_et_al_2021-Fig_3-c-grid.svg){#fig-grid}
+![Représentation visuelle des grilles standardisées à différentes résolutions (δ), avec la résolution la plus élevée à gauche et les résolutions plus basses vers la droite. Source : [Rolf et al. 2021 Figure 3 c](https://www.nature.com/articles/s41467-021-24638-z/figures/3).](../../images/rolf_et_al_2021-Fig_3-c-grid.svg){#fig-grid}
 
 ### Avantages de la grille MOSAIKS
 
@@ -48,7 +48,7 @@ L'API MOSAIKS est conçue pour prédire des résultats à des échelles de 1 km�
 
 La grille MOSAIKS est définie en degrés, ce qui signifie que la superficie d’une cellule varie en fonction de la latitude. Près de l’équateur, chaque cellule mesure environ 1 km², tandis qu’aux latitudes élevées, la superficie diminue à mesure que la distance entre les méridiens (lignes de longitude) converge.
 
-![Superficie d'une cellule de grille selon la latitude.](../images/global_1_degree_grid_wgs84_area.png){#fig-grid-area}
+![Superficie d'une cellule de grille selon la latitude.](../../images/global_1_degree_grid_wgs84_area.png){#fig-grid-area}
 
 ### Choisir votre résolution
 
@@ -60,13 +60,13 @@ Nous savons d’après @sec-intro-api que l’API MOSAIKS propose des caractéri
 
 La préparation des données d’étiquettes pour MOSAIKS dépend de l’emplacement, de l’étendue, du temps et de la résolution. Lorsque les observations ont une résolution plus fine que 1 km², il faut les sélectionner ou les agréger pour correspondre aux caractéristiques utilisées. MOSAIKS peut incorporer des étiquettes sous forme de données raster, points, polygones ou vecteurs.
 
-![Exemples de formats de données d’étiquettes intégrables au pipeline MOSAIKS.](../images/rolf_et_al_2021-Fig_S4.png){#fig-label-agg}
+![Exemples de formats de données d’étiquettes intégrables au pipeline MOSAIKS.](../../images/rolf_et_al_2021-Fig_S4.png){#fig-label-agg}
 
 ### Données administratives
 
 Dans certains cas, les étiquettes sont disponibles pour des régions administratives (états, districts, etc.) et ne contiennent que des noms de lieux sans information géographique explicite. Une solution est d’utiliser une base de données de frontières administratives, comme la [base Global Administrative Areas (GADM)](https://gadm.org/), qui fournit ces limites gratuitement.
 
-![Données de l’indice de développement humain (IDH) au niveau administratif 1 (ADM1).](../images/smits_and_permanyer_2019_HDI.png){#fig-hdi}
+![Données de l’indice de développement humain (IDH) au niveau administratif 1 (ADM1).](../../images/smits_and_permanyer_2019_HDI.png){#fig-hdi}
 
 ### Défis liés aux données administratives
 
@@ -79,7 +79,7 @@ Les données administratives posent deux défis principaux :
 
 Augmenter la taille de l’échantillon (*N*) améliore souvent la performance du modèle. MOSAIKS fonctionne bien sur une large gamme de *N*, mais un minimum de **300 observations** est recommandé.
 
-![Performance du modèle en fonction de *N*.](../images/rolf_et_al_2021-Fig_3-b.svg){#fig-sample-size}
+![Performance du modèle en fonction de *N*.](../../images/rolf_et_al_2021-Fig_3-b.svg){#fig-sample-size}
 
 ## Fusion des données
 

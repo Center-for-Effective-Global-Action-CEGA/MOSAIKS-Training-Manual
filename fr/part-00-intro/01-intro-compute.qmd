@@ -436,7 +436,7 @@ Bien que conda soit un outil commun pour gérer les environnements Python, il ex
 Chacun a ses propres fichiers de configuration et ses instructions de configuration.Si vous préférez ces outils ou que vous les utilisez déjà, vous pouvez généralement reproduire les packages répertoriés dans `environment.yml`. Vérifiez la documentation de l'outil respectif pour des instructions spécifiques sur la façon de traduire les dépendances.
 
 ::: {.callout-note}
-# Suivant
+# À venir
 
 Dans le chapitre suivant, nous examinerons de plus près le cadre Mosaiks, ses concepts principaux et comment il peut être appliqué pour résoudre des problèmes réels.
 :::

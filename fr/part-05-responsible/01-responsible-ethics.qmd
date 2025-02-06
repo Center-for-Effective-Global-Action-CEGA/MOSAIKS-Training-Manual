@@ -18,11 +18,11 @@ status("draft")
 
 
 ::: {.callout-note}
-# Suivant
+# À venir
 
 Le prochain chapitre 
 :::
 
 Pourrait inclure des concepts de ce document: [The politics of pixels: A review and agenda for critical remote sensing](https://journals.sagepub.com/doi/10.1177/03091325221074691)
 
-Les facteurs sociopolitiques ont un impact qui collecte des données détectées à distance, comment elle est traitée et qui bénéficie des résultats.Cet article décline la politique de la télédétection et comment elle peut être utilisée pour promouvoir la justice sociale et l'équité.
+Les facteurs sociopolitiques ont un impact qui collecte des données détectées à distance, comment elle est traitée et qui bénéficie des résultats.Cet article décline la politique de la télédétection et comment elle peut être utilisée pour promouvoir la justice sociale et l'équité. 

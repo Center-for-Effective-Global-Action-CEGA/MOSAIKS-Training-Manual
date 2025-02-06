@@ -106,5 +106,7 @@ Un aperçu des MOSAIKS et une démonstration en direct de la génération de nou
 Après avoir établi les capacités de MOSAIKS dans le contexte américain, l'équipe de développement de MOSAIKS a réussi à démontrer le système dans de nombreux contextes supplémentaires. Cela inclut à l'échelle globale ou dans les paramètres avec des données de qualité inférieure ou de faible qualité.Dans les prochains chapitres, nous explorerons certaines de ces applications, montrant comment les MOSAIKS peuvent aider à combler les lacunes de données dans les régions où la collecte traditionnelle des données est difficile ou coûteuse.
 
 ::: {.callout-note}
+# À venir
+
 Dans la section suivante, nous examinerons de plus près les données d'étiquette qui peuvent être utilisées avec MOSAIKS. 
 :::
