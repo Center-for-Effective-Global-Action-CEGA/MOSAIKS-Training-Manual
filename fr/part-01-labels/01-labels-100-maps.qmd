@@ -1,0 +1,85 @@
+---
+lang: fr
+---
+# Quelles étiquettes fonctionnent ? {#sec-labels-100-maps}
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("review")
+```
+
+## Aperçu
+
+MOSAIKS est conçu pour être utile dans la prédiction de tout ce qui peut être visible dans l'imagerie satellitaire. Certaines choses sont plus faciles à prédire que d'autres, mais le système est conçu pour être flexible. Par exemple, certaines variables peuvent être observées directement dans l'imagerie elle-même, comme le couvert forestier, qui émet un signal vert clairement visible. D'autres résultats ne peuvent être prédits que par des relations indirectes entre les données d'imagerie et les étiquettes. Par exemple, le revenu et le prix des logements ne sont pas directement visibles dans les images brutes, mais leurs valeurs peuvent être estimées de manière fiable à partir d'objets (ex. : voitures), de textures (ex. : matériau de toiture) et de couleurs (ex. : infrastructure routière grise) contenues dans l'imagerie.
+
+![La polyvalence de MOSAIKS en fait un outil parfait pour un large éventail d’applications.](../../images/army_knife.png){#fig-army-knife width="300px"}
+
+Dans ce chapitre, nous discuterons d'un nouvel article en cours de rédaction (Proctor et al., *in prep.*) qui explore la question de ce qui peut et ne peut pas être prédit de manière fiable à partir de l'imagerie satellitaire en utilisant MOSAIKS. Cet article examine plus de 100 résultats différents et rapporte la performance prédictive de chacun avec MOSAIKS. Nous analyserons les résultats d’une sélection de ces résultats en détail et donnerons un aperçu général des autres. Bien entendu, cette liste de résultats n’est pas exhaustive et la performance rapportée peut varier considérablement selon le contexte et, en particulier, en fonction de la qualité des données de vérité terrain. Ces résultats constituent une première exploration de ce qui pourrait être possible avec SIML en utilisant MOSAIKS, mais nous encourageons les utilisateurs à mener leurs propres expériences, car les résultats sont susceptibles de différer dans de nouveaux contextes. L’article préliminaire de Proctor et al. sera publié ici lorsqu'il sera disponible publiquement.
+
+## Cent cartes
+
+### Publication originale
+
+Dans Rolf et al. 2021, les auteurs ont testé MOSAIKS sur 7 variables cibles : le couvert forestier, le revenu, le prix des logements, la densité de population, la luminosité nocturne et l'altitude. La zone d'étude est axée sur les États-Unis continentaux. C'est un excellent point de départ pour comprendre les capacités de MOSAIKS, Vu que la qualité des données est élevée pour un ensemble varié de résultats. Bien que les résultats aient montré un potentiel significatif et démontré l'utilité de MOSAIKS, le véritable test réside dans son application à de nouvelles variables et à de nouvelles régions géographiques.
+
+### Passer à l'échelle mondiale
+
+Pour tester l’applicabilité mondiale de MOSAIKS sur un ensemble varié de thématique, deux éléments principaux ont été nécessaires :
+
+**1.** La création d’un ensemble global de caractéristiques
+
+![Imagerie de la carte de base visuelle de Planet Labs du troisième trimestre 2019 (à gauche) et 4 des 4 000 caractéristiques MOSAIKS téléchargées depuis l’API (à droite).](../../images/api-features.png){#fig-api-features}
+
+**2.** La collecte et la sélection d’un large ensemble de thématique présentant une diversité de structures spatiales et de catégories.
+
+| **Catégorie**          | **Nombre d’étiquettes** | **Exemple d’étiquette**     |
+|------------------------|----------------------|-----------------------------|
+| Actifs agricoles      | 5                    | Propriété foncière agricole |
+| Agriculture           | 16                   | Rendement du maïs           |
+| Infrastructures       | 9                    | Bâtiments                   |
+| Démographie          | 5                    | Âge médian                  |
+| Éducation            | 10                   | Années de scolarité attendues |
+| Santé                | 15                   | Paludisme chez les enfants  |
+| Biens ménagers       | 21                   | Téléphones mobiles          |
+| Revenu               | 9                    | Indice de développement humain |
+| Systèmes naturels    | 8                    | Couverture arborée          |
+| Emploi               | 17                   | Chômage                     |
+
+: Les auteurs ont sélectionné 115 variables réparties en 10 catégories et ont entrepris de tester chacune d’elles dans le système MOSAIKS. {#tbl-labels}
+
+Avec ces données en main, ils ont pu formuler quelques questions simples à tester :
+
+- Quelles variables peuvent être mesurées efficacement ?
+- Quelles sont les applications les plus convaincantes ?
+- Quels sont les modes d’échec ?
+
+## Résultats
+
+### Performance globale
+
+Les résultats de l'expérience des 100 cartes sont présentés dans le nuage de points ci-dessous (@fig-100-maps-scatter). Chaque point dans chaque sous-graphe de dispersion représente un emplacement dans l’étude pour une étiquette donnée. L’axe des x représente la valeur observée de l’étiquette, et l’axe des y représente la valeur prédite par MOSAIKS. La ligne diagonale à 45° dans chaque sous-graphe représente une prédiction parfaite. Le coefficient de détermination (R²) est utilisé ici comme mesure principale de précision.
+
+Quelques observations générales ressortent :
+
+1. **Variation substantielle :** Même au sein d’une même catégorie, nous observons des degrés de pouvoir prédictif variables. Par exemple, dans la catégorie « Agriculture », certaines étiquettes (comme les moyennes de rendement élevées) sont prédites avec précision, tandis que d'autres (comme certaines cultures spécialisées ou pratiques de gestion) restent plus difficiles à estimer.
+
+2. **Différences par catégorie :** Certaines catégories ont systématiquement des scores R² plus élevés. Par exemple, les « Systèmes naturels » (ex. : couverture forestière) ont souvent de meilleurs scores car les modèles spatiaux sont directement visibles depuis l’espace – pensez aux vastes zones forestières contrastant avec les champs ouverts ou les centres urbains. En revanche, « Emploi » ou « Démographie » incluent des variables (comme les taux de chômage) qui sont largement socio-économiques, nécessitant des indices plus subtils et indirects.
+
+3. **Cas d’échec :** Certains résultats montrent des performances quasi aléatoires, suggérant que les caractéristiques des images satellites seules sont insuffisantes pour capturer leurs modèles spatiaux ou que les signaux sont noyés dans le bruit (voir Échecs ci-dessous).
+
+![Les résultats de l’expérience des 100 cartes avec l’axe des x affichant les valeurs observées et l’axe des y les valeurs prédites. Chaque point représente un emplacement de l’étude. La ligne diagonale (45°) représente une prédiction parfaite. La performance est mesurée avec le coefficient de détermination (R²).](../../images/proctor_et_al_100_fig3_scatter.png){#fig-100-maps-scatter}
+
+Dans le diagramme en boîte (@fig-100-maps-box), nous voyons la distribution des valeurs de R² pour chaque catégorie sur les 115 étiquettes. Cela confirme l’importante variation des performances.
+
+![Les résultats de l'expérience des 100 cartes.](../../images/proctor_et_al_100_fig3_box.png){#fig-100-maps-box}
+
+Ces résultats démontrent à la fois la puissance et les limites de MOSAIKS. Bien qu’il excelle à prédire de nombreux résultats importants à l’échelle mondiale, il ne s’agit pas d’une solution universelle. Le succès dépend en grande partie de la relation existante entre l’élément étudié et les caractéristiques visibles dans l’imagerie satellitaire.
+
+::: {.callout-note}
+# À venir
+
+Dans le prochain chapitre, nous explorerons plus en détail les données d’étiquettes issues d’enquêtes.
+:::

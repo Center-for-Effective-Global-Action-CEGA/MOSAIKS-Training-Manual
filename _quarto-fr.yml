@@ -45,6 +45,26 @@ book:
         - fr/part-00-intro/02-intro-mosaiks.qmd
         - fr/part-00-intro/03-intro-api.qmd
         - fr/part-00-intro/04-intro-demo.qmd
+        
+    - part: fr/part-01-labels/00-labels.qmd  
+      chapters:
+        - fr/part-01-labels/01-labels-100-maps.qmd
+        - fr/part-01-labels/02-labels-survey.qmd
+        - fr/part-01-labels/03-labels-data-prep.qmd
+        - fr/part-01-labels/04-labels-demo.qmd
+
+    - part: fr/part-02-satellite/00-satellite.qmd  
+      chapters:
+        - fr/part-02-satellite/01-satellite-imagery.qmd
+        - fr/part-02-satellite/02-satellite-processing.qmd
+        - fr/part-02-satellite/03-satellite-demo.qmd
+
+    - part: fr/part-03-features/00-features.qmd  
+      chapters:
+        - fr/part-03-features/01-features-rcf.qmd
+        - fr/part-03-features/02-features-api.qmd
+        - fr/part-03-features/03-features-computing.qmd
+        - fr/part-03-features/04-features-demo.qmd
       
     - part: fr/part-04-models/00-model.qmd  
       chapters:

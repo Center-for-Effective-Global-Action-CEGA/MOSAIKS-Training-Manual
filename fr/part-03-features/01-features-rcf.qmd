@@ -1,0 +1,149 @@
+---
+lang: fr
+---
+
+# Comprendre les caractéristiques {#sec-features-rcf} 
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("review")
+```
+
+::: {.callout-tip}
+# Qui devrait lire ce chapitre ? 
+
+Cette section ne s’adresse pas à tout le monde. Si vous souhaitez utiliser les caractéristiques MOSAIKS disponibles via l’API pour vos prédictions, vous pouvez ignorer cette section. Cependant, si vous prévoyez de générer vos propres caractéristiques, cette section est faite pour vous. 
+:::
+
+---
+
+## MOSAIKS et "kitchen sinks" ?
+
+MOSAIKS signifie **<ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</ins>tellite <ins>I</ins>magery & <ins>K</ins>itchen <ins>S</ins>inks**. On nous demande souvent d’où vient l’expression *kitchen sinks* (évier de cuisine). Elle provient de l’expression anglaise *everything but the kitchen sink*, qui signifie *"presque tout ce que l’on peut imaginer"*.  
+
+Dans le contexte de MOSAIKS, cette métaphore illustre notre approche : nous extrayons une **quantité massive d’informations** à partir des images satellites, sans pour autant capturer **chaque pixel** ou **chaque relation possible**. Nous sélectionnons les ingrédients les plus utiles (les caractéristiques) et laissons le reste de côté.
+
+![Maddy (Madagascar, au centre) prend des images satellites brutes (à gauche) et utilise la méthode du *kitchen sink* pour produire des caractéristiques de convolution aléatoires (à droite). Art par [Grace Lewin](https://young-lab.eemb.ucsb.edu/people/grace-lewin).](../images/Everything%20but%20the%20kitchen%20sink.gif){#fig-everything-but-the-kitchen-sink}
+
+L’idée d’abandonner les images brutes est essentielle à la puissance de MOSAIKS. Cela signifie que **la plupart des utilisateurs n’ont jamais à manipuler directement ces volumes massifs d’imagerie satellitaire**. L’équipe MOSAIKS prend en charge ce traitement et extrait un grand ensemble de **caractéristiques convolutionnelles aléatoires (RCFs)**, puis élimine les images sources.  
+
+L’utilisateur final **n’a pas besoin de voir les images brutes ni d’interpréter chaque caractéristique individuellement**. Il peut directement exploiter ces **représentations numériques compactes** pour ses propres modèles prédictifs.
+
+Dans cette section, nous allons **lever le capot** et voir **comment ces caractéristiques sont extraites** à partir des images satellites.
+
+::: {.callout-tip}
+Dans ce manuel, les termes *random convolutional features*, *RCFs*, *features*, *satellite features*, et *MOSAIKS features* sont utilisés de manière interchangeable.
+:::
+
+---
+
+## Transformer des images en caractéristiques
+
+![Une collection d’images satellites. Source : [Microsoft Planetary Computer](https://planetarycomputer.microsoft.com/)](../images/mpc_gallery.jpg){#fig-mpc-gallery}
+
+---
+
+### Vue d’ensemble 
+
+Le processus de **featurization** de MOSAIKS produit une **représentation de longueur fixe** pour chaque patch d’image satellite. Concrètement, cela signifie que nous obtenons un **vecteur numérique** pour chaque image. Comme MOSAIKS utilise des images satellites, **chaque image représente une localisation spécifique**, et donc **chaque localisation est associée à un vecteur de caractéristiques**.
+
+![Illustration du processus de génération des RCFs. Source : [Rolf et al. 2021 Figure 1 C](https://www.nature.com/articles/s41467-021-24638-z/figures/1)](../images/rolf_et_al_2021-Fig_1-c.jpg){#fig-Rolf-et-al-2021-Fig-1-C}
+
+Le processus de featurization comporte **trois étapes principales** :
+
+1. **Convolution**  
+2. **Activation**  
+3. **Pooling (moyennage spatial)**  
+
+Nous allons illustrer ces étapes en prenant l’exemple d’une image d’entrée de dimensions **$3 \times 256 \times 256$** (trois canaux couleur : rouge, vert et bleu, avec une taille de 256x256 pixels).
+
+---
+
+### Comprendre les convolutions
+
+En termes simples, **une convolution permet de détecter certains motifs** dans une image : contours, textures ou couleurs. Un **filtre de convolution** "glisse" sur l’image et applique des opérations mathématiques sur de petites zones.
+
+![Illustration d’une convolution sans padding ni strides. Source : [A guide to convolution arithmetic for deep learning](https://github.com/vdumoulin/conv_arithmetic).](https://raw.githubusercontent.com/vdumoulin/conv_arithmetic/refs/heads/master/gif/no_padding_no_strides.gif){#fig-convolution-gif}
+
+Contrairement aux réseaux de neurones profonds (CNNs) qui empilent plusieurs couches convolutives, **MOSAIKS utilise une seule couche de convolution**. Ces poids convolutifs sont **initialisés de manière aléatoire et restent fixes**, ce qui signifie que les caractéristiques extraites **ne sont pas ajustées** pour une tâche spécifique.
+
+---
+
+### Activation
+
+Après la convolution, on applique une **fonction d’activation non linéaire**, **ReLU** (*Rectified Linear Unit*). Cette fonction définit toute valeur négative à zéro :
+
+$$
+\text{ReLU}(x) = \max(0, x)
+$$
+
+Cela permet de capturer les **non-linéarités** présentes dans l’image.
+
+**Un avantage clé** :  
+MOSAIKS génère **deux caractéristiques par filtre** :
+
+1. **Une caractéristique avec la sortie ReLU**  
+2. **Une caractéristique avec la sortie ReLU inversée** (multipliée par -1)  
+
+Cette approche optimise l’efficacité du modèle et double la richesse de l’information extraite.
+
+---
+
+### Pooling : Réduction de la dimension spatiale
+
+La dernière étape consiste à appliquer une **couche de pooling adaptatif** pour **réduire la carte d’activation à une seule valeur par filtre**.  
+
+Concrètement, cela **moyenne les activations sur toute l’image**, produisant un **résumé compact** de l’information capturée.
+
+---
+
+### Synthèse du processus
+
+Nous répétons ces **trois étapes** pour tous les filtres définis dans le modèle. Ainsi, si nous avons *K* filtres, nous obtenons un **vecteur de caractéristiques de dimension K**.
+
+![Image source, échantillons de patchs, cartes convolutées et activations.](../images/RCF_patch_sampling_convolution_activation_maps.png){#fig-RCF-patches-activation-maps}
+
+---
+
+## Pourquoi utiliser les RCFs ?
+
+L’approche de MOSAIKS **remplace l’apprentissage par minimisation par une approche basée sur la randomisation**.
+
+Contrairement aux **CNNs traditionnels** qui optimisent leurs filtres par rétropropagation (backpropagation), MOSAIKS applique une **convolution aléatoire** et ne met jamais à jour ses filtres. Cela semble contre-intuitif, mais cette approche présente plusieurs **avantages clés** :
+
+1. **Légèreté et généralisation**  
+   - Pas besoin d’adapter les caractéristiques à une tâche spécifique  
+   - Réutilisation des mêmes caractéristiques pour une multitude d’applications  
+
+2. **Scalabilité et rapidité**  
+   - Pas d’apprentissage à grande échelle  
+   - Génération rapide des caractéristiques pour toute la planète  
+
+3. **Richesse des motifs capturés**  
+   - Échantillonne une grande variété de textures, couleurs et structures spatiales  
+
+4. **Distribution simplifiée**  
+   - Contrairement aux images brutes, les vecteurs de caractéristiques sont **faciles à stocker, télécharger et manipuler**  
+
+---
+
+## Résumé
+
+Les **caractéristiques convolutionnelles aléatoires (RCFs)** constituent l’épine dorsale de MOSAIKS :
+
+- **Elles remplacent les CNNs complexes** par une approche **randomisée et sans entraînement**  
+- **Elles sont généralisables** et peuvent être **appliquées à n’importe quelle tâche prédictive**  
+- **Elles permettent un traitement à grande échelle**, sans nécessiter d’accéder aux images brutes  
+
+En convertissant les images en **vecteurs numériques compacts**, les RCFs offrent un **pont puissant** entre l’imagerie satellitaire et l’apprentissage automatique.
+
+---
+
+::: {.callout-note}
+# À venir
+
+Dans la prochaine section, nous verrons comment accéder aux **caractéristiques pré-calculées** disponibles via l’API MOSAIKS, sans avoir à effectuer la featurization vous-même.
+:::

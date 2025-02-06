@@ -1,0 +1,56 @@
+---
+lang: fr
+---
+# Démonstration des données d'étiquettes {#sec-labels-demo}
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("testing")
+```
+
+## Aperçu
+
+Cette démonstration vous présentera quelques concepts clés concernant les données d’étiquettes dans MOSAIKS.
+
+## Code de démonstration
+
+Vous trouverez ci-dessous un lien vers un notebook Jupyter destiné à démontrer la préparation pratique des données d’étiquettes pour une utilisation avec MOSAIKS. Ce notebook vous guidera à travers le processus de préparation d’un jeu de données, notamment :
+
+1. Construction et utilisation d’une grille standardisée MOSAIKS  
+
+1. Préparation des étiquettes géographiques sous forme de points (coordonnées latitude et longitude)  
+
+1. Préparation des étiquettes géographiques sous forme de lignes (ex. : shapefiles)  
+
+1. Préparation des étiquettes géographiques sous forme de polygones (ex. : shapefiles)  
+
+1. Préparation des étiquettes sous forme de rasters (ex. : GeoTIFFs)  
+
+::: {.callout-note}
+# Cliquez sur l’icône ci-dessous pour exécuter la démonstration !  
+
+&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;  
+[![Ouvrir dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/02-label-data_demo.ipynb)  
+<!-- &uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;     -->
+N’oubliez pas de cliquer sur `File` -> `Save a copy in Drive` pour enregistrer toute modification que vous apportez.  
+---
+Ou pour voir une version statique du code sur GitHub, cliquez sur l’icône ci-dessous.  
+[![](https://img.shields.io/badge/Voir%20sur%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/02-label-data_demo.ipynb)
+:::
+
+Pour des instructions et des conseils sur l’utilisation de Google Colab, veuillez consulter @sec-intro-compute.  
+
+## Quelle est la prochaine étape ?  
+
+Maintenant que nous avons couvert les bases des données d’étiquettes, nous allons passer à la section suivante, où nous aborderons les considérations liées au choix et au traitement des images satellitaires. Cette section n’est pas nécessaire pour les utilisateurs qui :  
+a) sont d’accord pour utiliser l’API MOSAIKS pour accéder aux caractéristiques, ou  
+b) ont déjà de l’expérience avec le traitement des images satellitaires.
+
+::: {.callout-note}
+# À venir  
+
+Dans la prochaine partie, nous examinerons les considérations relatives au choix et au traitement des images satellitaires.
+:::

@@ -1,0 +1,66 @@
+---
+lang: fr
+---
+
+
+
+# Imagerie satellitaire {#sec-satellite-imagery}
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("review")
+```
+
+## Aperçu
+
+Cette section du manuel vise à faciliter la navigation dans l’univers complexe de l’imagerie satellitaire, en mettant l’accent sur son application dans le cadre de MOSAIKS. Bien que les fonctionnalités de l’API MOSAIKS suffisent pour de nombreuses applications, certains cas d’usage nécessitent de travailler directement avec des images satellitaires. Dans ces situations, comprendre comment sélectionner et traiter les images appropriées devient essentiel.
+
+::: {.callout-note}
+Les compétences abordées dans ces chapitres sont principalement pertinentes pour les utilisateurs qui doivent générer des caractéristiques MOSAIKS personnalisées. Si vous prévoyez d’utiliser les fonctionnalités de l’API MOSAIKS, vous pouvez ignorer cette section.
+:::
+
+## Quand aller au-delà de l’API MOSAIKS ?
+
+L’API MOSAIKS fournit des caractéristiques pré-calculées à partir d’images satellites Planet Labs de 2019. Bien que ces caractéristiques permettent un large éventail d’applications, vous pourriez avoir besoin de travailler directement avec des images satellites dans les cas suivants :
+
+- Votre analyse nécessite des données issues d’une autre période temporelle  
+- Vous avez besoin d’une résolution spatiale ou temporelle plus fine  
+- Votre application requiert des bandes spectrales spécifiques  
+- Vous souhaitez valider ou comparer les caractéristiques extraites par MOSAIKS  
+- Vous développez de nouvelles méthodologies d’analyse  
+
+## Satellites d’observation de la Terre : passé, présent et futur
+
+L’observation de la Terre par satellite a révolutionné notre compréhension de la planète depuis le lancement du premier satellite Landsat en 1972. Aujourd’hui, des centaines de satellites d’observation terrestre collectent quotidiennement des téraoctets d’images, soutenant des applications allant de la prévision météorologique à l’agriculture de précision.
+
+La diversité des données satellitaires disponibles s’est considérablement élargie, avec des options incluant :
+
+- Satellites publics gratuits (Landsat, Sentinel)  
+- Fournisseurs commerciaux (Planet Labs, Maxar)  
+- Capteurs spécialisés (radar, hyperspectral)  
+- Constellations de satellites offrant une couverture fréquente  
+- Imagerie à très haute résolution (<1 m par pixel)  
+
+Cette abondance d’options crée à la fois des opportunités et des défis lorsqu’il s’agit de sélectionner l’imagerie la plus adaptée à vos besoins spécifiques.
+
+## Plan de la section
+
+Les chapitres suivants vous guideront à travers les considérations essentielles pour travailler avec l’imagerie satellitaire :
+
+| Chapitre                  | Sujets clés                                        |
+|---------------------------|:---------------------------------------------------|
+| @sec-satellite-imagery    | Types de résolution, sources de données, critères de sélection |
+| @sec-satellite-processing | Étapes de prétraitement, contrôle qualité, besoins en calcul |
+
+: Plan de la section sur l’imagerie satellitaire {#tbl-section-outline .striped .hover}
+
+Ces chapitres offrent des conseils pratiques pour intégrer l’imagerie satellitaire dans votre flux de travail MOSAIKS tout en soulignant les considérations techniques et logistiques importantes.
+
+::: {.callout-note}
+# À venir
+
+Dans le prochain chapitre, nous verrons comment choisir l’imagerie satellitaire la plus adaptée à votre application.
+:::

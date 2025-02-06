@@ -1,0 +1,49 @@
+---
+lang: fr
+---
+
+# Données d'étiquettes {#sec-labels}
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("review")
+```
+
+## Aperçu
+
+Cette section explore les données de vérité terrain (étiquettes) qui peuvent être utilisées pour entraîner un modèle prédictif avec MOSAIKS. Bien que le système soit conçu pour être flexible quant aux types de variables cibles qu’il peut prédire, comprendre ce qui définit de bonnes données d’étiquettes et savoir comment les préparer correctement est essentiel pour obtenir de bons résultats.
+
+Les données d’étiquettes représentent la « réalité » que MOSAIKS cherche à prédire – qu’il s’agisse de rendements de culture, de densité de population, d’indicateurs économiques ou de toute autre variable potentiellement visible (directement ou indirectement) dans des images satellitaires. La qualité et les caractéristiques de ces données influencent fortement les performances du modèle.
+
+## Qu’est-ce qui caractérise de bonnes données d’étiquettes ?
+
+Pour des performances optimales avec MOSAIKS, les données d’étiquettes doivent présenter plusieurs caractéristiques clés :
+
+- Informations précises sur la localisation géographique  
+- Résolution spatiale adéquate (typiquement ≥1 km²)  
+- Alignement temporel raisonnable avec les caractéristiques d’imagerie  
+- Taille d’échantillon suffisante (en général ≥300 observations)  
+- Lien observable avec des caractéristiques de surface  
+
+## Plan de la section
+
+Les chapitres suivants vous guideront à travers les considérations essentielles pour travailler avec des données d’étiquettes dans MOSAIKS :
+
+| Chapitre               | Sujets clés                                                 |
+|------------------------|:------------------------------------------------------------|
+| @sec-labels-100-maps   | Exemples d’applications, analyse de performance, validation |
+| @sec-labels-survey     | Intégration d’enquêtes, conception d’échantillonnage, référencement géographique |
+| @sec-labels-data-prep  | Nettoyage des données, jointures spatiales, contrôle de la qualité |
+| @sec-labels-demo       | Exemple pratique, flux de travail concret, dépannage        |
+
+: Plan de la section sur les données d’étiquettes {#tbl-section-outline .striped .hover}
+
+Ces chapitres fournissent à la fois des conseils pratiques pour préparer vos propres données d’étiquettes et une compréhension plus approfondie des types de variables que MOSAIKS peut prédire efficacement.
+
+::: {.callout-note}
+# À venir
+
+Dans le prochain chapitre, nous examinerons plus de 100 variables différentes qui ont été testées avec MOSAIKS, en analysant ce qui fonctionne bien et ce qui fonctionne moins bien.
+:::

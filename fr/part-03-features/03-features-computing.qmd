@@ -1,0 +1,180 @@
+---
+lang: fr
+---
+
+
+# Calcul des caractéristiques {#sec-features-computing} 
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("draft")
+```
+
+## Vue d’ensemble
+
+Bien que l’API MOSAIKS fournisse des caractéristiques pré-calculées pour de nombreuses applications, certains cas d’usage nécessitent le calcul de caractéristiques personnalisées. Ce chapitre couvre les aspects techniques de la génération de caractéristiques MOSAIKS à partir d’images satellites.
+
+---
+
+## Prérequis
+
+Pour calculer les caractéristiques MOSAIKS, vous aurez besoin de :
+
+- **Imagerie satellite** (voir @sec-satellite-processing)
+- **Un environnement de calcul avec GPU** (fortement recommandé)
+- **Python avec bibliothèques de deep learning** (PyTorch recommandé)
+- **Stockage suffisant** pour les matrices de caractéristiques
+
+---
+
+## Implémentation
+
+Il existe plusieurs manières d’implémenter l’extraction des caractéristiques MOSAIKS :
+
+### Implémentation avec `torchgeo`
+
+La bibliothèque [torchgeo](https://torchgeo.readthedocs.io/en/stable/) fournit une implémentation PyTorch des caractéristiques de convolution aléatoires (RCF) :
+
+```python
+import torch
+from torchgeo.models import RCF
+
+# Définition des paramètres du modèle
+patch_size = 3  # Taille des patches aléatoires
+in_channels = 4  # Nombre de bandes spectrales d’entrée
+num_filters = 4000  # Nombre de caractéristiques à générer
+
+# Pour le mode 'empirical', fournir une classe PyTorch Dataset personnalisée
+# Si 'gaussian', ne pas fournir de dataset.
+
+# Initialisation du modèle RCF
+model = RCF(
+    in_channels=in_channels, 
+    features=num_filters, 
+    kernel_size=3, 
+    bias=-1.0, 
+    seed=42, 
+    mode='empirical',
+    dataset=CustomDataset,
+)
+
+# Déplacement du modèle sur GPU si disponible
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+model = model.to(device)
+```
+
+---
+
+## Paramètres des caractéristiques
+
+Plusieurs paramètres clés influencent l’extraction des caractéristiques :
+
+### Nombre de caractéristiques (K)
+
+- Détermine la **dimensionnalité du vecteur de caractéristiques**
+- Un plus grand nombre de caractéristiques **capture plus d’informations**
+- Augmente la **charge de calcul et les besoins en stockage**
+- Plage typique : **1 000 - 8 192 caractéristiques**
+- **Diminution des gains** au-delà de **4 000 caractéristiques**
+
+### Taille des patches
+
+- Détermine **l’étendue spatiale** prise en compte
+- Des patches plus grands **capturent plus de contexte**
+- Mais augmentent la **charge de calcul**
+- Taille typique : **3×3 ou 5×5 pixels**
+- **À adapter à la résolution de l’imagerie**
+
+### Nombre de canaux en entrée
+
+- Dépend du nombre de **bandes spectrales** disponibles
+- **RVB = 3 canaux**
+- Possibilité d’utiliser des **bandes supplémentaires** (ex. NIR, SWIR)
+- Plus de bandes = **information spectrale plus riche**
+- Mais augmente la **charge de calcul**
+
+---
+
+## Considérations pratiques
+
+### Gestion de la mémoire
+
+Lors du traitement de grands ensembles de données satellitaires :
+
+- **Utilisation de mini-batches** pour limiter la consommation mémoire
+- **Stockage temporaire sur disque** si la RAM est insuffisante
+- **Utilisation de `torch.no_grad()`** pour désactiver la rétropropagation
+
+### Formats de stockage
+
+Formats efficaces pour stocker de grandes matrices de caractéristiques :
+
+- **Parquet** (rapide, compressé, optimisé pour le stockage et l’accès)
+- **Zarr** (bon pour l’accès distribué et le cloud computing)
+- **Feather** (optimisé pour Pandas et Apache Arrow)
+
+### Traitement parallèle
+
+Pour extraire les caractéristiques sur de grands ensembles de données :
+
+- **Utilisation de `torch.multiprocessing`**
+- **Découpage des images en lots**
+- **Exécution sur plusieurs GPU** (si disponible)
+- **Traitement en parallèle sur un cluster**
+
+---
+
+## Contrôle qualité
+
+Vérifications essentielles lors de l’extraction des caractéristiques :
+
+1. **Validation des entrées**
+   - Dimensions des images
+   - Gamme des valeurs de pixels
+   - Données manquantes
+   - Ordre des bandes spectrales
+
+2. **Analyse statistique des caractéristiques**
+   - Vérification des distributions
+   - Détection de valeurs nulles/anormales
+   - Corrélation entre caractéristiques
+   - Analyse de l’importance des caractéristiques
+
+3. **Suivi des performances**
+   - Utilisation de la mémoire
+   - Vitesse de traitement
+   - Utilisation du GPU
+   - Efficacité du stockage
+
+---
+
+## Bonnes pratiques
+
+1. **Documentation**
+   - Enregistrer tous les **paramètres utilisés**
+   - Tracer **les sources de données**
+   - Documenter **les étapes de traitement**
+   - Noter **les éventuels problèmes rencontrés**
+
+2. **Tests**
+   - Tests unitaires sur **les fonctions critiques**
+   - Tests d’intégration
+   - Tests de performance
+   - Vérifications de validité des résultats
+
+3. **Gestion des versions**
+   - Versionner **le code**
+   - Versionner **les caractéristiques**
+   - Suivre **les paramètres d’extraction**
+   - Enregistrer **les résultats intermédiaires**
+
+---
+
+::: {.callout-note}
+# À venir
+
+Dans le prochain chapitre, nous travaillerons sur un **exemple complet de calcul de caractéristiques MOSAIKS personnalisées**.
+:::
