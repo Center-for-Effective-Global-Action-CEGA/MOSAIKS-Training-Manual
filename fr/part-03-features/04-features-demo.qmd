@@ -38,13 +38,13 @@ Vous trouverez ci-dessous un lien vers un **notebook Jupyter** conçu pour illus
 # Cliquez sur l’icône pour exécuter la démonstration !  
 
 &darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;  
-[![Ouvrir dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo_fr/04-featurization_demo.ipynb)  
+[![Ouvrir dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/fr/notebooks/demo_fr/04-featurization_demo.ipynb)  
 <!-- &uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr; -->
 Pensez à cliquer sur `File` -> `Save a copy in Drive` pour enregistrer vos modifications.  
 ---
 
 Ou pour voir une version statique du code sur GitHub, cliquez sur l’icône ci-dessous.
-[![](https://img.shields.io/badge/Voir%20sur%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo_fr/04-featurization_demo.ipynb)
+[![](https://img.shields.io/badge/Voir%20sur%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/fr/notebooks/demo_fr/04-featurization_demo.ipynb)
 :::
 
 ---
