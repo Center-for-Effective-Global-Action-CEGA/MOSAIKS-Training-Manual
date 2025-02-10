@@ -122,7 +122,7 @@ Si vous avez un contexte spécifique où vous voulez des informations sur mesure
 
 **TODO:** Ajouter une conférence enregistrée ici. 
 
-[Diapositives de la conférence.](../slides/MOSAIKS_Intro_TrainingDay1.pdf)
+[Diapositives de la conférence.](../slides/fr/MOSAIKS_Intro_TrainingDay1_fr)
 
 ## Résumé
 

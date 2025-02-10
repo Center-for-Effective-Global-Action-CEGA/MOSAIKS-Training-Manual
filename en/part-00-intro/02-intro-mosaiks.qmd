@@ -122,7 +122,7 @@ If you have a specific context where you want tailored information or a variable
 
 **TODO:** Add recorded lecture here. 
 
-[Lecture slides.](../slides/MOSAIKS_Intro_TrainingDay1.pdf)
+[Lecture slides.](../slides/en/MOSAIKS_Intro_TrainingDay1.pdf)
 
 ## Summary
 
