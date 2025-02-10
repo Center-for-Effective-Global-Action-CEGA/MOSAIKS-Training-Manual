@@ -15,11 +15,11 @@ status("draft_fr")
 # Cliquez sur l'insigne pour exécuter la démonstration!
 
 &darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;   
-[![Ouvrir Dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/fr/notebooks/demo_fr/06-model_LSMS-elec_demo.ipynb)  
+[![Ouvrir Dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo_fr/06-model_LSMS-elec_demo.ipynb)  
 <!-- &uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;     -->
 N'oubliez pas de cliquer `File` -> `Save a copy in Drive` pour enregistrer toutes les modifications que vous apportez.  
 ---
 Ou pour afficher une version statique du code sur GitHub, cliquez sur l'insigne ci-dessous. 
-[![](https://img.shields.io/badge/View%20on%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/fr/notebooks/demo_fr/06-model_LSMS-elec_demo.ipynb) 
+[![](https://img.shields.io/badge/View%20on%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo_fr/06-model_LSMS-elec_demo.ipynb) 
 :::
 

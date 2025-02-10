@@ -3,7 +3,7 @@ lang: fr
 ---
 
 
-# Calcul des caractéristiques {#sec-features-computing} 
+# Calcul des features {#sec-features-computing} 
 
 ```{r}
 #| echo: false
@@ -15,28 +15,28 @@ status("draft_fr")
 
 ## Vue d’ensemble
 
-Bien que l’API MOSAIKS fournisse des caractéristiques pré-calculées pour de nombreuses applications, certains cas d’usage nécessitent le calcul de caractéristiques personnalisées. Ce chapitre couvre les aspects techniques de la génération de caractéristiques MOSAIKS à partir d’images satellites.
+Bien que l’API MOSAIKS fournisse des features pré-calculées pour de nombreuses applications, certains cas d’usage nécessitent le calcul de features personnalisées. Ce chapitre couvre les aspects techniques de la génération de features MOSAIKS à partir d’images satellites.
 
 ---
 
 ## Prérequis
 
-Pour calculer les caractéristiques MOSAIKS, vous aurez besoin de :
+Pour calculer les features MOSAIKS, vous aurez besoin de :
 
 - **Imagerie satellite** (voir @sec-satellite-processing)
 - **Un environnement de calcul avec GPU** (fortement recommandé)
 - **Python avec bibliothèques de deep learning** (PyTorch recommandé)
-- **Stockage suffisant** pour les matrices de caractéristiques
+- **Stockage suffisant** pour les matrices de features
 
 ---
 
 ## Implémentation
 
-Il existe plusieurs manières d’implémenter l’extraction des caractéristiques MOSAIKS :
+Il existe plusieurs manières d’implémenter l’extraction des features MOSAIKS :
 
 ### Implémentation avec `torchgeo`
 
-La bibliothèque [torchgeo](https://torchgeo.readthedocs.io/en/stable/) fournit une implémentation PyTorch des caractéristiques de convolution aléatoires (RCF) :
+La bibliothèque [torchgeo](https://torchgeo.readthedocs.io/en/stable/) fournit une implémentation PyTorch des features de convolution aléatoires (RCF) :
 
 ```python
 import torch
@@ -45,7 +45,7 @@ from torchgeo.models import RCF
 # Définition des paramètres du modèle
 patch_size = 3  # Taille des patches aléatoires
 in_channels = 4  # Nombre de bandes spectrales d’entrée
-num_filters = 4000  # Nombre de caractéristiques à générer
+num_filters = 4000  # Nombre de features à générer
 
 # Pour le mode 'empirical', fournir une classe PyTorch Dataset personnalisée
 # Si 'gaussian', ne pas fournir de dataset.
@@ -68,17 +68,17 @@ model = model.to(device)
 
 ---
 
-## Paramètres des caractéristiques
+## Paramètres des features
 
-Plusieurs paramètres clés influencent l’extraction des caractéristiques :
+Plusieurs paramètres clés influencent l’extraction des features :
 
-### Nombre de caractéristiques (K)
+### Nombre de features (K)
 
-- Détermine la **dimensionnalité du vecteur de caractéristiques**
-- Un plus grand nombre de caractéristiques **capture plus d’informations**
+- Détermine la **dimensionnalité du vecteur de features**
+- Un plus grand nombre de features **capture plus d’informations**
 - Augmente la **charge de calcul et les besoins en stockage**
-- Plage typique : **1 000 - 8 192 caractéristiques**
-- **Diminution des gains** au-delà de **4 000 caractéristiques**
+- Plage typique : **1 000 - 8 192 features**
+- **Diminution des gains** au-delà de **4 000 features**
 
 ### Taille des patches
 
@@ -110,7 +110,7 @@ Lors du traitement de grands ensembles de données satellitaires :
 
 ### Formats de stockage
 
-Formats efficaces pour stocker de grandes matrices de caractéristiques :
+Formats efficaces pour stocker de grandes matrices de features :
 
 - **Parquet** (rapide, compressé, optimisé pour le stockage et l’accès)
 - **Zarr** (bon pour l’accès distribué et le cloud computing)
@@ -118,7 +118,7 @@ Formats efficaces pour stocker de grandes matrices de caractéristiques :
 
 ### Traitement parallèle
 
-Pour extraire les caractéristiques sur de grands ensembles de données :
+Pour extraire les features sur de grands ensembles de données :
 
 - **Utilisation de `torch.multiprocessing`**
 - **Découpage des images en lots**
@@ -129,7 +129,7 @@ Pour extraire les caractéristiques sur de grands ensembles de données :
 
 ## Contrôle qualité
 
-Vérifications essentielles lors de l’extraction des caractéristiques :
+Vérifications essentielles lors de l’extraction des features :
 
 1. **Validation des entrées**
    - Dimensions des images
@@ -137,11 +137,11 @@ Vérifications essentielles lors de l’extraction des caractéristiques :
    - Données manquantes
    - Ordre des bandes spectrales
 
-2. **Analyse statistique des caractéristiques**
+2. **Analyse statistique des features**
    - Vérification des distributions
    - Détection de valeurs nulles/anormales
-   - Corrélation entre caractéristiques
-   - Analyse de l’importance des caractéristiques
+   - Corrélation entre features
+   - Analyse de l’importance des features
 
 3. **Suivi des performances**
    - Utilisation de la mémoire
@@ -167,7 +167,7 @@ Vérifications essentielles lors de l’extraction des caractéristiques :
 
 3. **Gestion des versions**
    - Versionner **le code**
-   - Versionner **les caractéristiques**
+   - Versionner **les features**
    - Suivre **les paramètres d’extraction**
    - Enregistrer **les résultats intermédiaires**
 
@@ -176,5 +176,5 @@ Vérifications essentielles lors de l’extraction des caractéristiques :
 ::: {.callout-note}
 # À venir
 
-Dans le prochain chapitre, nous travaillerons sur un **exemple complet de calcul de caractéristiques MOSAIKS personnalisées**.
+Dans le prochain chapitre, nous travaillerons sur un **exemple complet de calcul de features MOSAIKS personnalisées**.
 :::

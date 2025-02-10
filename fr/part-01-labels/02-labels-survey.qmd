@@ -130,5 +130,5 @@ Cette intégration de MOSAIKS avec les données d’enquête représente une app
 ::: {.callout-note}
 # À venir
 
-Dans le prochain chapitre, nous examinerons des conseils pratiques pour préparer les données d'étiquettes à utiliser avec MOSAIKS, y compris le nettoyage des données, l'agrégation et la liaison aux caractéristiques satellitaires.
+Dans le prochain chapitre, nous examinerons des conseils pratiques pour préparer les données d'étiquettes à utiliser avec MOSAIKS, y compris le nettoyage des données, l'agrégation et la liaison aux features satellitaires.
 :::

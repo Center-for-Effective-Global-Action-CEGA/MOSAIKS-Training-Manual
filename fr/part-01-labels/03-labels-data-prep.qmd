@@ -89,25 +89,61 @@ Pour fusionner les étiquettes avec les caractéristiques MOSAIKS, il faut align
 
 ### Exemple de structure de données fusionnées
 
-| Observation | District  | Année | Rendement agricole | Caractéristique 1 | Caractéristique 2 | ... |
-|------------|-----------|------|--------------------|------------------|------------------|-----|
-| 1          | Chibombo  | 2019 | 1.520             | 4.2              | 11.6             | ... |
-| 2          | Kabwe     | 2019 | 1.878             | 2.9              | 5.3              | ... |
-| ...        | ...       | ...  | ...               | ...              | ...              | ... |
+Un exemple simple : les étiquettes de rendement des cultures au niveau des districts pourraient ressembler à :
 
-: Exemple de données fusionnées avec étiquettes et caractéristiques. {#tbl-joined-data}
+| Observation | District  | Année | Rendement des cultures |
+|-------------|-----------|-------|------------------------|
+| 1           | Chibombo  | 2019  | 1.520                  |
+| 2           | Kabwe     | 2019  | 1.878                  |
+| ...         | ...       | ...   | ...                    |
+| *N*         | Kitwe     | 2019  | 2.383                  |
 
-## Considérations de nettoyage des données
+: Données fictives sur le rendement des cultures pour les districts de Zambie. {#tbl-crop-yield}
 
-### Systèmes de coordonnées de référence (CRS)
+Les caractéristiques MOSAIKS à la même résolution pourraient ressembler à :
 
-MOSAIKS utilise le système **WGS 84** (EPSG:4326). Si vos données sont dans un autre système de coordonnées, elles doivent être reprojetées avant d’être fusionnées avec les caractéristiques MOSAIKS.
+| Observation | District  | Année | Caractéristique 1 | Caractéristique 2 | ... | Caractéristique *K* |
+|-------------|-----------|-------|-------------------|-------------------|-----|---------------------|
+| 1           | Chibombo  | 2019  | 4.2               | 11.6              | ... | 12.7                |
+| 2           | Kabwe     | 2019  | 2.9               | 5.3               | ... | 11.2                |
+| ...         | ...       | ...   | ...               | ...               | ... | ...                 |
+| *N*         | Kitwe     | 2019  | 10.6              | 1.1               | ... | 2.2                 |
+
+: Données fictives des caractéristiques MOSAIKS pour les mêmes districts. {#tbl-features}
+
+Après une jointure spatiale, vous obtenez un jeu de données fusionné :
+
+| Observation | District  | Année | Rendement des cultures | Caractéristique 1 | Caractéristique 2 | ... | Caractéristique *K* |
+|-------------|-----------|-------|------------------------|-------------------|-------------------|-----|---------------------|
+| 1           | Chibombo  | 2019  | 1.520                  | 4.2               | 11.6              | ... | 12.7                |
+| 2           | Kabwe     | 2019  | 1.878                  | 2.9               | 5.3               | ... | 11.2                |
+| ...         | ...       | ...   | ...                    | ...               | ...               | ... | ...                 |
+| *N*         | Kitwe     | 2019  | 2.383                  | 10.6              | 1.1               | ... | 2.2                 |
+
+
+: Exemple de données fusionnées avec étiquettes et features. {#tbl-joined-data}
+
+Dans l'exemple ci-dessus, notre localisation géographique est le district et notre étiquette est le rendement des cultures (mt/ha). Nous avons ensuite *K* colonnes contenant les caractéristiques et *N* observations.
+
+## Considérations sur le nettoyage des données
+
+### Systèmes de référence des coordonnées (SRC)
+
+Le système de référence des coordonnées par défaut utilisé par MOSAIKS est le World Geodetic System 84 (WGS 84). Le code standardisé qui définit le WGS 84 est ["EPSG:4326"](https://epsg.io/4326). EPSG signifie [European Petroleum Survey Group](https://en.wikipedia.org/wiki/EPSG_Geodetic_Parameter_Dataset), qui maintient une base de données des systèmes de coordonnées et des projections. Le système de coordonnées WGS 84 est le système le plus couramment utilisé pour les données GPS.
+
+![[Neuf projections cartographiques à petite échelle.](https://www.researchgate.net/publication/273517879_User_preferences_for_world_map_projections)](https://www.researchgate.net/profile/Bojan-Savric/publication/273517879/figure/fig1/AS:347863067447297@1459948426262/The-nine-small-scale-map-projections-used-in-the-paired-comparison-test-arranged-by.png){#fig-map-projections}
+
+Si vos données ne sont pas en WGS 84, vous devrez les reprojeter dans ce système de référence avant de les joindre aux caractéristiques MOSAIKS.
+
+### Qualité des étiquettes
+
+Vérifiez que les valeurs des étiquettes se situent dans les plages attendues, traitez les éventuelles valeurs aberrantes ou les données manquantes, et assurez-vous que les unités sont cohérentes et que les champs numériques sont correctement formatés. Ce livre n'entre pas dans les détails du nettoyage des données désordonnées. Ce sujet est traité de manière exhaustive dans le livre [R for Data Science](https://r4ds.had.co.nz/).
 
 ### Alignement temporel
 
-Si vous travaillez avec des séries temporelles d’étiquettes, vous devrez générer des caractéristiques adaptées à chaque période.
+Si vous disposez d'étiquettes de séries temporelles, vous devrez calculer des caractéristiques personnalisées pour chaque période. Voir @sec-features-computing pour plus d'informations sur la manière de procéder et @sec-model-temporal pour des conseils sur la modélisation des données de séries temporelles avec les caractéristiques MOSAIKS.
 
-### Formats de données
+### Formats des données
 
 MOSAIKS fonctionne avec plusieurs formats spatiaux :
 

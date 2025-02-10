@@ -2,7 +2,7 @@
 lang: fr
 ---
 
-# Données d'étiquettes {#sec-labels}
+# Données étiquetées {#sec-labels}
 ```{r}
 #| echo: false
 #| results: "asis"
@@ -13,13 +13,13 @@ status("review_fr")
 
 ## Aperçu
 
-Cette section explore les données de vérité terrain (étiquettes) qui peuvent être utilisées pour entraîner un modèle prédictif avec MOSAIKS. Bien que le système soit conçu pour être flexible quant aux types de variables cibles qu’il peut prédire, comprendre ce qui définit de bonnes données d’étiquettes et savoir comment les préparer correctement est essentiel pour obtenir de bons résultats.
+Cette section explore les données de référence (étiquettes) pouvant être utilisées pour entraîner un modèle prédictif avec MOSAIKS. Bien que le système soit conçu pour être flexible quant aux types de variables cibles qu’il peut prédire, comprendre ce qui définit de bonnes données d’étiquettes et savoir comment les préparer correctement est essentiel pour obtenir de bons résultats.
 
-Les données d’étiquettes représentent la « réalité » que MOSAIKS cherche à prédire – qu’il s’agisse de rendements de culture, de densité de population, d’indicateurs économiques ou de toute autre variable potentiellement visible (directement ou indirectement) dans des images satellitaires. La qualité et les caractéristiques de ces données influencent fortement les performances du modèle.
+Les données étiquetées représentent la « réalité » que MOSAIKS cherche à prédire – qu’il s’agisse de rendements de culture, de densité de population, d’indicateurs économiques ou de toute autre variable potentiellement visible (directement ou indirectement) dans des images satellitaires. La qualité et les caractéristiques de ces données influencent fortement les performances du modèle.
 
-## Qu’est-ce qui caractérise de bonnes données d’étiquettes ?
+## Quels sont les critères qui garantissent la qualité d’un jeu de données étiquetées  ?
 
-Pour des performances optimales avec MOSAIKS, les données d’étiquettes doivent présenter plusieurs caractéristiques clés :
+Pour des performances optimales avec MOSAIKS, les données étiquetées doivent présenter plusieurs caractéristiques clés :
 
 - Informations précises sur la localisation géographique  
 - Résolution spatiale adéquate (typiquement ≥1 km²)  
@@ -36,7 +36,7 @@ Les chapitres suivants vous guideront à travers les considérations essentielle
 | @sec-labels-100-maps   | Exemples d’applications, analyse de performance, validation |
 | @sec-labels-survey     | Intégration d’enquêtes, conception d’échantillonnage, référencement géographique |
 | @sec-labels-data-prep  | Nettoyage des données, jointures spatiales, contrôle de la qualité |
-| @sec-labels-demo       | Exemple pratique, flux de travail concret, dépannage        |
+| @sec-labels-demo       | Exemple pratique, flux de travail opérationnel, dépannage        |
 
 : Plan de la section sur les données d’étiquettes {#tbl-section-outline .striped .hover}
 

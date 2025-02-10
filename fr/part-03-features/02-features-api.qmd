@@ -2,7 +2,7 @@
 lang: fr
 ---
 
-# Caractéristiques API {#sec-features-api}
+# features API {#sec-features-api}
 
 ```{r}
 #| echo: false
@@ -14,10 +14,10 @@ status("draft_fr")
 
 ## Vue d’ensemble
 
-Dans ce chapitre, nous nous concentrons sur les **caractéristiques MOSAIKS disponibles via l’API** ([MOSAIKS API](https://api.mosaiks.org/)). Ces caractéristiques permettent d’intégrer rapidement et facilement des prédicteurs basés sur l’imagerie satellite dans vos analyses sans avoir à traiter manuellement les images satellites.
+Dans ce chapitre, nous nous concentrons sur les **features MOSAIKS disponibles via l’API** ([MOSAIKS API](https://api.mosaiks.org/)). Ces features permettent d’intégrer rapidement et facilement des prédicteurs basés sur l’imagerie satellite dans vos analyses sans avoir à traiter manuellement les images satellites.
 
 ::: {.callout-note}
-L’accès aux caractéristiques via l’API est expliqué en détail dans @sec-intro-api. Ce chapitre fournit des informations complémentaires sur la génération des caractéristiques et leurs spécifications. Si vous souhaitez générer vos propres caractéristiques, consultez @sec-features-computing.
+L’accès aux features via l’API est expliqué en détail dans @sec-intro-api. Ce chapitre fournit des informations complémentaires sur la génération des features et leurs spécifications. Si vous souhaitez générer vos propres features, consultez @sec-features-computing.
 :::
 
 ---
@@ -37,17 +37,17 @@ L’accès aux caractéristiques via l’API est expliqué en détail dans @sec-
 
 ---
 
-## Détails sur la génération des caractéristiques API
+## Détails sur la génération des features API
 
-L’équipe MOSAIKS a effectué une **unique passe de featurization** sur l’imagerie Planet Labs 2019 Q3. Ce processus repose sur la méthode des **Caractéristiques de Convolution Aléatoires (RCFs)** décrite en @sec-features-rcf, avec les paramètres spécifiques suivants :
+L’équipe MOSAIKS a effectué une **unique passe de featurization** sur l’imagerie Planet Labs 2019 Q3. Ce processus repose sur la méthode des **features de Convolution Aléatoires (RCFs)** décrite en @sec-features-rcf, avec les paramètres spécifiques suivants :
 
 1. **Échantillonnage de patches**  
    - Sélection aléatoire de patches (filtres) directement dans l’imagerie Planet Labs 2019 Q3.  
    - **Blanchiment (whitening) des patches** : centrage et déco-corrélation des valeurs de pixels pour mettre en évidence des motifs distincts.
 
 2. **Tailles de filtres (kernels)**  
-   - **2 000 caractéristiques** dérivées de filtres 4×4.  
-   - **2 000 caractéristiques** dérivées de filtres 6×6.  
+   - **2 000 features** dérivées de filtres 4×4.  
+   - **2 000 features** dérivées de filtres 6×6.  
    - Tous les filtres conservent **3 canaux couleur** (Rouge, Vert, Bleu).
 
 3. **Biais et activation**  
@@ -58,17 +58,17 @@ L’équipe MOSAIKS a effectué une **unique passe de featurization** sur l’im
    - Après convolution et activation, la réponse est **moyennée** sur chaque cellule 0.01° (~1 km²).  
    - Chaque filtre produit **une seule valeur numérique moyenne par cellule**.
 
-5. **Vecteur final de caractéristiques**  
+5. **Vecteur final de features**  
    - Après application de tous les filtres, chaque cellule 0.01° reçoit un **vecteur de 4 000 dimensions**.  
-   - Ce processus a été exécuté **une seule fois**, générant une couche de caractéristiques globale fixe.
+   - Ce processus a été exécuté **une seule fois**, générant une couche de features globale fixe.
 
-![Trois cartes d’activation de caractéristiques aléatoires extraites de l’imagerie Planet Labs.](../../images/RCF_patch_sampling_activation_maps_world.png){#fig-rcf-world-simple}
+![Trois cartes d’activation de features aléatoires extraites de l’imagerie Planet Labs.](../../images/RCF_patch_sampling_activation_maps_world.png){#fig-rcf-world-simple}
 
 ---
 
 ## Agrégations dérivées
 
-Bien que les caractéristiques soient initialement calculées à **0.01° de résolution (~1 km²)**, l’API propose également des versions **agrégées** :
+Bien que les features soient initialement calculées à **0.01° de résolution (~1 km²)**, l’API propose également des versions **agrégées** :
 
 | Résolution | Description | Pondération | Accès |
 |------------|-------------|-----------|---------|
@@ -79,11 +79,11 @@ Bien que les caractéristiques soient initialement calculées à **0.01° de ré
 | ADM1 | Niveau régional/provincial | Surface ou population | [Fichiers Pré-calculés](https://api.mosaiks.org/portal/precomputed/) |
 | ADM0 | Niveau national | Surface ou population | [Fichiers Pré-calculés](https://api.mosaiks.org/portal/precomputed/) |
 
-: Options de téléchargement des caractéristiques via l’API MOSAIKS. {#tbl-api-options}
+: Options de téléchargement des features via l’API MOSAIKS. {#tbl-api-options}
 
 Illustration des agrégations :
 
-![Exemple de caractéristiques convolutionnelles aléatoires téléchargées à différentes échelles : (A) grille 0.1°, (B) départements, (C) régions.](../../images/US_feature_summaries.png){#fig-feature-aggregation}
+![Exemple de features convolutionnelles aléatoires téléchargées à différentes échelles : (A) grille 0.1°, (B) départements, (C) régions.](../../images/US_feature_summaries.png){#fig-feature-aggregation}
 
 ---
 
@@ -96,13 +96,13 @@ Chaque agrégation offre **deux options de pondération** :
 
 ---
 
-## Quand utiliser ces caractéristiques ?
+## Quand utiliser ces features ?
 
 1. **Disponibilité immédiate** :  
-   - Si vos labels datent de ~2019 (ou d’une période proche sans changements majeurs), **ces caractéristiques sont la solution la plus rapide et facile**.
+   - Si vos labels datent de ~2019 (ou d’une période proche sans changements majeurs), **ces features sont la solution la plus rapide et facile**.
 
 2. **Données agrégées** :  
-   - Si vos données sont agrégées (ex. niveau pays), téléchargez **directement les caractéristiques agrégées**.
+   - Si vos données sont agrégées (ex. niveau pays), téléchargez **directement les features agrégées**.
 
 3. **Contraintes de ressources** :  
    - Si vous avez des **contraintes de stockage ou de calcul**, utilisez les **fichiers pré-agrégés**.
@@ -122,10 +122,10 @@ Chaque agrégation offre **deux options de pondération** :
    - 3 bandes spectrales (RVB)
 
 2. **Processus de featurization unique**  
-   - **Caractéristiques générées une seule fois** (pas d’actualisation périodique)  
-   - L’agrégation (0.1°, 1°, ADM) repose sur les **mêmes caractéristiques 0.01°**  
+   - **features générées une seule fois** (pas d’actualisation périodique)  
+   - L’agrégation (0.1°, 1°, ADM) repose sur les **mêmes features 0.01°**  
 
-3. **Caractéristiques RCF (Random Convolutional Features)**  
+3. **features RCF (Random Convolutional Features)**  
    - **4 000 dimensions**  
    - **Filtres de 4×4 et 6×6**  
    - **Blanchiment empirique** des patches (décorrélation)  
@@ -148,5 +148,5 @@ Chaque agrégation offre **deux options de pondération** :
 ::: {.callout-note}
 # À venir
 
-Dans la prochaine section, nous explorerons les techniques avancées pour **calculer et personnaliser vos propres caractéristiques MOSAIKS**.
+Dans la prochaine section, nous explorerons les techniques avancées pour **calculer et personnaliser vos propres features MOSAIKS**.
 :::

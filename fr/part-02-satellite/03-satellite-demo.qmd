@@ -15,8 +15,7 @@ status("draft_fr")
 
 ## Aperçu
 
-Cette démonstration vous montrera quelques concepts clés sur les données satellitaires et comment elles peuvent être préparées pour la vectorisation des caractéristiques (la vectorisation des caractéristiques est abordée dans @sec-features-computing).  
-
+Cette démonstration vous présentera quelques concepts clés sur les données satellitaires et la façon dont elles peuvent être préparées pour la création de feature (la création de feature est abordée au @sec-features-computing)
 ## Données de démonstration
 
 Pour cette démonstration, nous utiliserons des images satellitaires provenant des **NICFI Basemaps**. Les NICFI Basemaps sont une collection d'images satellites haute résolution, disponibles gratuitement à des fins de recherche. Ces données sont fournies avec une correction atmosphérique, une correction des nuages et des valeurs de pixels normalisées. De plus, les produits créés après avril 2022 appliquent également un filtre d'amélioration des images.  
@@ -41,12 +40,12 @@ Ci-dessous se trouve un lien vers un notebook Jupyter destiné à démontrer la 
 # Cliquez sur l'icône pour exécuter la démonstration !  
 
 &darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;   
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/fr/notebooks/demo_fr/03-satellite_nicfi_demo.ipynb)  
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo_fr/03-satellite_nicfi_demo.ipynb)  
 <!-- &uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;     -->
 N'oubliez pas de cliquer sur `Fichier` -> `Enregistrer une copie dans Drive` pour sauvegarder vos modifications.  
 ---
 Ou pour voir une version statique du code sur GitHub, cliquez sur l'icône ci-dessous.  
-[![](https://img.shields.io/badge/View%20on%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/fr/notebooks/demo_fr/03-satellite_nicfi_demo.ipynb)
+[![](https://img.shields.io/badge/View%20on%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo_fr/03-satellite_nicfi_demo.ipynb)
 :::
 
 Pour les instructions et conseils sur l'utilisation de Google Colab, veuillez vous référer à @sec-intro-compute.  

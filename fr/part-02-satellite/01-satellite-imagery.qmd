@@ -1,9 +1,7 @@
+
 ---
 lang: fr
 ---
-
-
-
 # Choisir l’imagerie satellitaire {#sec-satellite-imagery}
 
 ```{r}
@@ -11,7 +9,7 @@ lang: fr
 #| results: "asis"
 
 source("../../_common.R")
-status("review_fr")
+status("review")
 ```
 
 ## Contexte
@@ -59,61 +57,211 @@ Par exemple, les données haute résolution provenant de satellites commerciaux 
 
 Les programmes satellitaires publics offrent des images gratuites ou peu coûteuses avec une couverture mondiale. Financés par des agences gouvernementales, ces programmes fournissent des données précieuses pour la recherche scientifique et la surveillance environnementale. Ils sont particulièrement utiles pour les études à long terme, grâce à des archives de données remontant sur plusieurs décennies.
 
-| Satellite | Type de capteur | Résolution | Fréquence de revisite | Caractéristiques spéciales |
-|-----------|---------------|------------|----------------|------------------|
-| Sentinel-2 | Optique | 10-60 m | 5 jours | 13 bandes spectrales |
-| Landsat 8/9 | Optique | 15-100 m | 16 jours | 11 bandes spectrales |
-| MODIS | Optique | 250 m-1 km | Quotidien | 36 bandes spectrales |
-| Sentinel-1 | Radar (C-band) | 5-40 m | 6-12 jours | Radar à synthèse d’ouverture (SAR) |
-| NISAR | Radar (L- et S-band) | À définir | Lancement 2024 | SAR double bande |
-| VIIRS | Autre | 375 m-750 m | Quotidien | Couverture globale quotidienne |
+| Satellite          | Type de capteur   | Résolution                                    | Temps de revisite   | Caractéristiques spéciales                      |
+|--------------------|-------------------|-----------------------------------------------|---------------------|-------------------------------------------------|
+| Sentinel-2        | Optique           | 10-60 m                                      | 5 jours            | 13 bandes spectrales                           |
+| Landsat 8/9       | Optique           | 15-100 m                                     | 16 jours           | 11 bandes spectrales                           |
+| MODIS             | Optique           | 250 m-1 km                                   | Quotidien          | 36 bandes spectrales                           |
+| Sentinel-1        | Radar (bande C)   | 5-40 m                                       | 6-12 jours         | Radar à synthèse d’ouverture (SAR)             |
+| NISAR             | Radar (bande L & S) | À déterminer                                | Lancement 2024     | SAR double bande                               |
+| VIIRS             | Autre             | 375 m-750 m                                  | Quotidien          | Couverture globale quotidienne                 |
+| ASTER             | Autre             | 15-90 m                                      | 16 jours           | 14 bandes spectrales                           |
+| NICFI             | Optique           | 4.77 m                                       | Composite mensuel  | Surveillance des forêts tropicales             |
 
 : Exemples de satellites publics et leurs spécifications. {#tbl-satellite-public}
 
 ### Satellites privés {#sec-satellite-private}
 
-Les programmes satellitaires privés offrent souvent une imagerie à plus haute résolution, une plus grande spécialisation et des revisites plus fréquentes que les programmes publics, mais à un coût plus élevé.
+Les programmes satellitaires privés offrent souvent des images de résolution plus élevée, une spécialisation accrue et des revisites plus fréquentes que les programmes publics, mais généralement à un coût plus élevé. Ces satellites sont particulièrement utiles pour des applications nécessitant un niveau de détail précis, telles que la cartographie urbaine, la surveillance des infrastructures ou l’agriculture de précision. 
 
-| Satellite | Type de capteur | Résolution | Fréquence de revisite | Caractéristiques spéciales |
-|-----------|---------------|------------|----------------|------------------|
-| Maxar WorldView | Optique | 31 cm (panchromatique), 1,24 m (multispectral) | Variable | Très haute résolution |
-| Planet SkySat | Optique | 50 cm (panchromatique), 1 m (multispectral) | Variable | Satellites compacts et agiles |
-| Airbus Pleiades | Optique | 50 cm (panchromatique), 2 m (multispectral) | Variable | Très haute résolution |
-| ICEYE | Radar (X-band) | <1 m | Fréquent | Radar à haute revisite |
+Les fournisseurs privés proposent souvent des produits de données personnalisés, des délais de livraison adaptés et des analyses avancées, ce qui peut être inestimable pour des projets sensibles au facteur temps ou à vocation commerciale. Cependant, les coûts plus élevés associés aux images privées peuvent limiter leur utilisation pour des études à grande échelle ou à long terme sans un financement significatif.
 
-: Exemples de satellites commerciaux et leurs spécifications. {#tbl-satellite-private}
+| Satellite          | Type de capteur   | Résolution                                    | Temps de revisite   | Caractéristiques spéciales                      |
+|--------------------|-------------------|-----------------------------------------------|---------------------|-------------------------------------------------|
+| Maxar WorldView    | Optique           | 31 cm (panchromatique), 1,24 m (multispectral) | Variable            | Très haute résolution                           |
+| Planet SkySat      | Optique           | 50 cm (panchromatique), 1 m (multispectral)     | Variable            | Satellites compacts et agiles                   |
+| Airbus Pleiades    | Optique           | 50 cm (panchromatique), 2 m (multispectral)     | Variable            | Très haute résolution                           |
+| Planet PlanetScope | Optique           | 3-5 m                                         | Quotidien           | Grande constellation                            |
+| Planet RapidEye    | Optique           | 5 m                                           | 5,5 jours           | Conçu pour l'agriculture                        |
+| SPOT               | Optique           | 1,5-6 m                                       | 26 jours            | Programme de longue date                        |
+| ICEYE              | Radar (bande X)   | <1 m                                          | Fréquent            | SAR à revisite élevée                           |
+| Capella Space      | Radar (bande X)   | 50 cm                                         | Fréquent            | SAR à très haute résolution                     |
+| GHGSat             | Spécialisé        | À déterminer                                  | Variable            | Surveillance des gaz à effet de serre           |
+
+: Exemples de satellites privés et leurs spécifications. {#tbl-satellite-private}
+
+### Considérations sur les coûts
+
+::: {.callout-warning}
+Rappelez-vous que **l’imagerie la plus coûteuse ou à la résolution la plus élevée n’est pas toujours le meilleur choix**. Équilibrer vos besoins avec des contraintes pratiques — telles que le budget, la capacité de stockage et l’expertise en traitement — peut souvent aboutir à de meilleurs résultats à long terme que de simplement opter pour l’option la plus performante.
+:::
+
+La sélection d’images satellites implique non seulement le coût direct de l’acquisition des données, mais aussi une série de coûts indirects ou « cachés ». Lorsque vous intégrez ces éléments dans votre budget global, tenez compte de la fréquence à laquelle vous avez besoin de mises à jour, de l’étendue du pré- ou post-traitement requis, ainsi que de la capacité de votre équipe à travailler avec des ensembles de données complexes. Certains satellites et portails de données regroupent également l’analyse et le stockage en cloud dans le cadre de services par abonnement, ce qui peut alléger les exigences en infrastructure moyennant un coût supplémentaire.
+
+Voici un exemple de répartition des coûts d’imagerie, offrant une référence rapide des gammes de prix typiques et des considérations selon différentes sources de données :
+
+| Niveau de coût                    | Fourchette approximative | Missions/Programmes exemples                                    | Considérations clés                                                                                           |
+|:----------------------------------|:-------------------------|:---------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------------|
+| **Données publiques gratuites**   | \$0                     | Landsat (30 m), Sentinel (10 m), MODIS (250 m–1 km), VIIRS (375 m–750 m) | Financé par le gouvernement ; largement utilisé pour des projets à grande échelle ou sur le long terme ; résolution modérée.  |
+| **Résolution moyenne**            | \$1–5 par km²           | SPOT (1,5–6 m)                                                 | Relativement abordable pour un niveau de détail modéré ; adapté aux analyses régionales.                         |
+| **Haute résolution**              | \$5–15 par km²          | Planet (3–5 m), RapidEye (5 m)                                   | Utile pour des études plus détaillées ; la fréquence des revisites peut augmenter le coût si la couverture est étendue.  |
+| **Très haute résolution**         | \$15–25 par km²         | WorldView (sub-mètre), SkySat (0,5–1 m)                          | Offre un niveau de détail très fin mais à un prix premium ; le coût peut augmenter rapidement pour de grandes surfaces.   |
+| **Services par abonnement**       | Variable                | Certains fournisseurs commerciaux regroupent stockage et analyses | Souvent une solution « tout-en-un » pratique, mais la tarification peut être imprévisible ou mal adaptée à grande échelle. |
+
+: Niveaux de coûts pour l’imagerie satellite et considérations clés. {#tbl-satellite-costs}
+
+En plus de ces coûts d’acquisition de base, vous devez également prendre en compte :
+
+- **Stockage de données et informatique** : De grands volumes d’imagerie à haute résolution nécessitent un espace de stockage plus important et une puissance de calcul accrue pour le traitement.
+- **Expertise et formation** : L’interprétation d’ensembles de données complexes (comme le radar ou l’hyperspectral) requiert souvent des compétences spécialisées.
+- **Licences logicielles** : Les logiciels propriétaires de SIG ou de traitement d’images peuvent s’ajouter à votre budget opérationnel.
+- **Infrastructure cloud** : Les solutions cloud commerciales peuvent gérer un traitement à grande échelle, mais peuvent entraîner des frais d’abonnement récurrents.
+
+Peser soigneusement ces dépenses directes et indirectes vous aidera à choisir une imagerie qui optimise à la fois la valeur scientifique et la rentabilité.
+---
+
+## Période temporelle
+
+La durée de vie opérationnelle et l’historique de lancement d’une mission satellite sont des considérations essentielles lors de la sélection d’images pour votre projet. Des programmes plus anciens tels que Landsat offrent des archives de données s’étalant sur plusieurs décennies, ce qui les rend précieux pour la détection de changements à long terme ou pour des analyses historiques. En revanche, des satellites plus récents comme Sentinel, lancé en 2014, fournissent des données avec des technologies de capteurs plus avancées, mais couvrent une fenêtre temporelle plus courte.
+
+Lorsqu’il s’agit de déterminer une plage temporelle, il est important d’évaluer la profondeur historique requise par votre étude, ainsi que la cohérence de la technologie des capteurs au fil du temps. Les projets nécessitant des comparaisons sur plusieurs années bénéficient de missions dotées de procédures d’étalonnage bien documentées et d’une performance stable des capteurs au fil du temps. Vous devrez également prendre en compte si la continuité des données futures est garantie par des lancements prévus ou par des budgets opérationnels prolongés. Par exemple, le programme multigénérationnel de Landsat assure un enregistrement des données relativement cohérent, tandis que des constellations plus récentes peuvent offrir des capacités supérieures, mais faire face à des incertitudes de financement susceptibles d’affecter leur disponibilité à long terme.
+
+![Chronologie du service de la constellation de satellites Landsat. Source : [NASA](https://landsat.gsfc.nasa.gov/satellites/timeline/)](../../images/nasa_landsat_timeline.png){#fig-nasa-landsat-timeline}
+
+---
+
+## Résolution temporelle
+
+La résolution temporelle, ou fréquence de revisite, détermine la fréquence à laquelle un satellite capture des images du même endroit. Des taux de revisite plus élevés permettent de surveiller des phénomènes en rapide évolution, tels que les cycles de croissance de la végétation ou la dynamique des inondations, et d’intervenir plus rapidement face aux événements changeants. Cependant, les satellites offrant des passages fréquents font souvent des compromis sur la résolution spatiale ou spectrale.
+
+Lors de la sélection de la résolution temporelle, il convient de prendre en compte la vitesse de variation des variables que vous ciblez. La surveillance quotidienne des conditions agricoles nécessite des séries temporelles plus denses qu’une évaluation annuelle de la déforestation. Les conditions nuageuses dans votre zone d’étude peuvent également influer sur le taux de revisite effectif : si les nuages obscurcissent fréquemment la surface terrestre, il peut être nécessaire d’utiliser une constellation de satellites offrant plusieurs opportunités d’imagerie ou un capteur capable de « voir » à travers les nuages, comme le radar (SAR). Votre budget et vos capacités de traitement des données jouent également un rôle dans votre décision, car des acquisitions fréquentes entraînent des besoins accrus en stockage et en calcul.
+
+![Comparaison de la résolution temporelle de différents systèmes satellitaires. Source : [Radiant Earth](https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc)](../../images/radiant_earth_temporal_res.jpeg){#fig-radiant-earth-temporal-res}
 
 ---
 
 ## Résolution spatiale
 
-La résolution spatiale du capteur satellite détermine le niveau de détail capturé dans l’imagerie. Une résolution plus élevée permet de discerner des objets individuels (arbres, véhicules, bâtiments), tandis qu’une résolution plus faible fournit une vue d’ensemble à grande échelle.
+La résolution spatiale du capteur satellite détermine le niveau de détail capturé dans l’imagerie satellite. À des résolutions plus élevées, des éléments tels que des arbres individuels, des véhicules ou de petits bâtiments sont discernables. À des résolutions plus faibles, on obtient une vue d’ensemble plus large des paysages — adaptée aux études à l’échelle régionale comme l’analyse climatique ou la cartographie des couvertures terrestres sur de vastes zones — mais on peut manquer de détecter des changements fins sur de petits éléments.
 
-| Application | Résolution spatiale | Fréquence temporelle | Bandes clés | Satellites recommandés |
-|------------|--------------------|--------------------|------------|------------------|
-| **Agriculture** | 5–30 m | Hebdomadaire–mensuel | NIR, Rouge, SWIR | Planet, Sentinel-2, Landsat 8/9 |
-| **Zones urbaines** | 0.5–10 m | Mensuel–annuel | RVB, NIR | WorldView, Planet, Sentinel-2 |
-| **Surveillance forestière** | 10–30 m | Mensuel–annuel | NIR, SWIR, Rouge | Landsat, Sentinel-2 |
+Bien que l’imagerie à très haute résolution (inférieure à un mètre) puisse fournir des informations riches, elle entraîne souvent des coûts et des exigences de stockage plus élevés. En revanche, les résolutions modérées (10–30 m) offrent un bon compromis entre un niveau de détail significatif, un coût abordable et des volumes de données gérables. Votre choix doit tenir compte de la taille physique des éléments pertinents pour vos étiquettes, de l’échelle de votre zone d’étude et des ressources informatiques dont vous disposez. Dans de nombreux cas, des missions publiques comme Sentinel-2 ou Landsat offrent des résolutions pratiques (10–30 m) suffisantes pour des analyses à grande échelle, sans les coûts élevés associés à l’imagerie commerciale à haute résolution.
 
-: Exemples de satellites recommandés pour différentes applications. {#tbl-application-recommendations}
+![Résolution spatiale de l’imagerie satellite de 3 satellites publics (première rangée) et de 3 satellites commerciaux (deuxième rangée). Source : [Radiant Earth](https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc)](../../images/radiant_earth_spatial_res.jpeg){#fig-radiant-earth-spatial-res}
 
 ---
 
-## Conclusion
+## Résolution spectrale
 
-Le choix de l’imagerie satellitaire repose sur plusieurs compromis entre coût, résolution, fréquence de revisite et couverture spectrale. Pour prendre une décision éclairée, posez-vous les questions suivantes :
+La résolution spectrale se réfère à la capacité du capteur à mesurer des longueurs d’onde discrètes à travers le spectre électromagnétique. Différents matériaux — tels que la végétation, l’eau et les infrastructures urbaines — présentent des signatures spectrales distinctes, de sorte que la capture de plusieurs bandes peut améliorer la précision de la classification et la cartographie thématique. Par exemple, les bandes proche infrarouge (NIR) sont extrêmement précieuses pour quantifier la santé de la végétation, tandis que les bandes infrarouges à ondes courtes (SWIR) aident à distinguer les minéraux de la teneur en humidité.
 
-1. Quelle est la résolution spatiale minimale requise ?  
-2. À quelle fréquence ai-je besoin d’observations ?  
-3. Quelles bandes spectrales sont nécessaires ?  
-4. Quelle est la période d’étude ?  
-5. Quel est mon budget ?  
-6. Quel niveau de traitement est requis ?  
-7. Comment vais-je gérer les nuages et les lacunes de données ?  
-8. Quels sont mes capacités de stockage et de calcul ?  
+Choisir une résolution spectrale appropriée implique d’équilibrer le nombre et la largeur des bandes avec l’information thématique spécifique dont vous avez besoin. Les capteurs qui ne capturent que la lumière visible (RGB) peuvent suffire pour une discrimination générale des couvertures terrestres, tandis que des applications comme la surveillance de la santé agricole bénéficient souvent d’une couverture NIR ou SWIR supplémentaire. Les bandes thermiques ou micro-ondes peuvent également être cruciales dans des domaines spécialisés — comme la détection d’anomalies thermiques ou l’estimation de l’humidité du sol — et influencer l’utilité de certaines plateformes satellites pour des objectifs scientifiques ou opérationnels spécifiques.
+
+![Résolution spectrale et ses applications. Source : [Radiant Earth](https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc)](../../images/radiant_earth_spectral_res.jpeg)
+
+---
+
+## Type de capteur 
+
+Les capteurs satellitaires peuvent généralement être classés en instruments passifs ou actifs. Les deux catégories présentent des avantages et des limites qui influencent leur pertinence pour certaines applications.
+
+**Les capteurs passifs** mesurent le rayonnement naturel, généralement la lumière du soleil réfléchie (optique) ou la chaleur émise (thermique). Étant donné qu'ils dépendent de sources d’énergie externes, la collecte des données peut être limitée par la disponibilité de la lumière solaire et les conditions atmosphériques. Cependant, l’imagerie optique issue de capteurs passifs offre souvent des représentations colorées intuitives, ce qui la rend plus facile à interpréter. Les bandes thermiques peuvent révéler des signatures de chaleur utiles dans les études de température de surface.
+
+**Les capteurs actifs** émettent leur propre énergie et enregistrent le signal rétrodiffusé. Les systèmes radar (ex. SAR) et les instruments LiDAR appartiennent à cette catégorie. Ils peuvent pénétrer les nuages, fonctionner de nuit et mesurer des caractéristiques de surface telles que la rugosité ou l'élévation. En revanche, les données issues de ces capteurs sont souvent plus complexes à traiter et à interpréter, nécessitant une expertise et des logiciels spécialisés.
+
+![Illustration des différences entre capteurs actifs et passifs. Source : [Radiant Earth](https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc)](../../images/radiant_earth_active_passive.jpg){#fig-radiant-earth-active-passive}
+
+Le tableau ci-dessous présente une comparaison simple de ces types de capteurs :
+
+| Type de capteur | Exemples | Principe de fonctionnement | Avantages | Inconvénients |
+|:---------------|:----------|:--------------------------|:----------|:-------------|
+| Passif | Optique, Thermique | Mesure l’énergie réfléchie naturellement disponible (lumière du soleil ou chaleur émise) | Facile à interpréter ; souvent intuitif (ex. images RGB) | Sensible à la couverture nuageuse et aux conditions atmosphériques |
+| Actif | Radar (SAR), LiDAR | Émet de l’énergie et mesure les signaux de retour | Peut pénétrer les nuages, capturer des données de jour comme de nuit | Données souvent plus complexes à traiter |
+
+: Types de capteurs et leurs principales caractéristiques. {#tbl-sensor-types tbl-colwidths="[12.5, 12.5, 25, 25, 25]"}
+
+Comprendre quel type de capteur correspond le mieux à vos besoins de recherche est crucial. Par exemple, si votre zone d’étude est fréquemment nuageuse, une approche basée sur le radar peut offrir une couverture plus fiable. À l’inverse, les capteurs optiques peuvent suffire pour les régions avec des périodes saisonnières sans nuages ou pour une classification générale de l’occupation du sol lorsque la lumière du soleil est disponible.
+
+---
+
+## Couverture nuageuse
+
+La couverture nuageuse est l’un des défis les plus persistants dans l'utilisation de l’imagerie satellitaire optique, car les nuages et les ombres peuvent dégrader la qualité des données collectées. Dans les régions où la couverture nuageuse est fréquente, les images peuvent nécessiter un traitement supplémentaire ou une période d'acquisition plus longue pour obtenir une couverture acceptable. Les stratégies pour résoudre ce problème incluent l’application d’algorithmes de masquage des nuages, la fusion de plusieurs images pour créer un composite sans nuages, ou l'utilisation de satellites radar capables de pénétrer les nuages.
+
+Les capteurs optiques, tels que ceux présents sur Sentinel-2 ou Landsat, incluent souvent des couches de qualité qui signalent les pixels affectés par les nuages. L’exclusion de ces pixels améliore la fiabilité des données, mais réduit également la quantité d’images exploitables, limitant ainsi la couverture temporelle dans les régions nuageuses. En revanche, les missions radar comme Sentinel-1 ou ICEYE sont largement insensibles aux conditions nuageuses, garantissant une couverture cohérente, mais au prix de caractéristiques de données différentes et d’une expertise supplémentaire nécessaire à leur interprétation. Peser ces compromis vous aidera à choisir l’imagerie qui répond le mieux à vos exigences en matière de précision et de contraintes pratiques.
+
+![Couverture nuageuse obscurcissant l’Amérique du Nord. Source : [NASA Earth Observatory](https://earthobservatory.nasa.gov/features/ColorImage)](../../images/cloud_cover_nasa.jpg){#fig-nasa-cloud-cover}
+
+---
+
+## Niveaux de traitement
+
+Les données satellitaires sont distribuées à différents niveaux de traitement, allant des mesures brutes de l’instrument aux produits dérivés presque prêts pour l’analyse. Sélectionner un niveau de traitement adapté aux exigences techniques de votre projet peut optimiser les flux de travail et garantir des résultats cohérents.
+
+Le tableau ci-dessous présente les niveaux de traitement les plus courants :
+
+| Niveau | Description | Cas d'utilisation typique |
+|:------:|:-----------|:--------------------------|
+| **Niveau 0** | Données brutes de l'instrument avec un minimum ou aucun prétraitement. Souvent non orthorectifiées ou non calibrées radiométriquement. | Rarement utilisé pour l’analyse générale en raison de sa complexité. |
+| **Niveau 1** | Calibrage radiométrique et corrections géométriques de base. Parfois subdivisé (ex. 1A, 1B, 1C). | Adapté si vous avez besoin de contrôler les corrections atmosphériques finales ou de mettre en place des flux de travail personnalisés. |
+| **Niveau 2** | Produits de réflectance de surface avec corrections atmosphériques appliquées, incluant souvent des masques de nuages et d’ombres. | Couramment utilisé pour des analyses nécessitant des valeurs de réflectance précises et des comparaisons multi-temporelles. |
+| **Niveau 3** | Produits dérivés ou composites (ex. mosaïques, NDVI, données corrigées des lacunes). | Idéal pour des applications thématiques bénéficiant de données prétraitées et agrégées. |
+
+: Niveaux de traitement des images satellitaires et leurs cas d'utilisation typiques. {#tbl-processing-levels}
+
+D’autres processus sont souvent appliqués à ces niveaux, notamment :
+
+- **Orthorectification** : Suppression des distorsions géométriques causées par l'inclinaison du capteur, le relief du terrain et la courbure de la Terre. Assure une représentation spatiale précise pour la cartographie et l’analyse.
+- **Correction atmosphérique** : Ajustement des effets atmosphériques (aérosols, vapeur d’eau) pour normaliser les valeurs de réflectance à travers différentes périodes et capteurs.
+- **Calibrage radiométrique** : Conversion des valeurs brutes des capteurs en unités physiques telles que la réflectance ou la température de brillance, garantissant des comparaisons cohérentes entre images provenant de capteurs et de dates d'acquisition différents.
+
+![Histogrammes des valeurs brutes de pixels de l’imagerie satellite NICFI pour chaque bande (R, G, B, NIR). Ces données incluent des corrections atmosphériques, des corrections de nuages et des valeurs normalisées des pixels. Après avril 2022, un filtre d’affûtage a également été appliqué aux images.](../../images/nicfi_pixel_histograms.png){#fig-nicfi-pixel-histograms}
+
+Connaître les étapes de traitement déjà effectuées par votre fournisseur de données vous permet d’éviter un travail redondant et de vous assurer que vous obtenez des données répondant à vos exigences de précision. Par exemple, si vous avez besoin de comparaisons multi-temporelles cohérentes, optez pour un niveau 2 ou supérieur afin de minimiser les variations atmosphériques. En revanche, si vous préférez effectuer vous-même les corrections et les calibrations, le niveau 1 peut offrir une plus grande flexibilité, mais au prix d’une complexité accrue.
+
+---
+
+## Choisir la bonne combinaison
+
+Sélectionner la bonne combinaison de caractéristiques spatiales, spectrales, temporelles et de capteur peut sembler complexe, étant donné le grand nombre de satellites et de produits de données disponibles. Ce choix repose souvent sur les compromis que vous êtes prêt à faire entre coût, résolution, fréquence de revisite, couverture spectrale et disponibilité des données.
+
+| Application | Résolution spatiale | Fréquence temporelle | Bandes clés | Capteurs recommandés |
+|-------------|--------------------|--------------------|-----------|-----------------| 
+| **Agriculture** | 5–30m | Hebdomadaire–mensuelle | NIR, Rouge, SWIR | Planet, Sentinel-2, Landsat 8/9 |
+| **Zones urbaines** | 0.5–10m | Mensuelle–annuelle | RGB, NIR | WorldView, Planet, Sentinel-2 |
+| **Surveillance des forêts** | 10–30m | Mensuelle–annuelle | NIR, SWIR, Rouge | Landsat, Sentinel-2 |
+| **Ressources en eau**  | 10–30m | Hebdomadaire–mensuelle | NIR, SWIR, Bleu | Sentinel-2, Landsat 8/9 |
+
+: Exemples de caractéristiques satellitaires pour différentes applications. {#tbl-application-recommendations}
+
+---
+
+## Prendre la décision finale
+
+Posez-vous ces questions avant de choisir votre imagerie satellitaire :
+
+1. Quelle est la résolution spatiale minimale nécessaire ?
+2. À quelle fréquence les observations doivent-elles être effectuées ?
+3. Quelles bandes spectrales sont requises ?
+4. Quelle est la période d’intérêt ?
+5. Quel est votre budget ?
+6. Quel niveau de traitement est requis ?
+7. Comment allez-vous gérer la couverture nuageuse et les lacunes dans les données ?
+8. Quelles sont vos ressources en stockage et en calcul ?
+
+Les réponses à ces questions vous orienteront vers la source d’imagerie la plus adaptée à votre application spécifique.
+
+![Image générée par DALL-E illustrant la sélection du satellite parfait.](../../images/DALL·E-chosen-satellite.webp){#fig-dalle-satellites}
+
+---
 
 ::: {.callout-note}
-# À venir
+# À suivre
 
-Dans le prochain chapitre, nous verrons comment accéder aux images satellites et les traiter pour une utilisation avec MOSAIKS.
+Dans le prochain chapitre, nous explorerons comment accéder aux images satellites et les traiter pour une utilisation avec MOSAIKS.
 :::
+
+
+
+
+
+<!-- [MEDS EDS 223 Geospatial analysis class](https://eds-223-geospatial.github.io/course-materials/week6.html) --> 

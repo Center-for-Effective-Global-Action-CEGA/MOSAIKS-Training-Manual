@@ -1,7 +1,8 @@
 ---
 lang: fr
 ---
-# Démonstration des données d'étiquettes {#sec-labels-demo}
+# Démonstration des données d'étiquetage
+ {#sec-labels-demo}
 
 ```{r}
 #| echo: false
@@ -33,12 +34,12 @@ Vous trouverez ci-dessous un lien vers un notebook Jupyter destiné à démontre
 # Cliquez sur l’icône ci-dessous pour exécuter la démonstration !  
 
 &darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;  
-[![Ouvrir dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/fr/notebooks/demo_fr/02-label-data_demo.ipynb)  
+[![Ouvrir dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo_fr/02-label-data_demo.ipynb)  
 <!-- &uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;     -->
 N’oubliez pas de cliquer sur `File` -> `Save a copy in Drive` pour enregistrer toute modification que vous apportez.  
 ---
 Ou pour voir une version statique du code sur GitHub, cliquez sur l’icône ci-dessous.  
-[![](https://img.shields.io/badge/Voir%20sur%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/fr/notebooks/demo_fr/02-label-data_demo.ipynb)
+[![](https://img.shields.io/badge/Voir%20sur%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo_fr/02-label-data_demo.ipynb)
 :::
 
 Pour des instructions et des conseils sur l’utilisation de Google Colab, veuillez consulter @sec-intro-compute.  

@@ -23,17 +23,17 @@ Dans ce chapitre, nous discuterons d'un nouvel article en cours de rédaction (P
 
 ### Publication originale
 
-Dans Rolf et al. 2021, les auteurs ont testé MOSAIKS sur 7 variables cibles : le couvert forestier, le revenu, le prix des logements, la densité de population, la luminosité nocturne et l'altitude. La zone d'étude est axée sur les États-Unis continentaux. C'est un excellent point de départ pour comprendre les capacités de MOSAIKS, Vu que la qualité des données est élevée pour un ensemble varié de résultats. Bien que les résultats aient montré un potentiel significatif et démontré l'utilité de MOSAIKS, le véritable test réside dans son application à de nouvelles variables et à de nouvelles régions géographiques.
+Dans Rolf et al. 2021, les auteurs ont testé MOSAIKS sur 7 variables cibles : le couvert forestier, le revenu, le prix des logements, la densité de population, la luminosité nocturne et l'altitude. La zone d'étude est axée sur la partie continentale des Etats-unis. C'est un excellent point de départ pour comprendre les capacités de MOSAIKS, Vu que la qualité des données est élevée pour un ensemble varié de résultats. Bien que les résultats aient montré un potentiel significatif et démontré l'utilité de MOSAIKS, le véritable test réside dans son application à de nouvelles variables et à de nouvelles régions géographiques.
 
 ### Passer à l'échelle mondiale
 
 Pour tester l’applicabilité mondiale de MOSAIKS sur un ensemble varié de thématique, deux éléments principaux ont été nécessaires :
 
-**1.** La création d’un ensemble global de caractéristiques
+**1.** La création d’un ensemble global de features
 
-![Imagerie de la carte de base visuelle de Planet Labs du troisième trimestre 2019 (à gauche) et 4 des 4 000 caractéristiques MOSAIKS téléchargées depuis l’API (à droite).](../../images/api-features.png){#fig-api-features}
+![Imagerie de la carte de base visuelle de Planet Labs du troisième trimestre 2019 (à gauche) et 4 des 4 000 features MOSAIKS téléchargées depuis l’API (à droite).](../../images/api-features.png){#fig-api-features}
 
-**2.** La collecte et la sélection d’un large ensemble de thématique présentant une diversité de structures spatiales et de catégories.
+**2.**  Constituer et organiser un vaste ensemble d'indicateurs présentant une grande diversité de structures spatiales et de catégories
 
 | **Catégorie**          | **Nombre d’étiquettes** | **Exemple d’étiquette**     |
 |------------------------|----------------------|-----------------------------|
@@ -50,11 +50,11 @@ Pour tester l’applicabilité mondiale de MOSAIKS sur un ensemble varié de th�
 
 : Les auteurs ont sélectionné 115 variables réparties en 10 catégories et ont entrepris de tester chacune d’elles dans le système MOSAIKS. {#tbl-labels}
 
-Avec ces données en main, ils ont pu formuler quelques questions simples à tester :
+Avec la prise en main de ces données, ils ont pu formuler quelques questions simples à tester :
 
 - Quelles variables peuvent être mesurées efficacement ?
-- Quelles sont les applications les plus convaincantes ?
-- Quels sont les modes d’échec ?
+- Quelles sont les applications les plus prometteuses ?
+- Quelles sont les défaillances potentielles ?
 
 ## Résultats
 
@@ -68,7 +68,7 @@ Quelques observations générales ressortent :
 
 2. **Différences par catégorie :** Certaines catégories ont systématiquement des scores R² plus élevés. Par exemple, les « Systèmes naturels » (ex. : couverture forestière) ont souvent de meilleurs scores car les modèles spatiaux sont directement visibles depuis l’espace – pensez aux vastes zones forestières contrastant avec les champs ouverts ou les centres urbains. En revanche, « Emploi » ou « Démographie » incluent des variables (comme les taux de chômage) qui sont largement socio-économiques, nécessitant des indices plus subtils et indirects.
 
-3. **Cas d’échec :** Certains résultats montrent des performances quasi aléatoires, suggérant que les caractéristiques des images satellites seules sont insuffisantes pour capturer leurs modèles spatiaux ou que les signaux sont noyés dans le bruit (voir Échecs ci-dessous).
+3. **Cas d’échec :** Certains résultats montrent des performances quasi aléatoires, suggérant que les features des images satellites seules sont insuffisantes pour capturer leurs modèles spatiaux ou que les signaux sont noyés dans le bruit (voir Échecs ci-dessous).
 
 ![Les résultats de l’expérience des 100 cartes avec l’axe des x affichant les valeurs observées et l’axe des y les valeurs prédites. Chaque point représente un emplacement de l’étude. La ligne diagonale (45°) représente une prédiction parfaite. La performance est mesurée avec le coefficient de détermination (R²).](../../images/proctor_et_al_100_fig3_scatter.png){#fig-100-maps-scatter}
 
@@ -76,10 +76,173 @@ Dans le diagramme en boîte (@fig-100-maps-box), nous voyons la distribution des
 
 ![Les résultats de l'expérience des 100 cartes.](../../images/proctor_et_al_100_fig3_box.png){#fig-100-maps-box}
 
-Ces résultats démontrent à la fois la puissance et les limites de MOSAIKS. Bien qu’il excelle à prédire de nombreux résultats importants à l’échelle mondiale, il ne s’agit pas d’une solution universelle. Le succès dépend en grande partie de la relation existante entre l’élément étudié et les caractéristiques visibles dans l’imagerie satellitaire.
+Ces résultats démontrent à la fois la puissance et les limites de MOSAIKS. Bien qu’il excelle à prédire de nombreux résultats importants à l’échelle mondiale, il ne s’agit pas d’une solution universelle. Le succès dépend en grande partie de la relation existante entre l’élément étudié et les features visibles dans l’imagerie satellitaire.
+
+### Succès
+
+#### Rendement du maïs
+
+##### Données sur le maïs
+
+Les données de rendement du maïs proviennent de données sur les rendements agricoles collectées au deuxième niveau administratif (par exemple, les comtés aux États-Unis) aux États-Unis, en Chine, au Brésil et dans l'Union européenne. Les rendements sont calculés en divisant la quantité de grain récolté par la superficie plantée, bien que, dans certains cas, la superficie récoltée soit utilisée à la place de la superficie plantée. Les données couvrent la période de 1983 à 2009, la dernière année disponible étant retenue pour chaque localité.
+
+##### Résultats du rendement du maïs
+
+Un exemple remarquable d'une étiquette performante est le rendement du maïs (@fig-100-maps-maize-plot). Ce résultat se prête naturellement à la détection par imagerie satellite :
+
+- **Signal visuel direct :** Les champs agricoles présentent des features spécifiques, telles que la texture des cultures, la couverture de la canopée et les motifs phénologiques (stades de croissance), qui peuvent tous être capturés dans les signaux spectraux et spatiaux des images satellites.
+
+<!-- - **Forte périodicité saisonnière :** Les pratiques agricoles — en particulier pour les cultures de base — sont souvent plantées et récoltées selon des calendriers bien définis. Cette cohérence temporelle facilite la modélisation. -->
+
+- **Contiguïté spatiale :** De vastes étendues continues de maïs réduisent le bruit et facilitent l'extraction des features pertinentes.
+
+Dans le nuage de points situé à gauche de @fig-100-maps-maize-plot, les valeurs de rendement prédites correspondent bien aux valeurs observées, se regroupant souvent le long de la ligne à 45°. À droite, on observe que les motifs visuellement identifiables dans les régions de culture du maïs se reflètent clairement dans les cartes prédites. Cette forte concordance illustre comment MOSAIKS peut rapidement fournir des prédictions robustes pour des résultats qui se manifestent nettement dans l'imagerie satellite.
+
+![Performance de MOSAIKS sur le rendement du maïs (illustrée à gauche), avec les valeurs observées tracées par rapport aux prédictions du modèle. Les données d'étiquetage observées sont affichées en haut à droite, tandis que les prédictions correspondantes apparaissent en bas à droite.](../../images/proctor_et_al_100_maize_plot.png){#fig-100-maps-maize-plot}
+
+##### Pourquoi cela fonctionne
+
+Les rendements agricoles constituent un cas d'utilisation classique de la télédétection, car les terres agricoles sont souvent vastes, dispersées géographiquement et sujettes à des changements rapides dus aux conditions météorologiques et aux pratiques de gestion — des conditions que l'imagerie satellite peut surveiller à grande échelle. En mesurant des indices de végétation (par exemple, NDVI, EVI), les chercheurs obtiennent des informations sur la santé des plantes, la densité de la canopée et l'activité photosynthétique, autant d'éléments fortement corrélés à la productivité agricole. Cette approche non invasive, opportune et spatialement exhaustive est inestimable pour la prévision des rendements, la détection de stress et l'orientation de l'allocation des ressources. Par conséquent, la télédétection est devenue une pierre angulaire des méthodes modernes d'estimation des rendements des cultures de base dans le monde entier. MOSAIKS s'inscrit naturellement dans cette tendance, tirant parti des dernières avancées en apprentissage automatique pour extraire des informations exploitables à partir de l'imagerie satellite.
+
+![Champs agricoles dans la région du Midwest des États-Unis. Cet exemple illustre la nette démarcation des parcelles, dont les variations d'intensité de couleur facilitent la détection des caractéristiques sur l'imagerie satellite. Source: NASA](../../images/crop_fields_NASA.jpeg){#fig-100-maps-maize-img}
+
+#### Indice de richesse inclusive (IWI)
+
+##### Données de l'IWI
+
+Les données de l'Indice international de richesse proviennent du programme Demographic and Health Surveys (DHS). L'indice est exprimé par une valeur comprise entre 0 et 100, des valeurs plus élevées indiquant une richesse plus importante. Il est calculé à partir des données ménagères portant sur la possession d'appareils durables, les caractéristiques du logement et l'accès à des services de base comme l'eau et l'électricité. Les données sont traitées et fournies par le Global Data Lab avec l'autorisation du DHS, les valeurs étant moyennées sur l'ensemble des ménages de chaque groupe d'enquête. Ces groupes sont décalés jusqu'à 2 km en zone urbaine et jusqu'à 5 km en zone rurale afin de protéger la vie privée, tout en restant dans les mêmes limites administratives.
+
+##### Résultats de l'IWI
+
+Un autre succès notable est l'Indice international de richesse (IWI; @fig-100-maps-iwi-plot). Cette mesure composite de la richesse des ménages est dérivée d'une variété d'indicateurs tels que la qualité du logement, l'accès aux services et la possession de biens durables. Bien que la richesse en tant que telle ne soit pas directement visible depuis l'espace, les facteurs qui y contribuent le sont souvent. Par exemple, les zones plus aisées disposent généralement d'infrastructures mieux développées, de maisons plus grandes et d'un plus grand nombre de véhicules — autant d'indices qui laissent des signatures distinctes dans l'imagerie satellite.
+
+![Performance de MOSAIKS sur l'indice de richesse inclusive (en anglais, Inclusive Wealth Index, IWI), illustrée par un graphique comparant les valeurs observées aux prédictions du modèle (à gauche). Les données d'étiquetage observées sont affichées en haut à droite, tandis que les prédictions correspondantes apparaissent en bas à droite. ](../../images/proctor_et_al_100_iwi_plot.png){#fig-100-maps-iwi-plot} 
+
+##### Pourquoi cela fonctionne
+
+Bien qu'il s'agisse d'une mesure composite du statut socioéconomique, les indicateurs sous-jacents de l'IWI — conditions de logement, accès aux services et possession d'actifs — se manifestent souvent dans l'environnement bâti sous forme de caractéristiques que les satellites captent efficacement. Par exemple, les quartiers plus aisés présentent généralement une densité plus élevée de bâtiments substantiels, de routes pavées, d'agencements formels et d'équipements visibles (par exemple, piscines, véhicules stationnés). Ces indices se traduisent par des motifs distinctifs dans les données spectrales et spatiales extraites par les fonctionnalités de MOSAIKS. De plus, le développement des infrastructures et les matériaux de construction (comme les toits en métal par opposition aux toits en chaume) peuvent générer des différences détectables en termes de réflectance, facilitant ainsi la détection des gradients socioéconomiques par l'algorithme.
 
 ::: {.callout-note}
-# À venir
+Cela met en lumière l'un des principaux avantages de MOSAIKS : même lorsque la variable cible n'est pas directement « visible », le système est capable d'en extraire les indicateurs à partir d'indices visuels variés, conduisant ainsi à des prédictions robustes des indices de richesse à travers le monde.
+:::
 
-Dans le prochain chapitre, nous explorerons plus en détail les données d’étiquettes issues d’enquêtes.
+### Échecs
+
+#### Infrastructure des pipelines
+
+##### Données sur les pipelines
+
+Les données sur les pipelines proviennent de l'Energy Information Association (EIA) et incluent les lignes principales interétatiques ainsi que certaines lignes intraétatiques, réparties en trois types : pipelines de pétrole brut, pipelines de liquides de gaz d'hydrocarbures (HGL) et pipelines de produits pétroliers. Les données représentent l'infrastructure des pipelines en date de janvier 2020 et couvrent les 48 États contigus des États-Unis. La variable mesure la longueur, en kilomètres, de chaque type de pipeline au sein de chaque cellule de grille.
+
+##### Résultats des pipelines
+
+Certaines étiquettes affichent des valeurs de R² extrêmement faibles, indiquant en effet une absence de capacité prédictive avec cette approche. Un exemple notable est la présence de pipelines souterrains @fig-100-maps-pipelines-plot.
+
+![Les échecs](../../images/proctor_et_al_100_pipelines_plot.png){#fig-100-maps-pipelines-plot}
+
+##### Pourquoi cela échoue
+
+Contrairement aux forêts ou aux champs agricoles, l'infrastructure des pipelines est généralement cachée à l'inspection visuelle directe — souvent située entièrement sous terre ou dissimulée de manière à ne pas fournir d'indicateurs de surface reconnaissables dans l'imagerie (@fig-100-maps-pipelines-img).
+
+- **Absence de features visibles :** Il n'existe aucun indice spectral ou structurel (par exemple, coloration, texture, forme) qui indique de manière fiable la présence d'un pipeline.
+
+- **Les indices indirects sont peu fiables :** On pourrait supposer que les pipelines suivent des routes ou des corridors distincts, mais ces corrélations varient fortement d'une région à l'autre et n'apparaissent pas de manière constante dans l'imagerie.
+
+- **Rapport signal/bruit :** Dans de nombreuses zones, le corridor des pipelines peut apparaître visuellement indiscernable des terres agricoles ou d'autres types de végétation, ne laissant qu'une signature satellite peu ou pas distincte.
+
+En conséquence, MOSAIKS a peu de chances d'identifier et d'apprendre des features prédictifs pour une telle infrastructure cachée. Cela contraste fortement avec des cibles visuellement plus évidentes, telles que les champs de maïs ou la couverture forestière.
+
+![Why it fails - buried](../../images/proctor_et_al_100_pipelines_img.png){#fig-100-maps-pipelines-img}
+
+#### Diversité des abeilles
+
+##### Données sur les abeilles
+
+Les données sur la diversité des abeilles proviennent du US Geological Survey Eastern Ecological Science Center Native Bee Laboratory, qui fournit des relevés d'occurrence d'espèces pour les abeilles, guêpes et autres insectes, qu'ils soient indigènes ou non, collectés par diverses méthodes de piégeage. Chaque enregistrement inclut une identification taxonomique et des coordonnées géographiques. À partir de données ponctuelles recueillies de 2009 à 2019, la diversité des abeilles est calculée en comptant le nombre d'espèces uniques documentées dans chaque cellule de grille de 0,01° × 0,01° en Amérique du Nord (y compris les territoires américains et les îles mineures éloignées). Pour les cellules comportant plusieurs événements d'échantillonnage, chaque espèce n'est comptée qu'une seule fois. Il est important de noter que la base de données inclut uniquement les enregistrements de présence des espèces — les absences n'étant pas enregistrées — ce qui peut entraîner un biais d'échantillonnage dans les mesures de diversité.
+
+##### Résultats sur la diversité des abeilles
+
+Un autre cas d'échec notable concerne la diversité des abeilles. Bien que les abeilles jouent un rôle crucial dans les écosystèmes et l'agriculture, leur présence et leur diversité ne peuvent être directement observées à partir de l'imagerie satellite. Plusieurs facteurs contribuent à cette limitation :
+
+- **Inadéquation d'échelle :** Les abeilles évoluent à une échelle spatiale bien plus fine que la résolution de l'imagerie satellite typique.
+- **Relations indirectes :** Bien que les abeilles dépendent de la végétation, le lien entre la couverture végétale visible depuis l'espace et les populations d'abeilles est complexe et varie selon le contexte.
+- **Dynamiques temporelles :** Les populations d'abeilles fluctuent de manière saisonnière et peuvent changer rapidement, tandis que l'imagerie ne capture que des instantanés statiques.
+- **Facteurs cachés :** Des éléments essentiels de l'habitat, tels que les sites de nidification, sont souvent dissimulés sous la canopée ou dans de petits espaces invisibles depuis le dessus.
+
+Ce cas illustre un principe important : MOSAIKS fonctionne mieux lorsqu'il s'agit de prédire des résultats qui présentent des relations constantes et visibles avec les features de surface capturées par l'imagerie satellite. Lorsque ces relations deviennent trop indirectes ou complexes, les performances en pâtissent généralement.
+
+## Types de variables
+
+MOSAIKS peut travailler à la fois avec des variables de résultat continues et catégorielles, bien que l'approche et les métriques d'évaluation diffèrent selon le type.
+
+::: {.callout-note}
+Cette section offre un aperçu des deux types de variables ainsi que de quelques métriques utilisées pour les évaluer. Ce sujet sera abordé plus en détail dans @sec-model-choice.
+:::
+
+### Variables continues 
+
+Les variables continues prennent des valeurs numériques sur un spectre, telles que :
+
+- Rendements agricoles (par exemple, tonnes par hectare)
+- Densité de population (habitants par kilomètre carré)
+- Pourcentage de couverture forestière (0-100 %)
+- Niveaux de revenus (en dollars)
+- Hauteur des bâtiments (en mètres)
+
+Pour les variables continues, MOSAIKS utilise généralement des approches de régression et évalue la performance à l'aide de métriques telles que le R² (coefficient de détermination) ou la RMSE (erreur quadratique moyenne). Les valeurs de R² rapportées tout au long de ce chapitre indiquent la proportion de variance du résultat expliquée par les prédictions de MOSAIKS.
+
+![Continuous variable example showing the breeding bird species diversity over the continental United States](../../images/proctor_et_al_100_breeding_birds_plot.png){#fig-100-maps-birds-plot}
+
+### Variables catégorielles
+
+Les variables catégorielles regroupent les observations en classes ou catégories distinctes, telles que :
+
+- Types d'utilisation des sols (urbain/agriculture/forêt)
+- Types de bâtiments (résidentiel/commercial/industriel)
+- Types de cultures (maïs/blé/riz)
+- Présence/absence de features (routes, bâtiments)
+- Catégories de développement (faible/moyen/élevé)
+
+Pour les variables catégorielles, MOSAIKS peut être utilisé de deux manières :
+
+1. **Classification binaire** : Pour les variables comportant deux catégories (par exemple, présence/absence), MOSAIKS peut fournir des prédictions de probabilité comprises entre 0 et 1. La performance est généralement évaluée à l'aide de métriques telles que l'exactitude, la précision, le rappel ou l'aire sous la courbe ROC (AUC-ROC).
+
+2. **Classification multi-classes** : Pour les variables comportant plusieurs catégories, MOSAIKS peut soit :
+   - Utiliser une approche one-vs-all, traitant chaque catégorie comme un problème de classification binaire distinct,
+   - Fournir des probabilités pour chaque catégorie possible qui s'additionnent à 1,
+   - Convertir les catégories en valeurs numériques si elles possèdent un ordre naturel.
+
+![Classifier example showing Ecoregions of the world.](../../images/proctor_et_al_100_ecoregions_comparison.jpg){#fig-ecoregions-comparison}
+
+### Choix des métriques appropriées
+
+Le choix de la métrique d'évaluation doit correspondre au type de variable :
+
+| Type de variable | Métriques courantes | Interprétation |
+|------------------|---------------------|----------------|
+| Continue         | R², RMSE, MAE       | R² varie de 0 à 1, plus la valeur est élevée, mieux c'est |
+| Binaire          | Accuracy, AUC-ROC     | Varie de 0 à 1, plus la valeur est élevée, mieux c'est |
+| Multi-classes    | Accuracy, F1-score   | Varie de 0 à 1, plus la valeur est élevée, mieux c'est |
+
+## Résumé
+
+Cette exploration de plus de 100 résultats différents révèle plusieurs points clés à propos de MOSAIKS :
+
+1. **La performance varie significativement :** La capacité prédictive va d'une très forte (R² > 0.8) à une quasi absence de pouvoir prédictif, en fonction du résultat.
+
+2. **La visibilité directe compte :** Les résultats directement observables dans l'imagerie (comme la couverture forestière) ou disposant de forts indices visuels (comme les indices de richesse) tendent à être mieux prédits.
+
+3. **Les tendances par catégorie :** Certaines catégories, comme les Systèmes naturels et l'Agriculture, affichent une performance systématiquement plus forte que d'autres, telles que la Santé ou la Démographie.
+
+4. **Implications pratiques :** La compréhension de ces tendances aide les utilisateurs à  :
+   - Fixer des attentes réalistes pour de nouvelles applications,
+   - Identifier quels types de résultats sont les plus adaptés,
+   - Reconnaître quand des approches alternatives pourraient être nécessaires.
+
+Ces résultats démontrent à la fois la puissance et les limites de MOSAIKS. Bien qu'il excelle dans la prédiction de nombreux résultats importants à l'échelle mondiale, il ne constitue pas une solution universelle. Le succès dépend en grande partie de la relation significative entre le résultat d'intérêt et les caractéristiques visibles dans l'imagerie satellite.
+
+::: {.callout-note}
+# Perspectives
+
+Dans le prochain chapitre, nous explorerons plus en détail les données d'étiquetage issues des enquêtes.
 :::

@@ -174,7 +174,7 @@ Au lieu des features de MOSAIKS de séries chronologiques, nous allons plutôt d
 # Click the badge to run the demo in Google Colab!
 
 &darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;  
-[![Ouvrir Dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/fr/notebooks/demo_fr/08-model_fews_net_demo.ipynb)  
+[![Ouvrir Dans Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo_fr/08-model_fews_net_demo.ipynb)  
 
 
 N'oubliez pas de cliquer `File -> Save a copy in Drive` pour enregistrer toutes les modifications que vous apportez.
