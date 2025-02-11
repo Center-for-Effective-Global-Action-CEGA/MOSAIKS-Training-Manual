@@ -1,52 +1,52 @@
 exactextract
-cartopy
-contextily
+# cartopy
+# contextily
 # dask[complete]
 # daskgeopandas
 # daskml
-earthpy
+# earthpy
 fiona
 folium
 geopandas
-geoplot
-geoviews
-geopy
+# geoplot
+# geoviews
+# geopy
 # gettext
-glum
-h5py
-ipython
-jupyter
-jupyterlab
-lz4
+# glum
+# h5py
+# ipython
+# jupyter
+# jupyterlab
+# lz4
 matplotlib
-netcdf4
+# netcdf4
 numpy
-osmnx
+# osmnx
 pandas
-pip
+# pip
 # planetarycomputer
 pyarrow
-pycrs
+# pycrs
 pyproj
-pyreadstat
-pysal
+# pyreadstat
+# pysal
 # pystacclient
-pystac
+# pystac
 # python>=3.11
-pytorch
+# pytorch
 rasterio
-rasterstats
-rioxarray
+# rasterstats
+# rioxarray
 # scikitimage
 scikit-learn
 scipy
 seaborn
 shapely
-stackstac
+# stackstac
 statsmodels
 # stacvrt
 tqdm
-torchvision
-torchgeo
+# torchvision
+# torchgeo
 # wget
 xarray
