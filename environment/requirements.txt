@@ -1,9 +1,9 @@
 exactextract
 cartopy
 contextily
-dask[complete]
-daskgeopandas
-daskml
+# dask[complete]
+# daskgeopandas
+# daskml
 earthpy
 fiona
 folium
@@ -11,7 +11,7 @@ geopandas
 geoplot
 geoviews
 geopy
-gettext
+# gettext
 glum
 h5py
 ipython
