@@ -24,29 +24,29 @@ numpy
 osmnx
 pandas
 pip
-planetarycomputer
+# planetarycomputer
 pyarrow
 pycrs
 pyproj
 pyreadstat
 pysal
-pystacclient
+# pystacclient
 pystac
-python>=3.11
+# python>=3.11
 pytorch
 rasterio
 rasterstats
 rioxarray
-scikitimage
-scikitlearn
+# scikitimage
+scikit-learn
 scipy
 seaborn
 shapely
 stackstac
 statsmodels
-stacvrt
+# stacvrt
 tqdm
 torchvision
 torchgeo
-wget
+# wget
 xarray
