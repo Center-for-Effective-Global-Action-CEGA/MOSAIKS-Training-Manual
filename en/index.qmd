@@ -1,3 +1,18 @@
+<script>
+(function() {
+    function checkAndHideContent() {
+        var sidebarMenu = document.querySelector(".sidebar-menu-container");
+        var contentDiv = document.querySelector(".content > div"); // Sélectionne le premier div à l'intérieur de .content
+        
+        if (sidebarMenu && contentDiv) {
+            contentDiv.style.display = "none";
+        }
+    }
+    
+    document.addEventListener("DOMContentLoaded", checkAndHideContent);
+    document.addEventListener("click", checkAndHideContent);
+})();
+</script>
 This is the first edition of the MOSAIKS Training Manual! The manual serves as a comprehensive reference for understanding MOSAIKS, its capabilities, and guidance on practical implementation. You will learn what MOSAIKS is, what can be done with it, and how to use it effectively in a variety of applications.
 
 The skills and knowledge you gain from this manual will enable you to leverage satellite imagery and machine learning to address complex socioeconomic and environmental challenges. This can be a self taught manual or used in conjunction with a training course. 
