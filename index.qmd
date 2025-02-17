@@ -4,10 +4,10 @@
 <div style="text-align: center; margin-top: 50px;">
   <h1>Welcome to Our Multilingual Website</h1>
   <p>Please select your preferred language:</p>
-  <a href="../en/index.html" style="text-decoration: none;">
+  <a href="en/index.html" style="text-decoration: none;">
     <button style="font-size: 20px; padding: 10px 20px; margin: 10px;">English</button>
   </a>
-  <a href="../fr/index.html" style="text-decoration: none;">
+  <a href="fr/index.html" style="text-decoration: none;">
     <button style="font-size: 20px; padding: 10px 20px; margin: 10px;">Français</button>
   </a>
 </div>
