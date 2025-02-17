@@ -27,24 +27,6 @@ ul.task-list li input[type="checkbox"] {
 }
 </style>
 
-<script>
-  // Function to hide the language selection block
-  function hideLanguageChoice() {
-    var sidebarMenu = document.querySelector(".sidebar-menu-container");
-    var contentDiv  = document.querySelector(".content > div"); 
-    
-    // Check if both elements exist before applying changes
-    if (sidebarMenu && contentDiv) {
-      contentDiv.style.display = "none";
-    }
-  }
-
-  // Hide the content when the page is fully loaded
-  document.addEventListener("DOMContentLoaded", hideLanguageChoice);
-
-  // Hide the content whenever the user clicks anywhere on the page
-  document.addEventListener("click", hideLanguageChoice);
-</script>
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
@@ -470,11 +452,31 @@ Welcome to Our Multilingual Website
 <p>
 Please select your preferred language:
 </p>
-<p><a href="../en/index.html" style="text-decoration: none;"> <button style="font-size: 20px; padding: 10px 20px; margin: 10px;">English</button> </a> <a href="../fr/index.html" style="text-decoration: none;"> <button style="font-size: 20px; padding: 10px 20px; margin: 10px;">Français</button> </a></p>
+<p><a href="en/index.html" style="text-decoration: none;"> <button style="font-size: 20px; padding: 10px 20px; margin: 10px;">English</button> </a> <a href="fr/index.html" style="text-decoration: none;"> <button style="font-size: 20px; padding: 10px 20px; margin: 10px;">Français</button> </a></p>
 </div>
 </div>
 <section id="bienvenue" class="level1 unnumbered">
 <h1 class="unnumbered">Bienvenue</h1>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var sidebarMenu = document.querySelector(".sidebar-menu-container");
+    var contentDiv = document.querySelector(".content > div"); // Sélectionne le premier div à l'intérieur de .content
+    
+    if (sidebarMenu && contentDiv) {
+        contentDiv.style.display = "none";
+    }
+});
+
+document.addEventListener("click", function() {
+    var sidebarMenu = document.querySelector(".sidebar-menu-container");
+    var contentDiv = document.querySelector(".content > div"); // Sélectionne le premier div à l'intérieur de .content
+    
+    if (sidebarMenu && contentDiv) {
+        contentDiv.style.display = "none";
+    }
+});
+
+</script>
 <p>Ceci est la première édition du manuel de formation MOSAIKS. Le manuel sert de référence pour comprendre MOSAIKS, ses capacités et les bonnes pratiques pour l’utiliser. Vous apprendrez ce qu’est MOSAIKS, ce qu’il permet de faire et comment l’utiliser efficacement dans une variété d’applications.</p>
 <p>Les compétences et les connaissances que vous acquérez de ce manuel vous permettront de tirer parti des images satellites et de l’apprentissage automatique pour relever des défis socio-économiques et environnementaux complexes. Ce manuel peut être suivi tout seul de manière autodidacte ou utilisé en conjonction avec un cours de formation.</p>
 <p>De nombreux concepts et exemples sont largement applicables au monde de la télédétection et de l’apprentissage automatique, donc même si vous n’utilisez pas MOSAIKS, le contenu peut vous être utile.</p>
