@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2&nbsp; What is MOSAIKS? – MOSAIKS Training Manual</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../en/part-00-intro/03-intro-api.html" rel="next">
+<link href="../../en/part-00-intro/01-intro-compute.html" rel="prev">
+<link href="../../images/sat_earth.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-57476271c5f0467c372e20ff5d25630e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-391c4f7f0df7475a7487d1067a5e1fc7.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-9d760f18604dd233c998ea6e2041b352.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-34dedb28b54c935579d9c72cbf22a175.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../style.scss">
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">MOSAIKS Training Manual</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../fr/index.html"> 
+<span class="menu-text">Français</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../en/part-00-intro/00-intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../../en/part-00-intro/02-intro-mosaiks.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../en/part-00-intro/00-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-00-intro/01-intro-compute.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Compute setup</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-00-intro/02-intro-mosaiks.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-00-intro/03-intro-api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Access MOSAIKS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-00-intro/04-intro-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Try MOSAIKS</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../en/part-01-labels/00-labels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Label data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-01-labels/01-labels-100-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What labels work?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-01-labels/02-labels-survey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Survey data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-01-labels/03-labels-data-prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Preparing labels</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-01-labels/04-labels-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Label data demo</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../en/part-02-satellite/00-satellite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Satellite imagery</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-02-satellite/01-satellite-imagery.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Choosing imagery</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-02-satellite/02-satellite-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Processing imagery</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-02-satellite/03-satellite-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Imagery demo</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../en/part-03-features/00-features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Satellite features</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-03-features/01-features-rcf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Understanding features</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-03-features/02-features-api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">API features</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-03-features/03-features-computing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Computing features</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-03-features/04-features-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Featurization demo</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../en/part-04-models/00-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Task modeling</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-04-models/01-model-choice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Build, evaluate, deploy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-04-models/02-model-spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Going over space</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-04-models/03-model-temporal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Going over time</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-04-models/04-model-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Build a model</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../en/part-05-responsible/00-responsible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Responsible SIML</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-05-responsible/01-responsible-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Bias, equity, &amp; ethics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-05-responsible/02-responsible-uncertainty.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quantifying uncertainty</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-05-responsible/03-responsible-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Transparency (demo)</span></span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link active" data-scroll-target="#the-challenge"><span class="header-section-number">2.1</span> The challenge</a></li>
+  <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution"><span class="header-section-number">2.2</span> The solution</a></li>
+  <li><a href="#how-mosaiks-works" id="toc-how-mosaiks-works" class="nav-link" data-scroll-target="#how-mosaiks-works"><span class="header-section-number">2.3</span> How MOSAIKS works</a>
+  <ul class="collapse">
+  <li><a href="#separating-users-from-imagery" id="toc-separating-users-from-imagery" class="nav-link" data-scroll-target="#separating-users-from-imagery"><span class="header-section-number">2.3.1</span> Separating users from imagery</a></li>
+  <li><a href="#generalizability-of-mosaiks" id="toc-generalizability-of-mosaiks" class="nav-link" data-scroll-target="#generalizability-of-mosaiks"><span class="header-section-number">2.3.2</span> Generalizability of MOSAIKS</a></li>
+  <li><a href="#why-it-works" id="toc-why-it-works" class="nav-link" data-scroll-target="#why-it-works"><span class="header-section-number">2.3.3</span> Why it works</a></li>
+  <li><a href="#five-steps-to-using-mosaiks" id="toc-five-steps-to-using-mosaiks" class="nav-link" data-scroll-target="#five-steps-to-using-mosaiks"><span class="header-section-number">2.3.4</span> Five steps to using MOSAIKS</a></li>
+  </ul></li>
+  <li><a href="#what-can-mosaiks-predict" id="toc-what-can-mosaiks-predict" class="nav-link" data-scroll-target="#what-can-mosaiks-predict"><span class="header-section-number">2.4</span> What can MOSAIKS predict?</a></li>
+  <li><a href="#is-mosaiks-always-the-best-choice" id="toc-is-mosaiks-always-the-best-choice" class="nav-link" data-scroll-target="#is-mosaiks-always-the-best-choice"><span class="header-section-number">2.5</span> Is MOSAIKS always the best choice?</a></li>
+  <li><a href="#lecture-materials" id="toc-lecture-materials" class="nav-link" data-scroll-target="#lecture-materials"><span class="header-section-number">2.6</span> Lecture materials</a></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">2.7</span> Summary</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/edit/main/en/part-00-intro/02-intro-mosaiks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../en/part-00-intro/00-intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../../en/part-00-intro/02-intro-mosaiks.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></a></li></ol></nav>
+<div class="quarto-title">
+<h1 class="title"><span id="sec-intro-mosaiks" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+MOSAIKS
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong><ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</ins>tellite <ins>I</ins>magery &amp; <ins>K</ins>itchen <ins>S</ins>inks</strong></p>
+</div>
+</div>
+<section id="the-challenge" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-challenge"><span class="header-section-number">2.1</span> The challenge</h2>
+<p>Right now, <a href="https://www.ucsusa.org/resources/satellite-database#.VF_jIlPF8Wg" target="_blank">numerous public satellite systems</a> collect huge amounts of data about the world every day. But there is so much imagery (terabytes per day) that it’s overwhelming to sort through by hand; and it’s too complex and unstructured to be usable in its raw form for most applications.</p>
+<div id="fig-satellites" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-satellites-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/every-single-satellite-1.jpg" class="img-fluid figure-img" style="width:75.0%">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-satellites-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Visual representation of satellites orbiting earth.
+</figcaption>
+</figure>
+</div>
+<p>That is why linking satellite imaging to machine learning (sometimes referred to as SIML or SatML) is incredibly powerful. It enables vast amounts of unstructured image data to be transformed into structured information that can be used for planning, research, and decision-making.</p>
+<p><strong>Our hope is that people all over the world can access and use SIML technologies</strong>, but we recognize that many who would benefit from these tools don’t have the time or resources to manage enormous satellite imagery data sets and learn how to apply machine learning to them.</p>
+</section>
+<section id="the-solution" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="the-solution"><span class="header-section-number">2.2</span> The solution</h2>
+<p>That’s why we developed MOSAIKS. MOSAIKS aims to lower the barriers to entry into SIML, diversifying the users of this powerful technology and the problems we solve with it.</p>
+<p>MOSAIKS is designed to work “out of the box” for a wide array of SIML applications, for people with no SIML expertise who work on normal desktop or laptop computers. For many applications, MOSAIKS users never have to touch satellite imagery themselves and only need to have basic statistical training.</p>
+<blockquote class="blockquote">
+<p><strong>If you can run a regression, you can use MOSAIKS!</strong></p>
+</blockquote>
+<p>MOSAIKS empowers users to create their own new datasets from satellite imagery. We don’t control what variables users look at, and we never need to know. MOSAIKS is a system that allows users to quickly transform vast amounts of imagery into maps of new variables, using their own training data.</p>
+<p>If you’ve ever been curious about trying machine learning with satellite imagery, but don’t know anything about machine learning or satellite imagery, MOSAIKS is for you.</p>
+<p>And if you know a lot about machine learning and satellite imagery, MOSAIKS might still be for you, since it <a href="https://www.nature.com/articles/s41467-021-24638-z/figures/3" target="_blank">performs competitively with deep learning methods</a> but is much simpler and cheaper to use.</p>
+<!-- **Note: Keep one of the two following images.**  -->
+<!-- ![Traditional framework of deep learning models for satellite image processing. (Source: [Kumar et al. 2021](https://onlinelibrary.wiley.com/doi/full/10.1002/ett.3988))](https://www.researchgate.net/publication/341784517/figure/fig3/AS:1095936138842113@1638302945367/Deep-learning-models-for-satellite-image-processing.png){#fig-satellite-deep-learning} -->
+<div id="fig-cnn-deep-learning" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-cnn-deep-learning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/CNN.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cnn-deep-learning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: Traditional framework of deep learning models (i.e., machine learning with artificial neural networks) applied to imagery. In this example, the model is attempting to classify what vehicle the image contains.
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="how-mosaiks-works" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="how-mosaiks-works"><span class="header-section-number">2.3</span> How MOSAIKS works</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Recommended reading
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><a href="https://www.nature.com/articles/s41467-021-24638-z" target="_blank">A generalizable and accessible approach to machine learning with global satellite imagery (Rolf et al.&nbsp;2021)</a></p>
+</div>
+</div>
+<section id="separating-users-from-imagery" class="level3" data-number="2.3.1">
+<h3 data-number="2.3.1" class="anchored" data-anchor-id="separating-users-from-imagery"><span class="header-section-number">2.3.1</span> Separating users from imagery</h3>
+<p>The basic idea of MOSAIKS is to separate users from the costly and difficult process of transforming imagery into inputs (called <strong>“features”</strong>) to a downstream machine learning algorithm (<strong>images → X</strong>). The MOSAIKS team has computed these features globally, so in many use cases users never have to download or manage imagery themselves. Instead, users download a table of MOSAIKS features (<strong>X</strong>), link them to their own geocoded data on the outcome (<strong>Y</strong>) they are interested in predicting from satellite imagery (we call these data “labels”), and then run a linear regression (or something fancier if desired!) to predict their labels using MOSAIKS features (<strong>Y = Xβ</strong>). Importantly, this prediction can be performed in locations, time periods, and at spatial resolutions for which labels are not available.</p>
+<div id="fig-sat-image" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-sat-image-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<p><a href="https://example.com"> <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/climate/2023/12/The-Himalayas-May2014_1000x1000.jpg?w=2048&amp;format=webp&amp;fit=clip&amp;crop=faces%2Cfocalpoint" style="object-fit: cover; object-position: top; width: 100%; height: 300px; overflow: hidden;" class="figure-img"> </a></p>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sat-image-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: This false-color image shows snow-capped peaks and ridges of the eastern Himalayas between major rivers in southwest China. The Himalayas are made up of three parallel mountain ranges that together stretch for more than 1800 miles (2,900 kilometers). This particular image was taken by NASA’s Advanced Spaceborne Thermal Emission and Reflection Radiometer (ASTER), flying aboard the Terra satellite, on February 27, 2002. The picture is a composite made by combining near-infrared, red and green wavelengths. (Source: <a href="https://science.nasa.gov/resource/the-himalayas/" target="_blank">NASA</a>)
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="generalizability-of-mosaiks" class="level3" data-number="2.3.2">
+<h3 data-number="2.3.2" class="anchored" data-anchor-id="generalizability-of-mosaiks"><span class="header-section-number">2.3.2</span> Generalizability of MOSAIKS</h3>
+<p>Because MOSAIKS features synthesize information contained in raw imagery that is not tailored for any specific outcome (e.g., biodiversity, household income, land use), many users can use the same MOSAIKS features and simply match them to their own labels based on location. Users can run their analysis on any statistical software they are comfortable with. For most applications, the computing demands will not require users to work with specialized machines, since desktops and laptops work.</p>
+<div id="fig-mosaiks-overview" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mosaiks-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/rolf_et_al_2021-Fig_1.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mosaiks-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: MOSAIKS is designed to solve an unlimited number of tasks at planet-scale quickly. After a one-time unsupervised image featurization using random convolutional features, MOSAIKS centrally stores and distributes task-agnostic features to users, each of whom generates predictions in a new context. <strong>A</strong> Satellite imagery is shared across multiple potential tasks. <strong>B</strong> Schematic of the MOSAIKS process. <em>N</em> images are transformed using random convolutional features into a compressed and highly descriptive <em>K</em>-dimensional feature vector before labels are known. Once features are computed, they can be stored in tabular form (matrix <strong>X</strong>) and used for unlimited tasks without recomputation. Users interested in a new task (s) merge their own labels (y<sup>s</sup>) to features for training. Here, user 1 has forest cover labels for locations <em>p</em> + 1 to <em>N</em> and user 2 has population density labels for locations 1 to <em>q</em>. Each user then solves a single linear regression for <strong>β</strong><sup>s</sup>. Linear prediction using <strong>β</strong><sup>s</sup> and the full sample of MOSAIKS features <strong>X</strong> then generates SIML estimates for label values at all locations. Generalizability allows different users to solve different tasks using an identical procedure and the same table of features—differing only in the user-supplied label data for training. Each task can be solved by a user on a desktop computer in minutes without users ever manipulating the imagery. <strong>C</strong> Illustration of the one-time unsupervised computation of random convolutional features. <em>K</em> patches are randomly sampled from across the <em>N</em> images. Each patch is convolved over each image, generating a nonlinear activation map for each patch. Activation maps are averaged over pixels to generate a single <em>K</em>-dimensional feature vector for each image. (Source: <a href="https://www.nature.com/articles/s41467-021-24638-z/figures/1" target="_blank">Rolf et al.&nbsp;2021 Figure 1</a>)
+</figcaption>
+</figure>
+</div>
+</section>
+<section id="why-it-works" class="level3" data-number="2.3.3">
+<h3 data-number="2.3.3" class="anchored" data-anchor-id="why-it-works"><span class="header-section-number">2.3.3</span> Why it works</h3>
+<p>MOSAIKS works because MOSAIKS features capture a huge amount of information about the colors, patterns and textures that show up in satellite imagery. We don’t know what patterns/colors/textures will be important for the application that users have (since we don’t know what applications users will try), so we just try to capture all of them. The purpose of the regression step is to teach the model which patterns/colors/textures predict the labels, and then to use that understanding to make predictions in locations where users don’t have labels. In addition, MOSAIKS encodes image information in a way that allows for nonlinear relationships between labels and imagery data, even though the regression that users generally implement is a linear regression.</p>
+<div id="fig-us-api-features" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-us-api-features-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/US_features_high_res.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-us-api-features-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.5: Example of 4 (of 4,000) MOSAIKS feature maps (right) computed from satellite imagery (left). These features were chosen at random from what is available on the MOSAIKS API.
+</figcaption>
+</figure>
+</div>
+<p>For learn more about these features, see <a href="../part-03-features/01-features-rcf.html" class="quarto-xref"><span>Chapter 12</span></a> where we attempt to provide intuition for what a feature is and how it is made.</p>
+</section>
+<section id="five-steps-to-using-mosaiks" class="level3" data-number="2.3.4">
+<h3 data-number="2.3.4" class="anchored" data-anchor-id="five-steps-to-using-mosaiks"><span class="header-section-number">2.3.4</span> Five steps to using MOSAIKS</h3>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>This section is a very broad overview of the steps to use MOSAIKS. Later chapters will provide more detailed guidance on each step.</p>
+</div>
+</div>
+</div>
+<p>In many cases, users aiming to predict an outcome from satellite imagery can do so using pre-computed imagery features (<strong>X</strong>) in a simple linear regression framework. Later in this training course, we will detail more customized workflows that remain tractable but allow for more flexibility. In the standard case, however, the procedure for using MOSAIKS has five steps (corresponding figure from Rolf et al.&nbsp;is below):</p>
+<ol type="1">
+<li><p><a href="https://api.mosaiks.org/" target="_blank">Download pre-computed MOSAIKS features</a> (<strong>X</strong>) corresponding to the locations where you have labels (<a href="03-intro-api.html" class="quarto-xref"><span>Chapter 3</span></a>).</p></li>
+<li><p>Merge the features with your labels (<strong>Y</strong>) based on location (so features at position <strong>P</strong> are linked to labels at position <strong>P</strong>) (<a href="../part-01-labels/03-labels-data-prep.html" class="quarto-xref"><span>Chapter 7</span></a>).</p></li>
+<li><p>Run a cross-validated ridge regression of your labels on the MOSAIKS features (<strong>Y = Xβ + e</strong>; or any other model you choose! See <a href="../part-04-models/01-model-choice.html" class="quarto-xref"><span>Chapter 16</span></a>).</p></li>
+<li><p>Evaluate performance.</p></li>
+<li><p>Use the results of the regression model (<strong>β</strong>) to make predictions (<strong>Xβ</strong>) in a new region of interest where you do not have labels, using only the MOSAIKS features (<strong>X</strong>) that correspond with those new locations.</p></li>
+</ol>
+</section>
+</section>
+<section id="what-can-mosaiks-predict" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="what-can-mosaiks-predict"><span class="header-section-number">2.4</span> What can MOSAIKS predict?</h2>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>This question is answered in greater detail in <a href="../part-01-labels/01-labels-100-maps.html" class="quarto-xref"><span>Chapter 5</span></a></p>
+</div>
+</div>
+</div>
+<p>MOSAIKS has been successfully used to predict a wide range of outcomes including:</p>
+<ul>
+<li>Environmental conditions (forest cover, elevation)</li>
+<li>Population patterns (density, nighttime lights)</li>
+<li>Economic indicators (income, house prices)</li>
+<li>Infrastructure (road networks)</li>
+</ul>
+<p>The figure below is from the original MOSAIKS publication (Rolf et al.&nbsp;2021). The left maps show the input labels. The right map shows the modeled predictions. The scatter plot shows the modeled predictions against the true labels and reports the coefficient of determination (R²) as a measure of performance.</p>
+<div id="fig-mosaiks-predictions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure">
+<div aria-describedby="fig-mosaiks-predictions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/rolf_et_al_2021-Fig_2.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mosaiks-predictions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.6: (100,000 daytime images were each converted to 8,192 features and stored. Seven tasks were then selected based on coverage and diversity. Predictions were generated for each task using the same procedure. <strong>Left maps:</strong> 80,000 observations used for training and validation, aggregated up to 20 km × 20 km cells for display. <strong>Right maps:</strong> concatenated validation set estimates from 5-fold cross-validation for the same 80,000 grid cells (observations are never used to generate their own prediction), identically aggregated for display. <strong>Scatters:</strong> Validation set estimates (vertical axis) vs.&nbsp;ground truth (horizontal axis); each point is a ~1 km × 1 km grid cell. Black line is at 45∘. Test-set and validation set performance are essentially identical; validation set values are shown for display purposes only, as there are more observations. The tasks in the top three rows are uniformly sampled across space, the tasks in the bottom four rows are sampled using population weights; grey areas were not sampled in the experiment. Source: <a href="https://www.nature.com/articles/s41467-021-24638-z/figures/2" target="_blank">Rolf et al.&nbsp;2021 Figure 2</a>)
+</figcaption>
+</figure>
+</div>
+<p>Importantly, all these predictions use the same set of satellite features - there’s no need to reprocess the imagery for different tasks. MOSAIKS achieves accuracy comparable to more complex deep learning methods, but at a fraction of the computational cost. This is the power of MOSAIKS, it removes the need for reprocessing the imagery after the initial encoding.</p>
+</section>
+<section id="is-mosaiks-always-the-best-choice" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="is-mosaiks-always-the-best-choice"><span class="header-section-number">2.5</span> Is MOSAIKS always the best choice?</h2>
+<p><strong>No!</strong> MOSAIKS is a powerful tool, but it is not always the best choice for every application. In fact, it is usually not the “best” choice for any application. We aim to be competitive with leading models, so the true benefit of MOSAIKS is in its simplicity, accessibility, and scalability for the average user.</p>
+<p>We recommend that you start by searching for existing methods developed for your application, before investing time and resources into MOSAIKS. An excellent place to begin this search is at <a href="https://github.com/satellite-image-deep-learning" target="_blank">satellite-image-deep-learning</a> where you can find a list of deep learning methods that have been developed for satellite imagery, as well as existing datasets, tools, and tutorials.</p>
+<p>The world of SIML is vast and rapidly evolving. This means there is a good choice you do not have to make global scale predictions yourself. Instead, you might be able to use or build off the hard work of many others in the field.</p>
+<p>If you have a specific context where you want tailored information or a variable/outcome no one else has predicted before, <em>then</em> you want MOSAIKS. Not only will MOSAIKS allow you to make predictions in a new context, but it will also allow you to do so quickly and with minimal computational resources.</p>
+</section>
+<section id="lecture-materials" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="lecture-materials"><span class="header-section-number">2.6</span> Lecture materials</h2>
+<p><strong>TODO:</strong> Add recorded lecture here.</p>
+<p><a href="../slides/en/MOSAIKS_Intro_TrainingDay1.pdf" target="_blank">Lecture slides.</a></p>
+</section>
+<section id="summary" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="summary"><span class="header-section-number">2.7</span> Summary</h2>
+<p>MOSAIKS is a powerful tool that allows users to predict a wide range of outcomes from satellite imagery using pre-computed features. The system is designed to be accessible to users with no prior experience in machine learning or satellite imagery. The MOSAIKS framework involves five simple steps</p>
+<ol type="1">
+<li><p>Download features</p></li>
+<li><p>Merge with labels</p></li>
+<li><p>run a regression</p></li>
+<li><p>Evaluate performance</p></li>
+<li><p>Make predictions</p></li>
+</ol>
+<p>In this book we will explore all the ways in which this is an oversimplification. You will learn to adapt this framework to your own needs, and to understand the limitations and assumptions of the MOSAIKS system. Many skills presented in this training manual will be applicable to other satellite imagery and machine learning workflows.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Looking forward
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the next chapter, you will be introduced to the MOSAIKS API which is a free and open resource for accessing pre-computed MOSAIKS features.</p>
+</div>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/cullen-molitor\.github\.io\/MOSAIKS-Training-Manual\/en\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../en/part-00-intro/01-intro-compute.html" class="pagination-link" aria-label="Compute setup">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Compute setup</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../en/part-00-intro/03-intro-api.html" class="pagination-link" aria-label="Access MOSAIKS">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Access MOSAIKS</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>MOSAIKS Training Manual</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/edit/main/en/part-00-intro/02-intro-mosaiks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

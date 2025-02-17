@@ -1,0 +1,1579 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+<title>9&nbsp; Choosing imagery – MOSAIKS Training Manual</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../en/part-02-satellite/02-satellite-processing.html" rel="next">
+<link href="../../en/part-02-satellite/00-satellite.html" rel="prev">
+<link href="../../images/sat_earth.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-57476271c5f0467c372e20ff5d25630e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-391c4f7f0df7475a7487d1067a5e1fc7.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-9d760f18604dd233c998ea6e2041b352.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-34dedb28b54c935579d9c72cbf22a175.min.css" rel="prefetch" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark"><script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script><link rel="stylesheet" href="../../style.scss">
+</head>
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top"><nav class="navbar navbar-expand-lg " data-bs-theme="dark"><div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">MOSAIKS Training Manual</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+<li class="nav-item">
+    <a class="nav-link" href="../../../fr/index.html"> 
+<span class="menu-text">Français</span></a>
+  </li>  
+</ul>
+</div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools tools-wide">
+    <a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
+  <div class="quarto-reader-toggle-btn">
+  <i class="bi"></i>
+  </div>
+</a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../en/part-02-satellite/00-satellite.html">Satellite imagery</a></li><li class="breadcrumb-item"><a href="../../en/part-02-satellite/01-satellite-imagery.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Choosing imagery</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Welcome</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../en/part-00-intro/00-intro.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Introduction</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-00-intro/01-intro-compute.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Compute setup</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-00-intro/02-intro-mosaiks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-00-intro/03-intro-api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Access MOSAIKS</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-00-intro/04-intro-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Try MOSAIKS</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../en/part-01-labels/00-labels.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Label data</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-01-labels/01-labels-100-maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What labels work?</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-01-labels/02-labels-survey.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Survey data</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-01-labels/03-labels-data-prep.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Preparing labels</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-01-labels/04-labels-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Label data demo</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../en/part-02-satellite/00-satellite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Satellite imagery</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-02-satellite/01-satellite-imagery.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Choosing imagery</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-02-satellite/02-satellite-processing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Processing imagery</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-02-satellite/03-satellite-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Imagery demo</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../en/part-03-features/00-features.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Satellite features</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-03-features/01-features-rcf.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Understanding features</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-03-features/02-features-api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">API features</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-03-features/03-features-computing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Computing features</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-03-features/04-features-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Featurization demo</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../en/part-04-models/00-model.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Task modeling</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-04-models/01-model-choice.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Build, evaluate, deploy</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-04-models/02-model-spatial.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Going over space</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-04-models/03-model-temporal.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Going over time</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-04-models/04-model-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Build a model</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a href="../../en/part-05-responsible/00-responsible.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Responsible SIML</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-05-responsible/01-responsible-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Bias, equity, &amp; ethics</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-05-responsible/02-responsible-uncertainty.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quantifying uncertainty</span></span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../en/part-05-responsible/03-responsible-demo.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Transparency (demo)</span></span></a>
+  </div>
+</li>
+      </ul>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">References</span></a>
+  </div>
+</li>
+    </ul>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#background" id="toc-background" class="nav-link active" data-scroll-target="#background"><span class="header-section-number">9.1</span> Background</a></li>
+  <li><a href="#overview" id="toc-overview" class="nav-link" data-scroll-target="#overview"><span class="header-section-number">9.2</span> Overview</a></li>
+  <li>
+<a href="#availability" id="toc-availability" class="nav-link" data-scroll-target="#availability"><span class="header-section-number">9.3</span> Availability</a>
+  <ul class="collapse">
+<li><a href="#sec-satellite-public" id="toc-sec-satellite-public" class="nav-link" data-scroll-target="#sec-satellite-public"><span class="header-section-number">9.3.1</span> Public Satellites</a></li>
+  <li><a href="#sec-satellite-private" id="toc-sec-satellite-private" class="nav-link" data-scroll-target="#sec-satellite-private"><span class="header-section-number">9.3.2</span> Private Satellites</a></li>
+  <li><a href="#cost-considerations" id="toc-cost-considerations" class="nav-link" data-scroll-target="#cost-considerations"><span class="header-section-number">9.3.3</span> Cost considerations</a></li>
+  </ul>
+</li>
+  <li><a href="#time-range" id="toc-time-range" class="nav-link" data-scroll-target="#time-range"><span class="header-section-number">9.4</span> Time range</a></li>
+  <li><a href="#temporal-resolution" id="toc-temporal-resolution" class="nav-link" data-scroll-target="#temporal-resolution"><span class="header-section-number">9.5</span> Temporal resolution</a></li>
+  <li><a href="#spatial-resolution" id="toc-spatial-resolution" class="nav-link" data-scroll-target="#spatial-resolution"><span class="header-section-number">9.6</span> Spatial resolution</a></li>
+  <li><a href="#spectral-resolution" id="toc-spectral-resolution" class="nav-link" data-scroll-target="#spectral-resolution"><span class="header-section-number">9.7</span> Spectral resolution</a></li>
+  <li><a href="#sensor-type" id="toc-sensor-type" class="nav-link" data-scroll-target="#sensor-type"><span class="header-section-number">9.8</span> Sensor type</a></li>
+  <li><a href="#cloud-cover" id="toc-cloud-cover" class="nav-link" data-scroll-target="#cloud-cover"><span class="header-section-number">9.9</span> Cloud cover</a></li>
+  <li><a href="#processing-levels" id="toc-processing-levels" class="nav-link" data-scroll-target="#processing-levels"><span class="header-section-number">9.10</span> Processing levels</a></li>
+  <li><a href="#choosing-the-right-combination" id="toc-choosing-the-right-combination" class="nav-link" data-scroll-target="#choosing-the-right-combination"><span class="header-section-number">9.11</span> Choosing the right combination</a></li>
+  <li><a href="#making-the-final-decision" id="toc-making-the-final-decision" class="nav-link" data-scroll-target="#making-the-final-decision"><span class="header-section-number">9.12</span> Making the final decision</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/edit/main/en/part-02-satellite/01-satellite-imagery.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../en/part-02-satellite/00-satellite.html">Satellite imagery</a></li><li class="breadcrumb-item"><a href="../../en/part-02-satellite/01-satellite-imagery.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Choosing imagery</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-satellite-imagery" class="quarto-section-identifier"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Choosing imagery</span></span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header><div class="status">
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>This chapter is under review and may need revisions.</p>
+</div>
+</div>
+</div>
+</div>
+<section id="background" class="level2" data-number="9.1"><h2 data-number="9.1" class="anchored" data-anchor-id="background">
+<span class="header-section-number">9.1</span> Background</h2>
+<p>The number of Earth observation satellites has grown exponentially in recent years, driven by advancements in technology, reduced launch costs, and an increasing demand for environmental, economic, and societal insights.</p>
+<div id="fig-satellite-growth" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-satellite-growth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://blog.ucsusa.org/wp-content/uploads/2023/07/satellite-graphic.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-satellite-growth-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.1: Growth in number of satellites over recent years. Source: <a href="https://blog.ucsusa.org/syoung/how-many-satellites-are-in-space-the-spike-in-numbers-continues/" target="_blank">Union of Concerned Scientists</a>
+</figcaption></figure>
+</div>
+<p>Alongside this growth, the quality of satellite imagery has improved significantly, with higher spatial, temporal, and spectral resolutions becoming the norm. The proliferation of satellites, coupled with enhanced imaging capabilities, has resulted in an unprecedented volume of data, offering researchers and practitioners a wealth of opportunities—but also presenting challenges in navigating the diversity of data products and selecting those most suited to specific applications.</p>
+<div id="fig-satellite-resolution" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-satellite-resolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://flypix.ai/wp-content/uploads/2023/04/evolution-of-remote-sensing-1.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-satellite-resolution-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.2: Growth in satellite iamge resolution over time. Source: <a href="https://flypix.ai/blog/from-balloons-to-satellites-a-journey-through-the-evolution-of-remote-sensing-and-satellite-imagery-resolution/" target="_blank">FlyPix AI</a>
+</figcaption></figure>
+</div>
+<p>MOSAIKS leverages satellite imagery to generate high-quality training data for machine learning models. In this chapter, we explore the key factors to consider when choosing satellite imagery for use with MOSAIKS, including spatial and spectral resolution, temporal frequency, cloud cover, and processing levels.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Access the <a href="https://www.ucsusa.org/resources/satellite-database" target="_blank">UCS Satellite Database</a> for a comprehensive list of Earth observation satellites, including key specifications and operational details.</p>
+</div>
+</div>
+</div>
+<hr></section><section id="overview" class="level2" data-number="9.2"><h2 data-number="9.2" class="anchored" data-anchor-id="overview">
+<span class="header-section-number">9.2</span> Overview</h2>
+<p>When selecting satellite imagery for use with MOSAIKS, several key factors need to be considered. The choice of imagery should be guided by your specific research needs, label characteristics, and practical constraints like cost and processing requirements. Different use cases, such as monitoring vegetation, mapping urban areas, or tracking climatic variables, may require specific imaging capabilities, making it essential to align satellite features with your intended application. Additionally, trade-offs between resolution, temporal frequency, and accessibility can significantly influence the feasibility of your analysis.</p>
+<p>For example, high-resolution data from commercial satellites might offer detailed insights but could be prohibitively expensive for large-scale applications. On the other hand, publicly available datasets like Sentinel-2 provide cost-effective options, albeit with potentially coarser resolutions or limited spectral coverage. Understanding these trade-offs is essential to ensure the optimal use of resources.</p>
+<div id="tbl-satellite-considerations" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[25,75]">
+<figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-satellite-considerations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">Consideration</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Availability</td>
+<td style="text-align: left;">The availability and cost of imagery from public and private sources.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Time range</td>
+<td style="text-align: left;">The time period for which satellite images are available.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Temporal resolution</td>
+<td style="text-align: left;">The frequency at which satellite images are captured (e.g., daily, weekly).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Spatial resolution</td>
+<td style="text-align: left;">The spatial resolution of the satellite sensor (e.g., 10m, 30m, 250m).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Spectral resolution</td>
+<td style="text-align: left;">The specific wavelengths captured by the sensor (e.g., RGB, NIR, SWIR).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Sensor type</td>
+<td style="text-align: left;">The type of sensor used (e.g., optical, radar, thermal).</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cloud cover</td>
+<td style="text-align: left;">Cloud cover or other atmospheric interference.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Processing level</td>
+<td style="text-align: left;">The preprocessing applied (e.g., orthorectification, normalization).</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-satellite-considerations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9.1: Based on your labels, a user needs to decide on these key factors. Each consideration will be covered in detail in the following sections.
+</figcaption></figure>
+</div>
+<hr></section><section id="availability" class="level2" data-number="9.3"><h2 data-number="9.3" class="anchored" data-anchor-id="availability">
+<span class="header-section-number">9.3</span> Availability</h2>
+<section id="sec-satellite-public" class="level3" data-number="9.3.1"><h3 data-number="9.3.1" class="anchored" data-anchor-id="sec-satellite-public">
+<span class="header-section-number">9.3.1</span> Public Satellites</h3>
+<p>Public satellite programs offer free or low-cost imagery with global coverage. These programs, funded by government agencies, provide extensive data for scientific research and environmental monitoring. They are particularly valuable for long-term studies, thanks to consistent data archives spanning decades, and for projects with limited budgets. Publicly funded satellites often balance moderate resolutions with frequent revisit times, ensuring data accessibility and temporal consistency.</p>
+<div id="tbl-satellite-public" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-satellite-public-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 20%">
+<col style="width: 26%">
+</colgroup>
+<thead><tr class="header">
+<th>Satellite</th>
+<th>Sensor Type</th>
+<th>Resolution</th>
+<th>Revisit Time</th>
+<th>Special Features</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Sentinel-2</td>
+<td>Optical</td>
+<td>10-60m</td>
+<td>5 days</td>
+<td>13 spectral bands</td>
+</tr>
+<tr class="even">
+<td>Landsat 8/9</td>
+<td>Optical</td>
+<td>15-100m</td>
+<td>16 days</td>
+<td>11 spectral bands</td>
+</tr>
+<tr class="odd">
+<td>MODIS</td>
+<td>Optical</td>
+<td>250m-1km</td>
+<td>Daily</td>
+<td>36 spectral bands</td>
+</tr>
+<tr class="even">
+<td>Sentinel-1</td>
+<td>Radar (C-band)</td>
+<td>5-40m</td>
+<td>6-12 days</td>
+<td>Synthetic Aperture Radar (SAR)</td>
+</tr>
+<tr class="odd">
+<td>NISAR</td>
+<td>Radar (L- and S-band)</td>
+<td>TBD</td>
+<td>Launching 2024</td>
+<td>Dual-band SAR</td>
+</tr>
+<tr class="even">
+<td>VIIRS</td>
+<td>Other</td>
+<td>375m-750m</td>
+<td>Daily</td>
+<td>Daily global coverage</td>
+</tr>
+<tr class="odd">
+<td>ASTER</td>
+<td>Other</td>
+<td>15-90m</td>
+<td>16 days</td>
+<td>14 spectral bands</td>
+</tr>
+<tr class="even">
+<td>NICFI</td>
+<td>Optical</td>
+<td>4.77 m</td>
+<td>monthly composite</td>
+<td>Tropical forest monitoring</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-satellite-public-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9.2: A selection of public satellite programs and their key specifications.
+</figcaption></figure>
+</div>
+</section><section id="sec-satellite-private" class="level3" data-number="9.3.2"><h3 data-number="9.3.2" class="anchored" data-anchor-id="sec-satellite-private">
+<span class="header-section-number">9.3.2</span> Private Satellites</h3>
+<p>Private satellite programs often provide higher resolution imagery, greater specialization, and more frequent revisits than public programs, but typically at a higher cost. These satellites are particularly useful for applications requiring fine detail, such as urban mapping, infrastructure monitoring, or precision agriculture. Private providers often offer custom data products, tailored delivery timelines, and advanced analytics, which can be invaluable for time-sensitive or commercially driven projects. However, the higher costs associated with private imagery may limit their use for large-scale or long-term studies without significant funding.</p>
+<div id="tbl-satellite-private" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-satellite-private-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 19%">
+<col style="width: 17%">
+<col style="width: 20%">
+<col style="width: 26%">
+</colgroup>
+<thead><tr class="header">
+<th>Satellite</th>
+<th>Sensor Type</th>
+<th>Resolution</th>
+<th>Revisit Time</th>
+<th>Special Features</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Maxar WorldView</td>
+<td>Optical</td>
+<td>31cm (panchromatic), 1.24m (multispectral)</td>
+<td>Varies</td>
+<td>Very high resolution</td>
+</tr>
+<tr class="even">
+<td>Planet SkySat</td>
+<td>Optical</td>
+<td>50cm (panchromatic), 1m (multispectral)</td>
+<td>Varies</td>
+<td>Compact, agile satellites</td>
+</tr>
+<tr class="odd">
+<td>Airbus Pleiades</td>
+<td>Optical</td>
+<td>50cm (panchromatic), 2m (multispectral)</td>
+<td>Varies</td>
+<td>Very high resolution</td>
+</tr>
+<tr class="even">
+<td>Planet PlanetScope</td>
+<td>Optical</td>
+<td>3-5m</td>
+<td>Daily</td>
+<td>Large constellation</td>
+</tr>
+<tr class="odd">
+<td>Planet RapidEye</td>
+<td>Optical</td>
+<td>5m</td>
+<td>5.5 days</td>
+<td>Designed for agriculture</td>
+</tr>
+<tr class="even">
+<td>SPOT</td>
+<td>Optical</td>
+<td>1.5-6m</td>
+<td>26 days</td>
+<td>Long-standing program</td>
+</tr>
+<tr class="odd">
+<td>ICEYE</td>
+<td>Radar (X-band)</td>
+<td>&lt;1m</td>
+<td>Frequent</td>
+<td>High revisit SAR</td>
+</tr>
+<tr class="even">
+<td>Capella Space</td>
+<td>Radar (X-band)</td>
+<td>50cm</td>
+<td>Frequent</td>
+<td>High resolution SAR</td>
+</tr>
+<tr class="odd">
+<td>GHGSat</td>
+<td>Specialized</td>
+<td>TBD</td>
+<td>Varies</td>
+<td>Greenhouse gas monitoring</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-satellite-private-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9.3: A selection of private satellite programs and their key specifications.
+</figcaption></figure>
+</div>
+</section><section id="cost-considerations" class="level3" data-number="9.3.3"><h3 data-number="9.3.3" class="anchored" data-anchor-id="cost-considerations">
+<span class="header-section-number">9.3.3</span> Cost considerations</h3>
+<div class="callout callout-style-simple callout-warning">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Remember that the <strong>most expensive or highest resolution imagery isn’t always the best choice</strong>. Balancing your needs with practical constraints—like budget, storage capacity, and processing expertise—can often yield better long-term outcomes than simply opting for the highest-specification option.</p>
+</div>
+</div>
+</div>
+<p>Selecting satellite imagery involves not only the direct expense of acquiring data but also a range of indirect or “hidden” costs. When factoring these into your overall budget, consider how frequently you need updates, the extent of pre- or post-processing required, and whether your team has the technical skills to work with complex datasets. Some satellites and data portals also bundle analytics and cloud storage into subscription services, which can alleviate infrastructure demands at an additional cost.</p>
+<p>Below is an example of how imagery costs might break down, offering a quick reference for typical price points and considerations across different data sources:</p>
+<div id="tbl-satellite-costs" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-satellite-costs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 25%">
+<col style="width: 34%">
+<col style="width: 25%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">Cost Tier</th>
+<th style="text-align: left;">Approximate Range</th>
+<th style="text-align: left;">Example Missions/Programs</th>
+<th style="text-align: left;">Key Considerations</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Free Public Data</strong></td>
+<td style="text-align: left;">$0</td>
+<td style="text-align: left;">Landsat (30m), Sentinel (10m), MODIS (250m–1km), VIIRS (375m–750m)</td>
+<td style="text-align: left;">Government-funded; widely used for large-scale or long-term projects; moderate resolution.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Medium-Resolution</strong></td>
+<td style="text-align: left;">$1–5 per km²</td>
+<td style="text-align: left;">SPOT (1.5–6m)</td>
+<td style="text-align: left;">Relatively affordable for moderate detail; suitable for regional analyses.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>High-Resolution</strong></td>
+<td style="text-align: left;">$5–15 per km²</td>
+<td style="text-align: left;">Planet (3–5m), RapidEye (5m)</td>
+<td style="text-align: left;">Useful for more detailed studies; frequent revisit can drive up cost if coverage is large.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Very High Resolution</strong></td>
+<td style="text-align: left;">$15–25 per km²</td>
+<td style="text-align: left;">WorldView (sub-meter), SkySat (0.5–1m)</td>
+<td style="text-align: left;">Offers fine-grained detail but at a premium; cost can escalate quickly for large areas.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Subscription Services</strong></td>
+<td style="text-align: left;">Variable</td>
+<td style="text-align: left;">Some commercial data providers bundle storage &amp; analytics</td>
+<td style="text-align: left;">Often convenient “one-stop shop,” but pricing may be unpredictable or scale poorly.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-satellite-costs-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9.4: Cost tiers for satellite imagery and key considerations.
+</figcaption></figure>
+</div>
+<p>In addition to these basic acquisition costs, you should also consider:</p>
+<ul>
+<li>
+<strong>Data Storage and Computing</strong>: Large volumes of high-resolution imagery require greater storage space and more computational power for processing.<br>
+</li>
+<li>
+<strong>Expertise and Training</strong>: Interpreting complex datasets (such as radar or hyperspectral imagery) often demands specialized skills.<br>
+</li>
+<li>
+<strong>Software Licenses</strong>: Proprietary GIS or image processing software can add to your operational budget.<br>
+</li>
+<li>
+<strong>Cloud Infrastructure</strong>: Commercial cloud solutions can handle large-scale processing but may entail ongoing subscription fees.</li>
+</ul>
+<p>Carefully weighing these direct and indirect expenses will help you choose imagery that optimizes both scientific value and cost-effectiveness.</p>
+<hr></section></section><section id="time-range" class="level2" data-number="9.4"><h2 data-number="9.4" class="anchored" data-anchor-id="time-range">
+<span class="header-section-number">9.4</span> Time range</h2>
+<p>The operational lifespan and launch history of a satellite mission are essential considerations when selecting imagery for your project. Older programs such as Landsat offer data archives spanning several decades, making them valuable for long-term change detection or historical analyses. In contrast, newer satellites like Sentinel, launched in 2014, provide data with more advanced sensor technologies but cover a shorter temporal window.</p>
+<p>When deciding on a time range, it is important to assess the historical depth your study demands, as well as the consistency of sensor technology over that period. Projects that require comparisons across many years benefit from missions with well-documented calibration procedures and stable sensor performance over time. You may also need to factor in whether future data continuity is guaranteed by planned satellite launches or extended operational budgets. For instance, Landsat’s multi-generational program ensures a relatively consistent data record, while newer constellations might offer superior capabilities but face funding uncertainties that could impact long-term availability.</p>
+<div id="fig-nasa-landsat-timeline" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-nasa-landsat-timeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/nasa_landsat_timeline.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nasa-landsat-timeline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.3: The Landsat satellite constellation service timeline. Source: <a href="https://landsat.gsfc.nasa.gov/satellites/timeline/" target="_blank">NASA</a>
+</figcaption></figure>
+</div>
+<hr></section><section id="temporal-resolution" class="level2" data-number="9.5"><h2 data-number="9.5" class="anchored" data-anchor-id="temporal-resolution">
+<span class="header-section-number">9.5</span> Temporal resolution</h2>
+<p>Temporal resolution, or revisit frequency, dictates how often a satellite images the same location. Higher revisit rates allow you to monitor rapidly changing phenomena, such as vegetation growth cycles or flood dynamics, and respond more quickly to evolving events. However, satellites that pass over more frequently often trade off spatial or spectral detail.</p>
+<p>When selecting temporal resolution, consider the pace at which your target variables change. Monitoring daily fluctuations in crop conditions requires denser time series than an annual assessment of deforestation. Cloud conditions in your study area can also influence the effective revisit rate: if clouds frequently obscure the land surface, you may need a satellite constellation with multiple imaging opportunities or a sensor that can “see” through clouds, like radar (SAR). Budget and data processing capacities further shape your decision, since frequent imaging can lead to increased data storage needs and processing overhead.</p>
+<div id="fig-radiant-earth-temporal-res" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-radiant-earth-temporal-res-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/radiant_earth_temporal_res.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-radiant-earth-temporal-res-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.4: Comparison of temporal resolution from different satellite systems. Source: <a href="https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc" target="_blank">Radiant Earth</a>
+</figcaption></figure>
+</div>
+<hr></section><section id="spatial-resolution" class="level2" data-number="9.6"><h2 data-number="9.6" class="anchored" data-anchor-id="spatial-resolution">
+<span class="header-section-number">9.6</span> Spatial resolution</h2>
+<p>Spatial resolution of the satellite sensor determines the level of detail captured in satellite imagery. At higher resolutions, features such as individual trees, vehicles, or small buildings are discernible. Lower resolutions provide broader overviews of landscapes—suitable for regional-scale studies like climate analysis or large-area land cover mapping—but may miss fine-grained changes in smaller features.</p>
+<p>Although very high resolution imagery (below one meter) can yield rich information, it often carries higher costs and storage requirements. Meanwhile, moderate resolutions (10–30 m) balance meaningful detail with affordability and manageable data volumes. Your choice should account for the physical size of the features relevant to your labels, the scale of your study area, and the computational resources at your disposal. In many cases, public missions like Sentinel-2 or Landsat offer practical resolutions (10–30 m) that suffice for broad-scale analyses without incurring the expense associated with commercial high-resolution imagery.</p>
+<div id="fig-radiant-earth-spatial-res" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-radiant-earth-spatial-res-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/radiant_earth_spatial_res.jpeg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-radiant-earth-spatial-res-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.5: The spatial resolution of satellite imagery from 3 public satellites (top row) and 3 commercial satellites (bottom row). Source: <a href="https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc" target="_blank">Radiant Earth</a>
+</figcaption></figure>
+</div>
+<hr></section><section id="spectral-resolution" class="level2" data-number="9.7"><h2 data-number="9.7" class="anchored" data-anchor-id="spectral-resolution">
+<span class="header-section-number">9.7</span> Spectral resolution</h2>
+<p>Spectral resolution refers to the sensor’s ability to measure discrete wavelengths across the electromagnetic spectrum. Different materials—such as vegetation, water, and urban infrastructure—exhibit distinct spectral signatures, so capturing multiple bands can enhance classification accuracy and thematic mapping. For instance, near-infrared (NIR) bands are extremely valuable for quantifying vegetation health, while shortwave infrared (SWIR) can help distinguish between minerals and moisture content.</p>
+<p>Choosing an appropriate spectral resolution involves balancing the number and width of bands with the specific thematic information you need. Sensors that capture only visible light (RGB) may suffice for broad land cover discrimination, whereas applications such as agricultural health monitoring often benefit from additional NIR or SWIR coverage. Thermal or microwave bands can also be critical in specialized domains—like thermal anomaly detection or soil moisture estimation—and thus influence the utility of certain satellite platforms for specific scientific or operational goals.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure"><p><img src="../../images/radiant_earth_spectral_res.jpeg" class="img-fluid figure-img"></p>
+<figcaption>Spectral resolution and its applications. Source: <a href="https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc" target="_blank">Radiant Earth</a></figcaption></figure>
+</div>
+<hr></section><section id="sensor-type" class="level2" data-number="9.8"><h2 data-number="9.8" class="anchored" data-anchor-id="sensor-type">
+<span class="header-section-number">9.8</span> Sensor type</h2>
+<p>Satellite sensors can generally be characterized as passive or active instruments. Both categories have distinct advantages and limitations that influence their suitability for particular applications.</p>
+<p><strong>Passive sensors</strong> measure natural radiation, typically reflected sunlight (optical) or emitted heat (thermal). Because they rely on external energy sources, data collection can be constrained by sunlight availability and atmospheric conditions. However, optical imagery from passive sensors often offers intuitive color representations, making it easier to interpret. Thermal bands can reveal heat signatures useful in land surface temperature studies.</p>
+<p><strong>Active sensors</strong> emit their own energy and record the backscatter signal. Radar systems (e.g., SAR) and LiDAR instruments fall under this category. They can penetrate clouds, operate at night, and measure surface characteristics such as roughness or elevation. On the downside, the data are often more complex to process and interpret, requiring specialized expertise and software.</p>
+<div id="fig-radiant-earth-active-passive" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-radiant-earth-active-passive-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/radiant_earth_active_passive.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-radiant-earth-active-passive-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.6: Graphic depicting the difference between active and passive sensors. Source: <a href="https://medium.com/radiant-earth-insights/observing-the-earth-fueling-global-development-solutions-1c69fd5632bc" target="_blank">Radiant Earth</a>
+</figcaption></figure>
+</div>
+<p>Below is a simple comparison of these sensor types:</p>
+<div id="tbl-sensor-types" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[12.5, 12.5, 25, 25, 25]">
+<figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-sensor-types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: left;">Sensor Type</th>
+<th style="text-align: left;">Examples</th>
+<th style="text-align: left;">Operating Principle</th>
+<th style="text-align: left;">Pros</th>
+<th style="text-align: left;">Cons</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Passive</td>
+<td style="text-align: left;">Optical, Thermal</td>
+<td style="text-align: left;">Measures naturally available reflected energy (sunlight or emitted heat)</td>
+<td style="text-align: left;">Easier to interpret; often intuitive (e.g., RGB images)</td>
+<td style="text-align: left;">Limited by cloud cover and sensitive to atmospheric conditions</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Active</td>
+<td style="text-align: left;">Radar (SAR), LiDAR</td>
+<td style="text-align: left;">Emits energy and measures return signals</td>
+<td style="text-align: left;">Can penetrate clouds, capture data day or night</td>
+<td style="text-align: left;">Data may require more complex processing</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-sensor-types-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9.5: Sensor types and their key characteristics.
+</figcaption></figure>
+</div>
+<p>Understanding which sensor type best aligns with your research needs is crucial. For instance, if your study area is frequently cloudy, a radar-based approach can offer more reliable coverage. Alternatively, optical sensors might be sufficient for regions with seasonal cloud-free windows or for general land-cover classification when consistent sunlight is available.</p>
+<hr></section><section id="cloud-cover" class="level2" data-number="9.9"><h2 data-number="9.9" class="anchored" data-anchor-id="cloud-cover">
+<span class="header-section-number">9.9</span> Cloud cover</h2>
+<p>Cloud cover is one of the most persistent challenges in working with optical satellite imagery, as clouds and shadows can degrade the quality of the collected data. In regions with frequent cloudiness, images may require additional processing or longer acquisition windows to achieve acceptable coverage. Strategies to address this issue include applying cloud masking algorithms, merging multiple images to create a cloud-free composite, or using radar-based satellites that penetrate clouds.</p>
+<p>Optical sensors, such as those on Sentinel-2 or Landsat, often include quality assurance layers that flag pixels contaminated by clouds. Filtering out these pixels improves data reliability but reduces the amount of usable imagery, potentially limiting temporal coverage in cloudy regions. On the other hand, radar missions like Sentinel-1 or ICEYE remain largely unaffected by cloud conditions, offering consistent coverage at the cost of different data characteristics and additional expertise required for radar data interpretation. Weighing these trade-offs helps in choosing imagery that meets both your accuracy requirements and your practical constraints.</p>
+<div id="fig-nasa-cloud-cover" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-nasa-cloud-cover-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/cloud_cover_nasa.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nasa-cloud-cover-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.7: Cloud cover obscuring the view over over North America. Source: <a href="https://earthobservatory.nasa.gov/features/ColorImage" target="_blank">NASA Earth Observatory</a>
+</figcaption></figure>
+</div>
+<hr></section><section id="processing-levels" class="level2" data-number="9.10"><h2 data-number="9.10" class="anchored" data-anchor-id="processing-levels">
+<span class="header-section-number">9.10</span> Processing levels</h2>
+<p>Satellite data are distributed at various processing levels, ranging from unprocessed instrument measurements to derived products that are nearly ready for analysis. Selecting a processing level that aligns with your project’s technical requirements can streamline workflows and ensure consistent results.</p>
+<p>Below is a general outline of commonly encountered processing levels:</p>
+<div id="tbl-processing-levels" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-processing-levels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 34%">
+<col style="width: 47%">
+</colgroup>
+<thead><tr class="header">
+<th style="text-align: center;">Level</th>
+<th style="text-align: left;">Description</th>
+<th style="text-align: left;">Typical Use Case</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><strong>Level 0</strong></td>
+<td style="text-align: left;">Raw instrument data with minimal or no preprocessing. Often not orthorectified or radiometrically calibrated.</td>
+<td style="text-align: left;">Rarely used for general analysis due to complexity.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Level 1</strong></td>
+<td style="text-align: left;">Radiometric calibration and basic geometric corrections. Sometimes subdivided (e.g., 1A, 1B, 1C).</td>
+<td style="text-align: left;">Suitable if you need control over final atmospheric corrections or custom workflows.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><strong>Level 2</strong></td>
+<td style="text-align: left;">Surface reflectance products with atmospheric corrections applied, often including cloud/shadow masks.</td>
+<td style="text-align: left;">Most common for analyses requiring accurate reflectance values and multi-temporal comparisons.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><strong>Level 3</strong></td>
+<td style="text-align: left;">Derived or composite products (e.g., mosaics, NDVI layers, gap-filled data).</td>
+<td style="text-align: left;">Ideal for thematic applications that benefit from aggregated or pre-processed data.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-processing-levels-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9.6: Common processing levels for satellite imagery and their typical use cases.
+</figcaption></figure>
+</div>
+<p>Additional processes often applied during or after these levels include:</p>
+<ul>
+<li>
+<strong>Orthorectification</strong>: Removal of geometric distortions caused by sensor tilt, terrain relief, and Earth curvature. Ensures accurate spatial representation for mapping and analysis.</li>
+<li>
+<strong>Atmospheric correction</strong>: Adjustment for atmospheric effects (aerosols, water vapor) to standardize reflectance values across different times or sensors.</li>
+<li>
+<strong>Radiometric calibration</strong>: Conversion of raw sensor counts to physical units like reflectance or brightness temperature, enabling consistent comparisons among images from different sensors and acquisition dates.</li>
+</ul>
+<div id="fig-nicfi-pixel-histograms" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-nicfi-pixel-histograms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/nicfi_pixel_histograms.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-nicfi-pixel-histograms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.8: NICFI satellite imagery raw pixel values showing each band (R, G, B, NIR) for each statistic (min, max, mean, median). These data come with atmospheric correction, cloud correction, and normalized pixel values. After Products created after April 2022 also apply a sharpening filter to the images.
+</figcaption></figure>
+</div>
+<p>Knowing which processing steps your data provider already performs helps you avoid redundant work and ensures you acquire data that meet your accuracy requirements. For instance, if you need consistent multi-temporal comparisons, opt for Level 2 or higher to minimize atmospheric variations. Conversely, if you prefer to perform your own corrections and calibrations, Level 1 might offer greater flexibility at the cost of added complexity.</p>
+<hr></section><section id="choosing-the-right-combination" class="level2" data-number="9.11"><h2 data-number="9.11" class="anchored" data-anchor-id="choosing-the-right-combination">
+<span class="header-section-number">9.11</span> Choosing the right combination</h2>
+<p>Selecting the right combination of spatial, spectral, temporal, and sensor characteristics can feel overwhelming, given the numerous satellites and data products available. This choice often comes down to the trade-offs you are willing to make between cost, resolution, revisit frequency, spectral coverage, and data availability.</p>
+<div id="tbl-application-recommendations" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-application-recommendations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 16%">
+<col style="width: 24%">
+<col style="width: 24%">
+<col style="width: 13%">
+<col style="width: 20%">
+</colgroup>
+<thead><tr class="header">
+<th>Application</th>
+<th>Spatial resolution</th>
+<th>Temporal frequency</th>
+<th>Key bands</th>
+<th>Example sensors</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><strong>Agricultural</strong></td>
+<td>5–30m</td>
+<td>Weekly–monthly</td>
+<td>NIR, Red, SWIR</td>
+<td>Planet, Sentinel-2, Landsat 8/9</td>
+</tr>
+<tr class="even">
+<td><strong>Urban</strong></td>
+<td>0.5–10m</td>
+<td>Monthly–annual</td>
+<td>RGB, NIR</td>
+<td>WorldView, Planet, Sentinel-2</td>
+</tr>
+<tr class="odd">
+<td><strong>Forest Monitoring</strong></td>
+<td>10–30m</td>
+<td>Monthly–annual</td>
+<td>NIR, SWIR, Red</td>
+<td>Landsat, Sentinel-2</td>
+</tr>
+<tr class="even">
+<td><strong>Water Resources</strong></td>
+<td>10–30m</td>
+<td>Weekly–monthly</td>
+<td>NIR, SWIR, Blue</td>
+<td>Sentinel-2, Landsat 8/9</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-application-recommendations-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;9.7: Sample satellite characteristics for different applications.
+</figcaption></figure>
+</div>
+<hr></section><section id="making-the-final-decision" class="level2" data-number="9.12"><h2 data-number="9.12" class="anchored" data-anchor-id="making-the-final-decision">
+<span class="header-section-number">9.12</span> Making the final decision</h2>
+<p>Consider these questions when making your final imagery selection:</p>
+<ol type="1">
+<li>What is the minimum spatial resolution needed?</li>
+<li>How frequent do observations need to be?</li>
+<li>What spectral bands are required?</li>
+<li>What is the time period of interest?</li>
+<li>What is your budget?</li>
+<li>What processing level is needed?</li>
+<li>How will you handle clouds and data gaps?</li>
+<li>What are your storage and computing resources?</li>
+</ol>
+<p>The answers to these questions will guide you toward the most appropriate imagery source for your specific application.</p>
+<div id="fig-dalle-satellites" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-dalle-satellites-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/DALL·E-chosen-satellite.webp" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-dalle-satellites-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;9.9: DALL-E generated image of finding the perfect satellite.
+</figcaption></figure>
+</div>
+<hr>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Looking forward
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the next chapter, we will explore how to access and process satellite imagery for use with MOSAIKS.</p>
+</div>
+</div>
+<!-- [MEDS EDS 223 Geospatial analysis class](https://eds-223-geospatial.github.io/course-materials/week6.html) -->
+
+
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+    const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+    const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+    let newTheme = '';
+    if(darkModeDefault) {
+      newTheme = isAlternate ? baseTheme : alternateTheme;
+    } else {
+      newTheme = isAlternate ? alternateTheme : baseTheme;
+    }
+    const changeGiscusTheme = () => {
+      // From: https://github.com/giscus/giscus/issues/336
+      const sendMessage = (message) => {
+        const iframe = document.querySelector('iframe.giscus-frame');
+        if (!iframe) return;
+        iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+      }
+      sendMessage({
+        setConfig: {
+          theme: newTheme
+        }
+      });
+    }
+    const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+    if (isGiscussLoaded) {
+      changeGiscusTheme();
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  const darkModeDefault = false;
+  let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+    toggleGiscusIfUsed(toAlternate, darkModeDefault);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/cullen-molitor\.github\.io\/MOSAIKS-Training-Manual\/en\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../../en/part-02-satellite/00-satellite.html" class="pagination-link" aria-label="Satellite imagery">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Satellite imagery</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../../en/part-02-satellite/02-satellite-processing.html" class="pagination-link" aria-label="Processing imagery">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Processing imagery</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+<footer class="footer"><div class="nav-footer">
+    <div class="nav-footer-left">
+<p>MOSAIKS Training Manual</p>
+</div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/edit/main/en/part-02-satellite/01-satellite-imagery.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="nav-footer-right">
+<p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
+</div>
+  </div>
+</footer>
+
+
+</body></html>
