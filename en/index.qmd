@@ -2,7 +2,7 @@
 (function() {
     function checkAndHideContent() {
         var sidebarMenu = document.querySelector(".sidebar-menu-container");
-        var contentDiv = document.querySelector(".content > div"); // Sélectionne le premier div à l'intérieur de .content
+        var contentDiv = document.querySelector(".content > div"); 
         
         if (sidebarMenu && contentDiv) {
             contentDiv.style.display = "none";

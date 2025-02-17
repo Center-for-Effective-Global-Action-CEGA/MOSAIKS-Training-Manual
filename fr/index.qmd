@@ -1,6 +1,26 @@
 ---
 lang: fr
 ---
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var sidebarMenu = document.querySelector(".sidebar-menu-container");
+    var contentDiv = document.querySelector(".content > div"); // Sélectionne le premier div à l'intérieur de .content
+    
+    if (sidebarMenu && contentDiv) {
+        contentDiv.style.display = "none";
+    }
+});
+
+document.addEventListener("click", function() {
+    var sidebarMenu = document.querySelector(".sidebar-menu-container");
+    var contentDiv = document.querySelector(".content > div"); // Sélectionne le premier div à l'intérieur de .content
+    
+    if (sidebarMenu && contentDiv) {
+        contentDiv.style.display = "none";
+    }
+});
+
+</script>
 
 Ceci est la première édition du manuel de formation MOSAIKS. Le manuel sert de référence pour comprendre MOSAIKS, ses capacités et les bonnes pratiques pour l'utiliser. Vous apprendrez ce qu'est MOSAIKS, ce qu'il permet de faire et comment l'utiliser efficacement dans une variété d'applications.
 

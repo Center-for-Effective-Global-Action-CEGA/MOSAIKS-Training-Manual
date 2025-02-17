@@ -1,25 +1,6 @@
 ::: {.content}
 
-<script>
-document.addEventListener("DOMContentLoaded", function() {
-    var sidebarMenu = document.querySelector(".sidebar-menu-container");
-    var contentDiv = document.querySelector(".content > div"); // Sélectionne le premier div à l'intérieur de .content
-    
-    if (sidebarMenu && contentDiv) {
-        contentDiv.style.display = "none";
-    }
-});
 
-document.addEventListener("click", function() {
-    var sidebarMenu = document.querySelector(".sidebar-menu-container");
-    var contentDiv = document.querySelector(".content > div"); // Sélectionne le premier div à l'intérieur de .content
-    
-    if (sidebarMenu && contentDiv) {
-        contentDiv.style.display = "none";
-    }
-});
-
-</script>
 <div style="text-align: center; margin-top: 50px;">
   <h1>Welcome to Our Multilingual Website</h1>
   <p>Please select your preferred language:</p>
