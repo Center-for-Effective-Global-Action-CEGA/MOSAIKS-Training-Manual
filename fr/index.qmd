@@ -63,7 +63,7 @@ Le programme d'études couvre le flux de travail complet des MOSAIKS, notamment:
 
 Que vous soyez nouveau dans MOSAIKS ou que vous cherchiez à approfondir votre expertise, ce cours fournit les outils et les connaissances nécessaires pour utiliser efficacement ce framework.
 
-## Structure de cours
+<!-- ## Structure de cours
 
 Ce cours est conçu comme un programme intensif de deux semaines qui combine des conférences, des démonstrations et des séances pratiques.Chaque jour est structuré comme suit:
 
@@ -99,7 +99,7 @@ Bien que la version en personne de ce cours ait été conçue avec le calendrier
 - **Jour 1**: Sélection du modèle, réglage de l'hyperparamètre, validation croisée
 - **Jour 2**: Analyse des erreurs, intervalles de confiance, rapport incertitude
 - **Jour 3**: Principes de conception de l'enquête, méthodes de géolocalisation, stratégies d'échantillonnage
-- **Jour 4**: Sujets avancés, applications émergentes, développement futur
+- **Jour 4**: Sujets avancés, applications émergentes, développement futur -->
 
 ## Attentes de la formation
 
@@ -121,12 +121,12 @@ Il n'y a pas de conditions préalables explicites. Toutefois pour les travaux pr
 
 Le cours couvre également des sujets avancés tels que l'apprentissage automatique et les données géospatiales dont une connaissance préalable facilite la compréhension du contenu.
 
-### Attentes des participants
+<!-- ### Attentes des participants
 
 - Participer activement aux discussions et aux sessions pratiques
 - Finir les devoirs attribués (en particulier la mission de la semaine 1 vendredi)  
 - S'engager dans les séances de questions-réponses
-- Contribuer aux séances de rétroaction pour l'amélioration des cours
+- Contribuer aux séances de rétroaction pour l'amélioration des cours -->
 
 ### Exigences informatiques  
 
@@ -137,9 +137,9 @@ Le cours comprend des séances informatiques pratiques.Vous aurez besoin:
 - Accès à Google Colab
 - Accès aux données nécessaires (détails à fournir)
 
-### Devoirs maison et présentations
+<!-- ### Devoirs maison et présentations
 
-Il y aura un devoir-maison à la fin de la semaine 1, que les participants présenteront le lundi de la semaine 2. Ce travail est conçu pour renforcer l'apprentissage et offrir une expérience pratique avec les outils MOSAIKS.
+Il y aura un devoir-maison à la fin de la semaine 1, que les participants présenteront le lundi de la semaine 2. Ce travail est conçu pour renforcer l'apprentissage et offrir une expérience pratique avec les outils MOSAIKS. -->
 
 ## Structure et contenu du livre
 
