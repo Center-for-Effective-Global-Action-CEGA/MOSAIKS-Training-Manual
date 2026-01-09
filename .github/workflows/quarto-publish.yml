@@ -8,10 +8,14 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
+      pages: write
+      id-token: write
     env:
       GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4 
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
@@ -27,12 +31,10 @@ jobs:
 
       - name: Configure Git
         run: |
-          git config --global user.name "cullen-molitor"
-          git config --global user.email "cullen.molitor@gmail.com"
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
           
       - name: Publish to GitHub Pages
-        run: quarto publish gh-pages
+        run: quarto publish gh-pages --no-prompt
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} 
-
-
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
