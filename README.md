@@ -2,15 +2,15 @@
 
 <!-- badges: start -->
 
-[![pages-build-deployment](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/actions/workflows/pages/pages-build-deployment)
+[![pages-build-deployment](https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/actions/workflows/pages/pages-build-deployment)
 
 <!-- badges: end -->
 
 ## About this manual
 
-**<ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</ins>tellite <ins>I</ins>magery & <ins>K</ins>itchen <ins>S</ins>inks** (MOSAIKS) is a project that aims to make satellite imagery more accessible to researchers and practitioners. Learn more about the project [here](https://mosaiks.org/), or get started by accessing the training manual [here](https://cullen-molitor.github.io/MOSAIKS-Training-Manual/).
+**<ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</ins>tellite <ins>I</ins>magery & <ins>K</ins>itchen <ins>S</ins>inks** (MOSAIKS) is a project that aims to make satellite imagery more accessible to researchers and practitioners. Learn more about the project [here](https://mosaiks.org/), or get started by accessing the training manual [here](https://center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/).
 
-This repository contains the source code for the [MOSAIKS Training Manual](https://cullen-molitor.github.io/MOSAIKS-Training-Manual/), a comprehensive guide designed to help researchers and practitioners effectively utilize MOSAIKS (Multi-task Observation using Satellite Imagery & Kitchen Sinks).
+This repository contains the source code for the [MOSAIKS Training Manual](https://center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/), a comprehensive guide designed to help researchers and practitioners effectively utilize MOSAIKS (Multi-task Observation using Satellite Imagery & Kitchen Sinks).
 
 The manual serves as both a reference guide and a practical tutorial, covering:
 
