@@ -9,7 +9,7 @@ book:
   author: 
     - name: Cullen Molitor
       affiliations: "Center for Effective Global Action (CEGA)"
-      url: https://emlab.ucsb.edu/about/our-team/cullen-molitor
+      url: https://cega.berkeley.edu/person/cullen-molitor/
 
     - name:  Tamma Carleton
       affiliations: "UC Berkeley Department of Agricultural and Resource Economics"
@@ -28,8 +28,8 @@ book:
       This book was built with <a href="https://quarto.org/">Quarto</a>.
   favicon: "images/sat_earth.png"
   cover-image: "images/sat_earth.png"
-  site-url: https://cullen-molitor.github.io/MOSAIKS-Training-Manual/
-  repo-url: https://github.com/cullen-molitor/MOSAIKS-Training-Manual
+  site-url: https://center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual
+  repo-url: https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual
   repo-branch: main
   repo-actions: [edit, issue]
 
@@ -38,9 +38,9 @@ book:
 
     - part: part-00-intro/00-intro.qmd
       chapters:
-        - part-00-intro/01-intro-compute.qmd
-        - part-00-intro/02-intro-mosaiks.qmd
-        - part-00-intro/03-intro-api.qmd
+        - part-00-intro/01-intro-mosaiks.qmd
+        - part-00-intro/02-intro-api.qmd
+        - part-00-intro/03-intro-compute.qmd
         - part-00-intro/04-intro-demo.qmd
 
     - part: part-01-labels/00-labels.qmd  
