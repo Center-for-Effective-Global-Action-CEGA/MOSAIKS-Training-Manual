@@ -90,16 +90,6 @@
     ]
   },
   {
-    "objectID": "en/part-00-intro/00-intro.html#when-to-use-mosaiks",
-    "href": "en/part-00-intro/00-intro.html#when-to-use-mosaiks",
-    "title": "Introduction",
-    "section": "When to use MOSAIKS",
-    "text": "When to use MOSAIKS\nMOSAIKS is particularly valuable when you need to:\n\nGenerate predictions across large geographic areas\nWork with limited computational resources\nAnalyze multiple outcomes using the same imagery\nCreate predictions without deep learning expertise\nScale analysis from local to global applications\nSet a baseline for more advanced methods\n\nHowever, MOSAIKS may not be the best choice when:\n\nYou need predictions at sub-kilometer resolution\nYour outcome requires specific spectral bands\nReal-time predictions are essential\nYour application requires interpretable features\n\n\n\n\n\n\n\nThere may be an existing tool that meets your needs. MOSAIKS is not the best choice for every application.",
-    "crumbs": [
-      "Introduction"
-    ]
-  },
-  {
     "objectID": "en/part-00-intro/00-intro.html#section-outline",
     "href": "en/part-00-intro/00-intro.html#section-outline",
     "title": "Introduction",
@@ -169,7 +159,7 @@
     "href": "en/part-00-intro/01-intro-mosaiks.html#is-mosaiks-always-the-best-choice",
     "title": "1  What is MOSAIKS?",
     "section": "1.5 Is MOSAIKS always the best choice?",
-    "text": "1.5 Is MOSAIKS always the best choice?\nNo! MOSAIKS is a powerful tool, but it is not always the best choice for every application. In fact, it is usually not the “best” choice for any application. We aim to be competitive with leading models, so the true benefit of MOSAIKS is in its simplicity, accessibility, and scalability for the average user.\nWe recommend that you start by searching for existing methods developed for your application, before investing time and resources into MOSAIKS. An excellent place to begin this search is at satellite-image-deep-learning where you can find a list of deep learning methods that have been developed for satellite imagery, as well as existing datasets, tools, and tutorials.\nThe world of SIML is vast and rapidly evolving. There is a good choice you do not have to make global scale predictions yourself. Instead, you might be able to use or build off the hard work of many others in the field.\nIf you have a specific context where you want tailored information or a variable/outcome no one else has predicted before, then you want MOSAIKS. Not only will MOSAIKS allow you to make predictions in a new context, but it will also allow you to do so quickly and with minimal computational resources.\n\n\n\n\n\n\nAnother great option is Google’s Alpha Earth Foundation model Satellite Embeddings dataset, which provides pre-computed features at 10 m resolution for the entire globe. There is one global snapshot per year going back to 2017. These features can be treated very similarly to MOSAIKS features. You can access the dataset on Google Earth Engine.",
+    "text": "1.5 Is MOSAIKS always the best choice?\nNo! MOSAIKS is a powerful tool, but it is not always the best choice for every application. In fact, it is usually not the “best” choice for any application. We aim to be competitive with leading models, so the true benefit of MOSAIKS is in its simplicity, accessibility, and scalability for the average user.\nWe recommend that you start by searching for existing methods developed for your application, before investing time and resources into MOSAIKS. An excellent place to begin this search is at satellite-image-deep-learning where you can find a list of deep learning methods that have been developed for satellite imagery, as well as existing datasets, tools, and tutorials.\nThe world of SIML is vast and rapidly evolving. There is a good choice you do not have to make global scale predictions yourself. Instead, you might be able to use or build off the hard work of many others in the field.\nIf you have a specific context where you want tailored information or a variable/outcome no one else has predicted before, then you want MOSAIKS. Not only will MOSAIKS allow you to make predictions in a new context, but it will also allow you to do so quickly and with minimal computational resources.\n\n\n\n\n\n\nAnother great option is Google’s Alpha Earth Foundation model Satellite Embeddings dataset, which provides pre-computed features at 10 m resolution for the entire globe. There is one global snapshot per year going back to 2017. These features can be treated very similarly to MOSAIKS features. You can access the dataset on Google Earth Engine.\n\n\n\nMOSAIKS is particularly valuable when you need to:\n\nGenerate predictions across large geographic areas\nWork with limited computational resources\nAnalyze multiple outcomes using the same imagery\nCreate predictions without deep learning expertise\nScale analysis from local to global applications\nSet a baseline for more advanced methods\n\nHowever, MOSAIKS may not be the best choice when:\n\nYou need predictions at sub-kilometer resolution\nYour outcome requires specific spectral bands\nReal-time predictions are essential\nYour application requires interpretable features",
     "crumbs": [
       "Introduction",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>What is MOSAIKS?</span>"
@@ -180,7 +170,7 @@
     "href": "en/part-00-intro/01-intro-mosaiks.html#lecture-materials",
     "title": "1  What is MOSAIKS?",
     "section": "1.6 Lecture materials",
-    "text": "1.6 Lecture materials\nTo asist with teaching this material, we have prepared lecture slides that cover the key concepts of the original MOSAIKS publication (Rolf et al. 2021). These slides are intended to provide a visual overview of the MOSAIKS framework, its capabilities, and its applications. They can be used as a starting point for lectures, presentations, or self-study on the topic of MOSAIKS and satellite imagery analysis.\nThese slides can be found here and are also included in the GitHub repository for this training manual.",
+    "text": "1.6 Lecture materials\nTo assist with teaching this material, we have prepared lecture slides that cover the key concepts of the original MOSAIKS publication (Rolf et al. 2021). These slides are intended to provide a visual overview of the MOSAIKS framework, its capabilities, and its applications. They can be used as a starting point for lectures, presentations, or self-study on the topic of MOSAIKS and satellite imagery analysis.\nThese slides can be found here and are also included in the GitHub repository for this training manual.",
     "crumbs": [
       "Introduction",
       "<span class='chapter-number'>1</span>  <span class='chapter-title'>What is MOSAIKS?</span>"
