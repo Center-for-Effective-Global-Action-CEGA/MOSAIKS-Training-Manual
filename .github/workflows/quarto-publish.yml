@@ -29,12 +29,21 @@ jobs:
       - name: Install R packages
         run: Rscript -e "install.packages(c('rmarkdown', 'knitr', 'xml2', 'downlit', 'tidyverse'))"
 
-      - name: Configure Git
+      - name: Render English version
+        run: quarto render --profile en
+
+      - name: Render French version
+        run: quarto render --profile fr
+
+      - name: Create landing page
         run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          
-      - name: Publish to GitHub Pages
-        run: quarto publish gh-pages --no-prompt
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          cp _landing-page.html _book/index.html
+          mkdir -p _book/images
+          cp images/sat_earth.png _book/images/sat_earth.png
+          touch _book/.nojekyll
+
+      - name: Deploy to GitHub Pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: gh-pages
+          folder: _book
