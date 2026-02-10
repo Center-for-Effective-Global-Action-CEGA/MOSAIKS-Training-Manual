@@ -1,83 +1,20 @@
+profile:
+  group:
+    - [default, en, fr]
+
 project:
   type: book
-  output-dir: _book
-  resources:
-    - slides/MOSAIKS_Intro_TrainingDay1.pdf
 
 book:
-  title: "MOSAIKS Training Manual"
-  author: 
-    - name: Cullen Molitor
-      affiliations: "Center for Effective Global Action (CEGA)"
-      url: https://cega.berkeley.edu/person/cullen-molitor/
-
-    - name:  Tamma Carleton
-      affiliations: "UC Berkeley Department of Agricultural and Resource Economics"
-      url: https://are.berkeley.edu/users/tamma-carleton
-
-    - name:  Esther Rolf
-      affiliations: "UC Boulder College of Engineering and Applied Science"
-      url: https://www.colorado.edu/cs/esther-rolf
-
   reader-mode: true
-
-  page-footer:
-    left: |
-      MOSAIKS Training Manual
-    right: |
-      This book was built with <a href="https://quarto.org/">Quarto</a>.
   favicon: "images/sat_earth.png"
   cover-image: "images/sat_earth.png"
-  site-url: https://center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual
-  repo-url: https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual
+  site-url: https://center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/en/
+  repo-url: https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/
   repo-branch: main
   repo-actions: [edit, issue]
-
   chapters:
     - index.qmd
-
-    - part: part-00-intro/00-intro.qmd
-      chapters:
-        - part-00-intro/01-intro-mosaiks.qmd
-        - part-00-intro/02-intro-api.qmd
-        - part-00-intro/03-intro-compute.qmd
-        - part-00-intro/04-intro-demo.qmd
-
-    - part: part-01-labels/00-labels.qmd  
-      chapters:
-        - part-01-labels/01-labels-100-maps.qmd
-        - part-01-labels/02-labels-survey.qmd
-        - part-01-labels/03-labels-data-prep.qmd
-        - part-01-labels/04-labels-demo.qmd
-        # - notebooks/demo/02-label-data_demo.ipynb
-
-    - part: part-02-satellite/00-satellite.qmd  
-      chapters:
-        - part-02-satellite/01-satellite-imagery.qmd
-        - part-02-satellite/02-satellite-processing.qmd
-        - part-02-satellite/03-satellite-demo.qmd
-
-    - part: part-03-features/00-features.qmd  
-      chapters:
-        - part-03-features/01-features-rcf.qmd
-        - part-03-features/02-features-api.qmd
-        - part-03-features/03-features-computing.qmd
-        - part-03-features/04-features-demo.qmd
-
-    - part: part-04-models/00-model.qmd  
-      chapters:
-        - part-04-models/01-model-choice.qmd
-        - part-04-models/02-model-spatial.qmd
-        - part-04-models/03-model-temporal.qmd
-        - part-04-models/04-model-demo.qmd
-
-    - part: part-05-responsible/00-responsible.qmd  
-      chapters:
-        - part-05-responsible/01-responsible-ethics.qmd
-        - part-05-responsible/02-responsible-uncertainty.qmd
-        - part-05-responsible/03-responsible-demo.qmd
-
-    - references.qmd
 
 tbl-cap-location: bottom
 
@@ -101,4 +38,3 @@ execute:
   echo: true
   message: false
   warning: false
-

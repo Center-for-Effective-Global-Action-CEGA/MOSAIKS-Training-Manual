@@ -1,0 +1,71 @@
+project:
+  type: book
+  output-dir: _book/en
+
+book:
+  title: "MOSAIKS Training Manual"
+  author: 
+    - name: Cullen Molitor
+      affiliations: "Center for Effective Global Action (CEGA)"
+      url: https://cega.berkeley.edu/person/cullen-molitor/
+
+    - name:  Tamma Carleton
+      affiliations: "UC Berkeley Department of Agricultural and Resource Economics"
+      url: https://are.berkeley.edu/users/tamma-carleton
+
+    - name:  Esther Rolf
+      affiliations: "UC Boulder College of Engineering and Applied Science"
+      url: https://www.colorado.edu/cs/esther-rolf
+  language: en
+  navbar:
+    right:
+      - text: "Français"
+        href: ../fr/index.html
+
+  page-footer:
+    left: |
+      MOSAIKS Training Manual
+    right: |
+      This book was built with <a href="https://quarto.org/">Quarto</a>.
+  chapters:
+    - part: en/part-00-intro/00-intro.qmd
+      chapters:
+        - en/part-00-intro/01-intro-mosaiks.qmd
+        - en/part-00-intro/02-intro-api.qmd
+        - en/part-00-intro/03-intro-compute.qmd
+        - en/part-00-intro/04-intro-demo.qmd
+
+    - part: en/part-01-labels/00-labels.qmd  
+      chapters:
+        - en/part-01-labels/01-labels-100-maps.qmd
+        - en/part-01-labels/02-labels-survey.qmd
+        - en/part-01-labels/03-labels-data-prep.qmd
+        - en/part-01-labels/04-labels-demo.qmd
+
+    - part: en/part-02-satellite/00-satellite.qmd  
+      chapters:
+        - en/part-02-satellite/01-satellite-imagery.qmd
+        - en/part-02-satellite/02-satellite-processing.qmd
+        - en/part-02-satellite/03-satellite-demo.qmd
+
+    - part: en/part-03-features/00-features.qmd  
+      chapters:
+        - en/part-03-features/01-features-rcf.qmd
+        - en/part-03-features/02-features-api.qmd
+        - en/part-03-features/03-features-computing.qmd
+        - en/part-03-features/04-features-demo.qmd
+
+    - part: en/part-04-models/00-model.qmd  
+      chapters:
+        - en/part-04-models/01-model-choice.qmd
+        - en/part-04-models/02-model-spatial.qmd
+        - en/part-04-models/03-model-temporal.qmd
+        - en/part-04-models/04-model-demo.qmd
+
+    - part: en/part-05-responsible/00-responsible.qmd  
+      chapters:
+        - en/part-05-responsible/01-responsible-ethics.qmd
+        - en/part-05-responsible/02-responsible-uncertainty.qmd
+        - en/part-05-responsible/03-responsible-demo.qmd
+
+    - references.qmd

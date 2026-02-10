@@ -1,0 +1,54 @@
+# Featurization demo {#sec-features-demo} 
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("draft")
+```
+
+
+## Overview
+
+This demonstration will show you a few key concepts 
+
+## Demonstration code
+
+Below is a link to a Jupyter notebook intended to demonstrate practical featurization of satellite data for use in MOSAIKS. The notebook will guide you through the process of preparing imagery, including:
+
+1. Building a `pytorch` model from scratch
+
+1. Using an out of the box solution with `torchgeo`
+
+1. Building a `torch` `dataset` and `dataloader`
+
+1. Featurizing satellite imagery
+
+1. Saving features to disk
+
+1. Visualizing features
+
+::: {.callout-note}
+# Click the badge to run the demonstration! 
+
+&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;   
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/04-featurization_demo.ipynb)  
+<!-- &uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;     -->
+Remember to click `File` -> `Save a copy in Drive` to save any changes you make.  
+---
+Or to view a static version of the code on GitHub, click the badge below.  
+[![](https://img.shields.io/badge/View%20on%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/04-featurization_demo.ipynb)
+:::
+
+For instructions and tips on using Google Colab, please refer to @sec-intro-compute. 
+
+## What's next? 
+
+Now that we have covered the basics of featurizing satellite data, we will move on to the next section, where we will discuss modeling. 
+
+::: {.callout-note}
+# Looking forward
+
+This is the end of the feature section. Next, we will move on to the modeling labels with satellite features.
+:::

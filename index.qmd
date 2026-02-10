@@ -1,120 +1,25 @@
+::: {.content}
+
+
+<div style="text-align: center; margin-top: 50px;">
+  <h1>Welcome to Our Multilingual Website</h1>
+  <p>Please select your preferred language:</p>
+  <a href="en/index.html" style="text-decoration: none;">
+    <button style="font-size: 20px; padding: 10px 20px; margin: 10px;">English</button>
+  </a>
+  <a href="fr/index.html" style="text-decoration: none;">
+    <button style="font-size: 20px; padding: 10px 20px; margin: 10px;">Français</button>
+  </a>
+</div>
+:::
+
+
+::: {.content-visible when-profile="en"}
 # Welcome {.unnumbered}
+{{< include en/index.qmd >}}
+:::
 
-<!-- ## Where am I? -->
-
-This is the first edition of the MOSAIKS Training Manual! The manual serves as a comprehensive reference for understanding MOSAIKS, its capabilities, and guidance on practical implementation. You will learn what MOSAIKS is, what can be done with it, and how to use it effectively in a variety of applications.
-
-The skills and knowledge you gain from this manual will enable you to leverage satellite imagery and machine learning to address complex socioeconomic and environmental challenges. This can be a self taught manual or used as the foundation as a training course or workshop. 
-
-Many of the concepts and examples are broadly applicable to the world of remote sensing and machine learning, so even if you are not using MOSAIKS, you may find the content useful.
-
-## What is MOSAIKS?
-
-MOSAIKS stands for **<ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</ins>tellite <ins>I</ins>magery & <ins>K</ins>itchen <ins>S</ins>inks** [@rolf_etal_2021]. It is a framework designed to simplify the use of satellite imagery and machine learning for predicting socioeconomic and environmental outcomes across different geographic contexts and time periods. MOSAIKS relies on random convolutions (developed in @rahimi_recht_2008) applied to satellite imagery, which is a way to summarize complex information contained in the imagery at a given location. These features are task-agnostic, meaning that researchers and practitioners can apply a single set model many different outcomes, without ever needing to go back to the satellite imagery. 
-
-![MOSAIKS spelled out with imagery from the Landsat Satellite Constellation data catalog [Made with: @yournameinlandsat].](images/mosaiks-in-landsat.png){#fig-mosaiks-in-landsat}
-
-## Who is this for?
-
-This book is designed for academics, professionals, and practitioners interested in leveraging MOSAIKS to better understand socioeconomic and environmental challenges. The course is particularly valuable for those working in:
-
-- Remote sensing and satellite imagery analysis
-- Machine learning applications with geospatial data 
-- Agricultural and environmental monitoring and assessment
-- Development research and policy making
-
-## What will I learn?
-
-This manual teaches:
-
-- Theoretical foundations and conceptual understanding of MOSAIKS
-- Hands-on exercises with real-world data
-- Best practices for implementation
-- Strategies for analyzing and interpreting results
-
-The book covers the complete MOSAIKS workflow, including:
-
-- Understanding the MOSAIKS framework
-- Learning about suitable label data
-- Accessing and processing satellite imagery (optional)
-- Understanding MOSAIKS feature extraction (optional)
-- Working with the MOSAIKS API
-- Implementing machine learning models
-- Quantifying and communicating uncertainty
-- Applying models under various policy contexts
-
-Whether you're new to MOSAIKS or looking to deepen your expertise, this course provides the tools and knowledge needed to effectively utilize this framework.
-
-## Training expectations
-
-### Prerequisites
-
-There are no explicit prerequisites, though this course does cover advanced topics in:
-
-- The [`Python`](https://www.python.org/){target="_blank"} programming language
-- Remote sensing and satellite imagery
-- Geospatial data analysis
-- Machine learning
-
-Knowledge of some or all of these will help with adoption of the MOSAIKS framework. 
-
-### Computing requirements  
-
-The course includes hands-on computing sessions. You will need:
-
-- A computer with access to the internet
-- A Google account 
-- Access to Google Colaboratory
-- Access to necessary data (details to be provided)
-
-## Book structure and content
-
-This manual is organized into six main parts, each focusing on a critical aspect of MOSAIKS. We begin with foundational concepts and gradually progress to more advanced topics in modeling and uncertainty quantification.
-
-| Part | Description |
-|------|:------------|
-| Introduction | Computing setup, MOSAIKS overview, API access, initial demonstration |
-| Label data | Understanding suitable labels, survey integration, data preparation |
-| Satellite imagery | Selecting appropriate imagery, processing considerations |
-| Satellite features | Random convolutional features, API access, feature computation |
-| Task modeling | Model selection, spatial analysis, temporal considerations |
-| Model uncertainty | Uncertainty quantification, ethical considerations |
-
-: Overview of the MOSAIKS Training Manual contents {#tbl-part-outline .striped .hover}
-
-The content is designed to be both comprehensive and practical, with each part building upon previous concepts while remaining relatively self-contained. This structure allows readers to either progress through the manual sequentially or focus on specific topics of interest. Throughout each section, we provide practical examples, code demonstrations, and best practices drawn from real-world applications.
-
-## Acknowledgements
-
-MOSAIKS was developed and is supported by a large team of researchers across multiple partner organizations:
-
-**Development Team:**
-
-Benjamin Recht, Cullen Molitor, Darin Christensen, Esther Rolf, Eugenio Noda, Grace Lewin, Graeme Blair, Hannah Druckenmiller, Hikari Murayama, Ian Bolliger, Jean Tseng, Jessica Katz, Jonathan Proctor, Juliet Cohen, Karena Yan, Luke Sherman, Miyabi Ishihara, Shopnavo Biswas, Simon Greenhill, Solomon Hsiang, Steven Cognac, Tamma Carleton, Taryn Fransen, Trinetta Chong, Vaishaal Shankar
-
-**MOSAIKS Training Manual Team:**
-Cullen Molitor, Tamma Carleton, Esther Rolf, Farooq Sanni, Gnouyaro Zissler Sogoyou, Sean Luna McAdams, Heather Lahr
-
-**Partner Organizations:**
-
-- Center for Effective Global Action ([CEGA](https://cega.berkeley.edu/); UCB)
-- Environmental Markets Lab ([emLab](https://emlab.ucsb.edu/); UCSB) 
-- Global Policy Lab ([GPL](https://www.globalpolicy.science/); Stanford University)
-- Project on Resources and Governance ([PRG](https://projectrg.org/); UCLA)
-- Master of Environmental Data Science Program ([MEDS](https://bren.ucsb.edu/masters-programs/master-environmental-data-science); UCSB)
-
-**Funding Support:**
-
-- [The Patrick J. McGovern Foundation](https://www.mcgovern.org/)
-- [The Fund for Innovation in Development (FID)](https://fundinnovation.dev/)
-- [Google.org](https://www.google.org/)
-- [The United States Agency for International Development (USAID)](https://www.usaid.gov/)
-- [United Nations Development Programme (UNDP)](https://www.undp.org/)
-
-We are grateful for the support and contributions of all team members and partner organizations in making MOSAIKS a reality. We hope to continue expanding the framework and its applications to address pressing global challenges.
-
-::: {.callout-note}
-# Looking forward
-
-In the first part of this book, we will cover the basics of MOSAIKS, including its framework, capabilities, and practical applications. This section is focused on exploring the original MOSAIKS publication (Rolf et al. 2021) and understanding the core concepts behind the framework.
+::: {.content-visible when-profile="fr"}
+# Bienvenue {.unnumbered}
+{{< include fr/index.qmd >}}
 :::

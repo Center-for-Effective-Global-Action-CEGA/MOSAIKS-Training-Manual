@@ -1,0 +1,29 @@
+# Build a model {#sec-model-demo}
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("draft")
+```
+
+::: {.callout-note}
+# Click the badge to run the demonstration! 
+
+&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;   
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/06-model_LSMS-elec_demo.ipynb)  
+<!-- &uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;     -->
+Remember to click `File` -> `Save a copy in Drive` to save any changes you make.  
+---
+Or to view a static version of the code on GitHub, click the badge below.  
+[![](https://img.shields.io/badge/View%20on%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/06-model_LSMS-elec_demo.ipynb)
+:::
+
+
+::: {.callout-note}
+# Looking forward
+
+In the next chapter we will look at 
+:::
+

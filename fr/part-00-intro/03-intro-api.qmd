@@ -1,0 +1,220 @@
+---
+lang: fr
+---
+# Accéder à MOSAIKS {#sec-intro-api}
+
+<!-- ```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("review")
+``` -->
+
+## Introduction
+
+À la base, MOSAIKS nécessite deux entrées principales: les features du satellite et les données de vérité au sol. Notre objectif est de rendre ces features aussi accessibles que possible afin que la majorité des utilisateurs n'aient pas à se soucier des détails techniques du traitement des images satellites.
+
+À cette fin, nous avons travaillé pour développer plusieurs façons d'accéder aux features de MOSAIKS:
+
+| Option | Source d'imagerie | Couverture spatiale | Résolution spatiale | Résolution temporelle | Pondération | 
+|--------|----------------|------------------|--------------------| ---------------------|-----------|
+| [API MOSAIKS](https://api.mosaiks.org/) | [Planet Labs Visual Basemap](https://developers.planet.com/docs/data/visual-basemaps/) |Zones terrestres mondiales |0,01 ° |2019 Q3 |Non pondéré | 
+| [API MOSAIKS](https://api.mosaiks.org/portal/global_grids/) | [Planet Labs Visual Basemap](https://developers.planet.com/docs/data/visual-basemaps/) |Zones terrestres mondiales |0,1 °, 1 ° |2019 Q3 |Zone et population | 
+| [API MOSAIKS](https://api.mosaiks.org/portal/precomputed/) | [Planet Labs Visual Basemap](https://developers.planet.com/docs/data/visual-basemaps/) |Zones terrestres mondiales |ADM0, ADM1, ADM2 |2019 Q3 |Zone et population | 
+| [Rolf et al 2021](https://codeocean.com/capsule/6456296/tree/v2) | [Google Static Maps](https://developers.google.com/maps/documentation/maps-static/start) |États-Unis continentaux (~ 100 000 emplacements) |0,01° |2019 |non pondéré | 
+<!-- |@sec-features-computing |Any - Voir @sec-satellite-imagery |Défini par l'utilisateur |Défini par l'utilisateur |Défini par l'utilisateur |Défini par l'utilisateur | -->
+
+:Résumé des sources de caractéristiques de MOSAIKS. La colonne de pondération indique que les caractéristiques ont été générées à une résolution de 0,01 degrés et sont pondérées lorsqu'elles sont agrégées jusqu'à des résolutions plus faibles. Les schémas de pondération disponibles sont basés sur la zone du polygone d'agrégation, ou par la population du polygone d'agrégation. {#tbl-features-options}
+
+::: {.callout}
+- Chapitres - @sec-intro-compute à - @sec-labels-demo couvrent les features accessibles au public 
+- Chapitres - @sec-satellite-imagery à - @sec-features-demo couvrent le calcul des features à partir des images
+:::
+
+L'API de MOSAIKS doit être considérée comme le principal moyen d'accéder aux features. Il s'agit d'une interface conviviale qui vous permet de télécharger des features pour n'importe quel emplacement sur la terre. L'API est conçue pour être accessible aux utilisateurs de tout niveau technique, des débutants jusqu'aux experts.Pour plus de détails sur les features disponibles sur l'API, voir @sec-features-api.
+
+Cependant, il existe de nombreux paramètres où les utilisateurs souhaiteront ou devront calculer leurs propres features personnalisées. @sec-features-computing détaille le processus.
+
+## API MOSAIKS
+
+::: {.callout-tip}
+# Lien API MOSAIKS
+
+[api.mosaiks.org](https://api.mosaiks.org/)
+:::
+
+L'API de MOSAIKS est une interface conviviale qui vous permet de télécharger des features pour n'importe quel emplacement terrestre sur Terre.L'API est conçue pour être accessible aux utilisateurs ayant une gamme d'horizons techniques, des débutants aux experts.Pour profiter de l'API, vous devrez vous inscrire à un compte.
+
+### Créer à un compte
+
+Visitez [api.mosaiks.org](https://api.mosaiks.org/).
+
+![Page de connexion pour l'API MOSAIKS](../../images/api-home.png){#fig-api-login}
+
+Sélectionnez `Register` pour créer un compte.Vous devrez fournir un nom d'utilisateur, un e-mail et un mot de passe.
+
+! [Page d'inscription pour l'API Mosaiks.](../../images/api-register.png){#fig-api-register}
+
+Une fois enregistré, vous pouvez vous connecter pour commencer à télécharger des features MOSAIKS.
+
+![Mosaiks API Page de destination.](../../images/api-landing.png){#fig-api-landing}
+
+### Ressources de l'API
+
+Depuis la page de destination, vous pouvez lire des informations supplémentaires sur les mosaïques et les ressources d'accès pour vous aider à démarrer. 
+
+::: {.callout-note}
+Ce livre est développé pour vous fournir toutes les informations dont vous avez besoin pour utiliser MOSAIKS.
+:::
+
+L'API contient les pages suivantes:
+
+| Page |Description |
+|------|:------------|
+| [Home](https://api.mosaiks.org/) |Page de destination pour l'API.Contient des informations générales sur l'utilisation des MOSAIKS et de l'API |
+| [Fichiers précomposés](https://api.mosaiks.org/portal/precomputed/) |Caractéristiques pré-composées à des échelles de limites administratives |
+| [HDI](https://api.mosaiks.org/portal/hdi/) |Indice de développement humain mondial (HDI) estime aux niveaux de la municipalité et de la grille |
+| [Global Grids](https://api.mosaiks.org/portal/global_grids/) |Précompagne et sur zone ou population à 0,1 ° et 1 ° Résolution |
+| [Map Query](https://api.mosaiks.org/portal/map_query/) |Caractéristiques pré-composées à une résolution de 0,01 degré, l'utilisateur définit la boîte de délimitation sur la zone d'intérêt |
+| [Fichier Query](https://api.mosaiks.org/portal/file_query/) |features pré-composées à une résolution de 0,01 degré, le fichier de téléchargement de l'utilisateur avec des coordonnées de latitude et de longitude |
+| [Mes fichiers](https://api.mosaiks.org/portal/my_files/) |Fichiers que vous avez interrogés à partir de l'API, disponibles en téléchargement |
+| [Ressources](https://api.mosaiks.org/portal/resources/) |Exemple de notebooks Python et R pour utiliser le cadre MOSAIKS |
+
+: Pages et descriptions de l'API MOSAIKS. {#tbl-api-pages tbl-colwidths="[25,75]"}
+
+### features de l'API
+
+Actuellement, l'API MOSAIKS a un seul ensemble de features globales (avec plusieurs niveaux d'agrégation). Les features sont disponibles gratuitement au public pour télécharger;C'est le moyen le plus rapide et le plus simple de commencer à utiliser MOSAIKS. 
+
+Les features de l'API utilisent l'imagerie d'entrée de Planet Labs, Inc. [Visual Basemap](https://developers.planet.com/docs/basemaps/) Produit mondial trimestriel 2019 (trimestre 3). La qualité de l'image, et donc la qualité des caractéristiques, peut être affectée par des conditions locales. Par exemple, une zone subissant une saison des pluies au troisième trimestre (de juillet à septembre) est susceptible de contenir des artefacts d'image de la couverture nuageuse. Cela affectera à son tour les calculs des features.Pour plus de détails sur l'imagerie d'entrée @sec-satellite-imagery.
+
+Compte tenu de la nature statique de l'API, le moyen le plus simple de commencer avec les MOSAIKS est d'avoir des données d'étiquette pendant une période récente (idéalement à partir de 2019 pour les étiquettes en évolution rapide, ou une année claire pour des étiquettes plus stables). 
+
+![Planet Labs BasEmap Imagery (à gauche) et 4 des 4 000 features MOSAIKS téléchargées à partir de l'API (à droite).](../../images/api-features.png){#fig-api-features}
+
+::: {.callout-note}
+L'utilisation de MOSAIKS pour des données de séries chronologiques est possible et peut bien fonctionner, mais cela nécessite actuellement de calculer vos propres features personnalisées.Voir @sec-features-computing et @sec-model-time pour plus d'informations.
+:::
+
+Les caractéristiques MOSAIKS sont créées à l'aide d'une grille terrestre mondiale de latitude de latitude de 0,01 x 0,01 degrés.Ce sont les features natives disponibles en téléchargement à partir de l'API, mais il propose également des features pré-agrégées à une résolution de 0,1 et 1 degré, ainsi que des limites administratives (ADM0, ADM1 et ADM2).
+
+### Caractéristiques haute résolution
+
+La requête de fichier et la requête MAP sont les deux méthodes pour obtenir les features haute résolution (0,01 degrés) via l'API.Pour plus de simplicité, nous stockons ces features dans un format tabulaire avec des coordonnées de latitude et de longitude.Ces coordonnées sont le centre de chaque cellule de grille.
+
+Lorsque vous téléchargez les features haute résolution (0,01 degré), vous les recevrez dans un format .csv tabulaire où:
+
+- Chaque ligne (*N*) représente une cellule de grille unique
+- Les deux premières colonnes contiennent des coordonnées de latitude et de longitude (grille centroïdes)
+- Les colonnes restantes représentent *K* features (actuellement * k * = 4000 features)
+
+> **Remarque:** Il y a une limite de *N* = 100000 enregistrements par requête
+
+#### Requête de carte
+
+- Créer des boîtes rectangulaires en spécifiant les coordonnées de latitude et de longitude
+- Plusieurs boîtes peuvent être créées
+- Le système affiche un nombre estimé d'enregistrements pour chaque boîte
+- Notez que les estimations sont basées sur la zone de la boîte et peuvent ne pas refléter le nombre d'enregistrements réels, en particulier pour les zones contenant des mers et des océans
+
+![MOSAIKS API Map Query Page.](../../images/api-map-query.png){#fig-api-map}
+
+::: {.callout-tip}
+Utilisez [Geojson.io](https://geojson.io/#new&map=2/0/20) pour trouver les coordonnées de la boîte de délimitation pour votre zone d'intérêt.
+:::
+
+#### Requête de fichier 
+
+- Soumettre un fichier avec des coordonnées de latitude et de longitude personnalisées
+- L'API renvoie les features des cellules de grille les plus proches de vos coordonnées d'entrée
+- Les points sont alloués au point de grille le plus proche s'ils ne correspondent pas exactement
+- Le fichier de sortie peut avoir un nombre différent de lignes de votre entrée
+- La commande de points peut changer dans la sortie
+
+![Query de fichier API](../../images/api-file-query.png){#fig-api-queries}
+
+### Caractéristiques agrégées
+
+De nombreux utilisateurs peuvent trouver plus facile de travailler avec des features agrégées à un certain niveau.L'API MOSAIKS propose des features pré-agrégées pour répondre à ces besoins.L'API propose plusieurs niveaux, y compris les plus grandes cellules de grille (0,1 et 1 degré) ou résumées aux limites administratives (ADM0, ADM1 et ADM2).Ces fichiers sont disponibles en téléchargement en tant que fichiers simples ou en morceaux en fonction de la résolution.
+
+![Exemple montrant de 3 caractéristiques de convolution aléatoires représentatives (lignes).Les caractéristiques sont téléchargées à partir de l'API MOSAIKS à une résolution de 0,01 ° (la résolution native) et agrégées à 3 niveaux, y compris (a) des cellules de grille plus grandes (0,1 °), (b) les comtés et (c) états.](../../images/US_feature_summaries.png){#fig-api-aggregated}
+
+#### schémas de pondération
+
+À chaque niveau d'agrégation, nous proposons des caractéristiques pondérées et des caractéristiques pondérées par la population.Les poids de la population proviennent de la population grillée du monde ([GPWv4](https://earthdata.nasa.gov/data/projects/gpw)) ensemble de données de densité de la population.Le schéma de pondération de la zone est basé sur la zone des cellules de grille haute résolution.
+
+#### Quand utiliser des features agrégées
+
+Les features agrégées sont particulièrement utiles dans quelques scénarios:
+
+1. Vous avez des données à une échelle plus grande que les cellules de grille de 0,01 degrés.De nombreux ensembles de données viennent au niveau du pays, de l'État ou du comté. 
+
+1. Vos données ont beaucoup de bruit qui peut être lissée en agrégeant à plus grande échelle.Un exemple courant de cela peut être des données d'enquête auprès des ménages qui sont bruyantes au niveau individuel mais se lissent lorsqu'elles sont agrégées au niveau du village ou du district.
+
+1. Vous voulez effectuer une analyse globale et n'avez pas les ressources de calcul pour travailler avec les cellules de la grille complètes de 0,01 degrés.
+
+Dans tous les cas, l'utilisation des features pré-agrégées peut vous faire gagner du temps et des ressources de calcul.
+
+> **Scénario:** Vous travaillez avec une étude de mesure des normes de vie - Des enquêtes intégrées sur l'agriculture ([LSMS-ISA](https://www.worldbank.org/en/programs/lsms/initiatives/lsms-ISA)). Cet ensemble de données propose des données d'enquête avec les coordonnées géographiques au niveau du ménage.Pour protéger, la vie privée des répondants, les données sont gênées dans un rayon de 5 km, mais elle reste toujours dans les limites administratives locales.Vous pouvez donc résumer vos étiquettes aux unités administratives et créer un modèle avec les features agrégées. 
+
+::: {.callout-tip}
+Si vous souhaitez faire des prédictions haute résolution, avec des données d'étiquette à basse résolution, vous pouvez créer votre modèle avec des features agrégées et utiliser les features haute résolution pour faire des prédictions.Cela sera couvert dans @sec-model-space. 
+:::
+
+## Utilisation de features MOSAIKS pour la prédiction
+
+::: {.callout-tip}
+Ceci est un bref aperçu.Des instructions détaillées apparaissent plus tard dans le manuel (@sec-model-choice).
+:::
+
+Flux de travail de base:
+
+1. Obtenez des mesures de vérité au sol ("étiquettes"; voir @sec-labels-100-maps)
+2. Téléchargez les features de correspondance (voir @sec-features-api pour plus de détails).
+3. Fusionner les étiquettes et les features spatialement (voir @sec-labels-data-prep)
+4. Utiliser la régression pour modéliser la relation entre l'imagerie et les résultats (voir @sec-model-choice)
+5. Utiliser les résultats de la régression pour prédire les résultats dans de nouveaux emplacements (voir @sec-model-choice)
+
+Vous pouvez expérimenter diverses approches d'apprentissage automatique à l'étape de régression.Pour les débutants, nous vous recommandons de commencer avec notre exemple de cahier Jupyter (@sec-intro-demo) qui démontre une approche de régression de crête simple (adaptée aux utilisateurs R et Python).
+
+![En utilisant MOSAIKS, une conception simplifiée du flux de travail.](../../images/mosaiks-overview.png){#fig-mosaiks-flow}
+
+Ce sujet sera abordé plus en profondeur dans les chapitres ultérieurs (voir @sec-model-choice). Dans le chapitre suivant, vous verrez un simple flux de travail MOSAIKS qui reproduit les résultats de Rolf et al.2021. 
+
+## Exigences de citation
+
+Lorsque vous faites référence à la méthodologie MOSAIKS ou lors de la génération de features de MOSAIKS, veuillez référence: [Rolf et al.«Une approche généralisable et accessible de l'apprentissage automatique avec l'imagerie par satellite mondiale.»Nature Communications (2021).](https://www.nature.com/articles/s41467-021-24638-z)
+
+Vous pouvez utiliser le bibtex suivant:
+```bibtex
+@article{article,
+    author = {Rolf, Esther and Proctor, Jonathan and Carleton, Tamma and Bolliger, Ian and Shankar, Vaishaal and Ishihara, Miyabi and Recht, Benjamin and Hsiang, Solomon},
+    year = {2021},
+    month = {07},
+    pages = {},
+    title = {A generalizable and accessible approach to machine learning with global satellite imagery},
+    volume = {12},
+    journal = {Nature Communications},
+    doi = {10.1038/s41467-021-24638-z}
+}
+```
+
+Si vous utilisez des features téléchargées à partir de l'API, veuillez référence, en plus de la publication ci-dessus, l'API MOSAIKS.
+
+Vous pouvez citer l'API en utilisant le bibtex suivant:
+```bibtex
+ @misc{MOSAIKS API,
+    author = {{Carleton, Tamma and Chong, Trinetta and Druckenmiller, Hannah and Noda, Eugenio and Proctor, Jonathan and Rolf, Esther and Hsiang, Solomon}},
+    title = {{Multi-Task Observation Using Satellite Imagery and Kitchen Sinks (MOSAIKS) API}},
+    howpublished = "\url{ https://api.mosaiks.org }",
+    version = {1.0},
+    year = {2022},
+}
+```
+
+::: {.callout-note}
+# À venir
+
+Dans le chapitre suivant, vous aurez la chance d'essayer les MOSAIKS sur Google Colab avec les données de Rolf et al 2021. 
+:::

@@ -1,0 +1,30 @@
+# Responsible SIML
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("draft")
+```
+
+## Section outline
+
+The following chapters will discuss important aspects of model uncertainty and bias, as well as the ethical considerations in the context of MOSAIKS:
+
+| Chapter | Key Topics |
+|---------|:-----------|
+| @sec-responsible-ethics | Responsible use, communication, limitations |
+| @sec-responsible-uncertainty | Error sources, confidence intervals, validation |
+| @sec-responsible-demo | Demonstrating how MOSAIKS can be  used to characterize uncertainty |
+
+: Outline of the uncertainty section {#tbl-section-outline .striped .hover}
+
+These chapters provide 
+
+::: {.callout-note}
+# Looking forward
+
+The next chapter will 
+:::
+

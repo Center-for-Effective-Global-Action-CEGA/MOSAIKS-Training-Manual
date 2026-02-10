@@ -1,0 +1,46 @@
+# Label data {#sec-labels}
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("review")
+```
+
+## Overview
+
+This section explores the ground truth data (labels) that can be used to train a predictive model with MOSAIKS. While the system is designed to be flexible with respect to the types of outcomes it can predict, understanding what makes good label data and how to prepare it properly is crucial for success.
+
+Label data represents the "truth" that MOSAIKS attempts to predict - whether that's crop yields, population density, economic indicators, or any other variable that might be visible (directly or indirectly) in satellite imagery. The quality and characteristics of this label data significantly influence model performance.
+
+## What makes good label data?
+
+For optimal performance with MOSAIKS, label data should have several key characteristics:
+
+- Accurate geographic location information
+- Appropriate spatial resolution (typically ≥1km²)
+- Reasonable temporal alignment with imagery features
+- Sufficient sample size (generally ≥300 observations)
+- Observable connection to surface features
+
+## Section outline
+
+The following chapters will guide you through key considerations for working with label data in MOSAIKS:
+
+| Chapter | Key Topics |
+|---------|:-----------|
+| @sec-labels-100-maps | Example applications, performance analysis, validation |
+| @sec-labels-survey | Survey integration, sampling design, geographic referencing |
+| @sec-labels-data-prep | Data cleaning, spatial joining, quality control |
+| @sec-labels-demo | Hands-on example, practical workflow, troubleshooting |
+
+: Outline of the label data section {#tbl-section-outline .striped .hover}
+
+These chapters provide both practical guidance for preparing your own label data and deeper understanding of what types of outcomes MOSAIKS can effectively predict.
+
+::: {.callout-note}
+# Looking forward
+
+In the next chapter, we'll explore over 100 different outcomes that have been tested with MOSAIKS, examining what works well and what doesn't.
+:::
+

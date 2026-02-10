@@ -1,0 +1,82 @@
+project:
+  type: book
+  output-dir: _book/fr
+
+book:
+  title: "Manuel de formation MOSAIKS"
+  author: 
+    - name: Cullen Molitor
+      affiliations: "Center for Effective Global Action (CEGA)"
+      url: https://emlab.ucsb.edu/about/our-team/cullen-molitor
+
+    - name:  Tamma Carleton
+      affiliations: "UC Berkeley Department of Agricultural and Resource Economics"
+      url: https://are.berkeley.edu/users/tamma-carleton
+
+    - name:  Esther Rolf
+      affiliations: "UC Boulder College of Engineering and Applied Science"
+      url: https://www.colorado.edu/cs/esther-rolf
+
+    - name: Gnouyaro Zissler Sogoyou
+      affiliation: "Togo Data Lab"
+      url: https://cega.berkeley.edu/person/gnouyaro-sogoyou/
+      role: "Traducteur"
+      
+    - name: Farooq Sanni
+      affiliation: "Togo Data Lab"
+      url: https://cega.berkeley.edu/person/farooq-sanni/
+      role: "Traducteur"
+
+  language: fr
+  navbar:
+    right:
+      - text: "English"
+        href: ../en/index.html
+
+  page-footer:
+    left: |
+      Manuel de formation MOSAIKS
+    right: |
+      Ce livre a été créé avec <a href="https://quarto.org/">Quarto</a>.
+  chapters:
+    - part: fr/part-00-intro/00-intro.qmd
+      chapters:
+        - fr/part-00-intro/01-intro-compute.qmd
+        - fr/part-00-intro/02-intro-mosaiks.qmd
+        - fr/part-00-intro/03-intro-api.qmd
+        - fr/part-00-intro/04-intro-demo.qmd
+        
+    - part: fr/part-01-labels/00-labels.qmd  
+      chapters:
+        - fr/part-01-labels/01-labels-100-maps.qmd
+        - fr/part-01-labels/02-labels-survey.qmd
+        - fr/part-01-labels/03-labels-data-prep.qmd
+        - fr/part-01-labels/04-labels-demo.qmd
+
+    - part: fr/part-02-satellite/00-satellite.qmd  
+      chapters:
+        - fr/part-02-satellite/01-satellite-imagery.qmd
+        - fr/part-02-satellite/02-satellite-processing.qmd
+        - fr/part-02-satellite/03-satellite-demo.qmd
+
+    - part: fr/part-03-features/00-features.qmd  
+      chapters:
+        - fr/part-03-features/01-features-rcf.qmd
+        - fr/part-03-features/02-features-api.qmd
+        - fr/part-03-features/03-features-computing.qmd
+        - fr/part-03-features/04-features-demo.qmd
+      
+    - part: fr/part-04-models/00-model.qmd  
+      chapters:
+        - fr/part-04-models/01-model-choice.qmd
+        - fr/part-04-models/02-model-spatial.qmd
+        - fr/part-04-models/03-model-temporal.qmd
+        - fr/part-04-models/04-model-demo.qmd
+
+    - part: fr/part-05-responsible/00-responsible.qmd  
+      chapters:
+        - fr/part-05-responsible/01-responsible-ethics.qmd
+        - fr/part-05-responsible/02-responsible-uncertainty.qmd
+        - fr/part-05-responsible/03-responsible-demo.qmd
+
+    - references.qmd
