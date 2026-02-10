@@ -152,7 +152,7 @@ Confirm that label values are within expected ranges, deal with any outliers or 
 
 ### Temporal Alignment
 
-If you have time series labels, you will need to compute custom features for each time period. See @sec-features-computing for more information on how to do this and @sec-model-temporal for guidance on modeling time series data with MOSAIKS features.
+If you have time series labels, you will need to compute custom features for each time period. See @sec-features-computing for more information on how to do this and @sec-model-time for guidance on modeling time series data with MOSAIKS features.
 
 ### Data Formats
 

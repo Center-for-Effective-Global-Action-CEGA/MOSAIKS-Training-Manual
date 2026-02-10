@@ -438,6 +438,7 @@ Visual Studio Code (VS Code) can detect and use your new conda environment for P
 
 While conda is a common tool for managing Python environments, there are other popular options such as:
 
+- [uv](https://docs.astral.sh/uv/) 
 - [Poetry](https://python-poetry.org/)  
 - [pipenv](https://pipenv.pypa.io/en/latest/)  
 - [virtualenv](https://virtualenv.pypa.io/en/latest/) 
@@ -449,5 +450,5 @@ Each has its own configuration files and setup instructions. If you prefer these
 ::: {.callout-note}
 # Looking forward
 
-In the next chapter, we will take a closer look at the MOSAIKS framework, its core concepts, and how it can be applied to solve real-world problems.
+In the next chapter you will have a chance to try MOSAIKS on Google Colab with the data from @rolf_etal_2021 
 :::

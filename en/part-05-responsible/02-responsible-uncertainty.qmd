@@ -8,6 +8,12 @@ source("../../_common.R")
 status("draft")
 ```
 
+## Lecture materials
+
+**TODO:** Add recorded lecture here. 
+
+[Lecture slides.](../slides/02-uncertainty-lecture.pdf)
+
 
 ::: {.callout-note}
 # Looking forward

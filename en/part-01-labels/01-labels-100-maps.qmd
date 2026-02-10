@@ -14,7 +14,13 @@ MOSAIKS is a designed to be useful for predicting anything that may be visible i
 
 ![MOSAIKS versatility makes it the perfect tool for a wide range of applications.](../../images/army_knife.png){#fig-army-knife width="300px"}
 
-In this chapter we will discuss a new working paper (Proctor et al., *in prep.*) that explores the question of what can and cannot be reliably predicted from satellite imagery using MOSAIKS. This paper investigates over 100 different outcomes, reporting predictive performance for each using MOSAIKS. We will discuss the results of a selection of these outcomes in detail, and provide a brief overview of the rest. Of course, this list of outcomes is not exhaustive and reported performance can differ substantially across contexts and in particular with varying quality of ground truth data. We show these results as an initial investigation of what might be possible with SIML using MOSAIKS, but encourage users to conduct their own experiments as resulst are likely to differ in new settings. The pre-print of Proctor et al. will be posted here when publicly available. 
+In this chapter we will discuss a new working paper (Proctor et al., *in prep.*) that explores the question of what can and cannot be reliably predicted from satellite imagery using MOSAIKS. This paper investigates over 100 different outcomes, reporting predictive performance for each using MOSAIKS. We will discuss the results of a selection of these outcomes in detail, and provide a brief overview of the rest. Of course, this list of outcomes is not exhaustive and reported performance can differ substantially across contexts and in particular with varying quality of ground truth data. We show these results as an initial investigation of what might be possible with SIML using MOSAIKS, but encourage users to conduct their own experiments as results are likely to differ in new settings. The pre-print of Proctor et al. will be posted here when publicly available. 
+
+## Lecture materials
+
+**TODO:** Add recorded lecture here. 
+
+[Lecture slides.](../slides/01-labels-lecture.pdf)
 
 ## One hundred maps
 

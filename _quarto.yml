@@ -1,3 +1,7 @@
+profile:
+  group:
+    - [default, en, fr]
+
 project:
   type: book
 
@@ -5,8 +9,8 @@ book:
   reader-mode: true
   favicon: "images/sat_earth.png"
   cover-image: "images/sat_earth.png"
-  site-url: https://cullen-molitor.github.io/MOSAIKS-Training-Manual/en/
-  repo-url: https://github.com/cullen-molitor/MOSAIKS-Training-Manual
+  site-url: https://center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/en/
+  repo-url: https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/
   repo-branch: main
   repo-actions: [edit, issue]
   chapters:
