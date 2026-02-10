@@ -141,7 +141,7 @@ Vérifiez que les valeurs des étiquettes se situent dans les plages attendues, 
 
 ### Alignement temporel
 
-Si vous disposez d'étiquettes de séries temporelles, vous devrez calculer des caractéristiques personnalisées pour chaque période. Voir @sec-features-computing pour plus d'informations sur la manière de procéder et @sec-model-temporal pour des conseils sur la modélisation des données de séries temporelles avec les caractéristiques MOSAIKS.
+Si vous disposez d'étiquettes de séries temporelles, vous devrez calculer des caractéristiques personnalisées pour chaque période. Voir @sec-features-computing pour plus d'informations sur la manière de procéder et @sec-model-time pour des conseils sur la modélisation des données de séries temporelles avec les caractéristiques MOSAIKS.
 
 ### Formats des données
 

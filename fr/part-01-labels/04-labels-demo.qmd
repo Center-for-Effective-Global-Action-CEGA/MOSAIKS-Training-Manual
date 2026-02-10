@@ -1,8 +1,7 @@
 ---
 lang: fr
 ---
-# Démonstration des données d'étiquetage
- {#sec-labels-demo}
+# Démonstration des données d'étiquetage {#sec-labels-demo}
 
 ```{r}
 #| echo: false

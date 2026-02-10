@@ -3,6 +3,7 @@ project:
   output-dir: _book/en
 
 book:
+  site-url: https://center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/en/
   title: "MOSAIKS Training Manual"
   author: 
     - name: Cullen Molitor
