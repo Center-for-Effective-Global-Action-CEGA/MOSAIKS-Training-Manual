@@ -10,19 +10,25 @@ status("review")
 
 ## Introduction
 
-At its core, MOSAIKS requires two main inputs: satellite features and ground truth data. Our aim is to make these features as accessible as possible so that the majority of users do not have to worry about the technical details of satellite imagery processing.
+At its core, MOSAIKS requires two main inputs: 
+
+1. Features computed from satellite imagery
+
+1. Ground truth label data. 
+
+This chapter explains how to access precomputed MOSAIKS features through the API. Our aim is to make these features as accessible as possible so that the majority of users do not have to worry about the technical details of satellite imagery processing, which is explained in later chapters.
 
 To this end, we have worked to develop multiple ways to access MOSAIKS features:
 
 | Option | Imagery Source | Spatial Coverage | Spatial Resolution | Temporal Resolution | Weighting | 
 |--------|----------------|------------------|--------------------|---------------------|-----------|
-| [MOSAIKS API](https://api.mosaiks.org/) | [Planet Labs Visual Basemap](https://developers.planet.com/docs/data/visual-basemaps/) | Global land areas | 0.01° | 2019 Q3 | Unweighted | 
-| [MOSAIKS API](https://api.mosaiks.org/portal/global_grids/) | [Planet Labs Visual Basemap](https://developers.planet.com/docs/data/visual-basemaps/) | Global land areas | 0.1°, 1° | 2019 Q3 | Area & population | 
-| [MOSAIKS API](https://api.mosaiks.org/portal/precomputed/) | [Planet Labs Visual Basemap](https://developers.planet.com/docs/data/visual-basemaps/) | Global land areas | ADM0, ADM1, ADM2 | 2019 Q3 | Area & population | 
+| [MOSAIKS API](https://www.mosaiks.org/mosaiks_api) | [Planet Labs Visual Basemap](https://developers.planet.com/docs/data/visual-basemaps/) | Global land areas | 0.01° | 2019 Q3 | Unweighted | 
+| [MOSAIKS API](https://www.mosaiks.org/global_grids) | [Planet Labs Visual Basemap](https://developers.planet.com/docs/data/visual-basemaps/) | Global land areas | 0.1°, 0.25°, 1° | 2019 Q3 | Area & population | 
+| [MOSAIKS API](https://www.mosaiks.org/precomputed) | [Planet Labs Visual Basemap](https://developers.planet.com/docs/data/visual-basemaps/) | Global land areas | ADM0, ADM1, ADM2 | 2019 Q3 | Area & population | 
 | [Rolf et al 2021](https://codeocean.com/capsule/6456296/tree/v2) | [Google Static Maps](https://developers.google.com/maps/documentation/maps-static/start) | Continental United States (~100k locations) | 0.01° | 2019 | unweighted | 
 | @sec-features-computing | Any - see @sec-satellite-imagery  | User-defined | User-defined | User-defined | User-defined | 
 
-: Summary of MOSAIKS feature sources. The weighting column indicates that the features were generated at 0.01 degree resolution and are weighted when they are aggregated up to lower resolutions. The available weighting schemes are based on area of the aggregation polygon, or by the population of the the aggregation polygon. {#tbl-features-options}
+: Summary of MOSAIKS feature sources. The weighting column indicates that the features were generated at 0.01 degree resolution and weights are applied when aggregating to lower resolutions. There are two available weighting schemes based on area of the aggregation polygon, or by the population of the the aggregation polygon. More details can be found at [MOSAIKS API](https://www.mosaiks.org/mosaiks_api). {#tbl-features-options}
 
 ::: {.callout}
 - Chapters -@sec-intro-compute through -@sec-labels-demo focus on publicly available features 
@@ -38,45 +44,35 @@ However, there are many settings where users will want or need to compute their 
 ::: {.callout-tip}
 # MOSAIKS API Link
 
-[api.mosaiks.org](https://api.mosaiks.org/)
+Features can be found on [mosaiks.org](https://www.mosaiks.org/mosaiks_api), but first users will need to create an account with [Redivis](https://redivis.com/), which hosts the API. The API is free to use for all users.
 :::
 
-The MOSAIKS API is a user-friendly interface that allows you to download features for any land location on Earth. The API is designed to be accessible to users with a range of technical backgrounds, from beginners to experts. To take advantage of the API, you will need to register for an account.
+The MOSAIKS API is a user-friendly interface that allows you to download features for any land location on Earth. The API is designed to be accessible to users with a range of technical backgrounds, from beginners to experts. To take advantage of the API, you will need to register for an account with Redivis.
 
 ### Register for an account
 
-Visit [api.mosaiks.org](https://api.mosaiks.org/).
+Visit [redivis.com](https://redivis.com/). Follow the onscreen instructions to create an account. You can use your email address or sign up with Google. 
 
-![Login page for the MOSAIKS API.](../images/api-home.png){#fig-api-login}
+![Login page for Redivis.](../images/redivis_login.png){#fig-api-login} 
 
-Select `Register` to create an account. You will need to provide a username, an email, and a password.
+Once registered, you can log in and return to [mosaiks.org](https://www.mosaiks.org/mosaiks_api) to begin downloading MOSAIKS features.
 
-![Registration page for the MOSAIKS API.](../images/api-register.png){#fig-api-register}
-
-Once registered, you can log in to begin downloading MOSAIKS features.
-
-![MOSAIKS API landing page.](../images/api-landing.png){#fig-api-landing}
+![MOSAIKS API landing page.](../images/mosaiks_api_landing.png){#fig-api-landing}
 
 ### API resources
 
 From the landing page, you can read additional information about MOSAIKS and access resources to help you get started. 
 
-::: {.callout-note}
-This book is developed to provide you with all the information you need to use MOSAIKS.
-:::
-
 The API contains the following pages:
 
 | Page | Description |
 |------|:------------|
-| [Home](https://api.mosaiks.org/) | Landing page for the API. Contains general information about using MOSAIKS and the API |
-| [Precomputed Files](https://api.mosaiks.org/portal/precomputed/) | Precomputed features at administrative boundary scales |
-| [HDI](https://api.mosaiks.org/portal/hdi/) | Global Human Development Index (HDI) estimates at the municipality and grid levels |
-| [Global Grids](https://api.mosaiks.org/portal/global_grids/) | Precomputed and area or population features at 0.1° and 1° resolution |
-| [Map Query](https://api.mosaiks.org/portal/map_query/) | Precomputed features at 0.01 degree resolution, user defines bounding box over area of interest |
-| [File Query](https://api.mosaiks.org/portal/file_query/) | Precomputed features at 0.01 degree resolution, user uploads file with latitude and longitude coordinates |
-| [My Files](https://api.mosaiks.org/portal/my_files/) | Files you have queried from the API, available to download |
-| [Resources](https://api.mosaiks.org/portal/resources/) | Example Python and R notebooks for using the MOSAIKS framework |
+| [Home](https://api.mosaiks.org) | Landing page for the API. Contains general information about using MOSAIKS and the API |
+| [Full resolution Query](https://github.com/Global-Policy-Lab/mosaiks_tutorials/blob/main/01_querying_redivis.ipynb) | **Advanced** Precomputed features at 0.01 degree resolution, follow notebook for details |
+| [Precomputed Files](https://www.mosaiks.org/precomputed) | Precomputed features at administrative boundary scales |
+| [Global Grids](https://mosaiks.org/global_grids) | Precomputed and area or population features at 0.1° and 1° resolution |
+| [HDI](https://www.mosaiks.org/hdi) | Global Human Development Index (HDI) estimates at the municipality and grid levels |
+| [Resources](https://www.mosaiks.org/resources) | Example Python and R notebooks for using the MOSAIKS framework |
 
 : MOSAIKS API pages and descriptions. {#tbl-api-pages tbl-colwidths="[25,75]"}
 
@@ -90,48 +86,25 @@ Given the static nature of the API, the easiest way to get started with MOSAIKS 
 
 ![Planet Labs basemap imagery (left) and 4 of 4,000 MOSAIKS features downloaded from the API (right).](../images/api-features.png){#fig-api-features}
 
+The MOSAIKS features are created using a 0.01 x 0.01 degree latitude-longitude global land grid. These are the native features available for download from the API, but it also offers pre-aggregated features at 0.1 and 1 degree resolution, as well as administrative boundaries (ADM0, ADM1, and ADM2).
+
 ::: {.callout-note}
 Using MOSAIKS for time series data is possible and can work well, however this currently requires computing your own custom features. See @sec-features-computing and @sec-model-time for more information.
 :::
-
-The MOSAIKS features are created using a 0.01 x 0.01 degree latitude-longitude global land grid. These are the native features available for download from the API, but it also offers pre-aggregated features at 0.1 and 1 degree resolution, as well as administrative boundaries (ADM0, ADM1, and ADM2).
-
-<!-- ### Downloading API features  -->
 
 ### High resolution features
 
 The file query and map query are the two methods to obtain the high resolution (0.01 degree) features through the API. For simplicity, we store these features in a tabular format with latitude and longitude coordinates. These coordinates are the center of each grid cell.
 
-When you download the high resolution features (0.01 degree), you will receive them in a tabular .csv format where:
+When you download the high resolution features (0.01 degree), you will receive them in a tabular format where:
 
 - Each row (*N*) represents a unique grid cell
 - The first two columns contain latitude and longitude coordinates (grid centroids)
 - The remaining columns represent *K* features (currently *K* = 4000 features)
 
-> **Note:** There is a limit of *N* = 100,000 records per query
-
-#### Map query
-
-- Create rectangular boxes by specifying latitude and longitude coordinates
-- Multiple boxes can be created
-- The system displays an estimated number of records for each box
-- Note that estimates are based on box area and may not reflect actual record numbers, especially for areas containing seas and oceans
-
-![MOSAIKS API Map Query page.](../images/api-map-query.png){#fig-api-map}
-
 ::: {.callout-tip}
 Use [geojson.io](https://geojson.io/#new&map=2/0/20) to find the bounding box coordinates for your area of interest.
 :::
-
-#### File query 
-
-- Submit a file with custom latitude and longitude coordinates
-- The API returns features for grid cells closest to your input coordinates
-- Points are allocated to the nearest grid point if they don't exactly match
-- The output file may have a different number of rows than your input
-- Point ordering may change in the output
-
-![API File Query](../images/api-file-query.png){#fig-api-queries}
 
 ### Aggregated features
 
@@ -158,7 +131,7 @@ In all cases using the pre-aggregated features can save you time and computation
 > **Scenario:** You are working with a Living Standards Measurement Study - Integrated Surveys on Agriculture ([LSMS-ISA](https://www.worldbank.org/en/programs/lsms/initiatives/lsms-ISA)). This dataset has survey data with geographic coordinates at the household level. To protect, the privacy of the respondents, the data is jittered within a 5 km radius but it always remains within local administrative boundaries. You can therefore summarize your labels to the administrative units and build a model with the aggregated features. 
 
 ::: {.callout-tip}
-If you want to make high resolution predictions, with low resolution label data, you can build your model with aggregated features and use the high resolution features to make predictions. This will be covered in @sec-model-space. 
+If you want to make high resolution predictions, with low resolution label data, you can build your model with aggregated features and use the high resolution features to make predictions. This will be covered in more detail in@sec-model-space. 
 :::
 
 ## Using MOSAIKS features for prediction
@@ -214,7 +187,6 @@ You can cite the API using the following Bibtex:
 
 ::: {.callout-note}
 # Looking forward
-
-In the next chapter you will have a chance to try MOSAIKS on Google Colab with the data from Rolf et al 2021. 
+In the next chapter, we'll set up our computing environment using Google Colab. This course uses Colab to demonstrate various aspects of MOSAIKS, in a free and accessible environment.
 :::
 
