@@ -23,7 +23,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -270,7 +290,7 @@ ul.task-list li input[type="checkbox"] {
     <div class="sidebar-title mb-0 py-0">
       <a href="./">MOSAIKS Training Manual</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -304,20 +324,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-00-intro/01-intro-compute.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Compute setup</span></span></a>
+  <a href="./part-00-intro/01-intro-mosaiks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-00-intro/02-intro-mosaiks.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></span></a>
+  <a href="./part-00-intro/02-intro-api.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Access MOSAIKS</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./part-00-intro/03-intro-api.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Access MOSAIKS</span></span></a>
+  <a href="./part-00-intro/03-intro-compute.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Compute setup</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -512,25 +532,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#what-is-mosaiks" id="toc-what-is-mosaiks" class="nav-link" data-scroll-target="#what-is-mosaiks">What is MOSAIKS?</a></li>
   <li><a href="#who-is-this-for" id="toc-who-is-this-for" class="nav-link" data-scroll-target="#who-is-this-for">Who is this for?</a></li>
   <li><a href="#what-will-i-learn" id="toc-what-will-i-learn" class="nav-link" data-scroll-target="#what-will-i-learn">What will I learn?</a></li>
-  <li><a href="#course-structure" id="toc-course-structure" class="nav-link" data-scroll-target="#course-structure">Course structure</a></li>
-  <li><a href="#course-schedule" id="toc-course-schedule" class="nav-link" data-scroll-target="#course-schedule">Course schedule</a>
-  <ul class="collapse">
-  <li><a href="#week-1" id="toc-week-1" class="nav-link" data-scroll-target="#week-1">Week 1</a></li>
-  <li><a href="#week-2" id="toc-week-2" class="nav-link" data-scroll-target="#week-2">Week 2</a></li>
-  </ul></li>
   <li><a href="#training-expectations" id="toc-training-expectations" class="nav-link" data-scroll-target="#training-expectations">Training expectations</a>
   <ul class="collapse">
-  <li><a href="#what-you-will-learn" id="toc-what-you-will-learn" class="nav-link" data-scroll-target="#what-you-will-learn">What you will learn</a></li>
   <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
-  <li><a href="#participant-expectations" id="toc-participant-expectations" class="nav-link" data-scroll-target="#participant-expectations">Participant expectations</a></li>
   <li><a href="#computing-requirements" id="toc-computing-requirements" class="nav-link" data-scroll-target="#computing-requirements">Computing requirements</a></li>
-  <li><a href="#homework-and-presentations" id="toc-homework-and-presentations" class="nav-link" data-scroll-target="#homework-and-presentations">Homework and presentations</a></li>
   </ul></li>
   <li><a href="#book-structure-and-content" id="toc-book-structure-and-content" class="nav-link" data-scroll-target="#book-structure-and-content">Book structure and content</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -547,7 +558,7 @@ ul.task-list li input[type="checkbox"] {
   <div class="quarto-title-meta-heading">Affiliations</div>
   
     <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://emlab.ucsb.edu/about/our-team/cullen-molitor">Cullen Molitor</a> </p>
+    <p class="author"><a href="https://cega.berkeley.edu/person/cullen-molitor/">Cullen Molitor</a> </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
@@ -589,25 +600,25 @@ ul.task-list li input[type="checkbox"] {
 <h1 class="unnumbered">Welcome</h1><p><img src="images/sat_earth.png" title="MOSAIKS Training Manual" class="quarto-cover-image nolightbox img-fluid"></p>
 <!-- ## Where am I? -->
 <p>This is the first edition of the MOSAIKS Training Manual! The manual serves as a comprehensive reference for understanding MOSAIKS, its capabilities, and guidance on practical implementation. You will learn what MOSAIKS is, what can be done with it, and how to use it effectively in a variety of applications.</p>
-<p>The skills and knowledge you gain from this manual will enable you to leverage satellite imagery and machine learning to address complex socioeconomic and environmental challenges. This can be a self taught manual or used in conjunction with a training course.</p>
+<p>The skills and knowledge you gain from this manual will enable you to leverage satellite imagery and machine learning to address complex socioeconomic and environmental challenges. This can be a self taught manual or used as the foundation as a training course or workshop.</p>
 <p>Many of the concepts and examples are broadly applicable to the world of remote sensing and machine learning, so even if you are not using MOSAIKS, you may find the content useful.</p>
 <section id="what-is-mosaiks" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-mosaiks">What is MOSAIKS?</h2>
-<p>MOSAIKS stands for <strong><ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</ins>tellite <ins>I</ins>magery &amp; <ins>K</ins>itchen <ins>S</ins>inks</strong>. It is a framework designed to simplify the use of satellite imagery and machine learning for predicting socioeconomic and environmental outcomes across different geographic contexts and time periods. MOSAIKS relis on random convolutions (developed in Rahimi and Recht (2008)) applied to satellite imagery, which extract task-agnostic features and enable researchers and practitioners to easily and flexibly predict a diversity of outcomes from raw imagery.</p>
+<p>MOSAIKS stands for <strong><ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</ins>tellite <ins>I</ins>magery &amp; <ins>K</ins>itchen <ins>S</ins>inks</strong> <span class="citation" data-cites="rolf_etal_2021">(<a href="references.html#ref-rolf_etal_2021" role="doc-biblioref">Rolf et al. 2021</a>)</span>. It is a framework designed to simplify the use of satellite imagery and machine learning for predicting socioeconomic and environmental outcomes across different geographic contexts and time periods. MOSAIKS relies on random convolutions (developed in <span class="citation" data-cites="rahimi_recht_2008">Rahimi and Recht (<a href="references.html#ref-rahimi_recht_2008" role="doc-biblioref">2008</a>)</span>) applied to satellite imagery, which is a way to summarize complex information contained in the imagery at a given location. These features are task-agnostic, meaning that researchers and practitioners can apply a single set model many different outcomes, without ever needing to go back to the satellite imagery.</p>
 <div id="fig-mosaiks-in-landsat" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mosaiks-in-landsat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/mosaiks-in-landsat.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mosaiks-in-landsat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: MOSAIKS spelled out with imagery from the Landsat Satellite Constellation data catalog. Made with: <a href="https://landsat.gsfc.nasa.gov/apps/YourNameInLandsat-main/" target="_blank">Your Name in Landsat</a>
+Figure&nbsp;1: MOSAIKS spelled out with imagery from the Landsat Satellite Constellation data catalog <span class="citation" data-cites="yournameinlandsat">(Made with: <a href="references.html#ref-yournameinlandsat" role="doc-biblioref"><span>“Your <span>Name</span> in <span>Landsat</span> 🛰️”</span> 2024</a>)</span>.
 </figcaption>
 </figure>
 </div>
 </section>
 <section id="who-is-this-for" class="level2">
 <h2 class="anchored" data-anchor-id="who-is-this-for">Who is this for?</h2>
-<p>This comprehensive two-week program is designed for academics, professionals, and practitioners interested in leveraging MOSAIKS to better understand socioeconomic and environmental challenges. The course is particularly valuable for those working in:</p>
+<p>This book is designed for academics, professionals, and practitioners interested in leveraging MOSAIKS to better understand socioeconomic and environmental challenges. The course is particularly valuable for those working in:</p>
 <ul>
 <li>Remote sensing and satellite imagery analysis</li>
 <li>Machine learning applications with geospatial data</li>
@@ -617,137 +628,38 @@ Figure&nbsp;1: MOSAIKS spelled out with imagery from the Landsat Satellite Const
 </section>
 <section id="what-will-i-learn" class="level2">
 <h2 class="anchored" data-anchor-id="what-will-i-learn">What will I learn?</h2>
-<p>Throughout this course, you’ll learn practical applications through a combination of:</p>
+<p>This manual teaches:</p>
 <ul>
-<li>Theoretical foundations and conceptual understanding</li>
+<li>Theoretical foundations and conceptual understanding of MOSAIKS</li>
 <li>Hands-on exercises with real-world data</li>
 <li>Best practices for implementation</li>
 <li>Strategies for analyzing and interpreting results</li>
 </ul>
-<p>The curriculum covers the complete MOSAIKS workflow, including:</p>
+<p>The book covers the complete MOSAIKS workflow, including:</p>
 <ul>
-<li>Accessing and processing satellite imagery</li>
-<li>Understanding MOSAIKS feature extraction</li>
+<li>Understanding the MOSAIKS framework</li>
+<li>Learning about suitable label data</li>
+<li>Accessing and processing satellite imagery (optional)</li>
+<li>Understanding MOSAIKS feature extraction (optional)</li>
 <li>Working with the MOSAIKS API</li>
 <li>Implementing machine learning models</li>
 <li>Quantifying and communicating uncertainty</li>
-<li>Applying models to various contexts</li>
-<li>Working with survey data</li>
+<li>Applying models under various policy contexts</li>
 </ul>
 <p>Whether you’re new to MOSAIKS or looking to deepen your expertise, this course provides the tools and knowledge needed to effectively utilize this framework.</p>
 </section>
-<section id="course-structure" class="level2">
-<h2 class="anchored" data-anchor-id="course-structure">Course structure</h2>
-<p>This course is designed as an intensive two-week program that combines lectures, demonstrations, and hands-on sessions. Each day is structured as follows:</p>
-<div id="tbl-course-outline" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-tbl figure">
-<div aria-describedby="tbl-course-outline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table class="table-striped table-hover table">
-<thead>
-<tr class="header">
-<th><strong>Time</strong></th>
-<th style="text-align: left;"><strong>Activity</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>9:00 - 10:30</td>
-<td style="text-align: left;">Morning Session 1</td>
-</tr>
-<tr class="even">
-<td>10:30 - 11:00</td>
-<td style="text-align: left;">Break</td>
-</tr>
-<tr class="odd">
-<td>11:00 - 12:30</td>
-<td style="text-align: left;">Morning Session 2</td>
-</tr>
-<tr class="even">
-<td>12:30 - 1:30</td>
-<td style="text-align: left;">Lunch</td>
-</tr>
-<tr class="odd">
-<td>1:30 - 3:00</td>
-<td style="text-align: left;">Afternoon Session 1</td>
-</tr>
-<tr class="even">
-<td>3:00 - 3:30</td>
-<td style="text-align: left;">Break</td>
-</tr>
-<tr class="odd">
-<td>3:30 - 4:30</td>
-<td style="text-align: left;">Afternoon Session 2</td>
-</tr>
-<tr class="even">
-<td>4:30 - 5:00</td>
-<td style="text-align: left;">Feedback and Development</td>
-</tr>
-</tbody>
-</table>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-course-outline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Daily time divisions showing 2 morning sessions, 2 afternoon sessions, and a final time slot alloted for developing the course further.
-</figcaption>
-</figure>
-</div>
-<p>Each day concludes with a Q&amp;A and feedback session from 4:30-5:00, providing opportunities to clarify concepts and share ideas. It is expected that this first course will spur many new ideas and concepts which should be included in the future trainings. Please remember to take notes throughout each day with particular emphasis in areas you think could be explained better or that need additional topics covered. These can be areas that you struggled with or that you would anticipate could be difficult for others.</p>
-<p>While the in-person version of this course was designed with the schedule outlined above, other users can easily navigate throughout the course content as desired, noting that the chapter content is designed for sequential learning.</p>
-</section>
-<section id="course-schedule" class="level2">
-<h2 class="anchored" data-anchor-id="course-schedule">Course schedule</h2>
-<section id="week-1" class="level3">
-<h3 class="anchored" data-anchor-id="week-1">Week 1</h3>
-<ul>
-<li><strong>Day 1</strong>: MOSAIKS framework, accessing features, basic workflow</li>
-<li><strong>Day 2</strong>: Understanding ground truth data, data cleaning, spatial resolution</li>
-<li><strong>Day 3</strong>: Agricultural yield prediction, downloading features via API</li>
-<li><strong>Day 4</strong>: Types of satellite imagery, processing considerations, quality control</li>
-<li><strong>Day 5</strong>: Feature computation, theory behind RCFs, hands-on implementation</li>
-</ul>
-</section>
-<section id="week-2" class="level3">
-<h3 class="anchored" data-anchor-id="week-2">Week 2</h3>
-<ul>
-<li><strong>Day 1</strong>: <em>Martin Luther King Jr.&nbsp;Day - No Class</em></li>
-<li><strong>Day 2</strong>: Model selection, hyperparameter tuning, cross-validation</li>
-<li><strong>Day 3</strong>: Error analysis, confidence intervals, reporting uncertainty</li>
-<li><strong>Day 4</strong>: Survey design principles, geolocation methods, sampling strategies</li>
-<li><strong>Day 5</strong>: Advanced topics, emerging applications, future development</li>
-</ul>
-</section>
-</section>
 <section id="training-expectations" class="level2">
 <h2 class="anchored" data-anchor-id="training-expectations">Training expectations</h2>
-<section id="what-you-will-learn" class="level3">
-<h3 class="anchored" data-anchor-id="what-you-will-learn">What you will learn</h3>
-<ul>
-<li>Understanding of MOSAIKS framework and capabilities</li>
-<li>Practical skills in satellite imagery processing<br>
-</li>
-<li>Experience with machine learning applications</li>
-<li>Hands-on practice with real-world datasets</li>
-<li>Knowledge of survey data integration</li>
-<li>Best practices for model implementation</li>
-</ul>
-</section>
 <section id="prerequisites" class="level3">
 <h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
-<p>There are no explicit prerequisites, though this course does cover some advanced topics in:</p>
+<p>There are no explicit prerequisites, though this course does cover advanced topics in:</p>
 <ul>
 <li>The <a href="https://www.python.org/" target="_blank"><code>Python</code></a> programming language</li>
+<li>Remote sensing and satellite imagery</li>
+<li>Geospatial data analysis</li>
 <li>Machine learning</li>
-<li>Geospatial data</li>
 </ul>
-</section>
-<section id="participant-expectations" class="level3">
-<h3 class="anchored" data-anchor-id="participant-expectations">Participant expectations</h3>
-<ul>
-<li>Active participation in discussions and hands-on sessions</li>
-<li>Completion of assigned homework (particularly the Week 1 Friday assignment)<br>
-</li>
-<li>Engagement in Q&amp;A sessions</li>
-<li>Contribution to feedback sessions for course improvement</li>
-</ul>
+<p>Knowledge of some or all of these will help with adoption of the MOSAIKS framework.</p>
 </section>
 <section id="computing-requirements" class="level3">
 <h3 class="anchored" data-anchor-id="computing-requirements">Computing requirements</h3>
@@ -758,10 +670,6 @@ Table&nbsp;1: Daily time divisions showing 2 morning sessions, 2 afternoon sessi
 <li>Access to Google Colaboratory</li>
 <li>Access to necessary data (details to be provided)</li>
 </ul>
-</section>
-<section id="homework-and-presentations" class="level3">
-<h3 class="anchored" data-anchor-id="homework-and-presentations">Homework and presentations</h3>
-<p>There will be a homework assignment at the end of Week 1, which participants will present on Tuesday of Week 2. This assignment is designed to reinforce learning and provide practical experience with MOSAIKS tools.</p>
 </section>
 </section>
 <section id="book-structure-and-content" class="level2">
@@ -795,7 +703,7 @@ Table&nbsp;1: Daily time divisions showing 2 morning sessions, 2 afternoon sessi
 <td style="text-align: left;">Selecting appropriate imagery, processing considerations</td>
 </tr>
 <tr class="even">
-<td>Features</td>
+<td>Satellite features</td>
 <td style="text-align: left;">Random convolutional features, API access, feature computation</td>
 </tr>
 <tr class="odd">
@@ -810,7 +718,7 @@ Table&nbsp;1: Daily time divisions showing 2 morning sessions, 2 afternoon sessi
 </table>
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-part-outline-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;2: Overview of the MOSAIKS Training Manual contents
+Table&nbsp;1: Overview of the MOSAIKS Training Manual contents
 </figcaption>
 </figure>
 </div>
@@ -821,7 +729,7 @@ Table&nbsp;2: Overview of the MOSAIKS Training Manual contents
 <p>MOSAIKS was developed and is supported by a large team of researchers across multiple partner organizations:</p>
 <p><strong>Development Team:</strong></p>
 <p>Benjamin Recht, Cullen Molitor, Darin Christensen, Esther Rolf, Eugenio Noda, Grace Lewin, Graeme Blair, Hannah Druckenmiller, Hikari Murayama, Ian Bolliger, Jean Tseng, Jessica Katz, Jonathan Proctor, Juliet Cohen, Karena Yan, Luke Sherman, Miyabi Ishihara, Shopnavo Biswas, Simon Greenhill, Solomon Hsiang, Steven Cognac, Tamma Carleton, Taryn Fransen, Trinetta Chong, Vaishaal Shankar</p>
-<p><strong>MOSAIKS Training Manual Team:</strong> Cullen Molitor, Tamma Carleton, Esther Rolf, Sean Luna McAdams, Heather Lahr</p>
+<p><strong>MOSAIKS Training Manual Team:</strong> Cullen Molitor, Tamma Carleton, Esther Rolf, Farooq Sanni, Gnouyaro Zissler Sogoyou, Sean Luna McAdams, Heather Lahr</p>
 <p><strong>Partner Organizations:</strong></p>
 <ul>
 <li>Center for Effective Global Action (<a href="https://cega.berkeley.edu/" target="_blank">CEGA</a>; UCB)</li>
@@ -834,6 +742,7 @@ Table&nbsp;2: Overview of the MOSAIKS Training Manual contents
 <ul>
 <li><a href="https://www.mcgovern.org/" target="_blank">The Patrick J. McGovern Foundation</a></li>
 <li><a href="https://fundinnovation.dev/" target="_blank">The Fund for Innovation in Development (FID)</a></li>
+<li><a href="https://www.google.org/" target="_blank">Google.org</a></li>
 <li><a href="https://www.usaid.gov/" target="_blank">The United States Agency for International Development (USAID)</a></li>
 <li><a href="https://www.undp.org/" target="_blank">United Nations Development Programme (UNDP)</a></li>
 </ul>
@@ -853,6 +762,17 @@ Table&nbsp;2: Overview of the MOSAIKS Training Manual contents
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-rahimi_recht_2008" class="csl-entry" role="listitem">
+Rahimi, Ali, and Benjamin Recht. 2008. <span>“Uniform Approximation of Functions with Random Bases.”</span> In <em>2008 46th <span>Annual Allerton Conference</span> on <span>Communication</span>, <span>Control</span>, and <span>Computing</span></em>, 555–61. <a href="https://doi.org/10.1109/ALLERTON.2008.4797607">https://doi.org/10.1109/ALLERTON.2008.4797607</a>.
+</div>
+<div id="ref-rolf_etal_2021" class="csl-entry" role="listitem">
+Rolf, Esther, Jonathan Proctor, Tamma Carleton, Ian Bolliger, Vaishaal Shankar, Miyabi Ishihara, Benjamin Recht, and Solomon Hsiang. 2021. <span>“A Generalizable and Accessible Approach to Machine Learning with Global Satellite Imagery.”</span> <em>Nature Communications</em> 12 (1): 4392. <a href="https://doi.org/10.1038/s41467-021-24638-z">https://doi.org/10.1038/s41467-021-24638-z</a>.
+</div>
+<div id="ref-yournameinlandsat" class="csl-entry" role="listitem">
+<span>“Your <span>Name</span> in <span>Landsat</span> 🛰️.”</span> 2024. 2024. <a href="https://science.nasa.gov/specials/your-name-in-landsat/">https://science.nasa.gov/specials/your-name-in-landsat/</a>.
+</div>
+</div>
 </section>
 </section>
 
@@ -943,7 +863,7 @@ Table&nbsp;2: Overview of the MOSAIKS Training Manual contents
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/cullen-molitor\.github\.io\/MOSAIKS-Training-Manual\/");
+        var filterRegex = new RegExp("https:\/\/center-for-effective-global-action-cega\.github\.io\/MOSAIKS-Training-Manual");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1287,7 +1207,7 @@ Table&nbsp;2: Overview of the MOSAIKS Training Manual contents
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.27">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-
-
-<title>2&nbsp; What is MOSAIKS? – MOSAIKS Training Manual</title>
+<title>2&nbsp; Access MOSAIKS – MOSAIKS Training Manual</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,8 +17,42 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
-
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
@@ -30,8 +61,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../part-00-intro/03-intro-api.html" rel="next">
-<link href="../part-00-intro/01-intro-compute.html" rel="prev">
+<link href="../part-00-intro/03-intro-compute.html" rel="next">
+<link href="../part-00-intro/01-intro-mosaiks.html" rel="prev">
 <link href="../images/sat_earth.png" rel="icon" type="image/png">
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -47,8 +78,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../site_libs/bootstrap/bootstrap-c5684c64d3df2a7d27bcd84b1dc01f6e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-5f1bd83482f24cf2a850a355dd9a949c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../site_libs/bootstrap/bootstrap-c5684c64d3df2a7d27bcd84b1dc01f6e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
-<script id="quarto-search-options" type="application/json">{
+<link href="../site_libs/bootstrap/bootstrap-c5684c64d3df2a7d27bcd84b1dc01f6e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
   "collapse-after": 3,
@@ -74,12 +104,8 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script>
-
-
-<link rel="stylesheet" href="../style.scss">
+}</script><link rel="stylesheet" href="../style.scss">
 </head>
-
 <body class="nav-sidebar floating quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
       const mode = bsSheetEl.getAttribute("data-mode");
@@ -245,30 +271,24 @@ ul.task-list li input[type="checkbox"] {
   </script>
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top">
-  <nav class="quarto-secondary-nav">
-    <div class="container-fluid d-flex">
+  <header id="quarto-header" class="headroom fixed-top"><nav class="quarto-secondary-nav"><div class="container-fluid d-flex">
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-00-intro/00-intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../part-00-intro/02-intro-mosaiks.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-00-intro/00-intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../part-00-intro/02-intro-api.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Access MOSAIKS</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
         <i class="bi bi-search"></i>
       </button>
     </div>
-  </nav>
-</header>
-<!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+  </nav></header><!-- content --><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
 <!-- sidebar -->
-  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
-    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto"><div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
       <a href="../">MOSAIKS Training Manual</a> 
         <div class="sidebar-tools-main tools-wide">
-    <a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
@@ -285,7 +305,7 @@ ul.task-list li input[type="checkbox"] {
         </div>
     <div class="sidebar-menu-container"> 
     <ul class="list-unstyled mt-1">
-        <li class="sidebar-item">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Welcome</span></a>
@@ -299,23 +319,23 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-00-intro/01-intro-compute.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Compute setup</span></span></a>
+  <a href="../part-00-intro/01-intro-mosaiks.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-00-intro/02-intro-mosaiks.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></span></a>
+  <a href="../part-00-intro/02-intro-api.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Access MOSAIKS</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../part-00-intro/03-intro-api.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Access MOSAIKS</span></span></a>
+  <a href="../part-00-intro/03-intro-compute.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Compute setup</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -325,7 +345,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../part-01-labels/00-labels.html" class="sidebar-item-text sidebar-link">
@@ -334,8 +354,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-01-labels/01-labels-100-maps.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">What labels work?</span></span></a>
@@ -360,7 +380,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../part-02-satellite/00-satellite.html" class="sidebar-item-text sidebar-link">
@@ -369,8 +389,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-02-satellite/01-satellite-imagery.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Choosing imagery</span></span></a>
@@ -389,7 +409,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../part-03-features/00-features.html" class="sidebar-item-text sidebar-link">
@@ -398,8 +418,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-03-features/01-features-rcf.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Understanding features</span></span></a>
@@ -424,7 +444,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../part-04-models/00-model.html" class="sidebar-item-text sidebar-link">
@@ -433,8 +453,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-04-models/01-model-choice.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Build, evaluate, deploy</span></span></a>
@@ -459,7 +479,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../part-05-responsible/00-responsible.html" class="sidebar-item-text sidebar-link">
@@ -468,8 +488,8 @@ ul.task-list li input[type="checkbox"] {
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">  
-          <li class="sidebar-item">
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
+<li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../part-05-responsible/01-responsible-ethics.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Bias, equity, &amp; ethics</span></span></a>
@@ -488,7 +508,7 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
       </ul>
-  </li>
+</li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../references.html" class="sidebar-item-text sidebar-link">
@@ -496,38 +516,31 @@ ul.task-list li input[type="checkbox"] {
   </div>
 </li>
     </ul>
-    </div>
-</nav>
-<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+</div>
+</nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table of contents</h2>
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#the-challenge" id="toc-the-challenge" class="nav-link active" data-scroll-target="#the-challenge"><span class="header-section-number">2.1</span> The challenge</a></li>
-  <li><a href="#the-solution" id="toc-the-solution" class="nav-link" data-scroll-target="#the-solution"><span class="header-section-number">2.2</span> The solution</a></li>
-  <li><a href="#how-mosaiks-works" id="toc-how-mosaiks-works" class="nav-link" data-scroll-target="#how-mosaiks-works"><span class="header-section-number">2.3</span> How MOSAIKS works</a>
+<li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction"><span class="header-section-number">2.1</span> Introduction</a></li>
+  <li>
+<a href="#mosaiks-api" id="toc-mosaiks-api" class="nav-link" data-scroll-target="#mosaiks-api"><span class="header-section-number">2.2</span> MOSAIKS API</a>
   <ul class="collapse">
-  <li><a href="#separating-users-from-imagery" id="toc-separating-users-from-imagery" class="nav-link" data-scroll-target="#separating-users-from-imagery"><span class="header-section-number">2.3.1</span> Separating users from imagery</a></li>
-  <li><a href="#generalizability-of-mosaiks" id="toc-generalizability-of-mosaiks" class="nav-link" data-scroll-target="#generalizability-of-mosaiks"><span class="header-section-number">2.3.2</span> Generalizability of MOSAIKS</a></li>
-  <li><a href="#why-it-works" id="toc-why-it-works" class="nav-link" data-scroll-target="#why-it-works"><span class="header-section-number">2.3.3</span> Why it works</a></li>
-  <li><a href="#five-steps-to-using-mosaiks" id="toc-five-steps-to-using-mosaiks" class="nav-link" data-scroll-target="#five-steps-to-using-mosaiks"><span class="header-section-number">2.3.4</span> Five steps to using MOSAIKS</a></li>
-  </ul></li>
-  <li><a href="#what-can-mosaiks-predict" id="toc-what-can-mosaiks-predict" class="nav-link" data-scroll-target="#what-can-mosaiks-predict"><span class="header-section-number">2.4</span> What can MOSAIKS predict?</a></li>
-  <li><a href="#is-mosaiks-always-the-best-choice" id="toc-is-mosaiks-always-the-best-choice" class="nav-link" data-scroll-target="#is-mosaiks-always-the-best-choice"><span class="header-section-number">2.5</span> Is MOSAIKS always the best choice?</a></li>
-  <li><a href="#lecture-materials" id="toc-lecture-materials" class="nav-link" data-scroll-target="#lecture-materials"><span class="header-section-number">2.6</span> Lecture materials</a></li>
-  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary"><span class="header-section-number">2.7</span> Summary</a></li>
+<li><a href="#register-for-an-account" id="toc-register-for-an-account" class="nav-link" data-scroll-target="#register-for-an-account"><span class="header-section-number">2.2.1</span> Register for an account</a></li>
+  <li><a href="#api-resources" id="toc-api-resources" class="nav-link" data-scroll-target="#api-resources"><span class="header-section-number">2.2.2</span> API resources</a></li>
+  <li><a href="#api-features" id="toc-api-features" class="nav-link" data-scroll-target="#api-features"><span class="header-section-number">2.2.3</span> API features</a></li>
+  <li><a href="#high-resolution-features" id="toc-high-resolution-features" class="nav-link" data-scroll-target="#high-resolution-features"><span class="header-section-number">2.2.4</span> High resolution features</a></li>
+  <li><a href="#aggregated-features" id="toc-aggregated-features" class="nav-link" data-scroll-target="#aggregated-features"><span class="header-section-number">2.2.5</span> Aggregated features</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/edit/main/part-00-intro/02-intro-mosaiks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
+</li>
+  <li><a href="#using-mosaiks-features-for-prediction" id="toc-using-mosaiks-features-for-prediction" class="nav-link" data-scroll-target="#using-mosaiks-features-for-prediction"><span class="header-section-number">2.3</span> Using MOSAIKS features for prediction</a></li>
+  <li><a href="#citation-requirements" id="toc-citation-requirements" class="nav-link" data-scroll-target="#citation-requirements"><span class="header-section-number">2.4</span> Citation requirements</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/edit/main/part-00-intro/02-intro-api.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
-
-
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-00-intro/00-intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../part-00-intro/02-intro-mosaiks.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></a></li></ol></nav>
-<div class="quarto-title">
-<h1 class="title"><span id="sec-intro-mosaiks" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../part-00-intro/00-intro.html">Introduction</a></li><li class="breadcrumb-item"><a href="../part-00-intro/02-intro-api.html"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Access MOSAIKS</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-intro-api" class="quarto-section-identifier"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Access MOSAIKS</span></span></h1>
 </div>
 
 
@@ -541,196 +554,318 @@ ul.task-list li input[type="checkbox"] {
   
 
 
-</header>
-
-
-<div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>MOSAIKS
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong><ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</ins>tellite <ins>I</ins>magery &amp; <ins>K</ins>itchen <ins>S</ins>inks</strong></p>
-</div>
-</div>
-<section id="the-challenge" class="level2" data-number="2.1">
-<h2 data-number="2.1" class="anchored" data-anchor-id="the-challenge"><span class="header-section-number">2.1</span> The challenge</h2>
-<p>Right now, <a href="https://www.ucsusa.org/resources/satellite-database#.VF_jIlPF8Wg" target="_blank">numerous public satellite systems</a> collect huge amounts of data about the world every day. But there is so much imagery (terabytes per day) that it’s overwhelming to sort through by hand; and it’s too complex and unstructured to be usable in its raw form for most applications.</p>
-<div id="fig-satellites" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-satellites-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/every-single-satellite-1.jpg" class="img-fluid figure-img" style="width:75.0%">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-satellites-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.1: Visual representation of satellites orbiting earth.
-</figcaption>
-</figure>
-</div>
-<p>That is why linking satellite imaging to machine learning (sometimes referred to as SIML or SatML) is incredibly powerful. It enables vast amounts of unstructured image data to be transformed into structured information that can be used for planning, research, and decision-making.</p>
-<p><strong>Our hope is that people all over the world can access and use SIML technologies</strong>, but we recognize that many who would benefit from these tools don’t have the time or resources to manage enormous satellite imagery data sets and learn how to apply machine learning to them.</p>
-</section>
-<section id="the-solution" class="level2" data-number="2.2">
-<h2 data-number="2.2" class="anchored" data-anchor-id="the-solution"><span class="header-section-number">2.2</span> The solution</h2>
-<p>That’s why we developed MOSAIKS. MOSAIKS aims to lower the barriers to entry into SIML, diversifying the users of this powerful technology and the problems we solve with it.</p>
-<p>MOSAIKS is designed to work “out of the box” for a wide array of SIML applications, for people with no SIML expertise who work on normal desktop or laptop computers. For many applications, MOSAIKS users never have to touch satellite imagery themselves and only need to have basic statistical training.</p>
-<blockquote class="blockquote">
-<p><strong>If you can run a regression, you can use MOSAIKS!</strong></p>
-</blockquote>
-<p>MOSAIKS empowers users to create their own new datasets from satellite imagery. We don’t control what variables users look at, and we never need to know. MOSAIKS is a system that allows users to quickly transform vast amounts of imagery into maps of new variables, using their own training data.</p>
-<p>If you’ve ever been curious about trying machine learning with satellite imagery, but don’t know anything about machine learning or satellite imagery, MOSAIKS is for you.</p>
-<p>And if you know a lot about machine learning and satellite imagery, MOSAIKS might still be for you, since it <a href="https://www.nature.com/articles/s41467-021-24638-z/figures/3" target="_blank">performs competitively with deep learning methods</a> but is much simpler and cheaper to use.</p>
-<!-- **Note: Keep one of the two following images.**  -->
-<!-- ![Traditional framework of deep learning models for satellite image processing. (Source: [Kumar et al. 2021](https://onlinelibrary.wiley.com/doi/full/10.1002/ett.3988))](https://www.researchgate.net/publication/341784517/figure/fig3/AS:1095936138842113@1638302945367/Deep-learning-models-for-satellite-image-processing.png){#fig-satellite-deep-learning} -->
-<div id="fig-cnn-deep-learning" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-cnn-deep-learning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/CNN.jpg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cnn-deep-learning-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.2: Traditional framework of deep learning models (i.e., machine learning with artificial neural networks) applied to imagery. In this example, the model is attempting to classify what vehicle the image contains.
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="how-mosaiks-works" class="level2" data-number="2.3">
-<h2 data-number="2.3" class="anchored" data-anchor-id="how-mosaiks-works"><span class="header-section-number">2.3</span> How MOSAIKS works</h2>
-<div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-<span class="screen-reader-only">Tip</span>Recommended reading
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><a href="https://www.nature.com/articles/s41467-021-24638-z" target="_blank">A generalizable and accessible approach to machine learning with global satellite imagery (Rolf et al.&nbsp;2021)</a></p>
-</div>
-</div>
-<section id="separating-users-from-imagery" class="level3" data-number="2.3.1">
-<h3 data-number="2.3.1" class="anchored" data-anchor-id="separating-users-from-imagery"><span class="header-section-number">2.3.1</span> Separating users from imagery</h3>
-<p>The basic idea of MOSAIKS is to separate users from the costly and difficult process of transforming imagery into inputs (called <strong>“features”</strong>) to a downstream machine learning algorithm (<strong>images → X</strong>). The MOSAIKS team has computed these features globally, so in many use cases users never have to download or manage imagery themselves. Instead, users download a table of MOSAIKS features (<strong>X</strong>), link them to their own geocoded data on the outcome (<strong>Y</strong>) they are interested in predicting from satellite imagery (we call these data “labels”), and then run a linear regression (or something fancier if desired!) to predict their labels using MOSAIKS features (<strong>Y = Xβ</strong>). Importantly, this prediction can be performed in locations, time periods, and at spatial resolutions for which labels are not available.</p>
-<div id="fig-sat-image" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-sat-image-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<p><a href="https://example.com"> <img src="https://assets.science.nasa.gov/dynamicimage/assets/science/esd/climate/2023/12/The-Himalayas-May2014_1000x1000.jpg?w=2048&amp;format=webp&amp;fit=clip&amp;crop=faces%2Cfocalpoint" style="object-fit: cover; object-position: top; width: 100%; height: 300px; overflow: hidden;" class="figure-img"> </a></p>
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-sat-image-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.3: This false-color image shows snow-capped peaks and ridges of the eastern Himalayas between major rivers in southwest China. The Himalayas are made up of three parallel mountain ranges that together stretch for more than 1800 miles (2,900 kilometers). This particular image was taken by NASA’s Advanced Spaceborne Thermal Emission and Reflection Radiometer (ASTER), flying aboard the Terra satellite, on February 27, 2002. The picture is a composite made by combining near-infrared, red and green wavelengths. (Source: <a href="https://science.nasa.gov/resource/the-himalayas/" target="_blank">NASA</a>)
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="generalizability-of-mosaiks" class="level3" data-number="2.3.2">
-<h3 data-number="2.3.2" class="anchored" data-anchor-id="generalizability-of-mosaiks"><span class="header-section-number">2.3.2</span> Generalizability of MOSAIKS</h3>
-<p>Because MOSAIKS features synthesize information contained in raw imagery that is not tailored for any specific outcome (e.g., biodiversity, household income, land use), many users can use the same MOSAIKS features and simply match them to their own labels based on location. Users can run their analysis on any statistical software they are comfortable with. For most applications, the computing demands will not require users to work with specialized machines, since desktops and laptops work.</p>
-<div id="fig-mosaiks-overview" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-mosaiks-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/rolf_et_al_2021-Fig_1.jpg" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mosaiks-overview-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.4: MOSAIKS is designed to solve an unlimited number of tasks at planet-scale quickly. After a one-time unsupervised image featurization using random convolutional features, MOSAIKS centrally stores and distributes task-agnostic features to users, each of whom generates predictions in a new context. <strong>A</strong> Satellite imagery is shared across multiple potential tasks. <strong>B</strong> Schematic of the MOSAIKS process. <em>N</em> images are transformed using random convolutional features into a compressed and highly descriptive <em>K</em>-dimensional feature vector before labels are known. Once features are computed, they can be stored in tabular form (matrix <strong>X</strong>) and used for unlimited tasks without recomputation. Users interested in a new task (s) merge their own labels (y<sup>s</sup>) to features for training. Here, user 1 has forest cover labels for locations <em>p</em> + 1 to <em>N</em> and user 2 has population density labels for locations 1 to <em>q</em>. Each user then solves a single linear regression for <strong>β</strong><sup>s</sup>. Linear prediction using <strong>β</strong><sup>s</sup> and the full sample of MOSAIKS features <strong>X</strong> then generates SIML estimates for label values at all locations. Generalizability allows different users to solve different tasks using an identical procedure and the same table of features—differing only in the user-supplied label data for training. Each task can be solved by a user on a desktop computer in minutes without users ever manipulating the imagery. <strong>C</strong> Illustration of the one-time unsupervised computation of random convolutional features. <em>K</em> patches are randomly sampled from across the <em>N</em> images. Each patch is convolved over each image, generating a nonlinear activation map for each patch. Activation maps are averaged over pixels to generate a single <em>K</em>-dimensional feature vector for each image. (Source: <a href="https://www.nature.com/articles/s41467-021-24638-z/figures/1" target="_blank">Rolf et al.&nbsp;2021 Figure 1</a>)
-</figcaption>
-</figure>
-</div>
-</section>
-<section id="why-it-works" class="level3" data-number="2.3.3">
-<h3 data-number="2.3.3" class="anchored" data-anchor-id="why-it-works"><span class="header-section-number">2.3.3</span> Why it works</h3>
-<p>MOSAIKS works because MOSAIKS features capture a huge amount of information about the colors, patterns and textures that show up in satellite imagery. We don’t know what patterns/colors/textures will be important for the application that users have (since we don’t know what applications users will try), so we just try to capture all of them. The purpose of the regression step is to teach the model which patterns/colors/textures predict the labels, and then to use that understanding to make predictions in locations where users don’t have labels. In addition, MOSAIKS encodes image information in a way that allows for nonlinear relationships between labels and imagery data, even though the regression that users generally implement is a linear regression.</p>
-<div id="fig-us-api-features" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-us-api-features-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/US_features_high_res.png" class="img-fluid figure-img">
-</div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-us-api-features-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.5: Example of 4 (of 4,000) MOSAIKS feature maps (right) computed from satellite imagery (left). These features were chosen at random from what is available on the MOSAIKS API.
-</figcaption>
-</figure>
-</div>
-<p>For learn more about these features, see <a href="../part-03-features/01-features-rcf.html" class="quarto-xref"><span>Chapter 12</span></a> where we attempt to provide intuition for what a feature is and how it is made.</p>
-</section>
-<section id="five-steps-to-using-mosaiks" class="level3" data-number="2.3.4">
-<h3 data-number="2.3.4" class="anchored" data-anchor-id="five-steps-to-using-mosaiks"><span class="header-section-number">2.3.4</span> Five steps to using MOSAIKS</h3>
+</header><div class="status">
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>This section is a very broad overview of the steps to use MOSAIKS. Later chapters will provide more detailed guidance on each step.</p>
+<p>This chapter is under review and may need revisions.</p>
 </div>
 </div>
 </div>
-<p>In many cases, users aiming to predict an outcome from satellite imagery can do so using pre-computed imagery features (<strong>X</strong>) in a simple linear regression framework. Later in this training course, we will detail more customized workflows that remain tractable but allow for more flexibility. In the standard case, however, the procedure for using MOSAIKS has five steps (corresponding figure from Rolf et al.&nbsp;is below):</p>
+</div>
+<section id="introduction" class="level2" data-number="2.1"><h2 data-number="2.1" class="anchored" data-anchor-id="introduction">
+<span class="header-section-number">2.1</span> Introduction</h2>
+<p>At its core, MOSAIKS requires two main inputs:</p>
 <ol type="1">
-<li><p><a href="https://api.mosaiks.org/" target="_blank">Download pre-computed MOSAIKS features</a> (<strong>X</strong>) corresponding to the locations where you have labels (<a href="03-intro-api.html" class="quarto-xref"><span>Chapter 3</span></a>).</p></li>
-<li><p>Merge the features with your labels (<strong>Y</strong>) based on location (so features at position <strong>P</strong> are linked to labels at position <strong>P</strong>) (<a href="../part-01-labels/03-labels-data-prep.html" class="quarto-xref"><span>Chapter 7</span></a>).</p></li>
-<li><p>Run a cross-validated ridge regression of your labels on the MOSAIKS features (<strong>Y = Xβ + e</strong>; or any other model you choose! See <span class="quarto-unresolved-ref">?sec-sec-model-choice</span>).</p></li>
-<li><p>Evaluate performance.</p></li>
-<li><p>Use the results of the regression model (<strong>β</strong>) to make predictions (<strong>Xβ</strong>) in a new region of interest where you do not have labels, using only the MOSAIKS features (<strong>X</strong>) that correspond with those new locations.</p></li>
+<li><p>Features computed from satellite imagery</p></li>
+<li><p>Ground truth label data.</p></li>
 </ol>
-</section>
-</section>
-<section id="what-can-mosaiks-predict" class="level2" data-number="2.4">
-<h2 data-number="2.4" class="anchored" data-anchor-id="what-can-mosaiks-predict"><span class="header-section-number">2.4</span> What can MOSAIKS predict?</h2>
+<p>This chapter explains how to access precomputed MOSAIKS features through the API. Our aim is to make these features as accessible as possible so that the majority of users do not have to worry about the technical details of satellite imagery processing, which is explained in later chapters.</p>
+<p>To this end, we have worked to develop multiple ways to access MOSAIKS features:</p>
+<div id="tbl-features-options" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-features-options-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<thead><tr class="header">
+<th>Option</th>
+<th>Imagery Source</th>
+<th>Spatial Coverage</th>
+<th>Spatial Resolution</th>
+<th>Temporal Resolution</th>
+<th>Weighting</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://www.mosaiks.org/mosaiks_api" target="_blank">MOSAIKS API</a></td>
+<td><a href="https://developers.planet.com/docs/data/visual-basemaps/" target="_blank">Planet Labs Visual Basemap</a></td>
+<td>Global land areas</td>
+<td>0.01°</td>
+<td>2019 Q3</td>
+<td>Unweighted</td>
+</tr>
+<tr class="even">
+<td><a href="https://www.mosaiks.org/global_grids" target="_blank">MOSAIKS API</a></td>
+<td><a href="https://developers.planet.com/docs/data/visual-basemaps/" target="_blank">Planet Labs Visual Basemap</a></td>
+<td>Global land areas</td>
+<td>0.1°, 0.25°, 1°</td>
+<td>2019 Q3</td>
+<td>Area &amp; population</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.mosaiks.org/precomputed" target="_blank">MOSAIKS API</a></td>
+<td><a href="https://developers.planet.com/docs/data/visual-basemaps/" target="_blank">Planet Labs Visual Basemap</a></td>
+<td>Global land areas</td>
+<td>ADM0, ADM1, ADM2</td>
+<td>2019 Q3</td>
+<td>Area &amp; population</td>
+</tr>
+<tr class="even">
+<td><a href="https://codeocean.com/capsule/6456296/tree/v2" target="_blank">Rolf et al 2021</a></td>
+<td><a href="https://developers.google.com/maps/documentation/maps-static/start" target="_blank">Google Static Maps</a></td>
+<td>Continental United States (~100k locations)</td>
+<td>0.01°</td>
+<td>2019</td>
+<td>unweighted</td>
+</tr>
+<tr class="odd">
+<td><a href="../part-03-features/03-features-computing.html" class="quarto-xref"><span>Chapter 14</span></a></td>
+<td>Any - see <a href="../part-02-satellite/01-satellite-imagery.html" class="quarto-xref"><span>Chapter 9</span></a>
+</td>
+<td>User-defined</td>
+<td>User-defined</td>
+<td>User-defined</td>
+<td>User-defined</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-features-options-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.1: Summary of MOSAIKS feature sources. The weighting column indicates that the features were generated at 0.01 degree resolution and weights are applied when aggregating to lower resolutions. There are two available weighting schemes based on area of the aggregation polygon, or by the population of the the aggregation polygon. More details can be found at <a href="https://www.mosaiks.org/mosaiks_api" target="_blank">MOSAIKS API</a>.
+</figcaption></figure>
+</div>
+<div class="callout callout-style-simple callout-none no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li>Chapters <a href="03-intro-compute.html" class="quarto-xref"><span>3</span></a> through <a href="../part-01-labels/04-labels-demo.html" class="quarto-xref"><span>8</span></a> focus on publicly available features</li>
+<li>Chapters <a href="../part-02-satellite/01-satellite-imagery.html" class="quarto-xref"><span>9</span></a> through <a href="../part-03-features/04-features-demo.html" class="quarto-xref"><span>15</span></a> cover computing custom features from imagery</li>
+</ul>
+</div>
+</div>
+</div>
+<p>The MOSAIKS API should be considered the primary way to access features. It is a user-friendly interface that allows you to download features for any location on Earth. The API is designed to be accessible to users with a range of technical backgrounds, from beginners to experts. For more details on what features are available on the API, see <a href="../part-03-features/02-features-api.html" class="quarto-xref"><span>Chapter 13</span></a>.</p>
+<p>However, there are many settings where users will want or need to compute their own customized features. <a href="../part-03-features/03-features-computing.html" class="quarto-xref"><span>Chapter 14</span></a> guides readers through this process.</p>
+</section><section id="mosaiks-api" class="level2" data-number="2.2"><h2 data-number="2.2" class="anchored" data-anchor-id="mosaiks-api">
+<span class="header-section-number">2.2</span> MOSAIKS API</h2>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Tip</span>MOSAIKS API Link
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Features can be found on <a href="https://www.mosaiks.org/mosaiks_api" target="_blank">mosaiks.org</a>, but first users will need to create an account with <a href="https://redivis.com/" target="_blank">Redivis</a>, which hosts the API. The API is free to use for all users.</p>
+</div>
+</div>
+<p>The MOSAIKS API is a user-friendly interface that allows you to download features for any land location on Earth. The API is designed to be accessible to users with a range of technical backgrounds, from beginners to experts. To take advantage of the API, you will need to register for an account with Redivis.</p>
+<section id="register-for-an-account" class="level3" data-number="2.2.1"><h3 data-number="2.2.1" class="anchored" data-anchor-id="register-for-an-account">
+<span class="header-section-number">2.2.1</span> Register for an account</h3>
+<p>Visit <a href="https://redivis.com/" target="_blank">redivis.com</a>. Follow the onscreen instructions to create an account. You can use your email address or sign up with Google.</p>
+<div id="fig-api-login" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-api-login-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/redivis_login.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-api-login-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.1: Login page for Redivis.
+</figcaption></figure>
+</div>
+<p>Once registered, you can log in and return to <a href="https://www.mosaiks.org/mosaiks_api" target="_blank">mosaiks.org</a> to begin downloading MOSAIKS features.</p>
+<div id="fig-api-landing" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-api-landing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/mosaiks_api_landing.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-api-landing-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.2: MOSAIKS API landing page.
+</figcaption></figure>
+</div>
+</section><section id="api-resources" class="level3" data-number="2.2.2"><h3 data-number="2.2.2" class="anchored" data-anchor-id="api-resources">
+<span class="header-section-number">2.2.2</span> API resources</h3>
+<p>From the landing page, you can read additional information about MOSAIKS and access resources to help you get started.</p>
+<p>The API contains the following pages:</p>
+<div id="tbl-api-pages" class="quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[25,75]">
+<figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-api-pages-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table">
+<colgroup>
+<col style="width: 25%">
+<col style="width: 75%">
+</colgroup>
+<thead><tr class="header">
+<th>Page</th>
+<th style="text-align: left;">Description</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td><a href="https://api.mosaiks.org" target="_blank">Home</a></td>
+<td style="text-align: left;">Landing page for the API. Contains general information about using MOSAIKS and the API</td>
+</tr>
+<tr class="even">
+<td><a href="https://github.com/Global-Policy-Lab/mosaiks_tutorials/blob/main/01_querying_redivis.ipynb" target="_blank">Full resolution Query</a></td>
+<td style="text-align: left;">
+<strong>Advanced</strong> Precomputed features at 0.01 degree resolution, follow notebook for details</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.mosaiks.org/precomputed" target="_blank">Precomputed Files</a></td>
+<td style="text-align: left;">Precomputed features at administrative boundary scales</td>
+</tr>
+<tr class="even">
+<td><a href="https://mosaiks.org/global_grids" target="_blank">Global Grids</a></td>
+<td style="text-align: left;">Precomputed and area or population features at 0.1° and 1° resolution</td>
+</tr>
+<tr class="odd">
+<td><a href="https://www.mosaiks.org/hdi" target="_blank">HDI</a></td>
+<td style="text-align: left;">Global Human Development Index (HDI) estimates at the municipality and grid levels</td>
+</tr>
+<tr class="even">
+<td><a href="https://www.mosaiks.org/resources" target="_blank">Resources</a></td>
+<td style="text-align: left;">Example Python and R notebooks for using the MOSAIKS framework</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-api-pages-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;2.2: MOSAIKS API pages and descriptions.
+</figcaption></figure>
+</div>
+</section><section id="api-features" class="level3" data-number="2.2.3"><h3 data-number="2.2.3" class="anchored" data-anchor-id="api-features">
+<span class="header-section-number">2.2.3</span> API features</h3>
+<p>Currently the MOSAIKS API has a single set of global features (with several aggregation levels). The features are freely available to the public for download; this is the fastest and easiest way to begin using MOSAIKS.</p>
+<p>The API features use input imagery from Planet Labs, Inc.&nbsp;<a href="https://developers.planet.com/docs/basemaps/" target="_blank">Visual Basemap</a> Global Quarterly 2019 (quarter 3) product. Image quality, and therefore feature quality, may be affected by local conditions. For example, an area undergoing a rainy season in the third quarter (July to September), is likely to contain image artifacts from cloud cover. This will in turn effect the feature calculations. For more details on the input imagery <a href="../part-02-satellite/01-satellite-imagery.html" class="quarto-xref"><span>Chapter 9</span></a>.</p>
+<p>Given the static nature of the API, the easiest way to get started with MOSAIKS is to have label data for a recent time period (ideally from 2019 for fast changing labels, or a close year for more steady labels).</p>
+<div id="fig-api-features" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-api-features-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/api-features.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-api-features-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.3: Planet Labs basemap imagery (left) and 4 of 4,000 MOSAIKS features downloaded from the API (right).
+</figcaption></figure>
+</div>
+<p>The MOSAIKS features are created using a 0.01 x 0.01 degree latitude-longitude global land grid. These are the native features available for download from the API, but it also offers pre-aggregated features at 0.1 and 1 degree resolution, as well as administrative boundaries (ADM0, ADM1, and ADM2).</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Using MOSAIKS for time series data is possible and can work well, however this currently requires computing your own custom features. See <a href="../part-03-features/03-features-computing.html" class="quarto-xref"><span>Chapter 14</span></a> and <a href="../part-04-models/03-model-temporal.html" class="quarto-xref"><span>Chapter 18</span></a> for more information.</p>
+</div>
+</div>
+</div>
+</section><section id="high-resolution-features" class="level3" data-number="2.2.4"><h3 data-number="2.2.4" class="anchored" data-anchor-id="high-resolution-features">
+<span class="header-section-number">2.2.4</span> High resolution features</h3>
+<p>The file query and map query are the two methods to obtain the high resolution (0.01 degree) features through the API. For simplicity, we store these features in a tabular format with latitude and longitude coordinates. These coordinates are the center of each grid cell.</p>
+<p>When you download the high resolution features (0.01 degree), you will receive them in a tabular format where:</p>
+<ul>
+<li>Each row (<em>N</em>) represents a unique grid cell</li>
+<li>The first two columns contain latitude and longitude coordinates (grid centroids)</li>
+<li>The remaining columns represent <em>K</em> features (currently <em>K</em> = 4000 features)</li>
+</ul>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>This question is answered in greater detail in <a href="../part-01-labels/01-labels-100-maps.html" class="quarto-xref"><span>Chapter 5</span></a></p>
+<p>Use <a href="https://geojson.io/#new&amp;map=2/0/20" target="_blank">geojson.io</a> to find the bounding box coordinates for your area of interest.</p>
 </div>
 </div>
 </div>
-<p>MOSAIKS has been successfully used to predict a wide range of outcomes including:</p>
-<ul>
-<li>Environmental conditions (forest cover, elevation)</li>
-<li>Population patterns (density, nighttime lights)</li>
-<li>Economic indicators (income, house prices)</li>
-<li>Infrastructure (road networks)</li>
-</ul>
-<p>The figure below is from the original MOSAIKS publication (Rolf et al.&nbsp;2021). The left maps show the input labels. The right map shows the modeled predictions. The scatter plot shows the modeled predictions against the true labels and reports the coefficient of determination (R²) as a measure of performance.</p>
-<div id="fig-mosaiks-predictions" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure">
-<div aria-describedby="fig-mosaiks-predictions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="../images/rolf_et_al_2021-Fig_2.png" class="img-fluid figure-img">
+</section><section id="aggregated-features" class="level3" data-number="2.2.5"><h3 data-number="2.2.5" class="anchored" data-anchor-id="aggregated-features">
+<span class="header-section-number">2.2.5</span> Aggregated features</h3>
+<p>Many users may find it easier to work with features aggregated to some level. The MOSAIKS API offers pre-aggregated features to accommodate these needs. The API offers several levels, including larger grid cells (0.1 and 1 degree) or summarized to administrative boundaries (ADM0, ADM1, and ADM2). These files are available for download as either single or chunked files depending on the resolution.</p>
+<div id="fig-api-aggregated" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-api-aggregated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/US_feature_summaries.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mosaiks-predictions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;2.6: (100,000 daytime images were each converted to 8,192 features and stored. Seven tasks were then selected based on coverage and diversity. Predictions were generated for each task using the same procedure. <strong>Left maps:</strong> 80,000 observations used for training and validation, aggregated up to 20 km × 20 km cells for display. <strong>Right maps:</strong> concatenated validation set estimates from 5-fold cross-validation for the same 80,000 grid cells (observations are never used to generate their own prediction), identically aggregated for display. <strong>Scatters:</strong> Validation set estimates (vertical axis) vs.&nbsp;ground truth (horizontal axis); each point is a ~1 km × 1 km grid cell. Black line is at 45∘. Test-set and validation set performance are essentially identical; validation set values are shown for display purposes only, as there are more observations. The tasks in the top three rows are uniformly sampled across space, the tasks in the bottom four rows are sampled using population weights; grey areas were not sampled in the experiment. Source: <a href="https://www.nature.com/articles/s41467-021-24638-z/figures/2" target="_blank">Rolf et al.&nbsp;2021 Figure 2</a>)
-</figcaption>
-</figure>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-api-aggregated-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.4: Example showing of 3 representative random convolutional features (rows). Features are downloaded from the MOSAIKS API at 0.01° resolution (the native resolution) and aggregated to 3 levels, including (A) larger grid cells (0.1°), (B) counties, and (C) states.
+</figcaption></figure>
 </div>
-<p>Importantly, all these predictions use the same set of satellite features - there’s no need to reprocess the imagery for different tasks. MOSAIKS achieves accuracy comparable to more complex deep learning methods, but at a fraction of the computational cost. This is the power of MOSAIKS, it removes the need for reprocessing the imagery after the initial encoding.</p>
-</section>
-<section id="is-mosaiks-always-the-best-choice" class="level2" data-number="2.5">
-<h2 data-number="2.5" class="anchored" data-anchor-id="is-mosaiks-always-the-best-choice"><span class="header-section-number">2.5</span> Is MOSAIKS always the best choice?</h2>
-<p><strong>No!</strong> MOSAIKS is a powerful tool, but it is not always the best choice for every application. In fact, it is usually not the “best” choice for any application. We aim to be competitive with leading models, so the true benefit of MOSAIKS is in its simplicity, accessibility, and scalability for the average user.</p>
-<p>We recommend that you start by searching for existing methods developed for your application, before investing time and resources into MOSAIKS. An excellent place to begin this search is at <a href="https://github.com/satellite-image-deep-learning" target="_blank">satellite-image-deep-learning</a> where you can find a list of deep learning methods that have been developed for satellite imagery, as well as existing datasets, tools, and tutorials.</p>
-<p>The world of SIML is vast and rapidly evolving. This means there is a good choice you do not have to make global scale predictions yourself. Instead, you might be able to use or build off the hard work of many others in the field.</p>
-<p>If you have a specific context where you want tailored information or a variable/outcome no one else has predicted before, <em>then</em> you want MOSAIKS. Not only will MOSAIKS allow you to make predictions in a new context, but it will also allow you to do so quickly and with minimal computational resources.</p>
-</section>
-<section id="lecture-materials" class="level2" data-number="2.6">
-<h2 data-number="2.6" class="anchored" data-anchor-id="lecture-materials"><span class="header-section-number">2.6</span> Lecture materials</h2>
-<p><strong>TODO:</strong> Add recorded lecture here.</p>
-<p><a href="../slides/00-intro-lecture.pdf" target="_blank">Lecture slides.</a></p>
-</section>
-<section id="summary" class="level2" data-number="2.7">
-<h2 data-number="2.7" class="anchored" data-anchor-id="summary"><span class="header-section-number">2.7</span> Summary</h2>
-<p>MOSAIKS is a powerful tool that allows users to predict a wide range of outcomes from satellite imagery using pre-computed features. The system is designed to be accessible to users with no prior experience in machine learning or satellite imagery. The MOSAIKS framework involves five simple steps</p>
+<section id="weighting-schemes" class="level4" data-number="2.2.5.1"><h4 data-number="2.2.5.1" class="anchored" data-anchor-id="weighting-schemes">
+<span class="header-section-number">2.2.5.1</span> Weighting schemes</h4>
+<p>At each level of aggregation, we offer area weighted features and population weighted features. Population weights are from the Gridded Population of the World (<a href="https://earthdata.nasa.gov/data/projects/gpw" target="_blank">GPWv4</a>) population density dataset. The area weighting scheme is based on the area of the high resolution grid cells.</p>
+</section><section id="when-to-use-aggregated-features" class="level4" data-number="2.2.5.2"><h4 data-number="2.2.5.2" class="anchored" data-anchor-id="when-to-use-aggregated-features">
+<span class="header-section-number">2.2.5.2</span> When to use aggregated features</h4>
+<p>The aggregated features are particularly useful in a few scenarios:</p>
 <ol type="1">
-<li><p>Download features</p></li>
-<li><p>Merge with labels</p></li>
-<li><p>run a regression</p></li>
-<li><p>Evaluate performance</p></li>
-<li><p>Make predictions</p></li>
+<li><p>You have data at a scale larger than the 0.01 degree grid cells. Many datasets come at the country, state, or county level.</p></li>
+<li><p>Your data has a lot of noise that can be smoothed out by aggregating to a larger scale. A common example of this might be household survey data that is noisy at the individual level but smooths out when aggregated to the village or district level.</p></li>
+<li><p>You want to do global analysis and don’t have the computational resources to work with the full 0.01 degree grid cells.</p></li>
 </ol>
-<p>In this book we will explore all the ways in which this is an oversimplification. You will learn to adapt this framework to your own needs, and to understand the limitations and assumptions of the MOSAIKS system. Many skills presented in this training manual will be applicable to other satellite imagery and machine learning workflows.</p>
+<p>In all cases using the pre-aggregated features can save you time and computational resources.</p>
+<blockquote class="blockquote">
+<p><strong>Scenario:</strong> You are working with a Living Standards Measurement Study - Integrated Surveys on Agriculture (<a href="https://www.worldbank.org/en/programs/lsms/initiatives/lsms-ISA" target="_blank">LSMS-ISA</a>). This dataset has survey data with geographic coordinates at the household level. To protect, the privacy of the respondents, the data is jittered within a 5 km radius but it always remains within local administrative boundaries. You can therefore summarize your labels to the administrative units and build a model with the aggregated features.</p>
+</blockquote>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>If you want to make high resolution predictions, with low resolution label data, you can build your model with aggregated features and use the high resolution features to make predictions. This will be covered in more detail in@sec-model-space.</p>
+</div>
+</div>
+</div>
+</section></section></section><section id="using-mosaiks-features-for-prediction" class="level2" data-number="2.3"><h2 data-number="2.3" class="anchored" data-anchor-id="using-mosaiks-features-for-prediction">
+<span class="header-section-number">2.3</span> Using MOSAIKS features for prediction</h2>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>This is a brief overview. Detailed instructions appear later in the manual (<a href="../part-04-models/01-model-choice.html" class="quarto-xref"><span>Chapter 16</span></a>).</p>
+</div>
+</div>
+</div>
+<p>Basic workflow:</p>
+<ol type="1">
+<li>Obtain ground truth measurements (“labels”; see <a href="../part-01-labels/01-labels-100-maps.html" class="quarto-xref"><span>Chapter 5</span></a>)</li>
+<li>Download matching features (see <a href="../part-03-features/02-features-api.html" class="quarto-xref"><span>Chapter 13</span></a> for more details).</li>
+<li>Spatially merge labels and features (see <a href="../part-01-labels/03-labels-data-prep.html" class="quarto-xref"><span>Chapter 7</span></a>)</li>
+<li>Use regression to model relationship between imagery and outcome (see <a href="../part-04-models/01-model-choice.html" class="quarto-xref"><span>Chapter 16</span></a>)</li>
+<li>Use regression results to predict outcome in new locations (see <a href="../part-04-models/01-model-choice.html" class="quarto-xref"><span>Chapter 16</span></a>)</li>
+</ol>
+<p>You can experiment with various machine learning approaches in the regression step. For beginners, we recommend starting with our example Jupyter notebook (<a href="04-intro-demo.html" class="quarto-xref"><span>Chapter 4</span></a>) that demonstrates a simple ridge regression approach (suitable for both R and Python users).</p>
+<div id="fig-mosaiks-flow" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-mosaiks-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../images/mosaiks-overview.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mosaiks-flow-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;2.5: Using MOSAIKS, a simplified workflow design.
+</figcaption></figure>
+</div>
+<p>This topic will be covered in greater depth in later chapters (see <a href="../part-04-models/01-model-choice.html" class="quarto-xref"><span>Chapter 16</span></a>). In the next chapter, you will see a simple MOSAIKS workflow which replicates the results of Rolf et al.&nbsp;2021.</p>
+</section><section id="citation-requirements" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="citation-requirements">
+<span class="header-section-number">2.4</span> Citation requirements</h2>
+<p>When referring to the MOSAIKS methodology or when generating MOSAIKS features, please reference: <a href="https://www.nature.com/articles/s41467-021-24638-z" target="_blank">Rolf et al.&nbsp;“A generalizable and accessible approach to machine learning with global satellite imagery.” Nature Communications (2021).</a></p>
+<p>You can use the following Bibtex:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">article</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">author</span> = {Rolf, Esther and Proctor, Jonathan and Carleton, Tamma and Bolliger, Ian and Shankar, Vaishaal and Ishihara, Miyabi and Recht, Benjamin and Hsiang, Solomon},</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span> = {2021},</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">month</span> = {07},</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">pages</span> = {},</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span> = {A generalizable and accessible approach to machine learning with global satellite imagery},</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">volume</span> = {12},</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">journal</span> = {Nature Communications},</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">doi</span> = {10.1038/s41467-021-24638-z}</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>If using features downloaded from the API, please reference, in addition to the publication above, the MOSAIKS API.</p>
+<p>You can cite the API using the following Bibtex:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"> </span><span class="va">@misc</span>{<span class="ot">MOSAIKS</span> <span class="ot">API</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">author</span> = {{Carleton, Tamma and Chong, Trinetta and Druckenmiller, Hannah and Noda, Eugenio and Proctor, Jonathan and Rolf, Esther and Hsiang, Solomon}},</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span> = {{Multi-Task Observation Using Satellite Imagery and Kitchen Sinks (MOSAIKS) API}},</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">howpublished</span> = "<span class="ch">\url</span><span class="st">{ https://api.mosaiks.org }</span>",</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">version</span> = {1.0},</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span> = {2022},</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -741,15 +876,12 @@ Figure&nbsp;2.6: (100,000 daytime images were each converted to 8,192 features a
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>In the next chapter, you will be introduced to the MOSAIKS API which is a free and open resource for accessing pre-computed MOSAIKS features.</p>
+<p>In the next chapter, we’ll set up our computing environment using Google Colab. This course uses Colab to demonstrate various aspects of MOSAIKS, in a free and accessible environment.</p>
 </div>
 </div>
 
 
-</section>
-
-</main> <!-- /main -->
-<script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -835,7 +967,7 @@ Figure&nbsp;2.6: (100,000 daytime images were each converted to 8,192 features a
     }
       var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
       var mailtoRegex = new RegExp(/^mailto:/);
-        var filterRegex = new RegExp("https:\/\/cullen-molitor\.github\.io\/MOSAIKS-Training-Manual\/");
+        var filterRegex = new RegExp("https:\/\/center-for-effective-global-action-cega\.github\.io\/MOSAIKS-Training-Manual");
       var isInternal = (href) => {
           return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
       }
@@ -1161,35 +1293,30 @@ Figure&nbsp;2.6: (100,000 daytime images were each converted to 8,192 features a
       }
     }
   });
-  </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../part-00-intro/01-intro-compute.html" class="pagination-link" aria-label="Compute setup">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Compute setup</span></span>
+  </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
+      <a href="../part-00-intro/01-intro-mosaiks.html" class="pagination-link" aria-label="What is MOSAIKS?">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">What is MOSAIKS?</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../part-00-intro/03-intro-api.html" class="pagination-link" aria-label="Access MOSAIKS">
-        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Access MOSAIKS</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../part-00-intro/03-intro-compute.html" class="pagination-link" aria-label="Compute setup">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Compute setup</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
 </div> <!-- /content -->
-<footer class="footer">
-  <div class="nav-footer">
+<footer class="footer"><div class="nav-footer">
     <div class="nav-footer-left">
 <p>MOSAIKS Training Manual</p>
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/edit/main/part-00-intro/02-intro-mosaiks.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/cullen-molitor/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/edit/main/part-00-intro/02-intro-api.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
   </div>
 </footer>
-
-
 
 
 </body></html>
