@@ -152,9 +152,25 @@ If you have a specific context where you want tailored information or a variable
 Another great option is Google's Alpha Earth Foundation model Satellite Embeddings dataset, which provides pre-computed features at 10 m resolution for the entire globe. There is one global snapshot per year going back to 2017. These features can be treated very similarly to MOSAIKS features. You can access the dataset on [Google Earth Engine](https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_SATELLITE_EMBEDDING_V1_ANNUAL).
 :::
 
+**MOSAIKS is particularly valuable when you need to:**
+
+- Generate predictions across large geographic areas
+- Work with limited computational resources
+- Analyze multiple outcomes using the same imagery
+- Create predictions without deep learning expertise
+- Scale analysis from local to global applications
+- Set a baseline for more advanced methods
+
+**However, MOSAIKS may not be the best choice when:**
+
+- You need predictions at sub-kilometer resolution
+- Your outcome requires specific spectral bands
+- Real-time predictions are essential
+- Your application requires interpretable features
+
 ## Lecture materials
 
-To asist with teaching this material, we have prepared lecture slides that cover the key concepts of the original MOSAIKS publication [@rolf_etal_2021]. These slides are intended to provide a visual overview of the MOSAIKS framework, its capabilities, and its applications. They can be used as a starting point for lectures, presentations, or self-study on the topic of MOSAIKS and satellite imagery analysis.
+To assist with teaching this material, we have prepared lecture slides that cover the key concepts of the original MOSAIKS publication [@rolf_etal_2021]. These slides are intended to provide a visual overview of the MOSAIKS framework, its capabilities, and its applications. They can be used as a starting point for lectures, presentations, or self-study on the topic of MOSAIKS and satellite imagery analysis.
 
 These slides can be found [here](../slides/00-intro-lecture.pdf) and are also included in the GitHub repository for this training manual.
 

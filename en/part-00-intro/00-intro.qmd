@@ -21,28 +21,6 @@ MOSAIKS bridges the gap between the vast potential of satellite imagery and prac
 - Flexible applications across diverse tasks
 - Scalable solutions for global challenges
 
-## When to use MOSAIKS
-
-MOSAIKS is particularly valuable when you need to:
-
-- Generate predictions across large geographic areas
-- Work with limited computational resources
-- Analyze multiple outcomes using the same imagery
-- Create predictions without deep learning expertise
-- Scale analysis from local to global applications
-- Set a baseline for more advanced methods
-
-However, MOSAIKS may not be the best choice when:
-
-- You need predictions at sub-kilometer resolution
-- Your outcome requires specific spectral bands
-- Real-time predictions are essential
-- Your application requires interpretable features
-
-::: {.callout-tip}
-There may be an [existing tool](https://github.com/satellite-image-deep-learning) that meets your needs. MOSAIKS is not the best choice for every application.
-:::
-
 ## Section outline
 
 The following chapters will guide you through getting started with MOSAIKS:
