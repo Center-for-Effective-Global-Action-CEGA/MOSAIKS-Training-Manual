@@ -5,28 +5,62 @@
 #| results: "asis"
 
 source("../../_common.R")
-status("review")
+status("review_en")
 ```
 
 ## Overview
 
-MOSAIKS is a designed to be useful for predicting anything that may be visible in satellite imagery. Some things are easier to predict than others, but the system is designed to be flexible. For instance, some variables can be seen directly in the imagery itself, such as forest cover, which clearly emits a visible green signal. Other outcomes can only be predicted through indirect relationships between imagery data and labels. For example, income and housing price are not themselves directly visible in raw imagery, but their values can be reliably estimated from objects (e.g., cars), textures (e.g., roofing material), and colors (e.g., grey road infrastructure) contained within the imagery. 
+MOSAIKS is a designed to be useful for predicting anything that may be visible in satellite imagery. Some things are easier to predict than others, but the system is designed to be flexible. For instance, some variables can be seen directly in the imagery itself, such as forest cover, which clearly emits a visible green signal. Other outcomes can only be predicted through indirect relationships between imagery data and labels. For example, income and housing price are not themselves directly visible in imagery, but their values can be reliably estimated from objects (e.g., cars), textures (e.g., roofing material), and colors (e.g., grey road infrastructure) contained within the imagery. 
 
 ![MOSAIKS versatility makes it the perfect tool for a wide range of applications.](../../images/army_knife.png){#fig-army-knife width="300px"}
 
-In this chapter we will discuss a new working paper (Proctor et al., *in prep.*) that explores the question of what can and cannot be reliably predicted from satellite imagery using MOSAIKS. This paper investigates over 100 different outcomes, reporting predictive performance for each using MOSAIKS. We will discuss the results of a selection of these outcomes in detail, and provide a brief overview of the rest. Of course, this list of outcomes is not exhaustive and reported performance can differ substantially across contexts and in particular with varying quality of ground truth data. We show these results as an initial investigation of what might be possible with SIML using MOSAIKS, but encourage users to conduct their own experiments as results are likely to differ in new settings. The pre-print of Proctor et al. will be posted here when publicly available. 
+In this chapter we will discuss a new working paper from @proctor_etal_2025 that explores the question: **What Can Satellite Imagery and Machine Learning Measure?** This paper investigates over 100 different outcomes, reporting predictive performance for each using MOSAIKS. We will discuss the results of a selection of these outcomes in detail, and provide a brief overview of the rest. Of course, this list of outcomes is not exhaustive and reported performance can differ substantially across contexts and in particular with varying quality of ground truth data. We show these results as an initial investigation of what might be possible with SIML using MOSAIKS, but encourage users to conduct their own experiments as results are likely to differ in new settings. The pre-print of Proctor et al. will be posted here when publicly available. 
+
+## What makes good label data?
+
+Before we get started, it's important to understand what makes good label data. For optimal performance with MOSAIKS, label data should have several key characteristics:
+
+- Accurate geographic location information
+- Appropriate spatial resolution (typically ≥1km²)
+- Reasonable temporal alignment with imagery features
+- Sufficient sample size (generally ≥300 observations; the more the merrier!)
+- Observable connection to surface features (directly or indirectly)
+
+The true answer will depend depend largely on the source of the imagery features. For example, when the satellite image was taken, what resolution the pixels are, how the imagery is processed, and how the features are extracted. In general, the more directly observable the label is in the imagery, the better the performance is likely to be. 
 
 ## Lecture materials
 
-**TODO:** Add recorded lecture here. 
+To assist with teaching this material, we have prepared lecture slides that cover the key concepts of @proctor_etal_2025. These slides are intended to provide a visual overview of the MOSAIKS framework, its capabilities, and especially its applications. 
 
-[Lecture slides.](../slides/01-labels-lecture.pdf)
+These slides can be found [here](../../slides/01-labels-lecture.pdf) and are also included in the GitHub repository for this training manual.
 
 ## One hundred maps
 
 ### Original publication 
 
-In Rolf et al. 2021, the authors tested MOSAIKS on 7 outcomes: forest cover, income, housing price, population density, nighttime luminosity, and elevation. The study area is focused in the continental United States. This is an excellent starting point for understanding the capabilities of MOSAIKS as the data quality is high for a diverse set of outcomes. While the results showed significant promise and demonstrated the potential of MOSAIKS, the true test is in the application to new outcomes and new geographies. 
+In @rolf_etal_2021, the authors tested MOSAIKS on 7 outcomes: forest cover, income, housing price, population density, nighttime luminosity, and elevation. The study area is focused in the continental United States. This is an excellent starting point for understanding the capabilities of MOSAIKS as the data quality is high for a diverse set of outcomes. While the results showed significant promise and demonstrated the potential of MOSAIKS, the true test is in the application to new outcomes and new geographies. 
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+labels <- readr::read_csv("../tables/rolf_variables.csv", show_col_types = FALSE)
+
+# Build the tabset using knit_child with inline text
+panels <- lapply(seq_len(nrow(labels)), function(i) {
+    row <- labels[i, ]
+    knitr::knit_child(text = c(
+        glue::glue("## {row$variable}"),
+        "",
+        glue::glue("![{row$description}]({row$image}){{#{row$fig_id}}}"),
+        ""
+    ), envir = environment(), quiet = TRUE)
+})
+
+cat("::: {.panel-tabset}\n\n")
+cat(unlist(panels), sep = "\n")
+cat("\n:::\n")
+```
 
 ### Going global
 
@@ -84,67 +118,83 @@ This heterogeneity underscores an important takeaway: MOSAIKS is not a one-size-
 
 ### Successes
 
-#### Maize yield
+::: {.panel-tabset}
 
-##### Maize data
+# Maize yield
 
-The maize yield data comes from crop yield data collected at the second administrative level (e.g., counties in the US) from the United States, China, Brazil and the European Union. Yields are calculated as harvested grain divided by the planted area, though in some cases harvested area is used instead of planted area. The data covers years from 1983-2009, with the most recent available year used for each location.
+::: {.panel-tabset}
 
-##### Maize yield results
+## Results
 
-A standout example of a high-performing label is Maize yield (@fig-100-maps-maize-plot). This outcome is naturally suited to detection by satellite imagery:
-
-- **Direct visual signal:** Agricultural fields have characteristic features, including crop texture, canopy cover, and phenological (growth stage) patterns, all of which can be captured in the spectral and spatial signals from satellite images.
-
-<!-- - **Strong seasonal patterns:** Agricultural practices—especially staple crops—are often planted and harvested according to well-defined schedules. This temporal consistency aids in modeling. -->
-
-- **Spatial contiguity:** Large, contiguous fields of maize reduce noise and enable easier extraction of relevant features.
+Maize yield is one of the best-performing labels in the 100 maps experiment, with an R² value of 0.81. This means that MOSAIKS can explain 81% of the variance in maize yield across the study locations using only satellite imagery features. The predicted values closely match the observed values, indicating that MOSAIKS is able to capture the underlying patterns in the data effectively.
 
 In the left-hand scatter plot of @fig-100-maps-maize-plot, the predicted yield values match well with the observed values, often clustering along the 45° line. On the right, we see that visually identifiable patterns in maize-growing regions are clearly reflected in the predicted maps. This strong alignment highlights how MOSAIKS can quickly yield robust predictions for outcomes that are clearly manifested in the satellite imagery.
 
 ![Performance of MOSAIKS on Maize yield, showing the observed values plotted against the model predictions (left). Observed label data is shown in the upper right, while the corresponding predictions are shown bottom right.](../../images/proctor_et_al_100_maize_plot.png){#fig-100-maps-maize-plot}
 
-##### Why it works
+## Why it works
 
-Crop yields are a classic use case for remote sensing because farmland is often large, geographically dispersed, and subject to rapid changes from weather and management practices—conditions that satellite imagery can routinely monitor at scale. By measuring vegetation indices (e.g., NDVI, EVI), researchers gain insight into plant health, canopy density, and photosynthetic activity, all of which correlate strongly with agricultural productivity. This non-invasive, timely, and spatially comprehensive approach makes it invaluable for crop forecasting, detecting stress, and guiding resource allocation. Consequently, remote sensing has become a cornerstone in modern yield estimation methods for staple crops around the world. MOSAIKS is a natural extension of this trend, leveraging the latest in machine learning to extract actionable insights from satellite imagery.
+Crop yields are a classic use case for remote sensing because farmland for several reasons:
 
-![Agricultural fields in the United States Midwest region. This examples shows the clear delineation of fields with varying color intensities, making for easily detectable features in the satellite imagery. Source: NASA](../../images/crop_fields_NASA.jpeg){#fig-100-maps-maize-img}
+- **Direct visual signal:** Agricultural fields have characteristic features, including crop texture, canopy cover, and phenological (growth stage) patterns, all of which can be captured in the spectral and spatial signals from satellite images.
 
-#### International wealth index (IWI)
+- **Spatial contiguity:** Large, contiguous fields of maize reduce noise and enable easier extraction of relevant features.
 
-##### IWI data
+By measuring vegetation indices (e.g., NDVI, EVI), researchers gain insight into plant health, canopy density, and photosynthetic activity, all of which correlate strongly with agricultural productivity. This non-invasive, timely, and spatially comprehensive approach makes it invaluable for crop forecasting, detecting stress, and guiding resource allocation. Consequently, remote sensing has become a cornerstone in modern yield estimation methods for staple crops around the world. MOSAIKS is a natural extension of this trend, leveraging the latest in machine learning to extract actionable insights from satellite imagery.
 
-The International Wealth Index data comes from the Demographic and Health Surveys (DHS) program. The index is expressed as a value between 0 and 100, with higher values indicating greater wealth. It is computed from household data on ownership of consumer durables, housing characteristics, and access to basic services like water and electricity. The data is processed and provided by the Global Data Lab with permission from DHS, with values averaged across households within each survey cluster. Survey clusters are displaced by up to 2km for urban areas and up to 5km for rural areas to protect privacy, while remaining within the same administrative boundaries.
+![Agricultural fields in the United States Midwest region. This example shows the clear delineation of fields with varying color intensities, making for easily detectable features in the satellite imagery. Source: NASA](../../images/crop_fields_NASA.jpeg){#fig-100-maps-maize-img}
 
-##### IWI results
+## Data
+
+The maize yield data comes from crop yield data collected at the second administrative level (e.g., counties in the US) from the United States, China, Brazil and the European Union. Yields are calculated as harvested grain divided by the planted area, though in some cases harvested area is used instead of planted area. The data covers years from 1983-2009, with the most recent available year used for each location.
+
+:::
+
+# IWI
+
+::: {.panel-tabset}
+
+## Results
 
 Another notable success is the International Wealth Index (IWI; @fig-100-maps-iwi-plot). This composite measure of household wealth is derived from a variety of indicators, such as housing quality, access to services, and ownership of durable goods. While wealth itself is not directly visible from space, the underlying factors that contribute to it often are. For example, wealthier areas tend to have more developed infrastructure, larger homes, and more vehicles—all of which leave distinct signatures in satellite imagery.
 
 ![Performance of MOSAIKS on the International Wealth Index (IWI), showing the observed values plotted against the model predictions (left). Observed label data is shown in the upper right, while the corresponding predictions are shown bottom right.](../../images/proctor_et_al_100_iwi_plot.png){#fig-100-maps-iwi-plot} 
 
-##### Why it works
+## Why it works
 
 Despite being a composite measure of socioeconomic status, the IWI’s underlying indicators—housing conditions, access to utilities, and asset ownership—often manifest in the built environment as features that satellites capture well. For instance, wealthier neighborhoods typically exhibit a higher density of substantial buildings, paved roads, formal layouts, and visible amenities (e.g., swimming pools, parked vehicles). These cues translate into distinctive patterns in the spectral and spatial data extracted by MOSAIKS’ features. Furthermore, infrastructure development and housing materials (like metal roofs versus thatch) can produce detectable differences in reflectance, making it easier for the algorithm to discern socioeconomic gradients. 
+
+![Satellite image demonstrating the rich-poor divide in wealth of Cape Town, South Africa ([34°00'30.3"S 18°34'12.9"E](https://maps.app.goo.gl/dK7mWWW8Jdfvkk6y9)). Source: Google Maps](../../images/rich_poor_divide.png){#fig-100-maps-iwi-img}
 
 ::: {.callout-note}
 This highlights one of MOSAIKS’ core advantages: even when the target variable isn’t directly “visible,” the system can tease out its proxies from wide-ranging visual cues, leading to robust predictions of wealth indices around the globe.
 :::
 
+## Data
+
+The International Wealth Index (IWI) data comes from the Demographic and Health Surveys (DHS) program. The index is expressed as a value between 0 and 100, with higher values indicating greater wealth. It is computed from household data on ownership of consumer durables, housing characteristics, and access to basic services like water and electricity. The data is processed and provided by the Global Data Lab with permission from DHS, with values averaged across households within each survey cluster. Survey clusters are displaced by up to 2km for urban areas and up to 5km for rural areas to protect privacy, while remaining within the same administrative boundaries.
+
+:::
+
+:::
+
 ### Failures
+
+Certain labels show extremely low R² values, effectively indicating no predictive power under this approach.
+
+::: {.panel-tabset}
 
 #### Pipeline infrastructure
 
-##### Pipeline data
+::: {.panel-tabset}
 
-The pipeline data comes from the Energy Information Association (EIA) and includes interstate trunk lines and selected intrastate lines across three types: crude oil pipelines, hydrocarbon gas liquids (HGL) pipelines, and petroleum product pipelines. The data represents pipeline infrastructure as of January 2020 and covers the lower 48 United States. The variable measures the length in kilometers of each pipeline type within each grid cell.
+### Results
 
-##### Pipeline results
+Detecting pipelines from satellite imagery proves difficult with results showing essentially no predictive power, with an R² value near zero.
 
-Certain labels show extremely low R² values, effectively indicating no predictive power under this approach. One notable example is the presence of underground pipelines @fig-100-maps-pipelines-plot.
+![Performance of MOSAIKS on pipeline infrastructure.](../../images/proctor_et_al_100_pipelines_plot.png){#fig-100-maps-pipelines-plot}
 
-![Where it fails](../../images/proctor_et_al_100_pipelines_plot.png){#fig-100-maps-pipelines-plot}
-
-##### Why it fails
+### Why it fails
 
 Unlike forests or agricultural fields, pipeline infrastructure is typically hidden from direct visual inspection—often located entirely underground or obscured in ways that do not provide surface indicators distinguishable in imagery (@fig-100-maps-pipelines-img).
 
@@ -156,24 +206,46 @@ Unlike forests or agricultural fields, pipeline infrastructure is typically hidd
 
 As a result, MOSAIKS has little chance to identify and learn features predictive of such hidden infrastructure. This stands in stark contrast to more visually prominent targets like maize fields or tree cover.
 
-![Why it fails - buried](../../images/proctor_et_al_100_pipelines_img.png){#fig-100-maps-pipelines-img}
+![Pipelines tend to be buried across much of the United States. This means there is little to no visible surface signature in satellite imagery.](../../images/proctor_et_al_100_pipelines_img.png){#fig-100-maps-pipelines-img}
+
+### Data
+
+The pipeline data comes from the Energy Information Association (EIA) and includes interstate trunk lines and selected intrastate lines across three types: crude oil pipelines, hydrocarbon gas liquids (HGL) pipelines, and petroleum product pipelines. The data represents pipeline infrastructure as of January 2020 and covers the lower 48 United States. The variable measures the length in kilometers of each pipeline type within each grid cell.
+
+:::
 
 #### Bee diversity
 
-##### Bee data
+::: {.panel-tabset}
 
-The bee diversity data comes from the US Geological Survey Eastern Ecological Science Center Native Bee Laboratory, which provides species occurrence records for native and non-native bees, wasps, and other insects collected through various trapping methods. Each record includes taxonomic identification and geographic coordinates. Using point data from 2009-2019, bee diversity is computed as a count of unique species documented within each 0.01° × 0.01° grid cell in North America (including U.S. territories and Minor Outlying islands). For cells with multiple sampling events, species are counted only once. Importantly, the database only includes records of species presence - absences are not recorded - which can lead to sampling bias in the diversity measures.
+### Results
 
-##### Bee results
+Bee diversity is another label that shows essentially no predictive power, with an R² value near zero,indicating that the MOSAIKS predictions do not correlate with the observed bee diversity values. 
 
-Another notable failure case is bee diversity. While bees play a crucial role in ecosystems and agriculture, their presence and diversity cannot be directly observed from satellite imagery. Several factors contribute to this limitation:
+![Bee diversity results shows little promise for prediction in the MOSAIKS framework.](../../images/proctor_et_al_100_bee_div_plot.png){#fig-100-maps-bees-plot}
+
+### Why it fails
+
+While bees play a crucial role in ecosystems and agriculture, their presence and diversity cannot be directly observed from satellite imagery. Several factors contribute to this limitation:
 
 - **Scale mismatch:** Bees operate at a much finer spatial scale than the resolution of typical satellite imagery
 - **Indirect relationships:** While bees rely on vegetation, the link between plant cover visible from space and bee populations is complex and varies by context
 - **Temporal dynamics:** Bee populations fluctuate seasonally and can change rapidly, while imagery captures only static snapshots
 - **Hidden factors:** Critical habitat features like nesting sites are often concealed under canopy or in small spaces invisible from above
 
+![Bee habitat features are often hidden from satellite view, limiting predictive power. This image shows the the San Bernardino Valley, which runs north-south across the Mexico-United States border in northeastern Sonora, Mexico, and southeastern Arizona, USA. This area is a known hotspot for bee diversity [@minckley_radke_2021]. Source: Google Maps](../../images/proctor_et_al_100_bee_img.png){#fig-100-maps-bees-img}
+
+::: {.callout-note}
 This case illustrates an important principle: MOSAIKS works best when predicting outcomes that have consistent, visible relationships with surface features captured in satellite imagery. When those relationships become too indirect or complex, performance typically suffers.
+:::
+
+### Data
+
+The bee diversity data comes from the US Geological Survey Eastern Ecological Science Center Native Bee Laboratory, which provides species occurrence records for native and non-native bees, wasps, and other insects collected through various trapping methods. Each record includes taxonomic identification and geographic coordinates. Using point data from 2009-2019, bee diversity is computed as a count of unique species documented within each 0.01° × 0.01° grid cell in North America (including U.S. territories and Minor Outlying islands). For cells with multiple sampling events, species are counted only once. Importantly, the database only includes records of species presence - absences are not recorded - which can lead to sampling bias in the diversity measures.
+
+:::
+
+:::
 
 ## Types of variables
 
@@ -243,7 +315,7 @@ This exploration of over 100 different outcomes reveals several key insights abo
    - Identify which types of outcomes are most suitable
    - Recognize when alternative approaches might be needed
 
-These results demonstrate both the power and limitations of MOSAIKS. While it excels at predicting many important outcomes globally, it is not a universal solution. Success depends largely on whether the outcome of interest has a meaningful relationship with features visible in satellite imagery.
+These results demonstrate both the power and limitations of MOSAIKS. While it excels at predicting many important outcomes globally, it is not a universal solution. Success depends largely on whether the outcome of interest has a meaningful relationship with features visible in satellite imagery. Many of these concepts will hold true for general SIML applications beyond MOSAIKS as well.
 
 ::: {.callout-note}
 # Looking forward

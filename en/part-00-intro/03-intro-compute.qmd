@@ -183,37 +183,29 @@ Google Gemini is a powerful AI assistant seamlessly integrated with Google Colab
 
 <img src="https://lh3.googleusercontent.com/c-z7BK6NYcQIruZJd9A4KI1m8YrBauXH0VRglPudmj9Fgr5yzgJCsnaZ5W_nxZnB2hazA9hsg05uX1djFYPbMS-DsbYXp6UtVKFfdicBfF8klhVshJ8" width="50" height="50">
 
-Look for this icon to indicate where you can click to access Gemini in Colab.
+Look for this icon to indicate where you can click to access Gemini in Colab. The location has changed recently an d moved to the bottom of the page. Previously it was located in the top right corner of the page. You can open Gemini as a panel on the right side of the page, or as a pop-up chat window. 
 :::
 
 Here are a few ways you can use Google Gemini effectively in Colab:
 
-### Chat support
+1. **Chat support:** Click the **Gemini** button (<img src="https://lh3.googleusercontent.com/c-z7BK6NYcQIruZJd9A4KI1m8YrBauXH0VRglPudmj9Fgr5yzgJCsnaZ5W_nxZnB2hazA9hsg05uX1djFYPbMS-DsbYXp6UtVKFfdicBfF8klhVshJ8" width="15" height="15">) to open a chat interface where you can ask questions about your code, debug issues, or get explanations of concepts. This option is especially useful for beginners or for tackling complex problems.
 
-Click the **Gemini** button in the top-right corner to open a chat interface where you can ask questions about your code, debug issues, or get explanations of concepts. This option is especially useful for beginners or for tackling complex problems.
+2. **Code generation:** Use the **"Generate code"** option (<img src="https://lh3.googleusercontent.com/c-z7BK6NYcQIruZJd9A4KI1m8YrBauXH0VRglPudmj9Fgr5yzgJCsnaZ5W_nxZnB2hazA9hsg05uX1djFYPbMS-DsbYXp6UtVKFfdicBfF8klhVshJ8" width="15" height="15">) above any **empty** code cell to generate new code based on your description. You can ask it to do many different things including:
 
-### Code generation
+   - Loading a dataset called `my_data.csv`
+   - Plotting a histogram of the data
+   - Building a model to predict `y` from `X`
 
-Use the **"Generate code"** option (the sparkle icon) above any **empty** code cell to generate new code based on your description. You can ask it to do many different things including:
+3. **Code explanation:** Use the **"Explain code"** option (<img src="https://lh3.googleusercontent.com/c-z7BK6NYcQIruZJd9A4KI1m8YrBauXH0VRglPudmj9Fgr5yzgJCsnaZ5W_nxZnB2hazA9hsg05uX1djFYPbMS-DsbYXp6UtVKFfdicBfF8klhVshJ8" width="15" height="15">) above any **complete** code cell to open a chat interface that will automatically explain the code in the cell. This is useful for understanding code written by someone else, learning new concepts, or getting a second opinion on your work.
 
-- Loading a dataset called `my_data.csv`
-- Plotting a histogram of the data
-- Building a model to predict `y` from `X`
+4. **Code completion:** If you have a partially completed code cell, you can use the **"Complete code"** option (<img src="https://lh3.googleusercontent.com/c-z7BK6NYcQIruZJd9A4KI1m8YrBauXH0VRglPudmj9Fgr5yzgJCsnaZ5W_nxZnB2hazA9hsg05uX1djFYPbMS-DsbYXp6UtVKFfdicBfF8klhVshJ8" width="15" height="15">) to generate suggestions for how to finish the code. This can help you overcome writer's block or get ideas for how to implement a particular function. Colab provides intelligent autocomplete as you type:
 
-### Code explanation
-
-Use the **"Explain code"** option (the sparkle icon) above any **complete** code cell to open a chat interface that will automatically explain the code in the cell. This is useful for understanding code written by someone else, learning new concepts, or getting a second opinion on your work.
-
-### Code completion
-
-Colab provides intelligent autocomplete as you type:
-
-- Press **Tab** to accept suggestions
-- Use **Ctrl+Space** (Cmd+Space on Mac) to manually trigger suggestions
-- Get real-time documentation and parameter hints
+   - Press **Tab** to accept suggestions
+   - Use **Ctrl+Space** (Cmd+Space on Mac) to manually trigger suggestions
+   - Get real-time documentation and parameter hints
 
 ::: {.callout-note}
-While these AI tools are helpful, always review and understand the code they suggest before using it in your work.
+While these AI tools are helpful, always review and understand the code they suggest before using it in your work. These tools are developing rapidly, and the interface may change over time, so keep an eye out for updates and new features.
 :::
 
 ---
@@ -226,7 +218,7 @@ All course notebooks are hosted on GitHub and can be accessed directly in Google
 
 Each section of this book includes direct **"Open in Colab"** links for relevant notebooks. Simply click the badge to open the notebook:
 
-Example [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/microsoft/PlanetaryComputerExamples/blob/main/tutorials/mosaiks.ipynb)
+Example [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/01-Rolf_et_al_2021_demo.ipynb)
 
 This method will open a fresh copy of the notebook as it is saved on GitHub. If you have already clicked the badge once, made changes, and saved your notebook, then you will need to navigate to your  drive folder where it is saved to access those changes. 
 
@@ -236,7 +228,7 @@ Clicking the badge in this book will always open a fresh copy.
 
 ### Method 2: Clone the notebook
 
-To select a notebook from the repository [Notebook repository](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/tree/main/notebooks/demo):
+To select a notebook from the repository [Notebook repository](https://github.com/center-for-effective-global-action-cega/MOSAIKS-Training-Manual/tree/main/notebooks/demo):
 
 1. Open Google Colab ([colab.research.google.com](https://colab.research.google.com))
 2. Click `File` > `Open Notebook`
@@ -350,35 +342,68 @@ This ensures that any work done in the notebook is saved to your Google Drive fo
 
 ---
 
+---
+
 ## Local environment setup 
 
-While this book’s primary approach is to use Google Colab, some learners may prefer or need to run code locally. The book is largely setup to do this, though the user will need to manage their own computing environment. For that purpose, we provide an `environment.yml` file (located in the `environment` directory of this book). Below are the steps to get you set up with Miniconda and create a local environment.
+While this book's primary approach is to use Google Colab, some learners may prefer or need to run code locally. The book is largely setup to do this, though the user will need to manage their own computing environment. For that purpose, we provide environment files in the `environment` directory of this book:
+
+- `uv_requirements.txt` — for use with [uv](https://docs.astral.sh/uv/) (recommended)
+- `environment.yml` — for use with [conda](https://docs.conda.io/en/latest/)
+
+Below are the steps to get you set up with either tool. We recommend `uv` for its speed and simplicity, but `conda` remains a well-established option.
 
 ::: {.callout-note}
 Though local environments can offer more control, we strongly recommend Google Colab for consistency and free cloud-based resources. This local setup is purely optional and might be more suitable for those with particular dependencies or advanced setups.
 :::
 
-### Downloading and installing Miniconda
-
-Miniconda is a minimal installer for conda. Choose the installer for your operating system from the links below and follow the prompts.
+### Installing a package manager
 
 ::: {.panel-tabset}
 
-## Windows
+## uv
+
+[uv](https://docs.astral.sh/uv/) is a fast Python package and environment manager written in Rust. Install it with a single command:
+
+**macOS / Linux:**
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+**Windows (PowerShell):**
+
+```powershell
+powershell -ExecutionPolicy ByPass -c "irm https://astral.sh/uv/install.ps1 | iex"
+```
+
+After installation, restart your terminal and verify with:
+
+```bash
+uv --version
+```
+
+## conda
+
+Miniconda is a minimal installer for conda. Choose the installer for your operating system:
+
+::: {.panel-tabset}
+
+### Windows
 
 1. Go to the [Miniconda Windows Installer](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
 2. Download the `.exe` installer for your Windows system (64-bit recommended).
 3. Double-click the installer and follow the on-screen instructions.
-4. When prompted, check the option to **Add Miniconda to PATH** or select “Install for All Users” which typically adds conda to PATH automatically.
+4. When prompted, check the option to **Add Miniconda to PATH** or select "Install for All Users" which typically adds conda to PATH automatically.
 
-## macOS
+### macOS
 
 1. Go to the [Miniconda macOS Installer](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
 2. Download the `.pkg` (or `.sh` if you prefer) installer for macOS (64-bit).
 3. Double-click the installer and follow the on-screen instructions.
 4. When prompted, check the option to **Add Miniconda to PATH** or add the appropriate path lines to your `~/.zshrc` or `~/.bash_profile` file manually.
 
-## Linux
+### Linux
 
 1. Go to the [Miniconda Linux Installer](https://docs.conda.io/en/latest/miniconda.html#latest-miniconda-installer-links).
 2. Download the `.sh` installer for your Linux distribution (64-bit recommended).
@@ -387,63 +412,89 @@ Miniconda is a minimal installer for conda. Choose the installer for your operat
 
 :::
 
-### Adding conda to your PATH
-
 If you did not add conda to your PATH during installation, you can manually do so by adding a line to your shell configuration file (`~/.bashrc`, `~/.zshrc`, or similar):
 
 ```bash
-# Example for Linux/macOS users
 export PATH="$HOME/miniconda3/bin:$PATH"
 ```
 
 For Windows, ensure that you selected the option to add conda to PATH during installation, or run the **Anaconda Prompt** (which automatically has conda available) to manage your environment.
 
-### Creating a local environment from `environment.yml`
+:::
 
-In the `environment` directory of the course repository, you will find a file named `environment.yml`. This file lists all the packages needed for the local setup.
+### Creating a local environment
 
 1. **Clone or download** the book repository to your local machine.
-2. **Open a terminal** (or **Anaconda Prompt** on Windows).
-3. **Navigate** to the folder containing `environment.yml`.
+2. **Open a terminal** (or **Anaconda Prompt** on Windows for conda).
+3. **Navigate** to the repository root:
 
    ```bash
-   cd path/to/MOSAIKS-Training-Manual/environment
+   cd path/to/MOSAIKS-Training-Manual
    ```
 
-4. **Create** the environment:
+4. **Create and activate** the environment:
 
-   ```bash
-   conda env create -f environment.yml
-   ```
+::: {.panel-tabset}
 
-5. **Activate** the environment:
+## uv
 
-   ```bash
-   conda activate <environment_name>
-   ```
+```bash
+# Create a virtual environment with Python 3.11
+uv venv --python 3.11
 
-   Where `<environment_name>` is the name specified in `environment.yml` (check the `name:` field in the file). In this case the name is `mosaiks`.
+# Activate (macOS/Linux)
+source .venv/bin/activate
+
+# Activate (Windows)
+# .venv\Scripts\activate
+
+# Install all dependencies
+uv pip install -r environment/uv_requirements.txt
+```
+
+::: {.callout-tip}
+`uv` is significantly faster than conda or pip for resolving and installing packages. A full install typically completes in under a minute.
+:::
+
+## conda
+
+```bash
+# Create the environment from the yml file
+conda env create -f environment/environment.yml
+
+# Activate the environment
+conda activate mosaiks
+```
+
+Where `mosaiks` is the name specified in the `name:` field of `environment.yml`.
+
+:::
+
+::: {.callout-note}
+Some packages (e.g., `cartopy`, `fiona`, `rasterio`) depend on system libraries like GDAL, GEOS, and PROJ. On macOS you may need to install these first via [Homebrew](https://brew.sh/):
+
+```bash
+brew install gdal geos proj
+```
+
+On Linux, install the equivalent packages via your system package manager (e.g., `apt install libgdal-dev libgeos-dev libproj-dev`). Conda handles these system dependencies automatically, which is one of its advantages.
+:::
 
 ### Using the new environment in VS Code
 
-Visual Studio Code (VS Code) can detect and use your new conda environment for Python development.
+Visual Studio Code (VS Code) can detect and use your new environment for Python development.
 
 1. **Open VS Code**.
 2. Install the **Python extension** (if not already installed).
-3. Press **Ctrl+Shift+P** (or **Cmd+Shift+P** on macOS) and type **“Python: Select Interpreter”**.
-4. Select the interpreter associated with your newly created environment (it should be listed by name or path).
+3. Press **Ctrl+Shift+P** (or **Cmd+Shift+P** on macOS) and type **"Python: Select Interpreter"**.
+4. Select the interpreter associated with your newly created environment:
+   - For **uv**: look for the `.venv` folder in your project directory.
+   - For **conda**: look for the `mosaiks` environment listed by name or path.
 5. Open or create a new Python file or notebook, and verify that VS Code is using the correct environment (you can see the chosen environment in the bottom-right corner of VS Code).
 
 ### Other environment managers
 
-While conda is a common tool for managing Python environments, there are other popular options such as:
-
-- [uv](https://docs.astral.sh/uv/) 
-- [Poetry](https://python-poetry.org/)  
-- [pipenv](https://pipenv.pypa.io/en/latest/)  
-- [virtualenv](https://virtualenv.pypa.io/en/latest/) 
-
-Each has its own configuration files and setup instructions. If you prefer these tools or already use them, you can typically replicate the packages listed in `environment.yml`. Check the respective tool’s documentation for specific instructions on how to translate the dependencies.
+While `uv` and `conda` are the two options we provide setup files for, there are other popular environment managers such as [Poetry](https://python-poetry.org/), [pipenv](https://pipenv.pypa.io/en/latest/), and [virtualenv](https://virtualenv.pypa.io/en/latest/). If you prefer one of these tools, you can typically replicate the packages listed in the provided environment files. Check the respective tool's documentation for specific instructions.
 
 ---
 

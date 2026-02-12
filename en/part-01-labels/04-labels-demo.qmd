@@ -5,7 +5,7 @@
 #| results: "asis"
 
 source("../../_common.R")
-status("testing")
+status("testing_en")
 ```
 
 ## Overview
@@ -30,12 +30,12 @@ Below is a link to a Jupyter notebook intended to demonstrate practical preparat
 # Click the badge to run the demonstration! 
 
 &darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;   
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/02-label-data_demo.ipynb)  
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/center-for-effective-global-action-cega/MOSAIKS-Training-Manual/blob/main/notebooks/demo/02-label-data_demo.ipynb)  
 <!-- &uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;     -->
 Remember to click `File` -> `Save a copy in Drive` to save any changes you make.  
 ---
 Or to view a static version of the code on GitHub, click the badge below.  
-[![](https://img.shields.io/badge/View%20on%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/blob/main/notebooks/demo/02-label-data_demo.ipynb)
+[![](https://img.shields.io/badge/View%20on%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/center-for-effective-global-action-cega/MOSAIKS-Training-Manual/blob/main/notebooks/demo/02-label-data_demo.ipynb)
 :::
 
 For instructions and tips on using Google Colab, please refer to @sec-intro-compute. 

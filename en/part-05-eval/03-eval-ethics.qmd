@@ -5,7 +5,7 @@
 #| results: "asis"
 
 source("../../_common.R")
-status("draft")
+status("draft_en")
 ```
 
 - https://www.earthcube.org/fair-training-materials
@@ -23,3 +23,9 @@ The next chapter will
 Could include concepts from this paper: [The politics of pixels: A review and agenda for critical remote sensing](https://journals.sagepub.com/doi/10.1177/03091325221074691)
 
 Sociopolitical factors impact who collects remotely sensed data, how it is processed, and who benefits from the results. This paper discuses the politics of remote sensing and how it can be used to promote social justice and equity.
+
+::: {.callout-note}
+# Looking forward
+
+The end! The only thing left is references.
+:::
