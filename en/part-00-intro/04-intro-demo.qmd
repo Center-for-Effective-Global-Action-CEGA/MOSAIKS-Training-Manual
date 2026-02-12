@@ -5,6 +5,8 @@
 #| echo: false
 #| results: "asis"
 
+library(tibble)
+
 source("../../_common.R")
 status("testing_en")
 ```
@@ -39,33 +41,27 @@ Below is a link to a Jupyter notebook intended to demonstrate practical use of M
 
 The demo showcases several variables which we call "labels." These labels are the target variables that MOSAIKS aims to predict. The variables include:
 
-::: {.panel-tabset}
+```{r}
+#| echo: false
+#| results: "asis"
 
-## Forest Cover
+labels <- readr::read_csv("../tables/rolf_variables.csv", show_col_types = FALSE)
 
-![Forest cover input data (left) from Global Land Analysis & Discover (GLAD) [Global 2010 Tree Cover (30 m)](https://glad.umd.edu/dataset/global-2010-tree-cover-30-m)](../../images/f2_tree_cover.jpg){#fig-forest-cover}
+# Build the tabset using knit_child with inline text
+panels <- lapply(seq_len(nrow(labels)), function(i) {
+  row <- labels[i, ]
+  knitr::knit_child(text = c(
+    glue::glue("## {row$variable}"),
+    "",
+    glue::glue("![{row$description}]({row$image}){{#{row$fig_id}}}"),
+    ""
+  ), envir = environment(), quiet = TRUE)
+})
 
-## Elevation
-
-![Elevation input data (left) provided by Mapzen, and accessed via the Amazon Web Services (AWS) Terrain Tile service. Download code can be found [here](https://www.github.com/jhollist/elevatr).](../../images/f2_elevation.jpg){#fig-elevation}
-
-## Population Density
-
-![Population density input data (left) from the Gridded Population of the World (GPW) dataset. These data can be accessed [here](http://sedac.ciesin.columbia.edu/data/collection/gpw-v4).](../../images/f2_population.jpg){#fig-population}
-
-## Nighttime Lights
-
-![Nighttime lights luminosity input data (left) generated from nighttime satellite imagery, which is provided by the Earth Observations Group at the National Oceanic and Atmospheric Administration (NOAA) and the National Geophysical Data Center (NGDC). These data can be accessed [here](https://eogdata.mines.edu/products/vnl/).](../../images/f2_night_lights.jpg){#fig-night-lights}
-
-## Income
-
-![Income input data (left) from the American Community Survey (ACS) 5-year estimates of median annual household income in 2015. These data are accessible using the [acs package](https://cran.r-project.org/web/packages/acs/acs.pdf) in R (48), table number B19013](../../images/f2_income.jpg){#fig-income}
-
-## Road Length
-
-![Road length input data (left) from the United States Geological Survey (USGS) National Transportation Dataset, which is based on TIGER/Line data provided by US Census Bureau in 2016. These data can be accessed [here](https://prd-tnm.s3.amazonaws.com/index.html?prefix=StagedProducts/Tran/Shape/).](../../images/f2_road_length.jpg){#fig-road-length}
-
-:::
+cat("::: {.panel-tabset}\n\n")
+cat(unlist(panels), sep = "\n")
+cat("\n:::\n")
+```
 
 A user simply needs to select which variable they would like to predict, and no other changes need to be made to the code. All data has been preprocessed and the code will download the necessary files from Zenodo. Users can also modify the code to investigate other modeling, evaluation, and visualization approaches. Any changes can be saved to a personal copy of the notebook in Google Drive. 
 

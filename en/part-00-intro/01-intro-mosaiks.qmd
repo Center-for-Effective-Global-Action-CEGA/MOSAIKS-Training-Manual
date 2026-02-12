@@ -170,9 +170,9 @@ Another great option is Google's Alpha Earth Foundation model Satellite Embeddin
 
 ## Lecture materials
 
-To assist with teaching this material, we have prepared lecture slides that cover the key concepts of the original MOSAIKS publication [@rolf_etal_2021]. These slides are intended to provide a visual overview of the MOSAIKS framework, its capabilities, and its applications. They can be used as a starting point for lectures, presentations, or self-study on the topic of MOSAIKS and satellite imagery analysis.
+To assist with teaching this material, we have prepared lecture slides that cover the key concepts of @rolf_etal_2021. These slides are intended to provide a visual overview of the MOSAIKS framework, its capabilities, and its applications. They can be used as a starting point for lectures, presentations, or self-study on the topic of MOSAIKS and satellite imagery analysis.
 
-These slides can be found [here](../slides/00-intro-lecture.pdf) and are also included in the GitHub repository for this training manual.
+These slides can be found [here](../../slides/00-intro-lecture.pdf) and are also included in the GitHub repository for this training manual.
 
 ## Summary
 

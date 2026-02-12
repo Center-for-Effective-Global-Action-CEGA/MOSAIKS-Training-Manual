@@ -13,16 +13,6 @@ This section explores the ground truth data (labels) that can be used to train a
 
 Label data represents the "truth" that MOSAIKS attempts to predict - whether that's crop yields, population density, economic indicators, or any other variable that might be visible (directly or indirectly) in satellite imagery. The quality and characteristics of this label data significantly influence model performance.
 
-## What makes good label data?
-
-For optimal performance with MOSAIKS, label data should have several key characteristics:
-
-- Accurate geographic location information
-- Appropriate spatial resolution (typically ≥1km²)
-- Reasonable temporal alignment with imagery features
-- Sufficient sample size (generally ≥300 observations)
-- Observable connection to surface features
-
 ## Section outline
 
 The following chapters will guide you through key considerations for working with label data in MOSAIKS:
