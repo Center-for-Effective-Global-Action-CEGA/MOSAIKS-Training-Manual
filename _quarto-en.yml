@@ -63,10 +63,10 @@ book:
         - en/part-04-models/03-model-temporal.qmd
         - en/part-04-models/04-model-demo.qmd
 
-    - part: en/part-05-responsible/00-responsible.qmd  
+    - part: en/part-05-eval/00-eval.qmd
       chapters:
-        - en/part-05-responsible/01-responsible-ethics.qmd
-        - en/part-05-responsible/02-responsible-uncertainty.qmd
-        - en/part-05-responsible/03-responsible-demo.qmd
+        - en/part-05-eval/01-eval-uncertainty.qmd
+        - en/part-05-eval/02-eval-explainability.qmd
+        - en/part-05-eval/03-eval-ethics.qmd
 
     - references.qmd

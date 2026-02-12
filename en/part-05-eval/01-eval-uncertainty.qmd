@@ -1,0 +1,34 @@
+# Quantifying uncertainty {#sec-responsible-uncertainty}
+
+```{r}
+#| echo: false
+#| results: "asis"
+
+source("../../_common.R")
+status("draft_en")
+```
+
+## Lecture materials
+
+**TODO:** Add recorded lecture here. 
+
+[Lecture slides.](../slides/02-uncertainty-lecture.pdf)
+
+::: {.callout-note}
+# Click the badge to run the demonstration! 
+
+&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;   
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/center-for-effective-global-action-cega/MOSAIKS-Training-Manual/blob/main/notebooks/demo/10_uncertainty_bootstrap.ipynb)  
+<!-- &uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;     -->
+Remember to click `File` -> `Save a copy in Drive` to save any changes you make.  
+---
+Or to view a static version of the code on GitHub, click the badge below.  
+[![](https://img.shields.io/badge/View%20on%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/center-for-effective-global-action-cega/MOSAIKS-Training-Manual/blob/main/notebooks/demo/10_uncertainty_bootstrap.ipynb)
+:::
+
+::: {.callout-note}
+# Looking forward
+
+The next chapter will 
+:::
+

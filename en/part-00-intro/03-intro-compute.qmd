@@ -236,7 +236,7 @@ Clicking the badge in this book will always open a fresh copy.
 
 ### Method 2: Clone the notebook
 
-To select a notebook from the repository [Notebook repository](https://github.com/cullen-molitor/MOSAIKS-Training-Manual/tree/main/notebooks/demo):
+To select a notebook from the repository [Notebook repository](https://github.com/center-for-effective-global-action-cega/MOSAIKS-Training-Manual/tree/main/notebooks/demo):
 
 1. Open Google Colab ([colab.research.google.com](https://colab.research.google.com))
 2. Click `File` > `Open Notebook`

@@ -28,36 +28,46 @@ ggplot2::theme_set(ggplot2::theme_gray(12))
 # use results: "asis" when setting a status for a chapter
 # Status function for chapter completion states
 status <- function(type) {
-    status <- switch(type,
-        draft = "is in early draft form and may be incomplete",
+    status <- switch(
+        type,
+        draft_en = "is in early draft form and may be incomplete",
         draft_fr = "est en cours de construction et peut être incomplet",
-        review = "is under review and may need revisions",
+        review_en = "is under review and may need revisions",
         review_fr = "est en cours de revue et peut nécessiter des changements",
-        testing = "needs testing with real users",
+        testing_en = "needs testing with real users",
         testing_fr = "doit être testé par des utilisateurs",
-        complete = "is complete and ready for use",
+        complete_en = "is complete and ready for use",
         stop(
             "Invalid `type`, use `draft`, `review`, `testing`, or `complete`",
             call. = FALSE
         )
     )
 
-    class <- switch(type,
-        draft = "warning",
+    class <- switch(
+        type,
+        draft_en = "warning",
         draft_fr = "warning",
-        review = "note",
+        review_en = "note",
         review_fr = "note",
-        testing = "important",
+        testing_en = "important",
         testing_fr = 'important',
-        complete = "tip"
+        complete_en = "tip"
     )
 
     cat(
         paste0(
             "\n",
             ":::: status\n",
-            "::: callout-", class, " \n",
-            ifelse(strsplit(type, '_')[[1]][2] == 'fr', "Ce chapitre ", "This chapter "), status, ".\n",
+            "::: callout-",
+            class,
+            " \n",
+            ifelse(
+                strsplit(type, '_')[[1]][2] == 'fr',
+                "Ce chapitre ",
+                "This chapter "
+            ),
+            status,
+            ".\n",
             ":::\n",
             "::::\n"
         )

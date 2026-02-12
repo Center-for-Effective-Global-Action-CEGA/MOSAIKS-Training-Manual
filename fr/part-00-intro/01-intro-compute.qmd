@@ -232,7 +232,7 @@ Cliquer sur le badge de ce livre ouvrira toujours une nouvelle copie.
 
 ### Méthode 2: cloner le cahier
 
-Pour sélectionner un ordinateur portable dans le référentiel [Référentiel de notebooks](https://github.com/cullen-molitor/mosaiks-training-manual/tree/main/notebooks/demo):
+Pour sélectionner un ordinateur portable dans le référentiel [Référentiel de notebooks](https://github.com/center-for-effective-global-action-cega/mosaiks-training-manual/tree/main/notebooks/demo):
 
 1. Ouvrir Google Colab ([colab.research.google.com](https://colab.research.google.com))
 2. Cliquez sur `Fichier` > `Open Notebook`
