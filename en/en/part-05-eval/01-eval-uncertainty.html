@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.27">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-<title>20&nbsp; Bias, equity, &amp; ethics – MOSAIKS Training Manual</title>
+<title>20&nbsp; Quantifying uncertainty – MOSAIKS Training Manual</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -26,8 +26,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
-<link href="../../en/part-05-responsible/02-responsible-uncertainty.html" rel="next">
-<link href="../../en/part-05-responsible/00-responsible.html" rel="prev">
+<link href="../../en/part-05-eval/02-eval-explainability.html" rel="next">
+<link href="../../en/part-05-eval/00-eval.html" rel="prev">
 <link href="../../images/sat_earth.png" rel="icon" type="image/png">
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
@@ -41,9 +41,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../../site_libs/quarto-html/quarto-syntax-highlighting-2a367172f4fe7d9182ebf8e09f85cb4e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-c5684c64d3df2a7d27bcd84b1dc01f6e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-5f1bd83482f24cf2a850a355dd9a949c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-c5684c64d3df2a7d27bcd84b1dc01f6e.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
+<link href="../../site_libs/bootstrap/bootstrap-506aac31e01bf36c59a15f76a720e092.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-9ddfc5c3fbb7cdb5bc9d6ef9464364bf.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-506aac31e01bf36c59a15f76a720e092.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light"><script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
   "collapse-after": 3,
@@ -268,7 +268,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../en/part-05-responsible/00-responsible.html">Responsible SIML</a></li><li class="breadcrumb-item"><a href="../../en/part-05-responsible/01-responsible-ethics.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Bias, equity, &amp; ethics</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../en/part-05-eval/00-eval.html">Model evaluation</a></li><li class="breadcrumb-item"><a href="../../en/part-05-eval/01-eval-uncertainty.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Quantifying uncertainty</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
@@ -419,7 +419,7 @@ ul.task-list li input[type="checkbox"] {
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a href="../../en/part-04-models/00-model.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Task modeling</span></a>
+ <span class="menu-text">Modeling</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -453,8 +453,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="../../en/part-05-responsible/00-responsible.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Responsible SIML</span></a>
+            <a href="../../en/part-05-eval/00-eval.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Model evaluation</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -462,20 +462,20 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth1 show">
 <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../en/part-05-responsible/01-responsible-ethics.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Bias, equity, &amp; ethics</span></span></a>
+  <a href="../../en/part-05-eval/01-eval-uncertainty.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Quantifying uncertainty</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../en/part-05-responsible/02-responsible-uncertainty.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quantifying uncertainty</span></span></a>
+  <a href="../../en/part-05-eval/02-eval-explainability.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Model explainability</span></span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../../en/part-05-responsible/03-responsible-demo.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Transparency (demo)</span></span></a>
+  <a href="../../en/part-05-eval/03-eval-ethics.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title">Bias, equity, &amp; ethics</span></span></a>
   </div>
 </li>
       </ul>
@@ -490,12 +490,16 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </nav><div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+<li><a href="#lecture-materials" id="toc-lecture-materials" class="nav-link active" data-scroll-target="#lecture-materials"><span class="header-section-number">20.1</span> Lecture materials</a></li>
+  </ul><div class="toc-actions"><ul><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/edit/main/en/part-05-eval/01-eval-uncertainty.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../en/part-05-responsible/00-responsible.html">Responsible SIML</a></li><li class="breadcrumb-item"><a href="../../en/part-05-responsible/01-responsible-ethics.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Bias, equity, &amp; ethics</span></a></li></ol></nav><div class="quarto-title">
-<h1 class="title"><span id="sec-responsible-ethics" class="quarto-section-identifier"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Bias, equity, &amp; ethics</span></span></h1>
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../../en/part-05-eval/00-eval.html">Model evaluation</a></li><li class="breadcrumb-item"><a href="../../en/part-05-eval/01-eval-uncertainty.html"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Quantifying uncertainty</span></a></li></ol></nav><div class="quarto-title">
+<h1 class="title"><span id="sec-responsible-uncertainty" class="quarto-section-identifier"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Quantifying uncertainty</span></span></h1>
 </div>
 
 
@@ -516,15 +520,29 @@ ul.task-list li input[type="checkbox"] {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>NAis in early draft form and may be incomplete.</p>
+<p>This chapter is in early draft form and may be incomplete.</p>
 </div>
 </div>
 </div>
 </div>
-<ul>
-<li><p>https://www.earthcube.org/fair-training-materials</p></li>
-<li><p>https://www.fatml.org/</p></li>
-</ul>
+<section id="lecture-materials" class="level2" data-number="20.1"><h2 data-number="20.1" class="anchored" data-anchor-id="lecture-materials">
+<span class="header-section-number">20.1</span> Lecture materials</h2>
+<p><strong>TODO:</strong> Add recorded lecture here.</p>
+<p><a href="../slides/02-uncertainty-lecture.pdf" target="_blank">Lecture slides.</a></p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Click the badge to run the demonstration!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓↓<br><a href="https://colab.research.google.com/github/center-for-effective-global-action-cega/MOSAIKS-Training-Manual/blob/main/notebooks/demo/10_uncertainty_bootstrap.ipynb" target="_blank"><img src="https://colab.research.google.com/assets/colab-badge.svg" class="img-fluid" alt="Open In Colab"></a><br><!-- &uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;     --> Remember to click <code>File</code> -&gt; <code>Save a copy in Drive</code> to save any changes you make.<br>
+— Or to view a static version of the code on GitHub, click the badge below.<br><a href="https://github.com/center-for-effective-global-action-cega/MOSAIKS-Training-Manual/blob/main/notebooks/demo/10_uncertainty_bootstrap.ipynb" target="_blank"><img src="https://img.shields.io/badge/View%20on%20GitHub-181717?logo=github&amp;logoColor=white&amp;labelColor=grey&amp;color=black&amp;link=--.png" class="img-fluid"></a></p>
+</div>
+</div>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -538,12 +556,9 @@ ul.task-list li input[type="checkbox"] {
 <p>The next chapter will</p>
 </div>
 </div>
-<p>Could include concepts from this paper: <a href="https://journals.sagepub.com/doi/10.1177/03091325221074691" target="_blank">The politics of pixels: A review and agenda for critical remote sensing</a></p>
-<p>Sociopolitical factors impact who collects remotely sensed data, how it is processed, and who benefits from the results. This paper discuses the politics of remote sensing and how it can be used to promote social justice and equity.</p>
 
 
-
-</main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
@@ -956,13 +971,13 @@ ul.task-list li input[type="checkbox"] {
     }
   });
   </script><nav class="page-navigation"><div class="nav-page nav-page-previous">
-      <a href="../../en/part-05-responsible/00-responsible.html" class="pagination-link" aria-label="Responsible SIML">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Responsible SIML</span>
+      <a href="../../en/part-05-eval/00-eval.html" class="pagination-link" aria-label="Model evaluation">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Model evaluation</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../../en/part-05-responsible/02-responsible-uncertainty.html" class="pagination-link" aria-label="Quantifying uncertainty">
-        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Quantifying uncertainty</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="../../en/part-05-eval/02-eval-explainability.html" class="pagination-link" aria-label="Model explainability">
+        <span class="nav-page-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title">Model explainability</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
@@ -973,7 +988,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/edit/main/en/part-05-responsible/01-responsible-ethics.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/edit/main/en/part-05-eval/01-eval-uncertainty.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
