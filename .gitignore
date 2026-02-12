@@ -63,6 +63,7 @@ site_libs/
 *.topojson
 *.geojson
 *.csv
+!*/tables/*.csv
 *.feather
 *.tif
 *.zip
