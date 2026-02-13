@@ -17,7 +17,27 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
@@ -69,7 +89,32 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Submit",
     "search-label": "Search"
   }
-}</script><link rel="stylesheet" href="../../style.scss">
+}</script><script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script><script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script><script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script><link rel="stylesheet" href="../../style.scss">
 </head>
 <body class="nav-sidebar floating nav-fixed quarto-light"><script id="quarto-html-before-body" type="application/javascript">
     const toggleBodyColorMode = (bsSheetEl) => {
@@ -514,17 +559,11 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#data-types" id="toc-data-types" class="nav-link" data-scroll-target="#data-types"><span class="header-section-number">7.3.5</span> Data Types</a></li>
   </ul>
 </li>
+  <li><a href="#joining-data" id="toc-joining-data" class="nav-link" data-scroll-target="#joining-data"><span class="header-section-number">7.4</span> Joining Data</a></li>
   <li>
-<a href="#joining-data" id="toc-joining-data" class="nav-link" data-scroll-target="#joining-data"><span class="header-section-number">7.4</span> Joining Data</a>
+<a href="#data-cleaning-considerations" id="toc-data-cleaning-considerations" class="nav-link" data-scroll-target="#data-cleaning-considerations"><span class="header-section-number">7.5</span> Data cleaning considerations</a>
   <ul class="collapse">
-<li><a href="#merging-labels-with-mosaiks-features" id="toc-merging-labels-with-mosaiks-features" class="nav-link" data-scroll-target="#merging-labels-with-mosaiks-features"><span class="header-section-number">7.4.1</span> Merging Labels with MOSAIKS Features</a></li>
-  <li><a href="#example-data-structure" id="toc-example-data-structure" class="nav-link" data-scroll-target="#example-data-structure"><span class="header-section-number">7.4.2</span> Example Data Structure</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#data-cleaning-considerations" id="toc-data-cleaning-considerations" class="nav-link" data-scroll-target="#data-cleaning-considerations"><span class="header-section-number">7.5</span> Data Cleaning Considerations</a>
-  <ul class="collapse">
-<li><a href="#coordinate-reference-systems-crs" id="toc-coordinate-reference-systems-crs" class="nav-link" data-scroll-target="#coordinate-reference-systems-crs"><span class="header-section-number">7.5.1</span> Coordinate Reference Systems (CRS)</a></li>
+<li><a href="#coordinate-reference-systems-crs" id="toc-coordinate-reference-systems-crs" class="nav-link" data-scroll-target="#coordinate-reference-systems-crs"><span class="header-section-number">7.5.1</span> Coordinate reference systems (CRS)</a></li>
   <li><a href="#label-quality" id="toc-label-quality" class="nav-link" data-scroll-target="#label-quality"><span class="header-section-number">7.5.2</span> Label Quality</a></li>
   <li><a href="#temporal-alignment" id="toc-temporal-alignment" class="nav-link" data-scroll-target="#temporal-alignment"><span class="header-section-number">7.5.3</span> Temporal Alignment</a></li>
   <li><a href="#data-formats" id="toc-data-formats" class="nav-link" data-scroll-target="#data-formats"><span class="header-section-number">7.5.4</span> Data Formats</a></li>
@@ -691,13 +730,63 @@ Figure&nbsp;7.6: <strong>A</strong> The coefficient of determination (R²) is a 
 </figcaption></figure>
 </div>
 <p>The data type may also effect how the data is cleaned and prepared. For example you may have a dataset of mining locations across a country. If you are interested in predicting the presence of mining, you may want to convert this to a binary variable where a 0 indicates no mining and a 1 indicates mining. Alternatively, you may be interested in predicting the area of mining in each location, in which case you might need to calculate the area of the mining polygons to make the variable continuous.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Continuous variables</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Categorical variables</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Continuous variables take numeric values along a spectrum, such as crop yields (e.g., tons per hectare) or population density (people per square kilometer).</p>
+<p>For continuous variables, MOSAIKS typically uses regression approaches and evaluates performance using metrics like R² (coefficient of determination) or RMSE (root mean square error). The R² values reported throughout this chapter indicate the proportion of variance in the outcome that is explained by the MOSAIKS predictions.</p>
+<div id="fig-100-maps-birds-plot" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-100-maps-birds-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/proctor_et_al_100_breeding_birds_plot.png" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-100-maps-birds-plot-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.7: Continuous variable example showing the breeding bird species diversity over the continental United States
+</figcaption></figure>
+</div>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Categorical variables group observations into distinct classes or categories. These can be binary categories such as presence/absence of mining, or they can have multiple classes such as land use types (urban/agriculture/forest), or crop types (maize/wheat/rice). Labels will be prepared essentially the same way regardless of the number of categories, but the modeling approach and evaluation metrics will differ.</p>
+<ol type="1">
+<li><p><strong>Binary classification</strong>: For variables with two categories (e.g., presence/absence), users should choose a model that can output probability predictions between 0 and 1. In these cases, a good choice of model would be a logistic regression or a decision tree. Performance is typically evaluated using metrics like accuracy, precision, recall, or area under the receiver operating characteristic curve (AUC-ROC).</p></li>
+<li><p><strong>Multi-class classification</strong>: For variables with multiple categories, users should choose a model that can handle multi-class classification, such as a random forest or a support vector machine. Performance is typically evaluated using metrics like accuracy, precision, recall, or F1-score.</p></li>
+</ol>
+<div id="fig-ecoregions-comparison" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ecoregions-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/proctor_et_al_100_ecoregions_comparison.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ecoregions-comparison-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.8: Classifier example showing Ecoregions of the world.
+</figcaption></figure>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>This section only provides a brief overview of the two types of variables and some of the metrics used to evaluate them. This will be covered in greater detail in <a href="../part-04-models/01-model-choice.html" class="quarto-xref"><span>Chapter 16</span></a>.</p>
+</div>
+</div>
+</div>
 </section></section><section id="joining-data" class="level2" data-number="7.4"><h2 data-number="7.4" class="anchored" data-anchor-id="joining-data">
 <span class="header-section-number">7.4</span> Joining Data</h2>
-<section id="merging-labels-with-mosaiks-features" class="level3" data-number="7.4.1"><h3 data-number="7.4.1" class="anchored" data-anchor-id="merging-labels-with-mosaiks-features">
-<span class="header-section-number">7.4.1</span> Merging Labels with MOSAIKS Features</h3>
-<p>To merge labels with features, you must align the geographic location of both datasets. The native resolution MOSAIKS feature files have rows for each location and columns with longitude, latitude, and features. Your label dataset must also have columns for longitude, latitude, and label values (at minimum). Alternatively, aggregated features will come with the name of the administrative region (e.g., district) and the features. You can join this with your label data by matching the district names.</p>
-</section><section id="example-data-structure" class="level3" data-number="7.4.2"><h3 data-number="7.4.2" class="anchored" data-anchor-id="example-data-structure">
-<span class="header-section-number">7.4.2</span> Example Data Structure</h3>
+<p>Merging Labels with MOSAIKS Features is an essential step in preparing your dataset for modeling. This process involves aligning the spatial and temporal dimensions of your label data with the MOSAIKS features. The goal is to create a unified dataset where each observation includes both the label (the variable you want to predict) and the corresponding features (the satellite-derived data).</p>
+<p>To merge labels with features, you must align the geographic location of both datasets. The native resolution MOSAIKS features (<span class="math inline">\(0.01\degree\)</span>) have rows for each location and columns with longitude, latitude, and 4,000 features. The lat/lon information represents the centroid of each grid cell. Your label dataset must also have columns for longitude, latitude, and label values (at minimum). Alternatively, aggregated features will come with the name of the administrative region (e.g., district) and the features. You can join this with your label data by matching the district names.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Example label data</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">Example feature data</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">Example joined data</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
 <p>A simple example: district-level crop yield labels might look like:</p>
 <div id="tbl-crop-yield" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-crop-yield-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -740,6 +829,8 @@ Figure&nbsp;7.6: <strong>A</strong> The coefficient of determination (R²) is a 
 Table&nbsp;7.1: Fictional crop yield data for districts in Zambia.
 </figcaption></figure>
 </div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
 <p>MOSAIKS features at this same resolution might look like:</p>
 <div id="tbl-features" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-features-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -757,11 +848,10 @@ Table&nbsp;7.1: Fictional crop yield data for districts in Zambia.
 <th>Observation</th>
 <th>District</th>
 <th>Year</th>
-<th>Feature 1</th>
-<th>Feature 2</th>
+<th>Ft. 1</th>
+<th>Ft. 2</th>
 <th>…</th>
-<th>Feature <em>K</em>
-</th>
+<th>Ft. 4,000</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -807,6 +897,8 @@ Table&nbsp;7.1: Fictional crop yield data for districts in Zambia.
 Table&nbsp;7.2: Fictional MOSAIKS feature data for the same districts.
 </figcaption></figure>
 </div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
 <p>After a spatial join, you end up with a merged dataset:</p>
 <div id="tbl-joined-data" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-joined-data-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
@@ -826,11 +918,10 @@ Table&nbsp;7.2: Fictional MOSAIKS feature data for the same districts.
 <th>District</th>
 <th>Year</th>
 <th>Crop Yield</th>
-<th>Feature 1</th>
-<th>Feature 2</th>
+<th>Ft. 1</th>
+<th>Ft. 2</th>
 <th>…</th>
-<th>Feature <em>K</em>
-</th>
+<th>Ft. 4,000</th>
 </tr></thead>
 <tbody>
 <tr class="odd">
@@ -880,27 +971,45 @@ Table&nbsp;7.2: Fictional MOSAIKS feature data for the same districts.
 Table&nbsp;7.3: Example of joined data with both labels and features.
 </figcaption></figure>
 </div>
-<p>In the above example, our geographic location is the district and our label is the crop yield (mt/ha). We then have <em>K</em> columns containing the features and <em>N</em> observations.</p>
-</section></section><section id="data-cleaning-considerations" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="data-cleaning-considerations">
-<span class="header-section-number">7.5</span> Data Cleaning Considerations</h2>
-<section id="coordinate-reference-systems-crs" class="level3" data-number="7.5.1"><h3 data-number="7.5.1" class="anchored" data-anchor-id="coordinate-reference-systems-crs">
-<span class="header-section-number">7.5.1</span> Coordinate Reference Systems (CRS)</h3>
-<p>The default coordinate reference system used by MOSAIKS is World Geodetic System 84 (WGS 84). The standardized code that defines WGS 84 is <a href="https://epsg.io/4326" target="_blank">“EPSG:4326”</a>. EPSG stands for the <a href="https://en.wikipedia.org/wiki/EPSG_Geodetic_Parameter_Dataset" target="_blank">European Petroleum Survey Group</a>, which maintains a database of coordinate systems and projections. The WGS 84 coordinate system is the most commonly used coordinate system for GPS data.</p>
-<div id="fig-map-projections" class="quarto-float quarto-figure quarto-figure-center anchored">
-<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-map-projections-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<img src="https://www.researchgate.net/profile/Bojan-Savric/publication/273517879/figure/fig1/AS:347863067447297@1459948426262/The-nine-small-scale-map-projections-used-in-the-paired-comparison-test-arranged-by.png" class="img-fluid figure-img">
 </div>
-<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-map-projections-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;7.7: <a href="https://www.researchgate.net/publication/273517879_User_preferences_for_world_map_projections" target="_blank">Nine small-scale map projections.</a>
+</div>
+</div>
+<p>In the above example, our geographic location is the district, our time period is 2019, and our label is the crop yield (mt/ha). We can use the District and Year columns to join the label data with the MOSAIKS features. We then have 4,000 columns containing the features paired to <em>N</em> observations that are ready to be modeled.</p>
+</section><section id="data-cleaning-considerations" class="level2" data-number="7.5"><h2 data-number="7.5" class="anchored" data-anchor-id="data-cleaning-considerations">
+<span class="header-section-number">7.5</span> Data cleaning considerations</h2>
+<section id="coordinate-reference-systems-crs" class="level3" data-number="7.5.1"><h3 data-number="7.5.1" class="anchored" data-anchor-id="coordinate-reference-systems-crs">
+<span class="header-section-number">7.5.1</span> Coordinate reference systems (CRS)</h3>
+<p>The default coordinate reference system used by MOSAIKS is World Geodetic System 1984 (WGS84). WGS84 is a <a href="https://resources.arcgis.com/en/help/main/10.1/index.html#//003r00000006000000" target="_blank">Geographic Coordinate System (GCS)</a>. The standard that defines WGS 84 is <a href="https://epsg.io/4326" target="_blank">“EPSG:4326”</a>. EPSG stands for the <a href="https://en.wikipedia.org/wiki/EPSG_Geodetic_Parameter_Dataset" target="_blank">European Petroleum Survey Group</a>, which maintains a database of coordinate systems and projections. The WGS 84 coordinate system is the most commonly used coordinate system for GPS data.</p>
+<p>Alternatively, you may have data in a <a href="https://resources.arcgis.com/en/help/main/10.1/index.html#//003r00000006000000" target="_blank">projected coordinate system</a> (e.g., UTM, Mercator, etc.). Projected coordinate systems are based on a map projection, which is a mathematical transformation of the Earth’s surface onto a flat plane. There are many different map projections, each with its own advantages and disadvantages. It is usually best practice to reproject vector data (points, lines, polygons) to WGS 84 before joining with MOSAIKS features.</p>
+<div id="fig-map-distortions" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-map-distortions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="../../images/projections.jpg" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-map-distortions-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;7.9: Seven map projections showing how 2 dimensional visualizations of 3 dimensional objects results in at least one of four basic characteristics (distance, direction, shape, and area) becoming distorted. Source: <a href="https://geoawesome.com/map-distortions/" target="_blank">geoawesome.com</a>
 </figcaption></figure>
 </div>
 <p>If your data is not in WGS 84, you will need to reproject it to this coordinate system before joining it with MOSAIKS features.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="screen-reader-only">Note</span>Learn more about CRS and map projections
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Another excellent resource for learning about coordinate reference systems and map projections is the book titled<a href="https://tmap.geocompx.org/map-projections" target="_blank">Spatial Data Visualization with tmap</a> <span class="citation" data-cites="nowosad_2026">(<a href="../../references.html#ref-nowosad_2026" role="doc-biblioref">Nowosad 2026</a>)</span>. Map projections can be visualized and compared to one another <a href="https://map-projections.net/imglist.php" target="_blank">here</a>.</p>
+</div>
+</div>
 </section><section id="label-quality" class="level3" data-number="7.5.2"><h3 data-number="7.5.2" class="anchored" data-anchor-id="label-quality">
 <span class="header-section-number">7.5.2</span> Label Quality</h3>
 <p>Confirm that label values are within expected ranges, deal with any outliers or missing data, and ensure units are consistent and numeric fields are properly formatted. This book does not go into a great deal of detail on cleaning messy data. This topic is covered in exhaustive detail in the book <a href="https://r4ds.had.co.nz/" target="_blank">R for Data Science</a>.</p>
 </section><section id="temporal-alignment" class="level3" data-number="7.5.3"><h3 data-number="7.5.3" class="anchored" data-anchor-id="temporal-alignment">
 <span class="header-section-number">7.5.3</span> Temporal Alignment</h3>
-<p>If you have time series labels, you will need to compute custom features for each time period. See <a href="../part-03-features/03-features-computing.html" class="quarto-xref"><span>Chapter 14</span></a> for more information on how to do this and <a href="../part-04-models/03-model-temporal.html" class="quarto-xref"><span>Chapter 18</span></a> for guidance on modeling time series data with MOSAIKS features.</p>
+<p>Currently the only publicly available MOSAIKS features are from a single global composite of satellite imagery from 2019. If your labels are from a different time period, you will need to ensure that they are either slow to change (e.g., relative wealth) or that they are from a time period close to 2019 and that the features you use are relevant to that time period.</p>
+<p>If you have labels that require imagery from the same time period (and that is not 2019) or you have time series labels, you will need to compute custom features for the relevant time period(s). See <a href="../part-03-features/03-features-computing.html" class="quarto-xref"><span>Chapter 14</span></a> for more information on how to do this and <a href="../part-04-models/03-model-temporal.html" class="quarto-xref"><span>Chapter 18</span></a> for guidance on modeling time series data with MOSAIKS features.</p>
 </section><section id="data-formats" class="level3" data-number="7.5.4"><h3 data-number="7.5.4" class="anchored" data-anchor-id="data-formats">
 <span class="header-section-number">7.5.4</span> Data Formats</h3>
 <p>MOSAIKS can work with several common spatial data formats:</p>
@@ -982,7 +1091,7 @@ Table&nbsp;7.4: Common spatial data formats with file types, descriptions, examp
 <span class="header-section-number">7.6.1</span> Labels data checklist</h3>
 <p>For optimal use with MOSAIKS, label data should be:</p>
 <ul class="task-list">
-<li><label><input type="checkbox"><strong>Consistently geolocated</strong> as point, polygon, vector, or raster data</label></li>
+<li><label><input type="checkbox"><strong>Consistently geolocated</strong> as point, line, polygon, raster, or administrative data</label></li>
 <li><label><input type="checkbox"><strong>Aggregable to ≥ 1km²</strong> resolution</label></li>
 <li><label><input type="checkbox"><strong>Observable</strong> in daytime satellite imagery (directly or indirectly)</label></li>
 <li><label><input type="checkbox"><strong>Recent or slow-changing</strong> if using current API features</label></li>
@@ -1004,6 +1113,11 @@ Table&nbsp;7.4: Common spatial data formats with file types, descriptions, examp
 </div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-nowosad_2026" class="csl-entry" role="listitem">
+Nowosad, Martijn Tennekes and Jakub. 2026. <span>“Spatial <span>Data Visualization</span> with Tmap.”</span> February 1, 2026. <a href="https://tmap.geocompx.org/">https://tmap.geocompx.org/</a>.
+</div>
+</div>
 </section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
