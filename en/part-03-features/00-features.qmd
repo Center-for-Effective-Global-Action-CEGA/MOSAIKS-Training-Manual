@@ -1,4 +1,4 @@
-# Satellite features {#sec-features}
+# Satellite features {#sec-sat-features}
 
 ```{r}
 #| echo: false

@@ -40,6 +40,7 @@ Les processus naturels et axés sur l'homme présentent souvent de solides signa
 - **Activités humaines**: Les cycles de culture, les voyages de vacances et la demande de chauffage ou de refroidissement ne sont que quelques exemples de la façon dont le comportement humain peut varier tout au long de l'année. Ces rythmes temporels peuvent introduire des modèles systématiques dans vos données.
 
 - **Extraction des caractéristiques**: Parce que les observations par satellite reflètent les conditions de surface, différentes périodes de l'année peuvent nécessiter des ensembles de features distinctes.Par exemple, les valeurs de réflectance changent lorsque la végétation est sénescente vs lorsqu'elle est pleinement cultivée. De même, les conditions atmosphériques (comme la brume) peuvent être plus répandues à certaines saisons.
+
 ![[EOS Data Analytics](https://eos.com/blog/satellite-time-series/) visualisation des séries chronologiques de l'indice de végétation de la différence normalisée (NDVI) montrant les tendances saisonnières.](https://eos.com/wp-content/uploads/2019/09/ndvi-time-series-main.jpg.webp){#fig-ndvi-ts}
 
 ### Défis dans les applications de séries chronologiques

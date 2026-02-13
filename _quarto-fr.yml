@@ -1,3 +1,5 @@
+lang: fr
+
 project:
   type: book
   output-dir: _book/fr
@@ -28,7 +30,6 @@ book:
       url: https://cega.berkeley.edu/person/farooq-sanni/
       role: "Traducteur"
 
-  language: fr
   navbar:
     right:
       - text: "English"

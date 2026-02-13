@@ -49,18 +49,18 @@ labels <- readr::read_csv("../tables/rolf_variables.csv", show_col_types = FALSE
 
 # Build the tabset using knit_child with inline text
 panels <- lapply(seq_len(nrow(labels)), function(i) {
-  row <- labels[i, ]
-  knitr::knit_child(text = c(
-    glue::glue("## {row$variable}"),
-    "",
-    glue::glue("![{row$description}]({row$image}){{#{row$fig_id}}}"),
-    ""
-  ), envir = environment(), quiet = TRUE)
+    row <- labels[i, ]
+    knitr::knit_child(text = c(
+        glue::glue("## {row$variable}"),
+        "",
+        glue::glue("![**Left maps:** 80,000 observations used for training and validation, aggregated up to 20 km × 20 km cells for display. **Right maps:** concatenated validation set estimates from 5-fold cross-validation for the same 80,000 grid cells (observations are never used to generate their own prediction), identically aggregated for display. **Scatters:** Validation set estimates (vertical axis) vs. ground truth (horizontal axis); each point is a ~1 km × 1 km grid cell. Black line is at 45°. **Data:** {row$description}.]({row$image}){{#{row$fig_id}}}"),
+        ""
+    ), envir = environment(), quiet = TRUE)
 })
 
 cat("::: {.panel-tabset}\n\n")
 cat(unlist(panels), sep = "\n")
-cat("\n:::\n")
+cat("\n:::")
 ```
 
 A user simply needs to select which variable they would like to predict, and no other changes need to be made to the code. All data has been preprocessed and the code will download the necessary files from Zenodo. Users can also modify the code to investigate other modeling, evaluation, and visualization approaches. Any changes can be saved to a personal copy of the notebook in Google Drive. 
