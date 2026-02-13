@@ -270,7 +270,7 @@ ul.task-list li input[type="checkbox"] {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/" title="Code source" class="quarto-navigation-tool px-1" aria-label="Code source"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Basculer en mode lecteur">
   <div class="quarto-reader-toggle-btn">
@@ -517,8 +517,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Table des matières</h2>
    
   <ul>
-  <li><a href="#bienvenue" id="toc-bienvenue" class="nav-link active" data-scroll-target="#bienvenue"># Bienvenue</a></li>
-  <li><a href="#lang-fr" id="toc-lang-fr" class="nav-link" data-scroll-target="#lang-fr">lang: fr</a></li>
+  <li><a href="#bienvenue" id="toc-bienvenue" class="nav-link active" data-scroll-target="#bienvenue">Bienvenue</a>
+  <ul class="collapse">
   <li><a href="#quest-ce-que-mosaiks" id="toc-quest-ce-que-mosaiks" class="nav-link" data-scroll-target="#quest-ce-que-mosaiks">Qu’est-ce que MOSAIKS?</a></li>
   <li><a href="#à-qui-sadresse-ce-livre" id="toc-à-qui-sadresse-ce-livre" class="nav-link" data-scroll-target="#à-qui-sadresse-ce-livre">À qui s’adresse ce livre?</a></li>
   <li><a href="#que-vais-je-apprendre" id="toc-que-vais-je-apprendre" class="nav-link" data-scroll-target="#que-vais-je-apprendre">Que vais-je apprendre?</a></li>
@@ -530,6 +530,7 @@ ul.task-list li input[type="checkbox"] {
   </ul></li>
   <li><a href="#structure-et-contenu-du-livre" id="toc-structure-et-contenu-du-livre" class="nav-link" data-scroll-target="#structure-et-contenu-du-livre">Structure et contenu du livre</a></li>
   <li><a href="#remerciements" id="toc-remerciements" class="nav-link" data-scroll-target="#remerciements">Remerciements</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li></ul></div></nav>
     </div>
@@ -613,11 +614,8 @@ Please select your preferred language:
 <p><a href="en/index.html" style="text-decoration: none;"> <button style="font-size: 20px; padding: 10px 20px; margin: 10px;">English</button> </a> <a href="fr/index.html" style="text-decoration: none;"> <button style="font-size: 20px; padding: 10px 20px; margin: 10px;">Français</button> </a></p>
 </div>
 </div>
-<section id="bienvenue" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="bienvenue"># Bienvenue</h2>
-</section>
-<section id="lang-fr" class="level2">
-<h2 class="anchored" data-anchor-id="lang-fr">lang: fr</h2>
+<section id="bienvenue" class="level1 unnumbered">
+<h1 class="unnumbered">Bienvenue</h1>
 <script>
 document.addEventListener("DOMContentLoaded", function() {
     var sidebarMenu = document.querySelector(".sidebar-menu-container");
@@ -641,7 +639,6 @@ document.addEventListener("click", function() {
 <p>Ceci est la première édition du manuel de formation MOSAIKS. Le manuel sert de référence pour comprendre MOSAIKS, ses capacités et les bonnes pratiques pour l’utiliser. Vous apprendrez ce qu’est MOSAIKS, ce qu’il permet de faire et comment l’utiliser efficacement dans une variété d’applications.</p>
 <p>Les compétences et les connaissances que vous acquérez de ce manuel vous permettront de tirer parti des images satellites et de l’apprentissage automatique pour relever des défis socio-économiques et environnementaux complexes. Ce manuel peut être suivi tout seul de manière autodidacte ou utilisé en conjonction avec un cours de formation.</p>
 <p>De nombreux concepts et exemples sont largement applicables au monde de la télédétection et de l’apprentissage automatique, donc même si vous n’utilisez pas MOSAIKS, le contenu peut vous être utile.</p>
-</section>
 <section id="quest-ce-que-mosaiks" class="level2">
 <h2 class="anchored" data-anchor-id="quest-ce-que-mosaiks">Qu’est-ce que MOSAIKS?</h2>
 <p>MOSAIKS signifie <strong><ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</ins>tellite <ins>I</ins>magery &amp; <ins>K</ins>itchen <ins>S</ins>inks</strong>, soit littéralement en français <em>Observation multitâche à l’aide de l’imagerie satellitaire et des éviers de cuisine</em>. Il s’agit d’un cadre conçu pour simplifier l’utilisation de l’imagerie satellite et de l’apprentissage automatique pour prédire les résultats socio-économiques et environnementaux dans différents contextes géographiques et périodes. MOSAIKS se base sur des filtres de convolutions aléatoires (développées dans Rahimi et RECHT (2008)) appliquées à l’imagerie satellite, qui extrait des features agnostiques des tâches et permettent aux chercheurs et aux praticiens de prédire facilement une diversité de résultats à partir d’images brutes. <img src="images/mosaiks-in-landsat.png" id="fig-mosaiks-in-landsat" class="img-fluid" alt="MOSAIKS spelled out with imagery from the Landsat Satellite Constellation data catalog. Made with: Your Name in Landsat"></p>
@@ -843,6 +840,7 @@ Table&nbsp;1: Présentation du contenu du manuel de formation des MOSAIKS
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

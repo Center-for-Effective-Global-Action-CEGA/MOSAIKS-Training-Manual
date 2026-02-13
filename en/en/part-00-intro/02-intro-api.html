@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="../../en" xml:lang="../../en"><head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.27">
@@ -714,8 +714,7 @@ Figure&nbsp;2.2: MOSAIKS API landing page.
 </tr>
 <tr class="even">
 <td><a href="https://github.com/Global-Policy-Lab/mosaiks_tutorials/blob/main/01_querying_redivis.ipynb" target="_blank">Full resolution Query</a></td>
-<td style="text-align: left;">
-<strong>Advanced</strong> Precomputed features at 0.01 degree resolution, follow notebook for details</td>
+<td style="text-align: left;">Precomputed features at 0.01 degree resolution, follow notebook for details <strong>(Advanced)</strong>.</td>
 </tr>
 <tr class="odd">
 <td><a href="https://www.mosaiks.org/precomputed" target="_blank">Precomputed Files</a></td>
@@ -851,28 +850,40 @@ Figure&nbsp;2.5: Using MOSAIKS, a simplified workflow design.
 <p>This topic will be covered in greater depth in later chapters (see <a href="../part-04-models/01-model-choice.html" class="quarto-xref"><span>Chapter 16</span></a>). In the next chapter, you will see a simple MOSAIKS workflow which replicates the results of Rolf et al.&nbsp;2021.</p>
 </section><section id="citation-requirements" class="level2" data-number="2.4"><h2 data-number="2.4" class="anchored" data-anchor-id="citation-requirements">
 <span class="header-section-number">2.4</span> Citation requirements</h2>
-<p>When referring to the MOSAIKS methodology or when generating MOSAIKS features, please reference: <a href="https://www.nature.com/articles/s41467-021-24638-z" target="_blank">Rolf et al.&nbsp;“A generalizable and accessible approach to machine learning with global satellite imagery.” Nature Communications (2021).</a></p>
-<p>You can use the following Bibtex:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">article</span>,</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">author</span> = {Rolf, Esther and Proctor, Jonathan and Carleton, Tamma and Bolliger, Ian and Shankar, Vaishaal and Ishihara, Miyabi and Recht, Benjamin and Hsiang, Solomon},</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span> = {2021},</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">month</span> = {07},</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">pages</span> = {},</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span> = {A generalizable and accessible approach to machine learning with global satellite imagery},</span>
+<p>When referring to the MOSAIKS methodology or when generating MOSAIKS features, please reference:</p>
+<blockquote class="blockquote">
+<p>Rolf, E., Proctor, J., Carleton, T., Bolliger, I., Shankar, V., Ishihara, M., Recht, B., &amp; Hsiang, S. (2021). A generalizable and accessible approach to machine learning with global satellite imagery. <em>Nature Communications</em> , 12(1), 4392. <a href="https://doi.org/10.1038/s41467-021-24638-z" target="_blank">doi.org/10.1038/s41467-021-24638-z</a></p>
+</blockquote>
+<details><summary>
+BibTeX Citation
+</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@article</span>{<span class="ot">rolf_etal_2021</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span> = {A Generalizable and Accessible Approach to Machine Learning with Global Satellite Imagery},</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">author</span> = {Rolf, Esther and Proctor, Jonathan and Carleton, Tamma and Bolliger, Ian and Shankar, Vaishaal and Ishihara, Miyabi and Recht, Benjamin and Hsiang, Solomon},</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">date</span> = {2021-12},</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">journaltitle</span> = {Nature Communications},</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">shortjournal</span> = {Nat Commun},</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">volume</span> = {12},</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">journal</span> = {Nature Communications},</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">doi</span> = {10.1038/s41467-021-24638-z}</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<p>If using features downloaded from the API, please reference, in addition to the publication above, the MOSAIKS API.</p>
-<p>You can cite the API using the following Bibtex:</p>
-<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"> </span><span class="va">@misc</span>{<span class="ot">MOSAIKS</span> <span class="ot">API</span>,</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">author</span> = {{Carleton, Tamma and Chong, Trinetta and Druckenmiller, Hannah and Noda, Eugenio and Proctor, Jonathan and Rolf, Esther and Hsiang, Solomon}},</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span> = {{Multi-Task Observation Using Satellite Imagery and Kitchen Sinks (MOSAIKS) API}},</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">howpublished</span> = "<span class="ch">\url</span><span class="st">{ https://api.mosaiks.org }</span>",</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">number</span> = {1},</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">pages</span> = {4392},</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="dt">issn</span> = {2041-1723},</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">doi</span> = {10.1038/s41467-021-24638-z},</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="dt">url</span> = {http://www.nature.com/articles/s41467-021-24638-z},</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">langid</span> = {english}</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details><p>If using features downloaded from the API, please reference, in addition to the publication above, the MOSAIKS API:</p>
+<blockquote class="blockquote">
+<p>Carleton, T., Chong, T., Druckenmiller, H., Noda, E., Proctor, J., Rolf, E., &amp; Hsiang, S. (2022). Multi-task observation using satellite imagery and kitchen sinks (MOSAIKS) API. Version 1.0. <a href="https://mosaiks.org" target="_blank">mosaiks.org</a>.</p>
+</blockquote>
+<details><summary>
+BibTeX Citation
+</summary><div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="va">@misc</span>{<span class="ot">MOSAIKS_API</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">author</span> = {Carleton, Tamma and Chong, Trinetta and Druckenmiller, Hannah and Noda, Eugenio and Proctor, Jonathan and Rolf, Esther and Hsiang, Solomon},</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span> = {Multi-Task Observation Using Satellite Imagery and Kitchen Sinks (MOSAIKS) API},</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">url</span> = {https://mosaiks.org},</span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">version</span> = {1.0},</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">year</span> = {2022},</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-<div class="callout callout-style-simple callout-note callout-titled">
+</details><div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>

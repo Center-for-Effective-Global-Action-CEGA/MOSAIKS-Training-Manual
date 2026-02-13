@@ -46,4 +46,9 @@ figure.quarto-float-tbl figcaption.quarto-float-caption-bottom {
     color: #6C6C6C;
     font-weight: normal;
   }
-  
+
+/* Hide heading visually but keep in TOC */
+.toc-only > h2 {
+  display: none;
+}
+

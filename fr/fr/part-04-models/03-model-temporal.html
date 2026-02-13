@@ -290,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
-    <a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
+    <a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/" title="Code source" class="quarto-navigation-tool px-1" aria-label="Code source"><i class="bi bi-github"></i></a>
   <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
   <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Basculer en mode lecteur">
   <div class="quarto-reader-toggle-btn">
@@ -616,10 +616,19 @@ Figure&nbsp;18.1: <a href="https://www.esri.com/arcgis-blog/products/arcgis-pro/
 <span class="header-section-number">18.1.2</span> Modèles saisonniers</h3>
 <p>Les processus naturels et axés sur l’homme présentent souvent de solides signaux saisonniers:</p>
 <ul>
-<li><p><strong>Cycles naturels</strong>: La croissance de la végétation, la couverture de neige et l’étendue de l’eau sont toutes influencées par les saisons. Par exemple, les métriques NDVI pourraient être plus informatives pendant les saisons de croissance de pointe (<span class="quarto-unresolved-ref">?fig-ndvi-ts</span>).</p></li>
+<li><p><strong>Cycles naturels</strong>: La croissance de la végétation, la couverture de neige et l’étendue de l’eau sont toutes influencées par les saisons. Par exemple, les métriques NDVI pourraient être plus informatives pendant les saisons de croissance de pointe (<a href="#fig-ndvi-ts" class="quarto-xref">Figure&nbsp;<span>18.2</span></a>).</p></li>
 <li><p><strong>Activités humaines</strong>: Les cycles de culture, les voyages de vacances et la demande de chauffage ou de refroidissement ne sont que quelques exemples de la façon dont le comportement humain peut varier tout au long de l’année. Ces rythmes temporels peuvent introduire des modèles systématiques dans vos données.</p></li>
-<li><p><strong>Extraction des caractéristiques</strong>: Parce que les observations par satellite reflètent les conditions de surface, différentes périodes de l’année peuvent nécessiter des ensembles de features distinctes.Par exemple, les valeurs de réflectance changent lorsque la végétation est sénescente vs lorsqu’elle est pleinement cultivée. De même, les conditions atmosphériques (comme la brume) peuvent être plus répandues à certaines saisons. <img src="https://eos.com/wp-content/uploads/2019/09/ndvi-time-series-main.jpg.webp" id="fig-ndvi-ts" class="img-fluid" alt="EOS Data Analytics visualisation des séries chronologiques de l’indice de végétation de la différence normalisée (NDVI) montrant les tendances saisonnières."></p></li>
-</ul></section><section id="défis-dans-les-applications-de-séries-chronologiques" class="level3" data-number="18.1.3"><h3 data-number="18.1.3" class="anchored" data-anchor-id="défis-dans-les-applications-de-séries-chronologiques">
+<li><p><strong>Extraction des caractéristiques</strong>: Parce que les observations par satellite reflètent les conditions de surface, différentes périodes de l’année peuvent nécessiter des ensembles de features distinctes.Par exemple, les valeurs de réflectance changent lorsque la végétation est sénescente vs lorsqu’elle est pleinement cultivée. De même, les conditions atmosphériques (comme la brume) peuvent être plus répandues à certaines saisons.</p></li>
+</ul>
+<div id="fig-ndvi-ts" class="quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-fig figure"><div aria-describedby="fig-ndvi-ts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img src="https://eos.com/wp-content/uploads/2019/09/ndvi-time-series-main.jpg.webp" class="img-fluid figure-img">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-ndvi-ts-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;18.2: <a href="https://eos.com/blog/satellite-time-series/" target="_blank">EOS Data Analytics</a> visualisation des séries chronologiques de l’indice de végétation de la différence normalisée (NDVI) montrant les tendances saisonnières.
+</figcaption></figure>
+</div>
+</section><section id="défis-dans-les-applications-de-séries-chronologiques" class="level3" data-number="18.1.3"><h3 data-number="18.1.3" class="anchored" data-anchor-id="défis-dans-les-applications-de-séries-chronologiques">
 <span class="header-section-number">18.1.3</span> Défis dans les applications de séries chronologiques</h3>
 <p>Bien que les avantages potentiels de l’analyse des séries chronologiques soient significatifs, il y a quelques pièges communs:</p>
 <section id="données-manquantes" class="level4" data-number="18.1.3.1"><h4 data-number="18.1.3.1" class="anchored" data-anchor-id="données-manquantes">
@@ -634,7 +643,7 @@ Figure&nbsp;18.1: <a href="https://www.esri.com/arcgis-blog/products/arcgis-pro/
 <img src="https://images.zapnito.com/users/671892/posters/63418a1d-06ed-4a01-ab63-01d59342a56d_large.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-cloud-cover-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;18.2: <a href="https://communities.springernature.com/posts/where-and-when-there-are-satellite-data-gaps-due-to-cloud-coverage-and-what-are-the-implications-for-forest-monitoring?badge_id=springer-nature" target="_blank">Visualisation de la couverture nuageuse au dessus de la forêt amazonienne.</a>
+Figure&nbsp;18.3: <a href="https://communities.springernature.com/posts/where-and-when-there-are-satellite-data-gaps-due-to-cloud-coverage-and-what-are-the-implications-for-forest-monitoring?badge_id=springer-nature" target="_blank">Visualisation de la couverture nuageuse au dessus de la forêt amazonienne.</a>
 </figcaption></figure>
 </div>
 <div class="callout callout-style-simple callout-note callout-titled">

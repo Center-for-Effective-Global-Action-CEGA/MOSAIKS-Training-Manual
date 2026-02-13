@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.8.27">
@@ -9,6 +9,8 @@
 <meta name="author" content="Cullen Molitor">
 <meta name="author" content="Tamma Carleton">
 <meta name="author" content="Esther Rolf">
+<meta name="author" content="Gnouyaro Zissler Sogoyou">
+<meta name="author" content="Farooq Sanni">
 
 <title>MOSAIKS Training Manual</title>
 <style>
@@ -22,6 +24,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 /* CSS for citations */
 div.csl-bib-body { }
@@ -84,17 +121,17 @@ div.csl-indent {
   ],
   "show-item-context": false,
   "language": {
-    "search-no-results-text": "Pas de résultats",
-    "search-matching-documents-text": "documents trouvés",
-    "search-copy-link-title": "Copier le lien vers la recherche",
-    "search-hide-matches-text": "Cacher les correspondances additionnelles",
-    "search-more-match-text": "correspondance de plus dans ce document",
-    "search-more-matches-text": "correspondances de plus dans ce document",
-    "search-clear-button-title": "Effacer",
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
     "search-text-placeholder": "",
-    "search-detached-cancel-button-title": "Annuler",
-    "search-submit-button-title": "Envoyer",
-    "search-label": "Recherche"
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
   }
 }</script>
 
@@ -275,8 +312,8 @@ div.csl-indent {
     <span class="navbar-title">MOSAIKS Training Manual</span>
     </a>
   </div>
-            <div id="quarto-search" class="" title="Recherche"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -289,8 +326,8 @@ div.csl-indent {
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools tools-wide">
     <a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/" title="Source Code" class="quarto-navigation-tool px-1" aria-label="Source Code"><i class="bi bi-github"></i></a>
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Basculer le mode sombre"><i class="bi"></i></a>
-  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Basculer en mode lecteur">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+  <a href="" class="quarto-reader-toggle quarto-navigation-tool px-1" onclick="window.quartoToggleReader(); return false;" title="Toggle reader mode">
   <div class="quarto-reader-toggle-btn">
   <i class="bi"></i>
   </div>
@@ -300,11 +337,11 @@ div.csl-indent {
     </nav>
   <nav class="quarto-secondary-nav">
     <div class="container-fluid d-flex">
-      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
         <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Welcome</a></li></ol></nav>
-        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Basculer la barre latérale" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
     </div>
   </nav>
@@ -325,7 +362,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./en/part-00-intro/00-intro.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Introduction</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -360,7 +397,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./en/part-01-labels/00-labels.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Label data</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -395,7 +432,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./en/part-02-satellite/00-satellite.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Satellite imagery</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -424,7 +461,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./en/part-03-features/00-features.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Satellite features</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -459,7 +496,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./en/part-04-models/00-model.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Modeling</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -494,7 +531,7 @@ div.csl-indent {
       <div class="sidebar-item-container"> 
             <a href="./en/part-05-eval/00-eval.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Model evaluation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Basculer la section">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
@@ -532,7 +569,7 @@ div.csl-indent {
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">Table des matières</h2>
+    <h2 id="toc-title">Table of contents</h2>
    
   <ul>
   <li><a href="#welcome" id="toc-welcome" class="nav-link active" data-scroll-target="#welcome">Welcome</a>
@@ -547,9 +584,10 @@ div.csl-indent {
   </ul></li>
   <li><a href="#book-structure-and-content" id="toc-book-structure-and-content" class="nav-link" data-scroll-target="#book-structure-and-content">Book structure and content</a></li>
   <li><a href="#acknowledgements" id="toc-acknowledgements" class="nav-link" data-scroll-target="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#citation-requirements" id="toc-citation-requirements" class="nav-link" data-scroll-target="#citation-requirements">Citation requirements</a></li>
   </ul></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -562,7 +600,7 @@ div.csl-indent {
 
 
 <div class="quarto-title-meta-author">
-  <div class="quarto-title-meta-heading">Auteur·rice·s</div>
+  <div class="quarto-title-meta-heading">Authors</div>
   <div class="quarto-title-meta-heading">Affiliations</div>
   
     <div class="quarto-title-meta-contents">
@@ -570,15 +608,19 @@ div.csl-indent {
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
-            Center for Effective Global Action (CEGA)
+            <a href="https://cega.berkeley.edu/">
+            UC Berkeley Center for Effective Global Action (CEGA)
+            </a>
           </p>
       </div>
     <div class="quarto-title-meta-contents">
-    <p class="author"><a href="https://are.berkeley.edu/users/tamma-carleton">Tamma Carleton</a> </p>
+    <p class="author"><a href="https://are.berkeley.edu/people/tamma-carleton">Tamma Carleton</a> </p>
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
+            <a href="https://are.berkeley.edu/">
             UC Berkeley Department of Agricultural and Resource Economics
+            </a>
           </p>
       </div>
     <div class="quarto-title-meta-contents">
@@ -586,7 +628,29 @@ div.csl-indent {
   </div>
   <div class="quarto-title-meta-contents">
         <p class="affiliation">
+            <a href="https://www.colorado.edu/cs/">
             UC Boulder College of Engineering and Applied Science
+            </a>
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://cega.berkeley.edu/person/gnouyaro-sogoyou/">Gnouyaro Zissler Sogoyou</a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://datalab.gouv.tg/">
+            Togo Data Lab
+            </a>
+          </p>
+      </div>
+    <div class="quarto-title-meta-contents">
+    <p class="author"><a href="https://cega.berkeley.edu/person/farooq-sanni/">Farooq Sanni</a> </p>
+  </div>
+  <div class="quarto-title-meta-contents">
+        <p class="affiliation">
+            <a href="https://datalab.gouv.tg/">
+            Togo Data Lab
+            </a>
           </p>
       </div>
   </div>
@@ -637,14 +701,14 @@ Please select your preferred language:
 <p>Many of the concepts and examples are broadly applicable to the world of remote sensing and machine learning, so even if you are not using MOSAIKS, you may find the content useful.</p>
 <section id="what-is-mosaiks" class="level2">
 <h2 class="anchored" data-anchor-id="what-is-mosaiks">What is MOSAIKS?</h2>
-<p>MOSAIKS stands for <strong><ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</ins>tellite <ins>I</ins>magery &amp; <ins>K</ins>itchen <ins>S</ins>inks</strong> <span class="citation" data-cites="rolf_etal_2021">(<a href="references.html#ref-rolf_etal_2021" role="doc-biblioref">Rolf et al. 2021</a>)</span>. It is a framework designed to simplify the use of satellite imagery and machine learning for predicting socioeconomic and environmental outcomes across different geographic contexts and time periods. MOSAIKS relies on random convolutions (developed in <span class="citation" data-cites="rahimi_recht_2008">Rahimi et Recht (<a href="references.html#ref-rahimi_recht_2008" role="doc-biblioref">2008</a>)</span>) applied to satellite imagery, which is a way to summarize complex information contained in the imagery at a given location. These features are task-agnostic, meaning that researchers and practitioners can apply a single set model many different outcomes, without ever needing to go back to the satellite imagery.</p>
+<p>MOSAIKS stands for <strong><ins>M</ins>ulti-task <ins>O</ins>bservation using <ins>SA</ins>tellite <ins>I</ins>magery &amp; <ins>K</ins>itchen <ins>S</ins>inks</strong> <span class="citation" data-cites="rolf_etal_2021">(<a href="references.html#ref-rolf_etal_2021" role="doc-biblioref">Rolf et al. 2021</a>)</span>. It is a framework designed to simplify the use of satellite imagery and machine learning for predicting socioeconomic and environmental outcomes across different geographic contexts and time periods. MOSAIKS relies on random convolutions (developed in <span class="citation" data-cites="rahimi_recht_2008">Rahimi and Recht (<a href="references.html#ref-rahimi_recht_2008" role="doc-biblioref">2008</a>)</span>) applied to satellite imagery, which is a way to summarize complex information contained in the imagery at a given location. These features are task-agnostic, meaning that researchers and practitioners can apply a single set model many different outcomes, without ever needing to go back to the satellite imagery.</p>
 <div id="fig-mosaiks-in-landsat" class="quarto-float quarto-figure quarto-figure-center anchored">
 <figure class="quarto-float quarto-float-fig figure">
 <div aria-describedby="fig-mosaiks-in-landsat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <img src="images/mosaiks-in-landsat.png" class="img-fluid figure-img">
 </div>
 <figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-mosaiks-in-landsat-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Figure&nbsp;1: MOSAIKS spelled out with imagery from the Landsat Satellite Constellation data catalog <span class="citation" data-cites="yournameinlandsat">(Made with: <a href="references.html#ref-yournameinlandsat" role="doc-biblioref"><span>«&nbsp;Your <span>Name</span> in <span>Landsat</span> 🛰️&nbsp;»</span> 2024</a>)</span>.
+Figure&nbsp;1: MOSAIKS spelled out with imagery from the Landsat Satellite Constellation data catalog <span class="citation" data-cites="yournameinlandsat">(Made with: <a href="references.html#ref-yournameinlandsat" role="doc-biblioref"><span>“Your <span>Name</span> in <span>Landsat</span> 🛰️”</span> 2024</a>)</span>.
 </figcaption>
 </figure>
 </div>
@@ -725,11 +789,11 @@ Figure&nbsp;1: MOSAIKS spelled out with imagery from the Landsat Satellite Const
 <tbody>
 <tr class="odd">
 <td>Introduction</td>
-<td style="text-align: left;">Computing setup, MOSAIKS overview, API access, initial demonstration</td>
+<td style="text-align: left;">MOSAIKS overview, API access, computing setup, initial demonstration</td>
 </tr>
 <tr class="even">
 <td>Label data</td>
-<td style="text-align: left;">Understanding suitable labels, survey integration, data preparation</td>
+<td style="text-align: left;">Understanding label data, data preparation</td>
 </tr>
 <tr class="odd">
 <td>Satellite imagery</td>
@@ -740,11 +804,11 @@ Figure&nbsp;1: MOSAIKS spelled out with imagery from the Landsat Satellite Const
 <td style="text-align: left;">Random convolutional features, API access, feature computation</td>
 </tr>
 <tr class="odd">
-<td>Task modeling</td>
+<td>Modeling</td>
 <td style="text-align: left;">Model selection, spatial analysis, temporal considerations</td>
 </tr>
 <tr class="even">
-<td>Model uncertainty</td>
+<td>Model evaluation</td>
 <td style="text-align: left;">Uncertainty quantification, ethical considerations</td>
 </tr>
 </tbody>
@@ -765,6 +829,7 @@ Table&nbsp;1: Overview of the MOSAIKS Training Manual contents
 <p><strong>MOSAIKS Training Manual Team:</strong> Cullen Molitor, Tamma Carleton, Esther Rolf, Farooq Sanni, Gnouyaro Zissler Sogoyou, Sean Luna McAdams, Heather Lahr</p>
 <p><strong>Partner Organizations:</strong></p>
 <ul>
+<li>Togo Data Lab (<a href="https://datalab.gouv.tg/" target="_blank">TDL</a>)</li>
 <li>Center for Effective Global Action (<a href="https://cega.berkeley.edu/" target="_blank">CEGA</a>; UCB)</li>
 <li>Environmental Markets Lab (<a href="https://emlab.ucsb.edu/" target="_blank">emLab</a>; UCSB)</li>
 <li>Global Policy Lab (<a href="https://www.globalpolicy.science/" target="_blank">GPL</a>; Stanford University)</li>
@@ -780,6 +845,28 @@ Table&nbsp;1: Overview of the MOSAIKS Training Manual contents
 <li><a href="https://www.undp.org/" target="_blank">United Nations Development Programme (UNDP)</a></li>
 </ul>
 <p>We are grateful for the support and contributions of all team members and partner organizations in making MOSAIKS a reality. We hope to continue expanding the framework and its applications to address pressing global challenges.</p>
+</section>
+<section id="citation-requirements" class="level2">
+<h2 class="anchored" data-anchor-id="citation-requirements">Citation requirements</h2>
+<p>When referring to the MOSAIKS handbook, please reference:</p>
+<blockquote class="blockquote">
+<p>Molitor, C., Carleton, T., Rolf, E., Sogoyou, G. Z., &amp; Sanni, F. (2026). MOSAIKS training manual. Version 1.0. <a href="https://center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/" target="_blank">center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/</a></p>
+</blockquote>
+<details>
+<summary>
+BibTeX Citation
+</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode bibtex code-with-copy"><code class="sourceCode bibtex"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="va">@online</span>{<span class="ot">molitor_etal_2026</span>,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    <span class="dt">author</span> = {Molitor, Cullen and Carleton, Tamma and Rolf, Esther and Sogoyou, Gnouyaro Zissler and Sanni, Farooq},</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">title</span> = {{MOSAIKS} Training Manual},</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">date</span> = {2026},</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    <span class="dt">url</span> = {https://center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/},</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="dt">langid</span> = {english, french},</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">organization</span> = {Center for Effective Global Action (CEGA), UC Berkeley},</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">note</span> = {First edition. Bilingual (English/French)},</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">version</span> = {1.0},</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -797,13 +884,13 @@ Table&nbsp;1: Overview of the MOSAIKS Training Manual contents
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-rahimi_recht_2008" class="csl-entry" role="listitem">
-Rahimi, Ali, et Benjamin Recht. 2008. <span>«&nbsp;Uniform Approximation of Functions with Random Bases&nbsp;»</span>. In <em>2008 46th <span>Annual Allerton Conference</span> on <span>Communication</span>, <span>Control</span>, and <span>Computing</span></em>, 555‑61. <a href="https://doi.org/10.1109/ALLERTON.2008.4797607">https://doi.org/10.1109/ALLERTON.2008.4797607</a>.
+Rahimi, Ali, and Benjamin Recht. 2008. <span>“Uniform Approximation of Functions with Random Bases.”</span> In <em>2008 46th <span>Annual Allerton Conference</span> on <span>Communication</span>, <span>Control</span>, and <span>Computing</span></em>, 555–61. <a href="https://doi.org/10.1109/ALLERTON.2008.4797607">https://doi.org/10.1109/ALLERTON.2008.4797607</a>.
 </div>
 <div id="ref-rolf_etal_2021" class="csl-entry" role="listitem">
-Rolf, Esther, Jonathan Proctor, Tamma Carleton, Ian Bolliger, Vaishaal Shankar, Miyabi Ishihara, Benjamin Recht, et Solomon Hsiang. 2021. <span>«&nbsp;A Generalizable and Accessible Approach to Machine Learning with Global Satellite Imagery&nbsp;»</span>. <em>Nature Communications</em> 12 (1): 4392. <a href="https://doi.org/10.1038/s41467-021-24638-z">https://doi.org/10.1038/s41467-021-24638-z</a>.
+Rolf, Esther, Jonathan Proctor, Tamma Carleton, Ian Bolliger, Vaishaal Shankar, Miyabi Ishihara, Benjamin Recht, and Solomon Hsiang. 2021. <span>“A Generalizable and Accessible Approach to Machine Learning with Global Satellite Imagery.”</span> <em>Nature Communications</em> 12 (1): 4392. <a href="https://doi.org/10.1038/s41467-021-24638-z">https://doi.org/10.1038/s41467-021-24638-z</a>.
 </div>
 <div id="ref-yournameinlandsat" class="csl-entry" role="listitem">
-<span>«&nbsp;Your <span>Name</span> in <span>Landsat</span> 🛰️&nbsp;»</span>. 2024. 2024. <a href="https://science.nasa.gov/specials/your-name-in-landsat/">https://science.nasa.gov/specials/your-name-in-landsat/</a>.
+<span>“Your <span>Name</span> in <span>Landsat</span> 🛰️.”</span> 2024. 2024. <a href="https://science.nasa.gov/specials/your-name-in-landsat/">https://science.nasa.gov/specials/your-name-in-landsat/</a>.
 </div>
 </div>
 </section>
@@ -848,12 +935,12 @@ Rolf, Esther, Jonathan Proctor, Tamma Carleton, Ian Bolliger, Vaishaal Shankar, 
       // flash "checked"
       button.classList.add('code-copy-button-checked');
       var currentTitle = button.getAttribute("title");
-      button.setAttribute("title", "Copié");
+      button.setAttribute("title", "Copied!");
       let tooltip;
       if (window.bootstrap) {
         button.setAttribute("data-bs-toggle", "tooltip");
         button.setAttribute("data-bs-placement", "left");
-        button.setAttribute("data-bs-title", "Copié");
+        button.setAttribute("data-bs-title", "Copied!");
         tooltip = new bootstrap.Tooltip(button, 
           { trigger: "manual", 
             customClass: "code-copy-button-tooltip",
@@ -1240,7 +1327,7 @@ Rolf, Esther, Jonathan Proctor, Tamma Carleton, Ian Bolliger, Vaishaal Shankar, 
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Modifier cette page</a></li><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Faire part d'un problème</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/edit/main/index.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This book was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
