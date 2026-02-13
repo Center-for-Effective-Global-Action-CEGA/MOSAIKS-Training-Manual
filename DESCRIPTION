@@ -1,0 +1,10 @@
+Type: Book
+Package: mosaiks.training.manual
+Title: MOSAIKS Training Manual
+Version: 0.0.1
+Imports:
+    downlit,
+    knitr,
+    rmarkdown,
+    tidyverse,
+    xml2

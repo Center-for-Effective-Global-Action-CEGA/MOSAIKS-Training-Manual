@@ -2,8 +2,6 @@ profile:
   group:
     - [default, en, fr]
 
-lang: en
-
 project:
   type: book
 
