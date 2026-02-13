@@ -17,7 +17,62 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../../site_libs/quarto-nav/headroom.min.js"></script>
@@ -494,38 +549,29 @@ ul.task-list li input[type="checkbox"] {
         <nav id="TOC" role="doc-toc" class="toc-active"><h2 id="toc-title">Table of contents</h2>
    
   <ul>
-<li><a href="#why-does-survey-data-needs-its-own-chapter" id="toc-why-does-survey-data-needs-its-own-chapter" class="nav-link active" data-scroll-target="#why-does-survey-data-needs-its-own-chapter"><span class="header-section-number">6.1</span> Why does survey data needs its own chapter?</a></li>
+<li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview"><span class="header-section-number">6.1</span> Overview</a></li>
+  <li><a href="#why-does-survey-data-need-its-own-chapter" id="toc-why-does-survey-data-need-its-own-chapter" class="nav-link" data-scroll-target="#why-does-survey-data-need-its-own-chapter"><span class="header-section-number">6.2</span> Why does survey data need its own chapter?</a></li>
+  <li><a href="#types-of-survey-data" id="toc-types-of-survey-data" class="nav-link" data-scroll-target="#types-of-survey-data"><span class="header-section-number">6.3</span> Types of survey data</a></li>
+  <li><a href="#accessing-survey-data" id="toc-accessing-survey-data" class="nav-link" data-scroll-target="#accessing-survey-data"><span class="header-section-number">6.4</span> Accessing survey data</a></li>
   <li>
-<a href="#types-of-survey-data" id="toc-types-of-survey-data" class="nav-link" data-scroll-target="#types-of-survey-data"><span class="header-section-number">6.2</span> Types of survey data</a>
+<a href="#working-with-survey-data" id="toc-working-with-survey-data" class="nav-link" data-scroll-target="#working-with-survey-data"><span class="header-section-number">6.5</span> Working with survey data</a>
   <ul class="collapse">
-<li><a href="#household-surveys" id="toc-household-surveys" class="nav-link" data-scroll-target="#household-surveys"><span class="header-section-number">6.2.1</span> Household surveys</a></li>
-  <li><a href="#agricultural-surveys" id="toc-agricultural-surveys" class="nav-link" data-scroll-target="#agricultural-surveys"><span class="header-section-number">6.2.2</span> Agricultural surveys</a></li>
-  <li><a href="#economic-surveys" id="toc-economic-surveys" class="nav-link" data-scroll-target="#economic-surveys"><span class="header-section-number">6.2.3</span> Economic surveys</a></li>
+<li><a href="#general-workflow" id="toc-general-workflow" class="nav-link" data-scroll-target="#general-workflow"><span class="header-section-number">6.5.1</span> General workflow</a></li>
+  <li><a href="#sec-dhs-data" id="toc-sec-dhs-data" class="nav-link" data-scroll-target="#sec-dhs-data"><span class="header-section-number">6.5.2</span> DHS data</a></li>
+  <li><a href="#sec-lsms-data" id="toc-sec-lsms-data" class="nav-link" data-scroll-target="#sec-lsms-data"><span class="header-section-number">6.5.3</span> LSMS data</a></li>
   </ul>
 </li>
   <li>
-<a href="#accessing-survey-data" id="toc-accessing-survey-data" class="nav-link" data-scroll-target="#accessing-survey-data"><span class="header-section-number">6.3</span> Accessing survey data</a>
+<a href="#special-considerations-for-survey-labels" id="toc-special-considerations-for-survey-labels" class="nav-link" data-scroll-target="#special-considerations-for-survey-labels"><span class="header-section-number">6.6</span> Special considerations for survey labels</a>
   <ul class="collapse">
-<li><a href="#public-repositories" id="toc-public-repositories" class="nav-link" data-scroll-target="#public-repositories"><span class="header-section-number">6.3.1</span> Public repositories</a></li>
-  <li><a href="#national-statistical-offices" id="toc-national-statistical-offices" class="nav-link" data-scroll-target="#national-statistical-offices"><span class="header-section-number">6.3.2</span> National statistical offices</a></li>
-  <li><a href="#research-institutions" id="toc-research-institutions" class="nav-link" data-scroll-target="#research-institutions"><span class="header-section-number">6.3.3</span> Research institutions</a></li>
+<li><a href="#sampling-weights" id="toc-sampling-weights" class="nav-link" data-scroll-target="#sampling-weights"><span class="header-section-number">6.6.1</span> Sampling weights</a></li>
+  <li><a href="#temporal-alignment" id="toc-temporal-alignment" class="nav-link" data-scroll-target="#temporal-alignment"><span class="header-section-number">6.6.2</span> Temporal alignment</a></li>
+  <li><a href="#representativeness-at-fine-scales" id="toc-representativeness-at-fine-scales" class="nav-link" data-scroll-target="#representativeness-at-fine-scales"><span class="header-section-number">6.6.3</span> Representativeness at fine scales</a></li>
+  <li><a href="#privacy-and-ethics" id="toc-privacy-and-ethics" class="nav-link" data-scroll-target="#privacy-and-ethics"><span class="header-section-number">6.6.4</span> Privacy and ethics</a></li>
   </ul>
 </li>
-  <li>
-<a href="#working-with-survey-data" id="toc-working-with-survey-data" class="nav-link" data-scroll-target="#working-with-survey-data"><span class="header-section-number">6.4</span> Working with survey data</a>
-  <ul class="collapse">
-<li><a href="#lsms-data" id="toc-lsms-data" class="nav-link" data-scroll-target="#lsms-data"><span class="header-section-number">6.4.1</span> LSMS data</a></li>
-  <li><a href="#dhs-data" id="toc-dhs-data" class="nav-link" data-scroll-target="#dhs-data"><span class="header-section-number">6.4.2</span> DHS data</a></li>
-  </ul>
-</li>
-  <li>
-<a href="#remote-sensing-informed-survey-design" id="toc-remote-sensing-informed-survey-design" class="nav-link" data-scroll-target="#remote-sensing-informed-survey-design"><span class="header-section-number">6.5</span> Remote sensing informed survey design</a>
-  <ul class="collapse">
-<li><a href="#pre-survey-planning" id="toc-pre-survey-planning" class="nav-link" data-scroll-target="#pre-survey-planning"><span class="header-section-number">6.5.1</span> Pre-survey planning</a></li>
-  <li><a href="#during-survey-implementation" id="toc-during-survey-implementation" class="nav-link" data-scroll-target="#during-survey-implementation"><span class="header-section-number">6.5.2</span> During survey implementation</a></li>
-  <li><a href="#post-survey-analysis" id="toc-post-survey-analysis" class="nav-link" data-scroll-target="#post-survey-analysis"><span class="header-section-number">6.5.3</span> Post-survey analysis</a></li>
-  </ul>
-</li>
+  <li><a href="#using-survey-predictions-to-extend-survey-reach" id="toc-using-survey-predictions-to-extend-survey-reach" class="nav-link" data-scroll-target="#using-survey-predictions-to-extend-survey-reach"><span class="header-section-number">6.7</span> Using survey predictions to extend survey reach</a></li>
+  <li><a href="#todo" id="toc-todo" class="nav-link" data-scroll-target="#todo"><span class="header-section-number">6.8</span> TODO</a></li>
   </ul><div class="toc-actions"><ul><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/edit/main/en/part-01-labels/02-labels-survey.qmd" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
@@ -556,118 +602,387 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
-<p><strong>Notes:</strong></p>
-<ul>
-<li>Why survey data needs it own section</li>
-<li>Types of survey data</li>
-<li>How to access survey data</li>
-<li>Working with survey data
-<ul>
-<li>LSMS data</li>
-<li>DHS data</li>
+<section id="overview" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="overview">
+<span class="header-section-number">6.1</span> Overview</h2>
+<p>Survey data is one of the most important sources of label data for MOSAIKS, especially in low- and middle-income countries (LMICs) where administrative records may be sparse or incomplete. Household surveys capture detailed information about wealth, health, agriculture, education, and livelihoods—outcomes that are often invisible to satellites but can be predicted indirectly through their relationship with the built and natural environment.</p>
+<p>However, survey data also introduces unique challenges. Surveys follow complex sampling designs, GPS coordinates are often intentionally displaced for privacy, and working with individual-level microdata requires careful aggregation before it can be paired with satellite features. This chapter covers the major types of survey data used with MOSAIKS, how to access them, and the practical considerations for turning survey microdata into usable labels.</p>
+</section><section id="why-does-survey-data-need-its-own-chapter" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="why-does-survey-data-need-its-own-chapter">
+<span class="header-section-number">6.2</span> Why does survey data need its own chapter?</h2>
+<p>Survey data differs from other label sources in ways that directly affect how you prepare it for MOSAIKS:</p>
+<p><strong>Complex sampling designs:</strong> Surveys like DHS and LSMS use stratified, multi-stage cluster sampling rather than simple random sampling. Observations are not evenly distributed across space, and some areas are intentionally oversampled. This means the raw data is not a representative spatial sample, and you need to account for survey design when aggregating to spatial units.</p>
+<p><strong>GPS displacement:</strong> To protect respondent privacy, many surveys deliberately shift the reported GPS coordinates. DHS, for example, displaces urban clusters by up to 2 km and rural clusters by up to 5 km (with 1% displaced up to 10 km). This means the coordinates you receive do not correspond to exact household locations, which has implications for how you match survey data with spatially precise satellite features.</p>
+<p><strong>Household-level microdata:</strong> Survey observations are typically at the household or individual level, but due to the spatial jittering, it is best to aggregate household-level data to a spatial unit that you can confidently match to satellite features. This is usually the survey cluster region or an administrative region.</p>
+<p><strong>Access restrictions:</strong> Unlike other freely available datasets, many surveys require registration, data use agreements, or formal applications before you can download the data. Planning for this lead time is important. This also presents a challenge for reproducibility, since not all users will have access to the same survey datasets.</p>
+<p><strong>Rich but noisy outcomes:</strong> Surveys provide a wealth of variables—from asset ownership to child malnutrition to crop yields—but individual responses are inherently noisy. Aggregation across households within a cluster or region helps smooth this noise and produces more stable labels for prediction.</p>
+<p>Understanding these characteristics upfront will help you avoid common pitfalls and make better use of survey data as MOSAIKS labels.</p>
+</section><section id="types-of-survey-data" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="types-of-survey-data">
+<span class="header-section-number">6.3</span> Types of survey data</h2>
+<p>Several major categories of surveys are commonly used as label data with MOSAIKS.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Household surveys</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">Agricultural surveys</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false" href="">Economic surveys</a></li>
 </ul>
-</li>
-<li>Remote sensing informed survey design</li>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p>Household surveys are the most widely used source of socioeconomic label data in the development context. They collect information on demographics, health, education, employment, and asset ownership through structured interviews with sampled households. The most prominent programs include:</p>
+<ul>
+<li><p><strong><a href="https://dhsprogram.com/" target="_blank">Demographic and Health Surveys (DHS):</a></strong> Standardized, nationally representative surveys conducted in over 90 countries since 1984. DHS data cover health, nutrition, fertility, and household wealth, and are one of the most common sources of label data for MOSAIKS applications in developing countries. DHS surveys use a two-stage cluster sampling design and provide GPS coordinates (displaced) for most survey clusters.</p></li>
+<li><p><strong><a href="https://www.worldbank.org/en/programs/lsms" target="_blank">Living Standards Measurement Study (LSMS):</a></strong> Managed by the World Bank, LSMS surveys are multi-topic household surveys that provide detailed data on consumption, income, agriculture, and living conditions. Many LSMS surveys include a panel component, allowing the same households to be tracked over time. The LSMS-ISA (Integrated Surveys on Agriculture) variant is particularly relevant for agricultural applications, as it combines household and farm-level data.</p></li>
+<li><p><strong><a href="https://mics.unicef.org/" target="_blank">Multiple Indicator Cluster Surveys (MICS):</a></strong> Conducted by UNICEF, MICS surveys focus on children and women, covering indicators related to health, education, child protection, and water and sanitation. MICS uses similar cluster sampling to DHS and provides GPS data in many rounds.</p></li>
+<li><p><strong>National census data:</strong> While not technically a “survey” (since it attempts to enumerate the entire population), census data can serve as label data. Census microdata is available for many countries through <a href="https://international.ipums.org/international/" target="_blank">IPUMS International</a>.</p></li>
 </ul>
-<section id="why-does-survey-data-needs-its-own-chapter" class="level2" data-number="6.1"><h2 data-number="6.1" class="anchored" data-anchor-id="why-does-survey-data-needs-its-own-chapter">
-<span class="header-section-number">6.1</span> Why does survey data needs its own chapter?</h2>
-<p>Survey data presents unique challenges and opportunities when working with MOSAIKS. Unlike many other data sources that may be consistently gathered through automated systems or administrative records, survey data:</p>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p>Agricultural surveys are critical for MOSAIKS applications targeting food security, crop yields, and land use:</p>
 <ul>
-<li>Captures detailed household and individual-level information that’s otherwise unobservable</li>
-<li>Often follows complex sampling designs that need special handling</li>
-<li>May have inconsistent geographic referencing across different surveys</li>
-<li>Requires careful consideration of privacy and ethical concerns</li>
-<li>Can be expensive and time-consuming to collect, making validation of MOSAIKS predictions particularly valuable</li>
-</ul></section><section id="types-of-survey-data" class="level2" data-number="6.2"><h2 data-number="6.2" class="anchored" data-anchor-id="types-of-survey-data">
-<span class="header-section-number">6.2</span> Types of survey data</h2>
-<p>Several major categories of surveys are commonly used with MOSAIKS:</p>
-<section id="household-surveys" class="level3" data-number="6.2.1"><h3 data-number="6.2.1" class="anchored" data-anchor-id="household-surveys">
-<span class="header-section-number">6.2.1</span> Household surveys</h3>
-<ul>
-<li>Living Standards Measurement Study (LSMS)</li>
-<li>Demographic and Health Surveys (DHS)</li>
-<li>Multiple Indicator Cluster Surveys (MICS)</li>
-<li>Labor force surveys</li>
-<li>National census data</li>
-</ul></section><section id="agricultural-surveys" class="level3" data-number="6.2.2"><h3 data-number="6.2.2" class="anchored" data-anchor-id="agricultural-surveys">
-<span class="header-section-number">6.2.2</span> Agricultural surveys</h3>
-<ul>
-<li>Agricultural censuses</li>
-<li>Crop cutting surveys</li>
-<li>Farm management surveys</li>
-<li>Agricultural household surveys</li>
-</ul></section><section id="economic-surveys" class="level3" data-number="6.2.3"><h3 data-number="6.2.3" class="anchored" data-anchor-id="economic-surveys">
-<span class="header-section-number">6.2.3</span> Economic surveys</h3>
-<ul>
-<li>Enterprise surveys</li>
-<li>Market price surveys</li>
-<li>Consumer expenditure surveys</li>
-</ul></section></section><section id="accessing-survey-data" class="level2" data-number="6.3"><h2 data-number="6.3" class="anchored" data-anchor-id="accessing-survey-data">
-<span class="header-section-number">6.3</span> Accessing survey data</h2>
-<p>Survey data access varies by source and type:</p>
-<section id="public-repositories" class="level3" data-number="6.3.1"><h3 data-number="6.3.1" class="anchored" data-anchor-id="public-repositories">
-<span class="header-section-number">6.3.1</span> Public repositories</h3>
-<ul>
-<li>World Bank Microdata Library</li>
-<li>IPUMS International</li>
-<li>DHS Program website</li>
-<li>FAO statistical databases</li>
-</ul></section><section id="national-statistical-offices" class="level3" data-number="6.3.2"><h3 data-number="6.3.2" class="anchored" data-anchor-id="national-statistical-offices">
-<span class="header-section-number">6.3.2</span> National statistical offices</h3>
-<ul>
-<li>Census bureaus</li>
-<li>Agricultural ministries</li>
-<li>Economic agencies</li>
-</ul></section><section id="research-institutions" class="level3" data-number="6.3.3"><h3 data-number="6.3.3" class="anchored" data-anchor-id="research-institutions">
-<span class="header-section-number">6.3.3</span> Research institutions</h3>
-<ul>
-<li>Universities</li>
-<li>Think tanks</li>
-<li>Research organizations</li>
-</ul></section></section><section id="working-with-survey-data" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="working-with-survey-data">
-<span class="header-section-number">6.4</span> Working with survey data</h2>
-<section id="lsms-data" class="level3" data-number="6.4.1"><h3 data-number="6.4.1" class="anchored" data-anchor-id="lsms-data">
-<span class="header-section-number">6.4.1</span> LSMS data</h3>
-<p>The Living Standards Measurement Study (LSMS) requires specific considerations:</p>
-<ul>
-<li>Complex multi-topic household surveys</li>
-<li>Detailed geographic information</li>
-<li>Panel structure in some countries</li>
-<li>Integration with agricultural data</li>
-<li>Varying spatial referencing methods</li>
-</ul></section><section id="dhs-data" class="level3" data-number="6.4.2"><h3 data-number="6.4.2" class="anchored" data-anchor-id="dhs-data">
-<span class="header-section-number">6.4.2</span> DHS data</h3>
-<p>The Demographic and Health Surveys (DHS) present unique characteristics:</p>
-<ul>
-<li>Standardized across countries</li>
-<li>Cluster-based sampling</li>
-<li>Displaced GPS coordinates</li>
-<li>Rich health and demographic indicators</li>
-<li>Regular update cycle</li>
-</ul></section></section><section id="remote-sensing-informed-survey-design" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="remote-sensing-informed-survey-design">
-<span class="header-section-number">6.5</span> Remote sensing informed survey design</h2>
-<p>MOSAIKS can enhance survey design in several ways:</p>
-<section id="pre-survey-planning" class="level3" data-number="6.5.1"><h3 data-number="6.5.1" class="anchored" data-anchor-id="pre-survey-planning">
-<span class="header-section-number">6.5.1</span> Pre-survey planning</h3>
-<ul>
-<li>Optimize sampling frame using satellite-derived information</li>
-<li>Identify areas of interest based on physical characteristics</li>
-<li>Stratify sampling based on predicted characteristics</li>
-</ul></section><section id="during-survey-implementation" class="level3" data-number="6.5.2"><h3 data-number="6.5.2" class="anchored" data-anchor-id="during-survey-implementation">
-<span class="header-section-number">6.5.2</span> During survey implementation</h3>
-<ul>
-<li>Validate location information</li>
-<li>Guide field teams with up-to-date imagery</li>
-<li>Monitor survey progress</li>
-</ul></section><section id="post-survey-analysis" class="level3" data-number="6.5.3"><h3 data-number="6.5.3" class="anchored" data-anchor-id="post-survey-analysis">
-<span class="header-section-number">6.5.3</span> Post-survey analysis</h3>
-<ul>
-<li>Validate survey responses against satellite indicators</li>
-<li>Fill data gaps in hard-to-reach areas</li>
-<li>Create high-resolution predictions from survey samples</li>
+<li><p><strong>Agricultural censuses:</strong> Conducted roughly every 10 years by many national statistical offices, these provide comprehensive data on farm characteristics, land use, and production at fine administrative levels. There are large gaps in coverage, especially in sub-Saharan Africa, but where available they can be a valuable source of labels.</p></li>
+<li><p><strong>Crop Forecasting Surveys (CFS):</strong> Many countries conduct annual or seasonal surveys that estimate crop production at the district level. These are often the primary source of subnational crop yield labels. See <span class="citation" data-cites="molitor_etal_2025">Molitor et al. (<a href="../../references.html#ref-molitor_etal_2025" role="doc-biblioref">2025</a>)</span> for an example of using CFS data with MOSAIKS.</p></li>
+<li><p><strong><a href="https://www.worldbank.org/en/programs/lsms" target="_blank">LSMS Integrated Surveys on Agriculture (LSMS-ISA):</a></strong> As mentioned above, these surveys integrate agricultural modules with household surveys, providing plot-level data on crops, inputs, and yields alongside household socioeconomic information.</p></li>
 </ul>
-<p>Example of using MOSAIKS features for survey planning:</p>
-<p>This integration of MOSAIKS with survey data represents a powerful approach for both enhancing traditional survey methods and extending their reach through satellite-based prediction.</p>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p>Economic surveys capture enterprise-level and market-level information:</p>
+<ul>
+<li><p><strong><a href="https://www.enterprisesurveys.org/" target="_blank">Enterprise Surveys</a></strong> The World Bank’s Enterprise Surveys collect firm-level data on the business environment, including employment, sales, and productivity. These can be useful labels for predicting economic activity.</p></li>
+<li><p><strong>Labor force surveys:</strong> National labor force surveys provide data on employment, wages, and working conditions, typically representative at the first subnational administrative level.</p></li>
+</ul>
+</div>
+</div>
+</div>
+</section><section id="accessing-survey-data" class="level2" data-number="6.4"><h2 data-number="6.4" class="anchored" data-anchor-id="accessing-survey-data">
+<span class="header-section-number">6.4</span> Accessing survey data</h2>
+<p>Access to survey microdata varies by program. Most require registration and an approved data use agreement. Plan for this step early in your project, as approval can take days to weeks.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist">
+<li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">DHS Program</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">American Community Survey (ACS)</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false" href="">World Bank Microdata Library</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false" href="">IPUMS International</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false" href="">UNICEF MICS</a></li>
+<li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-6-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-6" role="tab" aria-controls="tabset-2-6" aria-selected="false" href="">National statistical offices</a></li>
+</ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>The <a href="https://dhsprogram.com/" target="_blank">DHS Program</a> provides free access to survey datasets and GPS data after registration and approval of a brief project description. Standard DHS datasets (household recode, individual recode, etc.) and the geographic datasets (with displaced cluster coordinates) are available as separate downloads.</p>
+<p>For R users, the <a href="https://docs.ropensci.org/rdhs/" target="_blank"><code>rdhs</code></a> package provides a programmatic interface for searching, requesting, and downloading DHS datasets directly from R. This is particularly useful when working across multiple countries or survey rounds:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Install rdhs from CRAN</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"rdhs"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://docs.ropensci.org/rdhs/">rdhs</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Set up your DHS credentials (one-time setup)</span></span>
+<span><span class="fu">set_rdhs_config</span><span class="op">(</span>email <span class="op">=</span> <span class="st">"your.email@example.com"</span>,</span>
+<span>                project <span class="op">=</span> <span class="st">"Your DHS project title"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Search for available datasets</span></span>
+<span><span class="va">datasets</span> <span class="op">&lt;-</span> <span class="fu">dhs_datasets</span><span class="op">(</span>countryIds <span class="op">=</span> <span class="st">"ZM"</span>, surveyType <span class="op">=</span> <span class="st">"DHS"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Download datasets</span></span>
+<span><span class="va">downloads</span> <span class="op">&lt;-</span> <span class="fu">get_datasets</span><span class="op">(</span><span class="va">datasets</span><span class="op">$</span><span class="va">FileName</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<p>The <code>rdhs</code> package handles authentication, caching, and parsing of DHS data formats automatically. See the <a href="https://docs.ropensci.org/rdhs/" target="_blank">full documentation</a> for details on querying indicators, extracting variables, and working with spatial data.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>DHS geographic datasets must be requested separately from the survey datasets. When submitting your DHS data request, make sure to explicitly request the GPS/GIS data in addition to the survey recode files.</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>The <a href="https://www.census.gov/programs-surveys/acs/" target="_blank">ACS</a> is a continuous survey conducted by the US Census Bureau that provides detailed demographic, social, economic, and housing data for the United States. ACS data is available at various spatial resolutions, including census tracts and block groups, making it a valuable source of labels for MOSAIKS applications in the US. ACS data can be accessed through the <a href="https://walker-data.com/tidycensus/" target="_blank">tidycensus</a> R package, which provides an interface to the Census API:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="downlit sourceCode r code-with-copy"><code class="sourceCode R"><span><span class="co"># Install tidycensus from CRAN</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"tidycensus"</span><span class="op">)</span>  </span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://walker-data.com/tidycensus/">tidycensus</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Set up your Census API key (one-time setup)</span></span>
+<span><span class="fu">census_api_key</span><span class="op">(</span><span class="st">"your_census_api_key"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># Get ACS data for a specific variable (e.g., median household income) at the tract level</span></span>
+<span><span class="va">acs_data</span> <span class="op">&lt;-</span> <span class="fu">get_acs</span><span class="op">(</span>geography <span class="op">=</span> <span class="st">"tract"</span>, variables <span class="op">=</span> <span class="st">"B19013_001"</span>, state <span class="op">=</span> <span class="st">"CA"</span>, year <span class="op">=</span> <span class="fl">2020</span><span class="op">)</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>The <a href="https://microdata.worldbank.org/" target="_blank">World Bank Microdata Library</a> hosts LSMS surveys and many other household and enterprise surveys. Access typically requires accepting the terms of use, and some datasets require a formal application. LSMS-ISA data for African countries can also be accessed through the <a href="https://www.worldbank.org/en/programs/lsms/initiatives/lsms-ISA" target="_blank">LSMS-ISA website</a>.</p>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<p><a href="https://international.ipums.org/international/" target="_blank">IPUMS International</a> provides harmonized census microdata from over 100 countries. IPUMS is especially useful when you need a consistent set of variables across countries and census rounds. Registration is free, and most datasets are available for research use.</p>
+</div>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<p>MICS survey data and reports are available through the <a href="https://mics.unicef.org/" target="_blank">UNICEF MICS website</a>. Data access requires registration and approval.</p>
+</div>
+<div id="tabset-2-6" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-6-tab">
+<p>Many countries publish survey data through their national statistical offices. The availability, format, and access requirements vary widely. For agricultural surveys in particular, data is often obtained directly from the relevant ministry of agriculture.</p>
+</div>
+</div>
+</div>
+</section><section id="working-with-survey-data" class="level2" data-number="6.5"><h2 data-number="6.5" class="anchored" data-anchor-id="working-with-survey-data">
+<span class="header-section-number">6.5</span> Working with survey data</h2>
+<section id="general-workflow" class="level3" data-number="6.5.1"><h3 data-number="6.5.1" class="anchored" data-anchor-id="general-workflow">
+<span class="header-section-number">6.5.1</span> General workflow</h3>
+<p>The typical workflow for converting survey microdata into MOSAIKS labels involves several steps:</p>
+<ol type="1">
+<li>
+<strong>Request access</strong> to the survey microdata and geographic datasets.</li>
+<li>
+<strong>Download and load</strong> the survey data and geographic (GPS) dataset.</li>
+<li>
+<strong>Select variables</strong> of interest from the household or individual-level data.</li>
+<li>
+<strong>Aggregate</strong> both <em>survey labels</em> and <em>satellite features</em> to the appropriate spatial unit (usually the survey cluster or administrative region).</li>
+<li>
+<strong>Join</strong> the aggregated labels with the aggregated satellite features.</li>
+<li>
+<strong>Model</strong> the relationship between features and labels.</li>
+<li>
+<strong>Predict</strong> outcomes in unsurveyed locations, different time periods, or at a different spatial resolution (i.e.&nbsp;low res model to high res prediction).</li>
+</ol>
+<p>The specifics depend on the survey program and the target spatial resolution. Below, we walk through the two most common sources: DHS and LSMS.</p>
+</section><section id="sec-dhs-data" class="level3" data-number="6.5.2"><h3 data-number="6.5.2" class="anchored" data-anchor-id="sec-dhs-data">
+<span class="header-section-number">6.5.2</span> DHS data</h3>
+<p>DHS surveys are one of the most widely used sources of label data for satellite-based prediction. The standardized design across countries and the availability of GPS coordinates make DHS data particularly well-suited for MOSAIKS applications.</p>
+<section id="survey-design" class="level4" data-number="6.5.2.1"><h4 data-number="6.5.2.1" class="anchored" data-anchor-id="survey-design">
+<span class="header-section-number">6.5.2.1</span> Survey design</h4>
+<p>DHS uses a two-stage stratified cluster sampling design:</p>
+<ol type="1">
+<li>
+<strong>First stage:</strong> Enumeration areas (EAs), also called clusters, are selected from the national census sampling frame with probability proportional to size.</li>
+<li>
+<strong>Second stage:</strong> A fixed number of households (typically 25–30) are randomly selected within each cluster.</li>
+</ol>
+<p>Each DHS survey typically includes 200–400 clusters distributed across the country, with both urban and rural strata. This design means the data is representative at the national level and usually at the first subnational administrative level, but not at finer spatial scales.</p>
+</section><section id="gps-displacement" class="level4" data-number="6.5.2.2"><h4 data-number="6.5.2.2" class="anchored" data-anchor-id="gps-displacement">
+<span class="header-section-number">6.5.2.2</span> GPS displacement</h4>
+<p>To protect the privacy of survey respondents, DHS displaces the published GPS coordinates of each cluster:</p>
+<div id="tbl-dhs-displacement" class="striped hover quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[20, 15, 65]">
+<figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-dhs-displacement-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 15%">
+<col style="width: 65%">
+</colgroup>
+<thead><tr class="header">
+<th>Area type</th>
+<th>Maximum displacement</th>
+<th>Note</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Urban</td>
+<td>2 km</td>
+<td>Random direction, usually within the administrative boundary</td>
+</tr>
+<tr class="even">
+<td>Rural</td>
+<td>5 km</td>
+<td>Random direction, usually within the administrative boundary</td>
+</tr>
+<tr class="odd">
+<td>Rural (1%)</td>
+<td>10 km</td>
+<td>Random direction, usually within the administrative boundary</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-dhs-displacement-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6.1: DHS GPS displacement distances by area type.
+</figcaption></figure>
+</div>
+<p>Displacement is constrained so that the displaced point remains within the same administrative boundary as the true location. This displacement introduces spatial error, which is important to keep in mind when matching DHS clusters with MOSAIKS features at fine resolutions (0.01°). At coarser resolutions (e.g., administrative level 1 or 2), displacement is less of a concern since the cluster remains within the correct boundary.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>When working with DHS GPS data at fine spatial resolution, consider using administrative-level aggregation instead of cluster-level coordinates to reduce the impact of GPS displacement on your analysis.</p>
+</div>
+</div>
+</div>
+</section><section id="common-dhs-variables-used-as-labels" class="level4" data-number="6.5.2.3"><h4 data-number="6.5.2.3" class="anchored" data-anchor-id="common-dhs-variables-used-as-labels">
+<span class="header-section-number">6.5.2.3</span> Common DHS variables used as labels</h4>
+<p>DHS data provides a wide range of potential labels. Some commonly used outcomes include:</p>
+<div id="tbl-dhs-variables" class="striped hover quarto-float quarto-figure quarto-figure-center anchored">
+<figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-dhs-variables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover table">
+<thead><tr class="header">
+<th>Variable</th>
+<th>DHS module</th>
+<th>Typical aggregation</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Wealth index</td>
+<td>Household</td>
+<td>Cluster mean</td>
+</tr>
+<tr class="even">
+<td>Child stunting</td>
+<td>Children’s health</td>
+<td>Cluster prevalence</td>
+</tr>
+<tr class="odd">
+<td>Malaria prevalence</td>
+<td>Biomarkers</td>
+<td>Cluster prevalence</td>
+</tr>
+<tr class="even">
+<td>Education (years)</td>
+<td>Individual</td>
+<td>Cluster mean</td>
+</tr>
+<tr class="odd">
+<td>Access to electricity</td>
+<td>Household</td>
+<td>Cluster proportion</td>
+</tr>
+<tr class="even">
+<td>Access to clean water</td>
+<td>Household</td>
+<td>Cluster proportion</td>
+</tr>
+<tr class="odd">
+<td>Vaccination coverage</td>
+<td>Children’s health</td>
+<td>Cluster prevalence</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-dhs-variables-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6.2: Common DHS variables used as MOSAIKS labels, with typical aggregation method.
+</figcaption></figure>
+</div>
+</section><section id="aggregation-to-clusters" class="level4" data-number="6.5.2.4"><h4 data-number="6.5.2.4" class="anchored" data-anchor-id="aggregation-to-clusters">
+<span class="header-section-number">6.5.2.4</span> Aggregation to clusters</h4>
+<p>Since MOSAIKS predicts at spatial units (grid cells or administrative regions), you must aggregate household-level DHS data to the cluster level before joining with features. For each cluster, you typically compute:</p>
+<ul>
+<li>
+<strong>Means</strong> for continuous variables (e.g., average wealth index score)</li>
+<li>
+<strong>Proportions</strong> for binary variables (e.g., fraction of households with electricity)</li>
+<li>
+<strong>Prevalence</strong> for health outcomes (e.g., proportion of children stunted)</li>
+</ul>
+<p>When computing cluster-level summaries, use the DHS household sampling weights to account for the survey design. This ensures that the cluster-level estimate is representative of the population in that area rather than just the sampled households.</p>
+</section></section><section id="sec-lsms-data" class="level3" data-number="6.5.3"><h3 data-number="6.5.3" class="anchored" data-anchor-id="sec-lsms-data">
+<span class="header-section-number">6.5.3</span> LSMS data</h3>
+<p>LSMS surveys are multi-topic household surveys managed by the World Bank. They differ from DHS in several important ways that affect how you use them as label data.</p>
+<section id="key-differences-from-dhs" class="level4" data-number="6.5.3.1"><h4 data-number="6.5.3.1" class="anchored" data-anchor-id="key-differences-from-dhs">
+<span class="header-section-number">6.5.3.1</span> Key differences from DHS</h4>
+<div id="tbl-dhs-lsms" class="striped hover quarto-float quarto-figure quarto-figure-center anchored" data-tbl-colwidths="[20, 25, 55]">
+<figure class="quarto-float quarto-float-tbl figure"><div aria-describedby="tbl-dhs-lsms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table class="table-striped table-hover table">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 25%">
+<col style="width: 55%">
+</colgroup>
+<thead><tr class="header">
+<th>Feature</th>
+<th>DHS</th>
+<th>LSMS</th>
+</tr></thead>
+<tbody>
+<tr class="odd">
+<td>Standardization</td>
+<td>Highly standardized across countries</td>
+<td>Varies by country; adapted to local context</td>
+</tr>
+<tr class="even">
+<td>GPS data</td>
+<td>Displaced cluster coordinates</td>
+<td>Often includes community or EA coordinates; displacement varies</td>
+</tr>
+<tr class="odd">
+<td>Panel structure</td>
+<td>Repeated cross-sections</td>
+<td>Many include panel households</td>
+</tr>
+<tr class="even">
+<td>Agricultural data</td>
+<td>Limited</td>
+<td>Detailed plot-level data (LSMS-ISA)</td>
+</tr>
+<tr class="odd">
+<td>Primary focus</td>
+<td>Health and demographics</td>
+<td>Consumption, poverty, agriculture</td>
+</tr>
+</tbody>
+</table>
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-tbl" id="tbl-dhs-lsms-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;6.3: Comparison of DHS and LSMS surveys for use as MOSAIKS labels.
+</figcaption></figure>
+</div>
+</section><section id="working-with-lsms-geographic-data" class="level4" data-number="6.5.3.2"><h4 data-number="6.5.3.2" class="anchored" data-anchor-id="working-with-lsms-geographic-data">
+<span class="header-section-number">6.5.3.2</span> Working with LSMS geographic data</h4>
+<p>Unlike DHS, LSMS does not have a single standardized approach to geographic data. Some LSMS surveys provide community-level GPS coordinates (which may or may not be displaced), while others provide only administrative unit identifiers. You will need to check the documentation for each specific survey to understand what geographic information is available and how it has been processed.</p>
+<p>For LSMS-ISA surveys, geographic data typically includes:</p>
+<ul>
+<li>Community or enumeration area coordinates</li>
+<li>Administrative region identifiers at multiple levels</li>
+<li>Distance to key infrastructure (roads, markets, etc.)</li>
+</ul></section><section id="agricultural-labels-from-lsms-isa" class="level4" data-number="6.5.3.3"><h4 data-number="6.5.3.3" class="anchored" data-anchor-id="agricultural-labels-from-lsms-isa">
+<span class="header-section-number">6.5.3.3</span> Agricultural labels from LSMS-ISA</h4>
+<p>LSMS-ISA surveys are particularly valuable for agricultural applications because they provide plot-level data on:</p>
+<ul>
+<li>Crop types planted and harvested</li>
+<li>Crop yields (production per unit area)</li>
+<li>Input use (fertilizer, seeds, labor)</li>
+<li>Land area measurements (including GPS-measured plot areas)</li>
+<li>Agricultural asset ownership</li>
+</ul>
+<p>To create labels from LSMS-ISA agricultural data, you typically need to:</p>
+<ol type="1">
+<li>Merge the plot-level crop data with household identifiers.</li>
+<li>Aggregate from plot level to household level (e.g., total yield per household).</li>
+<li>Further aggregate to the community or administrative level.</li>
+<li>Join with geographic coordinates.</li>
+</ol>
+<p>This multi-level aggregation can be involved, but the resulting labels provide rich information about agricultural productivity that is difficult to obtain from other sources.</p>
+</section></section></section><section id="special-considerations-for-survey-labels" class="level2" data-number="6.6"><h2 data-number="6.6" class="anchored" data-anchor-id="special-considerations-for-survey-labels">
+<span class="header-section-number">6.6</span> Special considerations for survey labels</h2>
+<section id="sampling-weights" class="level3" data-number="6.6.1"><h3 data-number="6.6.1" class="anchored" data-anchor-id="sampling-weights">
+<span class="header-section-number">6.6.1</span> Sampling weights</h3>
+<p>Most surveys assign sampling weights to each household to account for the probability of selection. When aggregating to spatial units for use as MOSAIKS labels, you should use these weights. Ignoring them can introduce bias, particularly when the sampling design oversamples certain populations (e.g., urban areas or ethnic minorities).</p>
+</section><section id="temporal-alignment" class="level3" data-number="6.6.2"><h3 data-number="6.6.2" class="anchored" data-anchor-id="temporal-alignment">
+<span class="header-section-number">6.6.2</span> Temporal alignment</h3>
+<p>Survey data is collected over a period of months, and the fieldwork dates vary across clusters within a single survey. When matching with satellite features, you should consider:</p>
+<ul>
+<li><p><strong>Survey year vs.&nbsp;imagery year:</strong> If you are using MOSAIKS API features derived from a specific time period, check that your survey data is from a comparable period. Slowly changing variables (like wealth or education) are more forgiving of temporal mismatch than rapidly changing variables (like crop conditions).</p></li>
+<li><p><strong>Seasonality:</strong> Agricultural surveys and some health outcomes (like malaria prevalence) are strongly seasonal. Make sure your imagery features correspond to the relevant season.</p></li>
+</ul></section><section id="representativeness-at-fine-scales" class="level3" data-number="6.6.3"><h3 data-number="6.6.3" class="anchored" data-anchor-id="representativeness-at-fine-scales">
+<span class="header-section-number">6.6.3</span> Representativeness at fine scales</h3>
+<p>DHS and LSMS surveys are designed to be representative at the national level and typically at the first subnational administrative level. They are <strong>not</strong> designed to be representative at finer scales (e.g., districts or grid cells). When you use cluster-level data as labels, keep in mind that each cluster represents a small, non-random sample of that location. Aggregating to larger administrative units (ADM1 or ADM2) can improve representativeness but reduces the number of observations available for model training (see <a href="03-labels-data-prep.html" class="quarto-xref"><span>Chapter 7</span></a> for discussion of sample size trade-offs).</p>
+</section><section id="privacy-and-ethics" class="level3" data-number="6.6.4"><h3 data-number="6.6.4" class="anchored" data-anchor-id="privacy-and-ethics">
+<span class="header-section-number">6.6.4</span> Privacy and ethics</h3>
+<p>Survey data often contains sensitive personal information. Even when GPS coordinates are displaced, the combination of geographic location and household characteristics can sometimes allow re-identification. Follow the data use agreements for each survey program, and do not publish or share identifiable microdata. When publishing results, report predictions at a spatial resolution that does not compromise respondent privacy.</p>
+</section></section><section id="using-survey-predictions-to-extend-survey-reach" class="level2" data-number="6.7"><h2 data-number="6.7" class="anchored" data-anchor-id="using-survey-predictions-to-extend-survey-reach">
+<span class="header-section-number">6.7</span> Using survey predictions to extend survey reach</h2>
+<p>One of the most compelling applications of MOSAIKS with survey data is the ability to generate predictions in locations where no survey data exists. By training a model on survey labels paired with satellite features, you can:</p>
+<ul>
+<li>
+<strong>Fill spatial gaps:</strong> Predict outcomes at locations between survey clusters, producing wall-to-wall maps from sparse survey data.</li>
+<li>
+<strong>Extend to unsurveyed areas:</strong> Apply models trained in one region to generate predictions in neighboring areas that were not included in the survey.</li>
+<li>
+<strong>Increase temporal frequency:</strong> Surveys are typically conducted every 3–5 years. If satellite features are available annually, you can generate interim predictions between survey rounds (with appropriate caution; see <span class="quarto-unresolved-ref">?sec-model-temporal</span>).</li>
+<li>
+<strong>Support survey design:</strong> Use MOSAIKS predictions from previous rounds to optimize sampling frames for future surveys—for example, by stratifying on predicted wealth to improve the efficiency of new data collection.</li>
+</ul>
+<p>These applications do not replace traditional surveys but can substantially improve their value by extending sparse survey observations across space and time.</p>
+</section><section id="todo" class="level2" data-number="6.8"><h2 data-number="6.8" class="anchored" data-anchor-id="todo">
+<span class="header-section-number">6.8</span> TODO</h2>
+<p>Add details about collecting your own survey data using adaptive sampling informed by MOSAIKS predictions.</p>
+<p><span class="citation" data-cites="betti_etal_2025a">Betti et al. (<a href="../../references.html#ref-betti_etal_2025a" role="doc-biblioref">2025</a>)</span></p>
 <div class="callout callout-style-simple callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -683,7 +998,15 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
-</section></section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-betti_etal_2025a" class="csl-entry" role="listitem">
+Betti, Livia, Farooq Sanni, Gnouyaro Sogoyou, Togbe Agbagla, Cullen Molitor, Tamma Carleton, and Esther Rolf. 2025. <span>“Mapping on a <span>Budget</span>: <span>Optimizing Spatial Data Collection</span> for <span>ML</span>.”</span> September 3, 2025. <a href="https://doi.org/10.48550/arXiv.2509.03749">https://doi.org/10.48550/arXiv.2509.03749</a>.
+</div>
+<div id="ref-molitor_etal_2025" class="csl-entry" role="listitem">
+Molitor, Cullen, Juliet Cohen, Grace Lewin, Steven Cognac, Protensia Hadunka, Jonathan Proctor, and Tamma Carleton. 2025. <span>“Monitoring <span>Maize Yield Variability</span> over <span>Space</span> and <span>Time</span> with <span>Unsupervised Satellite Imagery Features</span>.”</span> <em>Remote Sensing</em> 17 (21). <a href="https://doi.org/10.3390/rs17213641">https://doi.org/10.3390/rs17213641</a>.
+</div>
+</div>
+</section></main><!-- /main --><script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
     if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
