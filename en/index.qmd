@@ -1,4 +1,5 @@
 ---
+engine: knitr
 format:
   html:
     code-fold: true
@@ -91,12 +92,12 @@ This manual is organized into six main parts, each focusing on a critical aspect
 
 | Part | Description |
 |------|:------------|
-| [Introduction](#sec-intro) | MOSAIKS overview, API access, computing setup, initial demonstration |
-| [Label data](#sec-labels) | Understanding label data, data preparation |
-| [Satellite imagery](#sec-sat-img) | Selecting appropriate imagery, processing considerations |
-| [Satellite features](#sec-sat-features) | Random convolutional features, API access, feature computation |
-| [Modeling](#sec-model) | Model selection, spatial analysis, temporal considerations |
-| [Model evaluation](#sec-eval) | Uncertainty quantification, ethical considerations |
+| Introduction | MOSAIKS overview, API access, computing setup, initial demonstration |
+| Label data | Understanding label data, data preparation |
+| Satellite imagery | Selecting appropriate imagery, processing considerations |
+| Satellite features | Random convolutional features, API access, feature computation |
+| Modeling | Model selection, spatial analysis, temporal considerations |
+| Model evaluation | Uncertainty quantification, ethical considerations |
 
 : Overview of the MOSAIKS Training Manual contents {#tbl-part-outline .striped .hover}
 
@@ -139,6 +140,7 @@ When referring to the MOSAIKS handbook, please reference:
 > Molitor, C., Carleton, T., Rolf, E., Sogoyou, G. Z., & Sanni, F. (2026). MOSAIKS training manual. Version 1.0. [center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/](https://center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/)
 
 ```{bibtex}
+#| eval: false
 @online{molitor_etal_2026,
     author = {Molitor, Cullen and Carleton, Tamma and Rolf, Esther and Sogoyou, Gnouyaro Zissler and Sanni, Farooq},
     title = {{MOSAIKS} Training Manual},
