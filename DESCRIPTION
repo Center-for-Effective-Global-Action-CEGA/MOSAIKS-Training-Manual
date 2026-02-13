@@ -7,4 +7,5 @@ Imports:
     knitr,
     rmarkdown,
     tidyverse,
-    xml2
+    xml2,
+    DT

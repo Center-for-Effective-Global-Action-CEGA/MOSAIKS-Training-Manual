@@ -1,0 +1,116 @@
+Category,Variable,R2
+Agricultural Assets,Ag land ownership (% HH),0.58
+Agricultural Assets,Livestock ownership (% HH),0.61
+Agricultural Assets,"Livestock sales ($/yr/HH)",0.30
+Agricultural Assets,"Livestock value ($/HH)",0.28
+Agricultural Assets,"Produce sales ($/yr/HH)",0.01
+Agriculture,Ag involvement (% HH),0.62
+Agriculture,Global cropped area (%),0.70
+Agriculture,Global irrigated area (%),0.52
+Agriculture,Global maize cropped area (%),0.62
+Agriculture,Global pasture area (%),0.64
+Agriculture,Global rice cropped area (%),0.63
+Agriculture,Global soy cropped area (%),0.51
+Agriculture,Global wheat cropped area (%),0.60
+Agriculture,"Maize yield (kg/ha)",0.90
+Agriculture,"Soy yield (kg/ha)",0.80
+Agriculture,US cotton cropped area (%),0.31
+Agriculture,US maize cropped area (%),0.66
+Agriculture,US nontree cropped area (%),0.78
+Agriculture,US soy cropped area (%),0.70
+Agriculture,US tree cropped area (%),0.16
+Agriculture,US wheat cropped area (%),0.47
+Built Infrastructure,Building age (median yr built),0.59
+Built Infrastructure,Building footprint area (%),0.78
+Built Infrastructure,"Crude oil pipelines (km/km²)",0.00
+Built Infrastructure,"HGL pipelines (km/km²)",0.00
+Built Infrastructure,"Housing density (units/km²)",0.86
+Built Infrastructure,Housing units occupied (%),0.40
+Built Infrastructure,Housing units vacant (%),0.40
+Built Infrastructure,"Petroleum pipelines (km/km²)",0.00
+Built Infrastructure,"Road length (km/km²)",0.65
+Demographics,Food stamps (% HH),0.43
+Demographics,"Households (HH/km²)",0.89
+Demographics,Median age (yrs),0.34
+Demographics,"Population (pop/km²)",0.88
+Demographics,Recent birth (% women),0.03
+Education,Bachelors degree (% pop ≥ 25 yrs),0.49
+Education,Expected schooling (yrs),0.65
+Education,Female literacy (% pop),0.55
+Education,Graduate degree (% pop ≥ 25 yrs),0.49
+Education,Higher edu (% of pop ≥ 6 yrs),0.44
+Education,Less than high school degree (% pop ≥ 25 yrs),0.43
+Education,Male literacy (% pop),0.40
+Education,Primary edu (% of pop ≥ 6 yrs),0.42
+Education,Schooling (yrs),0.72
+Education,Secondary edu (% of pop ≥ 6 yrs),0.52
+Health,Child height-for-age (z-score),0.20
+Health,Child malaria (%),0.41
+Health,"Child mortality (deaths < 5 yr/1000 live births)",0.22
+Health,Child overweight (% pop ≤ 5 yr),0.08
+Health,Child overweight-for-age (% pop ≤ 5 yr),0.03
+Health,Child stunting (% pop ≤ 5 yr),0.20
+Health,Child underweight-for-age (% pop ≤ 5 yr),0.32
+Health,Child wasting (% pop ≤ 5 yr),0.26
+Health,Child weight-for-age (z-score),0.44
+Health,Child weight-for-height (z-score),0.39
+Health,Food coping (index),0.43
+Health,Food worrying (% HH on past wk),0.49
+Health,"Infant mortality (deaths ≤ 1 yr/1000 live births)",0.12
+Health,Life expectancy (yrs),0.72
+Health,"Neonatal mortality (deaths ≤ 1 mo/1000 live births)",0.07
+Household Assets,Bedrooms (per HH),0.48
+Household Assets,Bike ownership (% HH),0.68
+Household Assets,Car ownership (% HH),0.53
+Household Assets,Cellphone ownership DHS (% HH),0.51
+Household Assets,Cellphone ownership LSMS (% HH),0.36
+Household Assets,Computer ownership (% pop),0.32
+Household Assets,Drinking water access (avg mins),0.57
+Household Assets,Electricity access (% HH),0.67
+Household Assets,Floor material (index),0.64
+Household Assets,Flush toilet (% HH),0.65
+Household Assets,"Home value ($)",0.62
+Household Assets,Homes w LP gas (%),0.63
+Household Assets,Improved water source (% HH),0.36
+Household Assets,Intl Wealth Index,0.74
+Household Assets,Landline telephone (% HH),0.52
+Household Assets,Latrine (% HH),0.66
+Household Assets,No sanitation facility (% HH),0.62
+Household Assets,Refrigerator ownership (% HH),0.72
+Household Assets,Sleeping rooms (per HH),0.33
+Household Assets,TV ownership (% HH),0.68
+Household Assets,Vehicle ownership (per HH),0.66
+Income,"Consumption ($/pop)",0.54
+Income,"Gross Natl Income ($/pop)",0.72
+Income,"Gross rent ($)",0.53
+Income,Human Dev Index,0.78
+Income,"Income ($/pop)",0.49
+Income,Income:poverty ratio,0.21
+Income,"Nighttime lights radiance (nW/cm2/sr)",0.52
+Income,Receiving loan (% HH),0.20
+Income,Rejected for loan (% HH),0.04
+Natural Systems,Bee diversity (species),0.06
+Natural Systems,Bird diversity (species),0.55
+Natural Systems,Elevation (m),0.62
+Natural Systems,Forest cover (%),0.89
+Natural Systems,Gravitational anomaly (milligal),0.33
+Natural Systems,"Gravitational anomaly change (cm ewh/yr)",0.62
+Natural Systems,Ruggedness (m),0.53
+Natural Systems,Tree diversity (species),0.74
+Occupation,Empl in sales/office (%),0.08
+Occupation,Empl in service (%),0.30
+Occupation,Men empl in ag (%),0.45
+Occupation,Men empl in clerical (%),0.04
+Occupation,Men empl in domestic (%),0.22
+Occupation,Men empl in professional (%),0.13
+Occupation,Men empl in service (%),0.19
+Occupation,Men empl in skilled labor (%),0.19
+Occupation,Men empl in unskilled labor (%),0.13
+Occupation,Unemployment (%),0.20
+Occupation,Women empl in ag (%),0.47
+Occupation,Women empl in clerical (%),0.21
+Occupation,Women empl in domestic (%),0.27
+Occupation,Women empl in professional (%),0.30
+Occupation,Women empl in service (%),0.32
+Occupation,Women empl in skilled labor (%),0.16
+Occupation,Women empl in unskilled labor (%),0.27
