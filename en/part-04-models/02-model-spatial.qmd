@@ -25,7 +25,7 @@ status("draft_en")
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/center-for-effective-global-action-cega/MOSAIKS-Training-Manual/blob/main/notebooks/demo/09-model_asm_demo.ipynb)  
 <!-- &uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;   -->
 
-Remember to click `File -> Save a copy in Drive` to save any changes you make.
+<!-- Remember to click `File -> Save a copy in Drive` to save any changes you make.
 ::: -->
 
 ## Spatial interpolation
