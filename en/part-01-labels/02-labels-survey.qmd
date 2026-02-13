@@ -8,121 +8,293 @@ source("../../_common.R")
 status("review_en")
 ```
 
-**Notes:**
+## Overview
 
-- Why survey data needs it own section
-- Types of survey data
-- How to access survey data
-- Working with survey data
-    - LSMS data
-    - DHS data
-- Remote sensing informed survey design
+Survey data is one of the most important sources of label data for MOSAIKS, especially in low- and middle-income countries (LMICs) where administrative records may be sparse or incomplete. Household surveys capture detailed information about wealth, health, agriculture, education, and livelihoods—outcomes that are often invisible to satellites but can be predicted indirectly through their relationship with the built and natural environment.
 
-## Why does survey data needs its own chapter?
+However, survey data also introduces unique challenges. Surveys follow complex sampling designs, GPS coordinates are often intentionally displaced for privacy, and working with individual-level microdata requires careful aggregation before it can be paired with satellite features. This chapter covers the major types of survey data used with MOSAIKS, how to access them, and the practical considerations for turning survey microdata into usable labels.
 
-Survey data presents unique challenges and opportunities when working with MOSAIKS. Unlike many other data sources that may be consistently gathered through automated systems or administrative records, survey data:
+## Why does survey data need its own chapter?
 
-- Captures detailed household and individual-level information that's otherwise unobservable
-- Often follows complex sampling designs that need special handling
-- May have inconsistent geographic referencing across different surveys
-- Requires careful consideration of privacy and ethical concerns
-- Can be expensive and time-consuming to collect, making validation of MOSAIKS predictions particularly valuable
+Survey data differs from other label sources in ways that directly affect how you prepare it for MOSAIKS:
+
+**Complex sampling designs:** Surveys like DHS and LSMS use stratified, multi-stage cluster sampling rather than simple random sampling. Observations are not evenly distributed across space, and some areas are intentionally oversampled. This means the raw data is not a representative spatial sample, and you need to account for survey design when aggregating to spatial units.
+
+**GPS displacement:** To protect respondent privacy, many surveys deliberately shift the reported GPS coordinates. DHS, for example, displaces urban clusters by up to 2 km and rural clusters by up to 5 km (with 1% displaced up to 10 km). This means the coordinates you receive do not correspond to exact household locations, which has implications for how you match survey data with spatially precise satellite features.
+
+**Household-level microdata:** Survey observations are typically at the household or individual level, but due to the spatial jittering, it is best to aggregate household-level data to a spatial unit that you can confidently match to satellite features. This is usually the survey cluster region or an administrative region.
+
+**Access restrictions:** Unlike other freely available datasets, many surveys require registration, data use agreements, or formal applications before you can download the data. Planning for this lead time is important. This also presents a challenge for reproducibility, since not all users will have access to the same survey datasets.
+
+**Rich but noisy outcomes:** Surveys provide a wealth of variables—from asset ownership to child malnutrition to crop yields—but individual responses are inherently noisy. Aggregation across households within a cluster or region helps smooth this noise and produces more stable labels for prediction.
+
+Understanding these characteristics upfront will help you avoid common pitfalls and make better use of survey data as MOSAIKS labels.
 
 ## Types of survey data
 
-Several major categories of surveys are commonly used with MOSAIKS:
+Several major categories of surveys are commonly used as label data with MOSAIKS.
 
-### Household surveys
+::: {.panel-tabset}
 
-- Living Standards Measurement Study (LSMS)
-- Demographic and Health Surveys (DHS)
-- Multiple Indicator Cluster Surveys (MICS)
-- Labor force surveys
-- National census data
+# Household surveys
 
-### Agricultural surveys
+Household surveys are the most widely used source of socioeconomic label data in the development context. They collect information on demographics, health, education, employment, and asset ownership through structured interviews with sampled households. The most prominent programs include:
 
-- Agricultural censuses
-- Crop cutting surveys
-- Farm management surveys
-- Agricultural household surveys
+- **[Demographic and Health Surveys (DHS):](https://dhsprogram.com/)** Standardized, nationally representative surveys conducted in over 90 countries since 1984. DHS data cover health, nutrition, fertility, and household wealth, and are one of the most common sources of label data for MOSAIKS applications in developing countries. DHS surveys use a two-stage cluster sampling design and provide GPS coordinates (displaced) for most survey clusters.
 
-### Economic surveys
+- **[Living Standards Measurement Study (LSMS):](https://www.worldbank.org/en/programs/lsms)** Managed by the World Bank, LSMS surveys are multi-topic household surveys that provide detailed data on consumption, income, agriculture, and living conditions. Many LSMS surveys include a panel component, allowing the same households to be tracked over time. The LSMS-ISA (Integrated Surveys on Agriculture) variant is particularly relevant for agricultural applications, as it combines household and farm-level data.
 
-- Enterprise surveys
-- Market price surveys
-- Consumer expenditure surveys
+- **[Multiple Indicator Cluster Surveys (MICS):](https://mics.unicef.org/)** Conducted by UNICEF, MICS surveys focus on children and women, covering indicators related to health, education, child protection, and water and sanitation. MICS uses similar cluster sampling to DHS and provides GPS data in many rounds.
+
+- **National census data:** While not technically a "survey" (since it attempts to enumerate the entire population), census data can serve as label data. Census microdata is available for many countries through [IPUMS International](https://international.ipums.org/international/).
+
+# Agricultural surveys
+
+Agricultural surveys are critical for MOSAIKS applications targeting food security, crop yields, and land use:
+
+- **Agricultural censuses:** Conducted roughly every 10 years by many national statistical offices, these provide comprehensive data on farm characteristics, land use, and production at fine administrative levels. There are large gaps in coverage, especially in sub-Saharan Africa, but where available they can be a valuable source of labels.
+
+- **Crop Forecasting Surveys (CFS):** Many countries conduct annual or seasonal surveys that estimate crop production at the district level. These are often the primary source of subnational crop yield labels. See @molitor_etal_2025 for an example of using CFS data with MOSAIKS.
+
+- **[LSMS Integrated Surveys on Agriculture (LSMS-ISA):](https://www.worldbank.org/en/programs/lsms)** As mentioned above, these surveys integrate agricultural modules with household surveys, providing plot-level data on crops, inputs, and yields alongside household socioeconomic information.
+
+# Economic surveys
+
+Economic surveys capture enterprise-level and market-level information:
+
+- **[Enterprise Surveys](https://www.enterprisesurveys.org/)** The World Bank's Enterprise Surveys collect firm-level data on the business environment, including employment, sales, and productivity. These can be useful labels for predicting economic activity.
+
+- **Labor force surveys:** National labor force surveys provide data on employment, wages, and working conditions, typically representative at the first subnational administrative level.
+
+:::
 
 ## Accessing survey data
 
-Survey data access varies by source and type:
+Access to survey microdata varies by program. Most require registration and an approved data use agreement. Plan for this step early in your project, as approval can take days to weeks.
 
-### Public repositories
+::: {.panel-tabset}
 
-- World Bank Microdata Library
-- IPUMS International
-- DHS Program website
-- FAO statistical databases
+# DHS Program
 
-### National statistical offices
+The [DHS Program](https://dhsprogram.com/) provides free access to survey datasets and GPS data after registration and approval of a brief project description. Standard DHS datasets (household recode, individual recode, etc.) and the geographic datasets (with displaced cluster coordinates) are available as separate downloads.
 
-- Census bureaus
-- Agricultural ministries
-- Economic agencies
+For R users, the [`rdhs`](https://docs.ropensci.org/rdhs/) package provides a programmatic interface for searching, requesting, and downloading DHS datasets directly from R. This is particularly useful when working across multiple countries or survey rounds:
 
-### Research institutions
+```r
+# Install rdhs from CRAN
+install.packages("rdhs")
 
-- Universities
-- Think tanks
-- Research organizations
+library(rdhs)
+
+# Set up your DHS credentials (one-time setup)
+set_rdhs_config(email = "your.email@example.com",
+                project = "Your DHS project title")
+
+# Search for available datasets
+datasets <- dhs_datasets(countryIds = "ZM", surveyType = "DHS")
+
+# Download datasets
+downloads <- get_datasets(datasets$FileName)
+```
+
+The `rdhs` package handles authentication, caching, and parsing of DHS data formats automatically. See the [full documentation](https://docs.ropensci.org/rdhs/) for details on querying indicators, extracting variables, and working with spatial data.
+
+::: {.callout-important}
+DHS geographic datasets must be requested separately from the survey datasets. When submitting your DHS data request, make sure to explicitly request the GPS/GIS data in addition to the survey recode files.
+:::
+
+# American Community Survey (ACS)
+
+The [ACS](https://www.census.gov/programs-surveys/acs/) is a continuous survey conducted by the US Census Bureau that provides detailed demographic, social, economic, and housing data for the United States. ACS data is available at various spatial resolutions, including census tracts and block groups, making it a valuable source of labels for MOSAIKS applications in the US. ACS data can be accessed through the [tidycensus](https://walker-data.com/tidycensus/) R package, which provides an interface to the Census API:
+
+```r
+# Install tidycensus from CRAN
+install.packages("tidycensus")  
+
+library(tidycensus)
+
+# Set up your Census API key (one-time setup)
+census_api_key("your_census_api_key")
+
+# Get ACS data for a specific variable (e.g., median household income) at the tract level
+acs_data <- get_acs(geography = "tract", variables = "B19013_001", state = "CA", year = 2020)
+```
+
+# World Bank Microdata Library
+
+The [World Bank Microdata Library](https://microdata.worldbank.org/) hosts LSMS surveys and many other household and enterprise surveys. Access typically requires accepting the terms of use, and some datasets require a formal application. LSMS-ISA data for African countries can also be accessed through the [LSMS-ISA website](https://www.worldbank.org/en/programs/lsms/initiatives/lsms-ISA).
+
+# IPUMS International
+
+[IPUMS International](https://international.ipums.org/international/) provides harmonized census microdata from over 100 countries. IPUMS is especially useful when you need a consistent set of variables across countries and census rounds. Registration is free, and most datasets are available for research use.
+
+# UNICEF MICS
+
+MICS survey data and reports are available through the [UNICEF MICS website](https://mics.unicef.org/). Data access requires registration and approval.
+
+# National statistical offices
+
+Many countries publish survey data through their national statistical offices. The availability, format, and access requirements vary widely. For agricultural surveys in particular, data is often obtained directly from the relevant ministry of agriculture.
+
+:::
 
 ## Working with survey data
 
-### LSMS data
+### General workflow
 
-The Living Standards Measurement Study (LSMS) requires specific considerations:
+The typical workflow for converting survey microdata into MOSAIKS labels involves several steps:
 
-- Complex multi-topic household surveys
-- Detailed geographic information
-- Panel structure in some countries
-- Integration with agricultural data
-- Varying spatial referencing methods
+1. **Request access** to the survey microdata and geographic datasets.
+1. **Download and load** the survey data and geographic (GPS) dataset.
+1. **Select variables** of interest from the household or individual-level data.
+1. **Aggregate** both *survey labels* and *satellite features* to the appropriate spatial unit (usually the survey cluster or administrative region).
+1. **Join** the aggregated labels with the aggregated satellite features.
+1. **Model** the relationship between features and labels.
+1. **Predict** outcomes in unsurveyed locations, different time periods, or at a different spatial resolution (i.e. low res model to high res prediction).
 
-### DHS data
+The specifics depend on the survey program and the target spatial resolution. Below, we walk through the two most common sources: DHS and LSMS.
 
-The Demographic and Health Surveys (DHS) present unique characteristics:
+### DHS data {#sec-dhs-data}
 
-- Standardized across countries
-- Cluster-based sampling
-- Displaced GPS coordinates
-- Rich health and demographic indicators
-- Regular update cycle
+DHS surveys are one of the most widely used sources of label data for satellite-based prediction. The standardized design across countries and the availability of GPS coordinates make DHS data particularly well-suited for MOSAIKS applications.
 
-## Remote sensing informed survey design
+#### Survey design
 
-MOSAIKS can enhance survey design in several ways:
+DHS uses a two-stage stratified cluster sampling design:
 
-### Pre-survey planning
+1. **First stage:** Enumeration areas (EAs), also called clusters, are selected from the national census sampling frame with probability proportional to size.
+2. **Second stage:** A fixed number of households (typically 25–30) are randomly selected within each cluster.
 
-- Optimize sampling frame using satellite-derived information
-- Identify areas of interest based on physical characteristics
-- Stratify sampling based on predicted characteristics
+Each DHS survey typically includes 200–400 clusters distributed across the country, with both urban and rural strata. This design means the data is representative at the national level and usually at the first subnational administrative level, but not at finer spatial scales.
 
-### During survey implementation
+#### GPS displacement
 
-- Validate location information
-- Guide field teams with up-to-date imagery
-- Monitor survey progress
+To protect the privacy of survey respondents, DHS displaces the published GPS coordinates of each cluster:
 
-### Post-survey analysis
+| Area type | Maximum displacement | Note |
+|-----------|---------------------|------|
+| Urban | 2 km | Random direction, usually within the administrative boundary |
+| Rural | 5 km | Random direction, usually within the administrative boundary |
+| Rural (1%) | 10 km | Random direction, usually within the administrative boundary |
 
-- Validate survey responses against satellite indicators
-- Fill data gaps in hard-to-reach areas
-- Create high-resolution predictions from survey samples
+: DHS GPS displacement distances by area type. {#tbl-dhs-displacement .striped .hover tbl-colwidths="[20, 15, 65]"}
 
-Example of using MOSAIKS features for survey planning:
+Displacement is constrained so that the displaced point remains within the same administrative boundary as the true location. This displacement introduces spatial error, which is important to keep in mind when matching DHS clusters with MOSAIKS features at fine resolutions (0.01°). At coarser resolutions (e.g., administrative level 1 or 2), displacement is less of a concern since the cluster remains within the correct boundary.
 
-This integration of MOSAIKS with survey data represents a powerful approach for both enhancing traditional survey methods and extending their reach through satellite-based prediction.
+::: {.callout-tip}
+When working with DHS GPS data at fine spatial resolution, consider using administrative-level aggregation instead of cluster-level coordinates to reduce the impact of GPS displacement on your analysis.
+:::
+
+#### Common DHS variables used as labels
+
+DHS data provides a wide range of potential labels. Some commonly used outcomes include:
+
+| Variable | DHS module | Typical aggregation |
+|----------|-----------|---------------------|
+| Wealth index | Household | Cluster mean |
+| Child stunting | Children's health | Cluster prevalence |
+| Malaria prevalence | Biomarkers | Cluster prevalence |
+| Education (years) | Individual | Cluster mean |
+| Access to electricity | Household | Cluster proportion |
+| Access to clean water | Household | Cluster proportion |
+| Vaccination coverage | Children's health | Cluster prevalence |
+
+: Common DHS variables used as MOSAIKS labels, with typical aggregation method. {#tbl-dhs-variables .striped .hover}
+
+#### Aggregation to clusters
+
+Since MOSAIKS predicts at spatial units (grid cells or administrative regions), you must aggregate household-level DHS data to the cluster level before joining with features. For each cluster, you typically compute:
+
+- **Means** for continuous variables (e.g., average wealth index score)
+- **Proportions** for binary variables (e.g., fraction of households with electricity)
+- **Prevalence** for health outcomes (e.g., proportion of children stunted)
+
+When computing cluster-level summaries, use the DHS household sampling weights to account for the survey design. This ensures that the cluster-level estimate is representative of the population in that area rather than just the sampled households.
+
+### LSMS data {#sec-lsms-data}
+
+LSMS surveys are multi-topic household surveys managed by the World Bank. They differ from DHS in several important ways that affect how you use them as label data.
+
+#### Key differences from DHS
+
+| Feature | DHS | LSMS |
+|---------|-----|------|
+| Standardization | Highly standardized across countries | Varies by country; adapted to local context |
+| GPS data | Displaced cluster coordinates | Often includes community or EA coordinates; displacement varies |
+| Panel structure | Repeated cross-sections | Many include panel households |
+| Agricultural data | Limited | Detailed plot-level data (LSMS-ISA) |
+| Primary focus | Health and demographics | Consumption, poverty, agriculture |
+
+: Comparison of DHS and LSMS surveys for use as MOSAIKS labels. {#tbl-dhs-lsms .striped .hover tbl-colwidths="[20, 25, 55]"}
+
+#### Working with LSMS geographic data
+
+Unlike DHS, LSMS does not have a single standardized approach to geographic data. Some LSMS surveys provide community-level GPS coordinates (which may or may not be displaced), while others provide only administrative unit identifiers. You will need to check the documentation for each specific survey to understand what geographic information is available and how it has been processed.
+
+For LSMS-ISA surveys, geographic data typically includes:
+
+- Community or enumeration area coordinates
+- Administrative region identifiers at multiple levels
+- Distance to key infrastructure (roads, markets, etc.)
+
+#### Agricultural labels from LSMS-ISA
+
+LSMS-ISA surveys are particularly valuable for agricultural applications because they provide plot-level data on:
+
+- Crop types planted and harvested
+- Crop yields (production per unit area)
+- Input use (fertilizer, seeds, labor)
+- Land area measurements (including GPS-measured plot areas)
+- Agricultural asset ownership
+
+To create labels from LSMS-ISA agricultural data, you typically need to:
+
+1. Merge the plot-level crop data with household identifiers.
+2. Aggregate from plot level to household level (e.g., total yield per household).
+3. Further aggregate to the community or administrative level.
+4. Join with geographic coordinates.
+
+This multi-level aggregation can be involved, but the resulting labels provide rich information about agricultural productivity that is difficult to obtain from other sources.
+
+## Special considerations for survey labels
+
+### Sampling weights
+
+Most surveys assign sampling weights to each household to account for the probability of selection. When aggregating to spatial units for use as MOSAIKS labels, you should use these weights. Ignoring them can introduce bias, particularly when the sampling design oversamples certain populations (e.g., urban areas or ethnic minorities).
+
+### Temporal alignment
+
+Survey data is collected over a period of months, and the fieldwork dates vary across clusters within a single survey. When matching with satellite features, you should consider:
+
+- **Survey year vs. imagery year:** If you are using MOSAIKS API features derived from a specific time period, check that your survey data is from a comparable period. Slowly changing variables (like wealth or education) are more forgiving of temporal mismatch than rapidly changing variables (like crop conditions).
+
+- **Seasonality:** Agricultural surveys and some health outcomes (like malaria prevalence) are strongly seasonal. Make sure your imagery features correspond to the relevant season.
+
+### Representativeness at fine scales
+
+DHS and LSMS surveys are designed to be representative at the national level and typically at the first subnational administrative level. They are **not** designed to be representative at finer scales (e.g., districts or grid cells). When you use cluster-level data as labels, keep in mind that each cluster represents a small, non-random sample of that location. Aggregating to larger administrative units (ADM1 or ADM2) can improve representativeness but reduces the number of observations available for model training (see @sec-labels-data-prep for discussion of sample size trade-offs).
+
+### Privacy and ethics
+
+Survey data often contains sensitive personal information. Even when GPS coordinates are displaced, the combination of geographic location and household characteristics can sometimes allow re-identification. Follow the data use agreements for each survey program, and do not publish or share identifiable microdata. When publishing results, report predictions at a spatial resolution that does not compromise respondent privacy.
+
+## Using survey predictions to extend survey reach
+
+One of the most compelling applications of MOSAIKS with survey data is the ability to generate predictions in locations where no survey data exists. By training a model on survey labels paired with satellite features, you can:
+
+- **Fill spatial gaps:** Predict outcomes at locations between survey clusters, producing wall-to-wall maps from sparse survey data.
+- **Extend to unsurveyed areas:** Apply models trained in one region to generate predictions in neighboring areas that were not included in the survey.
+- **Increase temporal frequency:** Surveys are typically conducted every 3–5 years. If satellite features are available annually, you can generate interim predictions between survey rounds (with appropriate caution; see @sec-model-temporal).
+- **Support survey design:** Use MOSAIKS predictions from previous rounds to optimize sampling frames for future surveys—for example, by stratifying on predicted wealth to improve the efficiency of new data collection.
+
+These applications do not replace traditional surveys but can substantially improve their value by extending sparse survey observations across space and time.
+
+
+## TODO
+
+Add details about collecting your own survey data using adaptive sampling informed by MOSAIKS predictions. 
+
+@betti_etal_2025a
 
 ::: {.callout-note}
 # Looking forward

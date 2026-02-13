@@ -75,3 +75,9 @@ If using features downloaded from the API, please reference, in addition to the 
 ```
 </details>
 
+::: {.callout-note}
+# The end
+
+This concludes the MOSAIKS training manual. We hope you found it useful and that it helps you to apply MOSAIKS in your own research. If you have any questions or feedback, please don't hesitate to reach out to us via [GitHub](https://github.com/Center-for-Effective-Global-Action-CEGA/MOSAIKS-Training-Manual/).
+:::
+
