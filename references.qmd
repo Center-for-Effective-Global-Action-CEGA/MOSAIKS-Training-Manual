@@ -1,4 +1,12 @@
+---
+format:
+  html:
+    code-fold: true
+    code-summary: "BibTeX"
+---
 # References {.unnumbered}
+
+## References {.toc-only}
 
 ```{r}
 #| echo: false
@@ -8,6 +16,62 @@ source("_common.R")
 status("draft_en")
 ```
 
-
 ::: {#refs}
 :::
+
+--- 
+
+## Citation requirements
+
+When referring to the MOSAIKS handbook, please reference: 
+
+> Molitor, C., Carleton, T., Rolf, E., Sogoyou, G. Z., & Sanni, F. (2026). MOSAIKS training manual. Version 1.0. [center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/](https://center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/)
+
+```{bibtex}
+@online{molitor_etal_2026,
+    author = {Molitor, Cullen and Carleton, Tamma and Rolf, Esther and Sogoyou, Gnouyaro Zissler and Sanni, Farooq},
+    title = {{MOSAIKS} Training Manual},
+    date = {2026},
+    url = {https://center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/},
+    langid = {english, french},
+    organization = {Center for Effective Global Action (CEGA), UC Berkeley},
+    note = {First edition. Bilingual (English/French)},
+    version = {1.0},
+}
+```
+
+When referring to the MOSAIKS methodology or when generating MOSAIKS features, please reference: 
+
+> Rolf, E., Proctor, J., Carleton, T., Bolliger, I., Shankar, V., Ishihara, M., Recht, B., & Hsiang, S. (2021). A generalizable and accessible approach to machine learning with global satellite imagery. *Nature Communications* , 12(1), 4392. [doi.org/10.1038/s41467-021-24638-z](https://doi.org/10.1038/s41467-021-24638-z)
+
+```{bibtex}
+@article{rolf_etal_2021,
+    title = {A Generalizable and Accessible Approach to Machine Learning with Global Satellite Imagery},
+    author = {Rolf, Esther and Proctor, Jonathan and Carleton, Tamma and Bolliger, Ian and Shankar, Vaishaal and Ishihara, Miyabi and Recht, Benjamin and Hsiang, Solomon},
+    date = {2021-12},
+    journaltitle = {Nature Communications},
+    shortjournal = {Nat Commun},
+    volume = {12},
+    number = {1},
+    pages = {4392},
+    issn = {2041-1723},
+    doi = {10.1038/s41467-021-24638-z},
+    url = {http://www.nature.com/articles/s41467-021-24638-z},
+    langid = {english}
+}
+```
+
+If using features downloaded from the API, please reference, in addition to the publication above, the MOSAIKS API:
+
+> Carleton, T., Chong, T., Druckenmiller, H., Noda, E., Proctor, J., Rolf, E., & Hsiang, S. (2022). Multi-task observation using satellite imagery and kitchen sinks (MOSAIKS) API. Version 1.0. [mosaiks.org](https://mosaiks.org).
+
+```{bibtex}
+@misc{MOSAIKS_API,
+    author = {Carleton, Tamma and Chong, Trinetta and Druckenmiller, Hannah and Noda, Eugenio and Proctor, Jonathan and Rolf, Esther and Hsiang, Solomon},
+    title = {Multi-Task Observation Using Satellite Imagery and Kitchen Sinks (MOSAIKS) API},
+    url = {https://mosaiks.org},
+    version = {1.0},
+    year = {2022},
+}
+```
+

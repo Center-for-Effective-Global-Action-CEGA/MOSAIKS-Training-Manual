@@ -1,7 +1,5 @@
----
-lang: en
----
-# Introduction 
+# Introduction  {#sec-intro}
+
 ```{r}
 #| echo: false
 #| results: "asis"

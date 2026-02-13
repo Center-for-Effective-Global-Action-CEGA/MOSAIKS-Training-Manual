@@ -1,3 +1,5 @@
+lang: en
+
 project:
   type: book
   output-dir: _book/en
@@ -7,17 +9,35 @@ book:
   title: "MOSAIKS Training Manual"
   author: 
     - name: Cullen Molitor
-      affiliations: "Center for Effective Global Action (CEGA)"
+      affiliations: 
+        - name: "UC Berkeley Center for Effective Global Action (CEGA)"
+          url: https://cega.berkeley.edu/
       url: https://cega.berkeley.edu/person/cullen-molitor/
 
     - name:  Tamma Carleton
-      affiliations: "UC Berkeley Department of Agricultural and Resource Economics"
-      url: https://are.berkeley.edu/users/tamma-carleton
+      affiliations: 
+        - name: "UC Berkeley Department of Agricultural and Resource Economics"
+          url: https://are.berkeley.edu/
+      url: https://are.berkeley.edu/people/tamma-carleton
 
     - name:  Esther Rolf
-      affiliations: "UC Boulder College of Engineering and Applied Science"
+      affiliations: 
+        - name: "UC Boulder College of Engineering and Applied Science"
+          url: https://www.colorado.edu/cs/
       url: https://www.colorado.edu/cs/esther-rolf
-  language: en
+
+    - name: Gnouyaro Zissler Sogoyou
+      affiliations: 
+        - name: "Togo Data Lab"
+          url: https://datalab.gouv.tg/
+      url: https://cega.berkeley.edu/person/gnouyaro-sogoyou/
+      
+    - name: Farooq Sanni
+      affiliations: 
+        - name: "Togo Data Lab"
+          url: https://datalab.gouv.tg/
+      url: https://cega.berkeley.edu/person/farooq-sanni/
+
   navbar:
     right:
       - text: "Français"

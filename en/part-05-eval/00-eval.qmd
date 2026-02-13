@@ -1,4 +1,4 @@
-# Model evaluation
+# Model evaluation  {#sec-eval}
 
 ```{r}
 #| echo: false
