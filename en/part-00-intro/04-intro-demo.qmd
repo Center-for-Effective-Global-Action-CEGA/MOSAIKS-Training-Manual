@@ -13,23 +13,13 @@ status("testing_en")
 
 ## Overview
 
-This chapter includes a link to a python notebook demonstration that replicates key results from the original MOSAIKS publication @rolf_etal_2021. While MOSAIKS has great potential to improve access to satellite-based prediction in data-sparse environments, the original paper focused on demonstrating performance in the United States where high-quality training data was readily available.
-
-The US served as an ideal testing ground for several reasons:
-
-- Extensive ground truth data available across multiple variables
-- Reliable spatial referencing of data
-- Diverse landscapes and built environments
-- Ability to benchmark against existing methods
-- Systematic validation of predictions
-
-This validation in a data-rich environment was crucial for establishing MOSAIKS as a reliable tool before deploying it in contexts where ground truth data is scarce or unreliable. While the publication establishes the validity of the method, the following demonstration notebook provides a practical guide for users to showcase how to use MOSAIKS to generate novel predictions for a variety of variables. 
+This chapter includes a link to a python notebook demonstration that replicates key results from the original MOSAIKS publication @rolf_etal_2021. While the publication establishes the validity of the method, the following demonstration notebook provides a practical guide for users to showcase how to use MOSAIKS to generate novel predictions for a variety of variables. 
 
 ## Demonstration code
 
 ### Workflow
 
-Below is a link to a Jupyter notebook intended to demonstrate practical use of MOSAIKS with real data. In fact, this notebook uses the original input data and features from @rolf_etal_2021. The code demonstrates:
+Below is a link to a Jupyter notebook that walks you MOSAIKS with the original input data and features from @rolf_etal_2021. The code demonstrates:
 
 1. Loading pre-computed MOSAIKS features and labels
 2. Merging the features and labels
@@ -74,12 +64,12 @@ To stay within the Google Colab free tier (which imposes limits on memory usage)
 ::: {.callout-note}
 # Click the badge to run the demonstration! 
 
-&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;   
+&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;&darr;   
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/center-for-effective-global-action-cega/MOSAIKS-Training-Manual/blob/main/notebooks/demo/01-Rolf_et_al_2021_demo.ipynb)  
 <!-- &uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;&uarr;     -->
 Remember to click `File` -> `Save a copy in Drive` to save any changes you make.  
 ---
-Or to view a static version of the code on GitHub, click the badge below.  
+Or view a static version of the code on GitHub, click the badge below.  
 [![](https://img.shields.io/badge/View%20on%20GitHub-181717?logo=github&logoColor=white&labelColor=grey&color=black&link=--)](https://github.com/center-for-effective-global-action-cega/MOSAIKS-Training-Manual/blob/main/notebooks/demo/01-Rolf_et_al_2021_demo.ipynb)
 :::
 
@@ -98,7 +88,7 @@ An overview of MOSAIKS and a live demonstration of generating novel predictions 
 
 ## What's next? 
 
-After establishing MOSAIKS's capabilities in the US context, the MOSAIKS development team have successfully demonstrated the system in many additional settings. This includes on the global scale, or in settings with few or low quality data. In the coming chapters, we will explore some of these applications, showing how MOSAIKS can help address data gaps in regions where traditional data collection is challenging or costly.
+After establishing MOSAIKS's capabilities in the US context, the MOSAIKS development team have successfully demonstrated the system in many additional settings [@proctor_etal_2025]. This work was done on the global scale, often in settings with few or low quality data. In the coming chapters, we will explore some of these applications, showing how MOSAIKS can help address data gaps in regions where traditional data collection is challenging or costly.
 
 ::: {.callout-note}
 # Looking forward

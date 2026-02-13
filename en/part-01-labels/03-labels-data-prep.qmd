@@ -93,13 +93,42 @@ MOSAIKS can accommodate both continuous labels (e.g., fraction of area forested)
 
 The data type may also effect how the data is cleaned and prepared. For example you may have a dataset of mining locations across a country. If you are interested in predicting the presence of mining, you may want to convert this to a binary variable where a 0 indicates no mining and a 1 indicates mining. Alternatively, you may be interested in predicting the area of mining in each location, in which case you might need to calculate the area of the mining polygons to make the variable continuous.
 
+::: {.panel-tabset}
+
+# Continuous variables 
+
+Continuous variables take numeric values along a spectrum, such as crop yields (e.g., tons per hectare) or population density (people per square kilometer).
+
+For continuous variables, MOSAIKS typically uses regression approaches and evaluates performance using metrics like R² (coefficient of determination) or RMSE (root mean square error). The R² values reported throughout this chapter indicate the proportion of variance in the outcome that is explained by the MOSAIKS predictions.
+
+![Continuous variable example showing the breeding bird species diversity over the continental United States](../../images/proctor_et_al_100_breeding_birds_plot.png){#fig-100-maps-birds-plot}
+
+# Categorical variables
+
+Categorical variables group observations into distinct classes or categories. These can be binary categories such as presence/absence of mining, or they can have multiple classes such as land use types (urban/agriculture/forest), or crop types (maize/wheat/rice). Labels will be prepared essentially the same way regardless of the number of categories, but the modeling approach and evaluation metrics will differ.
+
+1. **Binary classification**: For variables with two categories (e.g., presence/absence), users should choose a model that can output probability predictions between 0 and 1. In these cases, a good choice of model would be a logistic regression or a decision tree. Performance is typically evaluated using metrics like accuracy, precision, recall, or area under the receiver operating characteristic curve (AUC-ROC).
+
+2. **Multi-class classification**: For variables with multiple categories, users should choose a model that can handle multi-class classification, such as a random forest or a support vector machine. Performance is typically evaluated using metrics like accuracy, precision, recall, or F1-score.
+
+![Classifier example showing Ecoregions of the world.](../../images/proctor_et_al_100_ecoregions_comparison.jpg){#fig-ecoregions-comparison}
+
+:::
+
+::: {.callout-note}
+
+This section only provides a brief overview of the two types of variables and some of the metrics used to evaluate them. This will be covered in greater detail in @sec-model-choice.
+:::
+
 ## Joining Data
 
-### Merging Labels with MOSAIKS Features
+Merging Labels with MOSAIKS Features is an essential step in preparing your dataset for modeling. This process involves aligning the spatial and temporal dimensions of your label data with the MOSAIKS features. The goal is to create a unified dataset where each observation includes both the label (the variable you want to predict) and the corresponding features (the satellite-derived data).
 
-To merge labels with features, you must align the geographic location of both datasets. The native resolution MOSAIKS feature files have rows for each location and columns with longitude, latitude, and features. Your label dataset must also have columns for longitude, latitude, and label values (at minimum). Alternatively, aggregated features will come with the name of the administrative region (e.g., district) and the features. You can join this with your label data by matching the district names.
+To merge labels with features, you must align the geographic location of both datasets. The native resolution MOSAIKS features ($0.01\degree$) have rows for each location and columns with longitude, latitude, and 4,000 features. The lat/lon information represents the centroid of each grid cell. Your label dataset must also have columns for longitude, latitude, and label values (at minimum). Alternatively, aggregated features will come with the name of the administrative region (e.g., district) and the features. You can join this with your label data by matching the district names.
 
-### Example Data Structure
+::: {.panel-tabset}
+
+# Example label data
 
 A simple example: district-level crop yield labels might look like:
 
@@ -112,9 +141,11 @@ A simple example: district-level crop yield labels might look like:
 
 : Fictional crop yield data for districts in Zambia. {#tbl-crop-yield}
 
+# Example feature data
+
 MOSAIKS features at this same resolution might look like:
 
-| Observation | District  | Year | Feature 1 | Feature 2 | ... | Feature *K* |
+| Observation | District  | Year | Ft. 1 | Ft. 2 | ... | Ft. 4,000 |
 |-------------|-----------|------|-----------|-----------|-----|-------------|
 | 1           | Chibombo  | 2019 | 4.2       | 11.6      | ... | 12.7        |
 | 2           | Kabwe     | 2019 | 2.9       | 5.3       | ... | 11.2        |
@@ -123,9 +154,11 @@ MOSAIKS features at this same resolution might look like:
 
 : Fictional MOSAIKS feature data for the same districts. {#tbl-features}
 
+# Example joined data
+
 After a spatial join, you end up with a merged dataset:
 
-| Observation | District  | Year | Crop Yield | Feature 1 | Feature 2 | ... | Feature *K* |
+| Observation | District  | Year | Crop Yield | Ft. 1 | Ft. 2 | ... | Ft. 4,000 |
 |-------------|-----------|------|------------|-----------|-----------|-----|-------------|
 | 1           | Chibombo  | 2019 | 1.520      | 4.2       | 11.6      | ... | 12.7        |
 | 2           | Kabwe     | 2019 | 1.878      | 2.9       | 5.3       | ... | 11.2        |
@@ -134,17 +167,27 @@ After a spatial join, you end up with a merged dataset:
 
 : Example of joined data with both labels and features. {#tbl-joined-data}
 
-In the above example, our geographic location is the district and our label is the crop yield (mt/ha). We then have *K* columns containing the features and *N* observations. 
+:::
 
-## Data Cleaning Considerations
+In the above example, our geographic location is the district, our time period is 2019, and our label is the crop yield (mt/ha). We can use the District and Year columns to join the label data with the MOSAIKS features. We then have 4,000 columns containing the features paired to *N* observations that are ready to be modeled. 
 
-### Coordinate Reference Systems (CRS)
+## Data cleaning considerations
 
-The default coordinate reference system used by MOSAIKS is World Geodetic System 84 (WGS 84). The standardized code that defines WGS 84 is ["EPSG:4326"](https://epsg.io/4326). EPSG stands for the [European Petroleum Survey Group](https://en.wikipedia.org/wiki/EPSG_Geodetic_Parameter_Dataset), which maintains a database of coordinate systems and projections. The WGS 84 coordinate system is the most commonly used coordinate system for GPS data. 
+### Coordinate reference systems (CRS)
 
-![[Nine small-scale map projections.](https://www.researchgate.net/publication/273517879_User_preferences_for_world_map_projections)](https://www.researchgate.net/profile/Bojan-Savric/publication/273517879/figure/fig1/AS:347863067447297@1459948426262/The-nine-small-scale-map-projections-used-in-the-paired-comparison-test-arranged-by.png){#fig-map-projections}
+The default coordinate reference system used by MOSAIKS is World Geodetic System 1984 (WGS84). WGS84 is a [Geographic Coordinate System (GCS)](https://resources.arcgis.com/en/help/main/10.1/index.html#//003r00000006000000). The standard that defines WGS 84 is ["EPSG:4326"](https://epsg.io/4326). EPSG stands for the [European Petroleum Survey Group](https://en.wikipedia.org/wiki/EPSG_Geodetic_Parameter_Dataset), which maintains a database of coordinate systems and projections. The WGS 84 coordinate system is the most commonly used coordinate system for GPS data. 
+
+Alternatively, you may have data in a [projected coordinate system](https://resources.arcgis.com/en/help/main/10.1/index.html#//003r00000006000000) (e.g., UTM, Mercator, etc.). Projected coordinate systems are based on a map projection, which is a mathematical transformation of the Earth's surface onto a flat plane. There are many different map projections, each with its own advantages and disadvantages. It is usually best practice to reproject vector data (points, lines, polygons) to WGS 84 before joining with MOSAIKS features. 
+
+![Seven map projections showing how 2 dimensional visualizations of 3 dimensional objects results in at least one of four basic characteristics (distance, direction, shape, and area) becoming distorted. Source: [geoawesome.com](https://geoawesome.com/map-distortions/)](../../images/projections.jpg){#fig-map-distortions}
 
 If your data is not in WGS 84, you will need to reproject it to this coordinate system before joining it with MOSAIKS features.
+
+::: {.callout-note}
+# Learn more about CRS and map projections
+
+Another excellent resource for learning about coordinate reference systems and map projections is the book titled[Spatial Data Visualization with tmap](https://tmap.geocompx.org/map-projections) [@nowosad_2026]. Map projections can be visualized and compared to one another [here](https://map-projections.net/imglist.php). 
+:::
 
 ### Label Quality
 
@@ -152,7 +195,9 @@ Confirm that label values are within expected ranges, deal with any outliers or 
 
 ### Temporal Alignment
 
-If you have time series labels, you will need to compute custom features for each time period. See @sec-features-computing for more information on how to do this and @sec-model-time for guidance on modeling time series data with MOSAIKS features.
+Currently the only publicly available MOSAIKS features are from a single global composite of satellite imagery from 2019. If your labels are from a different time period, you will need to ensure that they are either slow to change (e.g., relative wealth) or that they are from a time period close to 2019 and that the features you use are relevant to that time period. 
+
+If you have labels that require imagery from the same time period (and that is not 2019) or you have time series labels, you will need to compute custom features for the relevant time period(s). See @sec-features-computing for more information on how to do this and @sec-model-time for guidance on modeling time series data with MOSAIKS features.
 
 ### Data Formats
 
@@ -182,7 +227,7 @@ A demonstration of how to process data for the data types in @tbl-spatial-data-f
 
 For optimal use with MOSAIKS, label data should be:
 
-- [ ] **Consistently geolocated** as point, polygon, vector, or raster data
+- [ ] **Consistently geolocated** as point, line, polygon, raster, or administrative data
 - [ ] **Aggregable to ≥ 1km²** resolution
 - [ ] **Observable** in daytime satellite imagery (directly or indirectly)
 - [ ] **Recent or slow-changing** if using current API features

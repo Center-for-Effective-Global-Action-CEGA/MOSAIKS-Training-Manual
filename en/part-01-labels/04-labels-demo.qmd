@@ -42,10 +42,10 @@ For instructions and tips on using Google Colab, please refer to @sec-intro-comp
 
 ## What's next? 
 
-Now that we have covered the basics of label data, we will move on to the next section, where we will discuss considerations for choosing and processing satellite imagery. This section is not necessary for users who are either a) okay with using the MOSAIKS API to access features, or b) already have experience working with satellite imagery.
+Now that we have covered the basics of label data, we will move on to the next section, where we will discuss considerations for choosing and processing satellite imagery. This section is not necessary for users who are either **a)** okay with using the MOSAIKS API to access features, or **b)** already have experience working with satellite imagery.
 
 ::: {.callout-note}
 # Looking forward
 
-In the next part, we will take a look at considerations for choosing and processing satellite imagery.
+In the next part, we will take a look at considerations for choosing and processing satellite imagery. This is not an essential section and is intended for users who are interested in learning more about how to work with satellite imagery. 
 :::

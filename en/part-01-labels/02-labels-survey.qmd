@@ -289,7 +289,6 @@ One of the most compelling applications of MOSAIKS with survey data is the abili
 
 These applications do not replace traditional surveys but can substantially improve their value by extending sparse survey observations across space and time.
 
-
 ## TODO
 
 Add details about collecting your own survey data using adaptive sampling informed by MOSAIKS predictions. 

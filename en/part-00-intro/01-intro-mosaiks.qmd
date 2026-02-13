@@ -104,7 +104,7 @@ MOSAIKS has been successfully used to predict a wide range of outcomes including
 - Economic indicators (income, house prices)
 - Infrastructure (road networks)
 
-The figure below is from the original MOSAIKS publication (Rolf et al. 2021). The left maps show the input labels. The right map shows the modeled predictions. The scatter plot shows the modeled predictions against the true labels and reports the coefficient of determination (R²) as a measure of performance. 
+The figure below is from the seminal MOSAIKS publication (Rolf et al. 2021). The left maps show the input labels. The right map shows the modeled predictions. The scatter plot shows the modeled predictions against the true labels and reports the coefficient of determination (R²) as a measure of performance. 
 
 ```{r}
 #| echo: false
@@ -141,10 +141,6 @@ The world of SIML is vast and rapidly evolving. There is a good choice you do no
 
 If you have a specific context where you want tailored information or a variable/outcome no one else has predicted before, *then* you want MOSAIKS. Not only will MOSAIKS allow you to make predictions in a new context, but it will also allow you to do so quickly and with minimal computational resources.
 
-:::{.callout-tip}
-Another great option is Google's Alpha Earth Foundation model Satellite Embeddings dataset, which provides pre-computed features at 10 m resolution for the entire globe. There is one global snapshot per year going back to 2017. These features can be treated very similarly to MOSAIKS features. You can access the dataset on [Google Earth Engine](https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_SATELLITE_EMBEDDING_V1_ANNUAL).
-:::
-
 **MOSAIKS is particularly valuable when you need to:**
 
 - Generate predictions across large geographic areas
@@ -154,12 +150,9 @@ Another great option is Google's Alpha Earth Foundation model Satellite Embeddin
 - Scale analysis from local to global applications
 - Set a baseline for more advanced methods
 
-**However, MOSAIKS may not be the best choice when:**
-
-- You need predictions at sub-kilometer resolution
-- Your outcome requires specific spectral bands
-- Real-time predictions are essential
-- Your application requires interpretable features
+:::{.callout-tip}
+Another great option is Google's Alpha Earth Foundation model Satellite Embeddings dataset, which provides pre-computed features at 10 m resolution for the entire globe. There is one global snapshot per year going back to 2017. These features can be treated very similarly to MOSAIKS features. You can access the dataset on [Google Earth Engine](https://developers.google.com/earth-engine/datasets/catalog/GOOGLE_SATELLITE_EMBEDDING_V1_ANNUAL).
+:::
 
 ## Lecture materials
 
