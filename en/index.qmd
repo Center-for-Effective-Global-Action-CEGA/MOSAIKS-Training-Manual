@@ -1,10 +1,3 @@
----
-engine: knitr
-format:
-  html:
-    code-fold: true
-    code-summary: "BibTeX"
----
 <script>
 (function() {
     function checkAndHideContent() {
@@ -139,8 +132,8 @@ When referring to the MOSAIKS handbook, please reference:
 
 > Molitor, C., Carleton, T., Rolf, E., Sogoyou, G. Z., & Sanni, F. (2026). MOSAIKS training manual. Version 1.0. [center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/](https://center-for-effective-global-action-cega.github.io/MOSAIKS-Training-Manual/)
 
-```{bibtex}
-#| eval: false
+<details><summary>BibTeX Citation</summary>
+```bibtex
 @online{molitor_etal_2026,
     author = {Molitor, Cullen and Carleton, Tamma and Rolf, Esther and Sogoyou, Gnouyaro Zissler and Sanni, Farooq},
     title = {{MOSAIKS} Training Manual},
@@ -152,6 +145,7 @@ When referring to the MOSAIKS handbook, please reference:
     version = {1.0},
 }
 ```
+</details>
 
 ::: {.callout-note}
 # Looking forward
