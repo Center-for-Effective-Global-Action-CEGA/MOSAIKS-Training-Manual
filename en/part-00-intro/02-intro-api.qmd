@@ -76,8 +76,6 @@ The API contains the following pages:
 
 : MOSAIKS API pages and descriptions. {#tbl-api-pages tbl-colwidths="[25,75]"}
 
-
-
 ### API features 
 
 Currently the MOSAIKS API has a single set of global features (with several aggregation levels). The features are freely available to the public for download; this is the fastest and easiest way to begin using MOSAIKS. 
