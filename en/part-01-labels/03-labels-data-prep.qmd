@@ -27,11 +27,11 @@ Before we talk about labels, we must first understand the resolution that the MO
 
 The standard resolution of MOSAIKS is a global grid at 0.01° resolution. Each grid cell is approximately 1 km² at the equator. The grid is often represented as a point grid, where each point is the center of a grid cell. This means that standard MOSAIKS features come with a latitude and longitude coordinate, which is the center of the grid cell.
 
-::: {.callout-note}
-MOSAIKS grid cell centroids are rounded to 0.005 degrees and are spaced by 0.01 degree (e.g., 10.005, 10.015, 10.025,...).
-:::
-
 ![Visual representation of a standardized grids at varying resolutions (δ) with the highest resolution on the left, and lower resolutions moving right. Source: [Rolf et al. 2021 Figure 3 c](https://www.nature.com/articles/s41467-021-24638-z/figures/3).](../../images/rolf_et_al_2021-Fig_3-c-grid.svg){#fig-grid}
+
+::: {.callout-note}
+MOSAIKS grid cells begin at [null island](https://maps.app.goo.gl/bSHXKLEPhPLSrjgv6). The data you receive from the API has grid cell centroids as the longitude and latitude columns that are rounded to 0.005 degrees and are spaced by 0.01 degree (e.g., 10.005, 10.015, 10.025,...).
+:::
 
 ### Advantages of the MOSAIKS grid
 
