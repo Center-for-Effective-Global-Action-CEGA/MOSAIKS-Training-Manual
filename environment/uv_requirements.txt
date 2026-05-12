@@ -37,6 +37,7 @@ torchvision
 torchgeo
 rasterio
 rasterstats
+redivis
 rioxarray
 scikit-image
 scikit-learn

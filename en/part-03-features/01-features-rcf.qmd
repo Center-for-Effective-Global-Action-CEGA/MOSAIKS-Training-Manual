@@ -57,7 +57,9 @@ In simple terms, applying a *convolution* to an image can highlight certain patt
 MOSAIKS, on the other hand, uses a *single* convolutional layer. These layer weights are randomly initialized and remain *fixed*; they aren’t updated during training. This is why the features we get are essentially “random samples” of the spatial and spectral information in the images. 
 
 ::: {.callout-tip}
-There are many great resources for visualizing convolutions, including [Convolutional Neural Networks (CNNs) explained](https://poloclub.github.io/cnn-explainer/).
+Please see the interactive RCF visualization tool at [mosaiks.shinyapps.io/rcf-visualizer/](https://mosaiks.shinyapps.io/rcf-visualizer/) to see how various convolutional parameters effect RCF.
+
+Additionaly, there are many great resources for visualizing convolutions, including [Convolutional Neural Networks (CNNs) explained](https://poloclub.github.io/cnn-explainer/).
 :::
 
 #### Initializing filters
